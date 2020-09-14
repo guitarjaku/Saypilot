@@ -32,7 +32,7 @@ export default function Home() {
               <div className="flex-shrink-0 flex items-center px-4">
                 <img
                   className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/workflow-logo-purple-on-white.svg"
+                  src="/public/trend-logo.svg"
                   alt="Workflow"
                 />
               </div>
