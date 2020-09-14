@@ -75,14 +75,7 @@ select option {
 
 body {
   color: white;
-  /* background-size: 50px 50px; */
   background-position: center;
-  background-image: linear-gradient(
-      to right,
-      var(--mid-grey) 1px,
-      transparent 1px
-    ),
-    linear-gradient(to bottom, var(--mid-grey) 1px, transparent 1px);
   -webkit-animation: bg-scrolling-reverse 15s infinite;
   /* Safari 4+ */
   -moz-animation: bg-scrolling-reverse 15s infinite;
