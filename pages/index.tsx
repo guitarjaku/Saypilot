@@ -123,11 +123,11 @@ export default function Home() {
         </div>
 
         <div className="hidden lg:flex lg:flex-shrink-0">
-          <div className="flex flex-col w-64 border-r border-gray-200 pt-5 pb-4 bg-gray-100">
-            <div className="flex items-center flex-shrink-0 px-6">
+          <div className="flex flex-col w-64 border-r border-gray-200 pt-5 pb-4 bg-black">
+            <div className="flex items-center flex-shrink-0 px-6 justify-center">
               <img
                 className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/workflow-logo-purple-on-white.svg"
+                src={"/trend-logo.png"}
                 alt="Workflow"
               />
             </div>

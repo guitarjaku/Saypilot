@@ -113,7 +113,7 @@ const Header = ({ subtitle }: { subtitle: string }) => {
                     <path d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
                   </svg>
                 </div>
-                <div className="flex-1 ">
+                <div className="flex-1 italic ">
                   <span>Email</span>
                   <br />
                   <span>Analytics</span>
@@ -131,7 +131,7 @@ const Header = ({ subtitle }: { subtitle: string }) => {
                     <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
                   </svg>
                 </div>
-                <div className="flex-1 ">
+                <div className="flex-1 italic ">
                   <span>Download</span>
                   <br />
                   <span>Analytics</span>
