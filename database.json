@@ -1,0 +1,128 @@
+{
+  "betacraft": {
+    "type": "github",
+    "owner": "genemators",
+    "repo": "betacraft",
+    "desc": "The minecraft server manager written in denoland"
+  },
+  "betalander": {
+    "type": "github",
+    "owner": "genemators",
+    "repo": "betalander",
+    "desc": "The minecraft server manager written in python"
+  },
+  "bobbify": {
+    "type": "github",
+    "owner": "genemators",
+    "repo": "bobbify",
+    "desc": "Social messenger created with React, Express, MongoDB"
+  },
+  "bsba": {
+    "type": "github",
+    "owner": "genemators",
+    "repo": "bsba",
+    "desc": "BSBA team's website"
+  },
+  "chisel": {
+    "type": "github",
+    "owner": "chiseldevs",
+    "repo": "chisel",
+    "desc": "Chisel - Development Portal for Educational purposes"
+  },
+  "chiseler": {
+    "type": "github",
+    "owner": "chiseldevs",
+    "repo": "chiseler",
+    "desc": "The Chisel's Group Manager"
+  },
+  "deno": {
+    "type": "github",
+    "owner": "genemators",
+    "repo": "deno",
+    "desc": "Denoland's uzbek ported website"
+  },
+  "dot": {
+    "type": "github",
+    "owner": "genemators",
+    "repo": "dot",
+    "desc": "The dotenv files and environment files!"
+  },
+  "genemators": {
+    "type": "github",
+    "owner": "genemators",
+    "repo": "genemators",
+    "desc": "Genemator's Portfolio website"
+  },
+  "genoxs": {
+    "type": "github",
+    "owner": "genestatic",
+    "repo": "genoxs",
+    "desc": "The Python based Telegram bot that can serve as cloud server and manager"
+  },
+  "goodbye.world": {
+    "type": "github",
+    "owner": "genemators",
+    "repo": "goodbye.world",
+    "desc": "The last program that every programmer must write!\n"
+  },
+  "lander.js": {
+    "type": "github",
+    "owner": "genemators",
+    "repo": "lander.js",
+    "desc": "Denoland's telegram assistant"
+  },
+  "netlenister": {
+    "type": "github",
+    "owner": "genestatic",
+    "repo": "netlenister",
+    "desc": "Netlenister is a template of serverless telegram bot with serverless database created by Genemator Sakhib."
+  },
+  "onichan": {
+    "type": "github",
+    "owner": "genemators",
+    "repo": "onichan",
+    "desc": "3D modeled website animation"
+  },
+  "oss": {
+    "type": "github",
+    "owner": "genemators",
+    "repo": "oss",
+    "desc": "OSS Linux for ready solutions"
+  },
+  "remotely": {
+    "type": "github",
+    "owner": "genemators",
+    "repo": "remotely",
+    "desc": "The python programming language based telegram bot for remote shell emulation."
+  },
+  "sara": {
+    "type": "github",
+    "owner": "genemators",
+    "repo": "sara",
+    "desc": "The Voice Assistant for myself for making automatising"
+  },
+  "serverland": {
+    "type": "github",
+    "owner": "genestatic",
+    "repo": "serverland",
+    "desc": "The Server Manager for the team"
+  },
+  "telex": {
+    "type": "github",
+    "owner": "genestatic",
+    "repo": "telex",
+    "desc": "The example typescript rest api repository"
+  },
+  "unister": {
+    "type": "github",
+    "owner": "genestatic",
+    "repo": "unister",
+    "desc": "The telegram bot assistant of The BSBA™ team."
+  },
+  "westman.js": {
+    "type": "github",
+    "owner": "genemators",
+    "repo": "westman.js",
+    "desc": "The re-written javascript/node.js version of Westman's Confession bot script"
+  }
+}
