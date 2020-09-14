@@ -32,7 +32,7 @@ export default function Home() {
               <div className="flex-shrink-0 flex items-center px-4">
                 <img
                   className="h-8 w-auto"
-                  src="/public/trend-logo.svg"
+                  src={"/trend-logo.svg"}
                   alt="Workflow"
                 />
               </div>

@@ -20,7 +20,6 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link rel="icon" type="image/png" href="/favicon.png" />
-          <link rel="manifest" href="/manifest.json" />
           <meta name="msapplication-TileColor" content="#000000" />
           <meta name="theme-color" content="#000000" />
         </Head>

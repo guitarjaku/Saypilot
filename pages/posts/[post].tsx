@@ -5,7 +5,6 @@ import Head from "next/head";
 
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import Markdown from "../../components/Markdown";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { promises as fs } from "fs";
 import { join } from "path";
@@ -74,12 +73,6 @@ const NewsPostPage = (props: Props) => {
           {props.meta.author}
         </p>
         <div className="telegram-post mt-8">
-          <Markdown
-            source={props.markdown}
-            displayURL={`https://genemators.me/posts/${props.meta.id}`}
-            sourceURL={`https://genemators.me/posts/${props.meta.id}.md`}
-            baseURL={props.markdown}
-          />
         </div>
         <a href="tg://resolve?domain=genemators">
           <div className="mt-4 text-center border rounded hover:text-black hover:bg-white">

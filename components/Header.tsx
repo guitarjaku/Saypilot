@@ -51,7 +51,7 @@ const Header = ({ subtitle }: { subtitle: string }) => {
   return (
     <div className="relative bg-white">
       <div className="mx-auto px-4 sm:px-6">
-        <div className="flex justify-between items-center border-b border-gray-100 py-6 md:justify-start md:space-x-10">
+        <div className="flex justify-between items-center py-6 md:justify-start md:space-x-10">
           <div className="-mr-2 -my-2 md:hidden">
             <button
               type="button"
@@ -104,14 +104,8 @@ const Header = ({ subtitle }: { subtitle: string }) => {
           <div className="md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0">
             <button className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border  border-gray-400 rounded-none text-left leading-5">
               <div className="flex items-center">
-                <div className="flex-1 ">
-                  <svg
-                    className="fill-current w-4 h-4 mr-2"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
-                  </svg>
+                <div className="fill-current w-8 h-8 mr-2">
+                  <img src={"/icons/email.png"} alt=""/>
                 </div>
                 <div className="flex-1 italic ">
                   <span>Email</span>
@@ -124,7 +118,7 @@ const Header = ({ subtitle }: { subtitle: string }) => {
               <div className="flex items-center">
                 <div className="flex-1 ">
                   <svg
-                    className="fill-current w-4 h-4 mr-2"
+                    className="fill-current w-6 h-6 mr-2"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                   >
