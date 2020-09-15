@@ -9,3 +9,8 @@
 
 - [x] Edit campaign page layout
 - [x] context on page
+
+## 15/09/2020, 09.00-11.00
+
+- [x] Sidebar content
+- [x] link side bar to edit campaign page
