@@ -1,27 +1,15 @@
-/* Copyright 2020 Genemator Sakhib. All rights reserved. MPL-2.0 license. */
-
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable react/react-in-jsx-scope */
 import { h } from "preact";
 import { useState } from "preact/hooks";
 import Link from "next/link";
 import { useRouter } from "next/router";
 // import Transition from "./Transition";
 
-const Header = ({ subtitle }: { subtitle: string }) => {
+const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const path = useRouter().pathname;
-
-  const homeDetectMenu = () => {
-    if (path !== "/") {
-      return (
-        <Link href="/">
-          <a className="text-base leading-6 font-medium text-white hover:text-gray-200 focus:outline-none focus:text-gray-400 transition ease-in-out duration-150">
-            Home
-          </a>
-        </Link>
-      );
-    }
-  };
 
   // const homeDetectResponsive = () => {
   //   if (path !== "/") {
@@ -74,13 +62,12 @@ const Header = ({ subtitle }: { subtitle: string }) => {
             </button>
           </div>
           <nav className="hidden md:flex space-x-10">
-            {homeDetectMenu()}
             <Link href="/posts">
               <a className="text-base leading-6 font-medium text-black hover:text-gray-200 focus:outline-none focus:text-gray-400 transition ease-in-out duration-150">
                 Summarys
               </a>
             </Link>
-            <Link href="/about">
+            <Link href="/applications">
               <a className="text-base leading-6 font-medium text-black hover:text-gray-200 focus:outline-none focus:text-gray-400 transition ease-in-out duration-150">
                 Applications
               </a>
@@ -102,10 +89,13 @@ const Header = ({ subtitle }: { subtitle: string }) => {
             </Link>
           </nav>
           <div className="md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0">
-            <button className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border  border-gray-400 rounded-none text-left leading-5">
+            <button
+              className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border  border-gray-400 rounded-none text-left leading-5"
+              onClick={() => {}}
+            >
               <div className="flex items-center">
                 <div className="fill-current w-8 h-8 mr-2">
-                  <img src={"/icons/email.png"} alt=""/>
+                  <img src={"/icons/email.png"} alt="" />
                 </div>
                 <div className="flex-1 italic ">
                   <span>Email</span>

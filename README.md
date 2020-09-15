@@ -14,3 +14,8 @@
 
 - [x] Sidebar content
 - [x] link side bar to edit campaign page
+
+## 15/09/2020, 11.00-13.00
+
+- [x] Edit campaign page UI
+- [x] some action

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* Copyright 2020 Genemator Sakhib. All rights reserved. MPL-2.0 license. */
 
 import React from "react";
@@ -232,7 +233,7 @@ export default function Home() {
           </div>
           <main className="flex-1 relative z-0 overflow-y-auto focus:outline-none">
             <Head>
-              <title>About | Genemator's</title>
+              <title>Home | Saypilot</title>
               <meta property="og:title" content="Information about Genemator" />
               <meta
                 property="og:description"
