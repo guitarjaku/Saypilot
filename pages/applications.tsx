@@ -1,10 +1,44 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-/* Copyright 2020 Genemator Sakhib. All rights reserved. MPL-2.0 license. */
 
 import React from "react";
+import { useEffect } from "preact/hooks/";
 import Head from "next/head";
 import Header from "../components/Header";
+import { check } from "prettier";
 // import Link from "next/link";
+
+const ProgressLine = (
+  label: string,
+  percentage: number,
+) => {
+  const [widths, setWidths] = React.useState(0);
+
+  useEffect(() => {
+    requestAnimationFrame(() => setWidths(percentage));
+  }, [percentage]);
+
+  return (
+    <section className="progress-line">
+      <span className="progress-line__label">{label}</span>
+      <div
+        className="progress-line__outer"
+        style={{
+          background: "#efefef",
+          height: `15px`,
+        }}
+      >
+        <div
+          className="progress-line__inner"
+          style={{
+            width: widths,
+            background: "rgba(255, 82, 82, .7)",
+            transition: "width 2s",
+          }}
+        />
+      </div>
+    </section>
+  );
+};
 
 export default function Application() {
   return (
@@ -241,10 +275,10 @@ export default function Application() {
               />
             </Head>
             <Header />
-            <div>
+            <div className="grid grid-cols-8 gap-4 py-4 px-3">
               <select
                 id="category"
-                className=" form-select block w-1/6 text-gray-500 rounded-full text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
+                className=" form-select block w-full text-gray-500 rounded-full text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
               >
                 <option selected>Categories</option>
                 <option>USA</option>
@@ -254,7 +288,7 @@ export default function Application() {
 
               <select
                 id="location"
-                className=" form-select block w-1/6 text-gray-500 rounded-full text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
+                className=" form-select block w-full text-gray-500 rounded-full text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
               >
                 <option selected>Location</option>
                 <option>USA</option>
@@ -264,16 +298,36 @@ export default function Application() {
 
               <select
                 id="creators"
-                className=" form-select block w-1/6 text-gray-500 rounded-full text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
+                className=" form-select block w-full text-gray-500 rounded-full text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
               >
                 <option selected>All Creators</option>
                 <option>USA</option>
                 <option>Canada</option>
                 <option>EU</option>
               </select>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div>
+                <div className="relative flex items-center">
+                  <div className="flex items-center ">
+                    <input
+                      id="comments"
+                      type="checkbox"
+                      className="form-checkbox h-8 w-8 text-indigo-600 rounded-none transition duration-150 ease-in-out"
+                    />
+                  </div>
+                  <div className="ml-3 text-sm leading-5">
+                    <label className="font-medium text-gray-700 ">
+                      Select Multiple
+                    </label>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className=" sm:block">
-              <div className="align-middle inline-block min-w-full border-b border-gray-200">
+              <div className="align-middle inline-block min-w-full border-b border-gray-200 px-3">
                 <div className="flex flex-col">
                   <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -306,7 +360,7 @@ export default function Application() {
                             </tr>
                           </thead>
                           <tbody className="bg-white divide-y divide-gray-200">
-                            <tr>
+                            <tr className="cursor-pointer hover:bg-gray-100">
                               <td className="px-6 py-4 whitespace-no-wrap">
                                 <div className="flex items-center">
                                   <div className="flex-shrink-0 h-10 w-10">
@@ -448,6 +502,183 @@ export default function Application() {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+            <div className="fixed inset-0 overflow-hidden">
+              <div className="absolute inset-0 overflow-hidden">
+                {/* <!--
+                  Background overlay, show/hide based on slide-over state.
+
+                  Entering: "ease-in-out duration-500"
+                    From: "opacity-0"
+                    To: "opacity-100"
+                  Leaving: "ease-in-out duration-500"
+                    From: "opacity-100"
+                    To: "opacity-0"
+                --> */}
+                <div className="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+
+                <section className="absolute inset-y-0 right-0 pl-10 max-w-full flex">
+                  {/* <!--
+                    Slide-over panel, show/hide based on slide-over state.
+
+                    Entering: "transform transition ease-in-out duration-500 sm:duration-700"
+                      From: "translate-x-full"
+                      To: "translate-x-0"
+                    Leaving: "transform transition ease-in-out duration-500 sm:duration-700"
+                      From: "translate-x-0"
+                      To: "translate-x-full"
+                  --> */}
+                  <div className="w-screen max-w-md">
+                    <div className="h-full flex flex-col space-y-6 py-6 bg-white shadow-xl overflow-y-scroll">
+                      <header className="px-4 sm:px-6">
+                        <div className="flex items-start justify-between space-x-3">
+                          <div className="h-7 flex items-center">
+                            <button
+                              aria-label="Close panel"
+                              className="text-gray-400 hover:text-gray-500 transition ease-in-out duration-150"
+                            >
+                              {/* <!-- Heroicon name: x --> */}
+                              <svg
+                                className="h-6 w-6"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M6 18L18 6M6 6l12 12"
+                                />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </header>
+                      <div className="relative flex-1">
+                        {/* <!-- Replace with your content --> */}
+                        <div className="h-full text-black text-center">
+                          <img
+                            className="relative h-32 w-32 object-cover rounded-full m-auto mb-2"
+                            src="https://images.unsplash.com/photo-1501031170107-cfd33f0cbdcc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&h=600&q=80"
+                            alt=""
+                          />
+                          <div className="mb-1 px-4 sm:px-6">
+                            @ashleyj_music
+                          </div>
+                          <div className="mb-2 px-4 sm:px-6">
+                            Florida | Age: 25-31
+                          </div>
+                          <div className="grid grid-cols-2 gap-4 px-4 sm:px-6 mb-6">
+                            <span className="inline-flex rounded-none shadow-sm ">
+                              <button
+                                type="button"
+                                className="w-full items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-none text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"
+                              >
+                                Reject
+                              </button>
+                            </span>
+                            <span className="inline-flex rounded-none shadow-sm ">
+                              <button
+                                type="button"
+                                className=" w-full items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-none text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"
+                              >
+                                Accept
+                              </button>
+                            </span>
+                          </div>
+                          <div className="border-t border-b border-gray-200 p-10">
+                            <p>Followers</p>
+                            <p>27.9k</p>
+                          </div>
+                          <div className="grid grid-cols-2 text-left border-b border-gray-200">
+                            <div className="p-4  border-r border-gray-200">
+                              <p>LIKE / POST</p>
+                              <div className="flex items-center">
+                                <div className="flex-shrink-0 h-8 w-8">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    width="2.1rem"
+                                    height="2.1rem"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <g fill="none">
+                                      <path
+                                        d="M16.34 9.322a1 1 0 1 0-1.364-1.463l-2.926 2.728L9.322 7.66A1 1 0 0 0 7.86 9.024l2.728 2.926l-2.927 2.728a1 1 0 1 0 1.364 1.462l2.926-2.727l2.728 2.926a1 1 0 1 0 1.462-1.363l-2.727-2.926l2.926-2.728z"
+                                        fill="#FFC2C9"
+                                      />
+                                      <path
+                                        fillRule="evenodd"
+                                        clipRule="evenodd"
+                                        d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12zm11 9a9 9 0 1 1 0-18a9 9 0 0 1 0 18z"
+                                        fill="#FFC2C9"
+                                      />
+                                    </g>
+                                  </svg>
+                                </div>
+                                <div className="ml-4">
+                                  <span className="text-sm leading-5 font-medium text-gray-900">
+                                    324
+                                  </span>
+                                  <span>(0.00%)</span>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="p-4">
+                              <p>COMMENTS / POST</p>
+                              <div className="flex items-center">
+                                <div className="flex-shrink-0 h-8 w-8">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    width="2.1rem"
+                                    height="2.1rem"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <g fill="none">
+                                      <path
+                                        d="M16.34 9.322a1 1 0 1 0-1.364-1.463l-2.926 2.728L9.322 7.66A1 1 0 0 0 7.86 9.024l2.728 2.926l-2.927 2.728a1 1 0 1 0 1.364 1.462l2.926-2.727l2.728 2.926a1 1 0 1 0 1.462-1.363l-2.727-2.926l2.926-2.728z"
+                                        fill="#FFC2C9"
+                                      />
+                                      <path
+                                        fillRule="evenodd"
+                                        clipRule="evenodd"
+                                        d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12zm11 9a9 9 0 1 1 0-18a9 9 0 0 1 0 18z"
+                                        fill="#FFC2C9"
+                                      />
+                                    </g>
+                                  </svg>
+                                </div>
+                                <div className="ml-4">
+                                  <span className="text-sm leading-5 font-medium text-gray-900">
+                                    4
+                                  </span>
+                                  <span>(0.00%)</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="p-4 border-b border-gray-200 mb-6">
+                            <span>ENGAGEMENT RATE: 1.17%</span>
+                          </div>
+                          {/* <div style={{ display: "flex", margin: "15px auto" }}>
+                            <ProgressLine
+                              label="content quality"
+                              percentage={95}
+                            />
+                          </div> */}
+                        </div>
+                      </div>
+                      {/* <!-- /End replace --> */}
+                    </div>
+                  </div>
+                </section>
               </div>
             </div>
           </main>

@@ -24,3 +24,8 @@
 
 - [x] Set Application page UI
 - [x] some action
+
+## 15/09/2020, 22.00-24.00
+
+- [x] Slide Over Profile on application page
+- [x] some action
