@@ -240,7 +240,7 @@ export default function Application() {
                 content="In this page you can get detailed information about Genemator and his works & experiences."
               />
             </Head>
-            <Header subtitle="Application" />
+            <Header />
             <div>
               <select
                 id="category"

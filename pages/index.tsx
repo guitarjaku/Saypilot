@@ -240,7 +240,7 @@ export default function Home() {
                 content="In this page you can get detailed information about Genemator and his works & experiences."
               />
             </Head>
-            <Header subtitle="About" />
+            <Header />
 
             <div className=" sm:block">
               <div className="align-middle inline-block min-w-full border-b border-gray-200"></div>

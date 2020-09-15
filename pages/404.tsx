@@ -17,7 +17,7 @@ export default function Custom404() {
           content="This page's preview is not available as this page doesn't exist"
         />
       </Head>
-      <Header subtitle="404" />
+      <Header />
       <div className="h-auto">
         <div className="flex mb-4 justify-center mt-64">
           <div className="text-white text-center text-center xl:text-6xl lg:text-5xl text-4xl border rounded hover:bg-white hover:text-black">
