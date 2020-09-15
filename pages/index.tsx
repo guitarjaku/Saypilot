@@ -170,7 +170,7 @@ export default function Home() {
                         href="#"
                         className="group flex items-center px-3 py-2 text-sm leading-5 font-medium text-gray-200 rounded-none border-r-4 border-black hover:text-gray-500 hover:bg-gray-700 hover:border-yellow-400 focus:outline-none focus:bg-gray-700 focus:border-yellow-400 transition ease-in-out duration-150"
                       >
-                        <span className="w-10 h-10 mr-4 bg-yellow-400 rounded-full text-center text-4xl p-2">
+                        <span className="rounded-full h-10 w-10 flex items-center justify-center bg-yellow-400 text-4xl mr-4">
                           +
                         </span>
                         <span className="truncate">Create New Campaign</span>

@@ -27,7 +27,7 @@ export default class MyApp extends App {
         <Head>
           <meta property="og:image" content={preview} />
           <meta property="og:site_name" content="Genemator's" />
-          <title>Genemator's Portfolio Website</title>
+          <title>Saypilot Website</title>
         </Head>
         <Component {...pageProps} />
       </div>

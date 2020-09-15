@@ -26,6 +26,8 @@ module.exports = {
     backgroundColor: ["responsive", "hover", "focus", "active"],
     borderColor: ["responsive", "hover", "focus", "active"],
     border: ["responsive", "hover", "focus", "active"],
+    padding: ["responsive", "hover", "focus", "active"],
+    fontSize: ["responsive", "hover", "focus", "active"],
   },
   plugins: [require("@tailwindcss/ui"), require("tailwindcss-hyphens")],
   purge: {
