@@ -36,6 +36,7 @@ export default function Home() {
                   alt="Workflow"
                 />
               </div>
+
               <div className="mt-5 flex-1 h-0 overflow-y-auto">
                 <nav className="px-2">
                   <div className="space-y-1">
@@ -122,18 +123,62 @@ export default function Home() {
           </div>
         </div>
 
+        {/* desktop */}
         <div className="hidden lg:flex lg:flex-shrink-0">
           <div className="flex flex-col w-64 border-r border-gray-200 pt-5 pb-4 bg-black">
             <div className="flex items-center flex-shrink-0 px-6 justify-center">
               <img
-                className="h-8 w-auto"
+                className="h-4 w-auto"
                 src={"/trend-logo.png"}
                 alt="Workflow"
               />
             </div>
 
             <div className="h-0 flex-1 flex flex-col overflow-y-auto">
-              <div className="px-3 mt-6 relative inline-block text-left"></div>
+              <div className="mt-6 relative inline-block text-left">
+                <nav className="mt-6">
+                  <div className="mt-8">
+                    {/* <!-- Secondary navigation --> */}
+                    <h3
+                      className="px-3 text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider"
+                      id="teams-headline"
+                    >
+                      My Campaigns
+                    </h3>
+                    <div
+                      className="mt-1 space-y-1"
+                      role="group"
+                      aria-labelledby="teams-headline"
+                    >
+                      <a
+                        href="/editCampaign"
+                        className="group flex items-center px-3 py-2 text-sm leading-5 font-medium text-gray-200 rounded-none border-r-4 border-black hover:text-gray-500 hover:bg-gray-700 hover:border-yellow-400 focus:outline-none focus:bg-gray-700 focus:border-yellow-400 transition ease-in-out duration-150"
+                      >
+                        <span className="w-10 h-10 mr-4 bg-indigo-500 rounded-none"></span>
+                        <span className="truncate"></span>
+                      </a>
+
+                      <a
+                        href="#"
+                        className="group flex items-center px-3 py-2 text-sm leading-5 font-medium text-gray-200 rounded-none border-r-4 border-black hover:text-gray-500 hover:bg-gray-700 hover:border-yellow-400 focus:outline-none focus:bg-gray-700 focus:border-yellow-400 transition ease-in-out duration-150"
+                      >
+                        <span className="w-10 h-10 mr-4 bg-teal-400 rounded-none"></span>
+                        <span className="truncate">New Session, New Wine</span>
+                      </a>
+
+                      <a
+                        href="#"
+                        className="group flex items-center px-3 py-2 text-sm leading-5 font-medium text-gray-200 rounded-none border-r-4 border-black hover:text-gray-500 hover:bg-gray-700 hover:border-yellow-400 focus:outline-none focus:bg-gray-700 focus:border-yellow-400 transition ease-in-out duration-150"
+                      >
+                        <span className="w-10 h-10 mr-4 bg-yellow-400 rounded-full text-center text-4xl p-2">
+                          +
+                        </span>
+                        <span className="truncate">Create New Campaign</span>
+                      </a>
+                    </div>
+                  </div>
+                </nav>
+              </div>
             </div>
           </div>
         </div>
@@ -181,66 +226,6 @@ export default function Home() {
                       />
                     </button>
                   </div>
-
-                  <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg">
-                    <div
-                      className="rounded-md bg-white shadow-xs"
-                      role="menu"
-                      aria-orientation="vertical"
-                      aria-labelledby="user-menu"
-                    >
-                      <div className="py-1">
-                        <a
-                          href="#"
-                          className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
-                          role="menuitem"
-                        >
-                          View profile
-                        </a>
-                        <a
-                          href="#"
-                          className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
-                          role="menuitem"
-                        >
-                          Settings
-                        </a>
-                        <a
-                          href="#"
-                          className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
-                          role="menuitem"
-                        >
-                          Notifications
-                        </a>
-                      </div>
-                      <div className="border-t border-gray-100"></div>
-                      <div className="py-1">
-                        <a
-                          href="#"
-                          className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
-                          role="menuitem"
-                        >
-                          Get desktop app
-                        </a>
-                        <a
-                          href="#"
-                          className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
-                          role="menuitem"
-                        >
-                          Support
-                        </a>
-                      </div>
-                      <div className="border-t border-gray-100"></div>
-                      <div className="py-1">
-                        <a
-                          href="#"
-                          className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
-                          role="menuitem"
-                        >
-                          Logout
-                        </a>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -255,37 +240,6 @@ export default function Home() {
               />
             </Head>
             <Header subtitle="About" />
-
-            <div className="mt-10 sm:hidden">
-              <div className="px-4 sm:px-6">
-                <h2 className="text-gray-500 text-xs font-medium uppercase tracking-wide">
-                  Projects
-                </h2>
-              </div>
-              <ul className="mt-3 border-t border-gray-200 divide-y divide-gray-100">
-                <li>
-                  <a
-                    href="#"
-                    className="flex items-center justify-between px-4 py-4 hover:bg-gray-50 sm:px-6"
-                  >
-                    <div className="flex items-center truncate space-x-3">
-                      <div className="w-2.5 h-2.5 flex-shrink-0 rounded-full bg-pink-600"></div>
-                      <p className="font-medium truncate text-sm leading-6">
-                        GraphQL API{" "}
-                        <span className="truncate font-normal text-gray-500">
-                          in Engineering
-                        </span>
-                      </p>
-                    </div>
-                    <svg
-                      className="ml-4 h-5 w-5 text-gray-400 group-hover:text-gray-500 group-focus:text-gray-600 transition ease-in-out duration-150"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    ></svg>
-                  </a>
-                </li>
-              </ul>
-            </div>
 
             <div className=" sm:block">
               <div className="align-middle inline-block min-w-full border-b border-gray-200"></div>

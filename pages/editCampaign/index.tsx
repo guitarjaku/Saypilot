@@ -21,7 +21,12 @@ const Editcapaign = () => {
             type="text"
           />
         </div>
-        <div style={{ height: "300px" }}></div>
+        <div className="flex items-center" style={{ height: "300px" }}>
+          <span
+            className="bg-yellow-400 rounded-none m-auto"
+            style={{ height: "200px", width: "80%" }}
+          ></span>
+        </div>
         <div className="grid grid-cols-2 gap-4">
           <div>Product Website</div>
           <div>Product value in dollars</div>
