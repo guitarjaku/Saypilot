@@ -19,11 +19,8 @@
 
 - [x] Edit campaign page UI
 - [x] some action
-<<<<<<< HEAD
 
 ## 15/09/2020, 15.00-17.00
 
 - [x] Set Application page UI
 - [x] some action
-=======
->>>>>>> e4207edc2da2e781a8f81dc62fdd393857435481
