@@ -29,3 +29,8 @@
 
 - [x] Slide Over Profile on application page
 - [x] some action
+
+## 16/09/2020, 18.00-20.00
+
+- [x] Set Massage page UI
+- [x] Link massage page to chat page

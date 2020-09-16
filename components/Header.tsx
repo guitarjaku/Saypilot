@@ -77,7 +77,7 @@ const Header = () => {
                 Influencers
               </a>
             </Link>
-            <Link href="/x">
+            <Link href="/messages">
               <a className="text-base leading-6 font-medium text-black hover:text-gray-200 focus:outline-none focus:text-gray-400 transition ease-in-out duration-150">
                 Messages
               </a>
