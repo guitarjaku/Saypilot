@@ -39,3 +39,7 @@
 
 - [x] Set Chat page UI
 - [x] Set Influencers page UI
+
+## 16/09/2020, 22.00-224.00
+
+- [x] Influencers page menu content
