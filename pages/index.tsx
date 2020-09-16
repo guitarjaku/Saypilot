@@ -1,12 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* Copyright 2020 Genemator Sakhib. All rights reserved. MPL-2.0 license. */
-
-import React from "react";
+import { h } from "preact";
+import { useState } from "preact/hooks";
 import Head from "next/head";
 import Header from "../components/Header";
-// import Link from "next/link";
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <div className="h-screen flex overflow-hidden bg-white">
@@ -250,6 +247,6 @@ export default function Home() {
       </div>
     </>
   );
-}
+};
 
-// export default Home;
+export default Home;

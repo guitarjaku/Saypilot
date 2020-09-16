@@ -1,8 +1,9 @@
 import { h } from "preact";
 import { useState } from "preact/hooks";
 import Head from "next/head";
+import Header from "../components/Header";
 
-const Chat = () => {
+const Influencers = () => {
   return (
     <>
       <div className="h-screen flex overflow-hidden bg-white">
@@ -12,7 +13,7 @@ const Chat = () => {
               <div className="absolute inset-0 bg-gray-600 opacity-75"></div>
             </div>
 
-            <div className="relative flex-1 flex flex-col max-w-xs w-full pbg-whitet-5 pb-4 bg-white">
+            <div className="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-white">
               <div className="absolute top-0 right-0 -mr-14 p-1">
                 <button
                   className="flex items-center justify-center h-12 w-12 rounded-full focus:outline-none focus:bg-gray-600"
@@ -229,60 +230,70 @@ const Chat = () => {
           </div>
           <main className="flex-1 relative z-0 overflow-y-auto focus:outline-none">
             <Head>
-              <title>Home | Saypilot</title>
+              <title>Influencers | Saypilot</title>
               <meta property="og:title" content="Information about Genemator" />
               <meta
                 property="og:description"
                 content="In this page you can get detailed information about Genemator and his works & experiences."
               />
             </Head>
-            <div className="flex flex-col h-screen justify-between">
-              <div className="grid grid-cols-12 px-10 h-24  sm:px-6 sm:py-4 lg:px-8 md:justify-start border-b">
-                <a
-                  href="/messages"
-                  className="relative text-black font-semibold rounded-none ml-auto border-r border-gray-400"
-                >
-                  <div className="flex items-center pr-4">
-                    <div className="fill-current w-8 h-8 mr-2">
-                      <img src={"/icons/return-black.svg"} alt="" />
-                      <span>Back</span>
+            <Header />
+
+            <div className=" sm:block">
+              <div className="grid grid-cols-3 bg-gray-200 gap-4  px-3">
+                <div className="flex items-center py-4 m-auto cursor-pointer  border-b-4 border-gray-200 hover:border-black">
+                  <div className="flex-shrink-0 h-24 w-24">
+                    <img
+                      className="h-24 w-24 rounded-full"
+                      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=60"
+                      alt=""
+                    />
+                  </div>
+                  <div className="mt-auto ml-4">
+                    <div className="text-5xl leading-9 italic font-medium text-gray-900">
+                      46
+                    </div>
+                    <div className="text-sm leading-9 text-gray-500">
+                      INFLUENCER LIST
                     </div>
                   </div>
-                </a>
-                <div className="col-span-2 my-auto  mr-auto pl-4">
-                  <div className="text-3xl leading-5 font-medium text-gray-900 mb-3">
-                    Ansley gordon
+                </div>
+                <div className="flex items-center py-4 m-auto cursor-pointer border-b-4 border-gray-200 hover:border-black">
+                  <div className="flex-shrink-0 h-24 w-24">
+                    <img
+                      className="h-24 w-24 rounded-full"
+                      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=60"
+                      alt=""
+                    />
                   </div>
-                  <div className="text-sm leading-5 text-yellow-500">
-                    See Profile
+                  <div className="mt-auto ml-4">
+                    <div className="text-5xl leading-9 italic font-medium text-gray-900">
+                      41/46
+                    </div>
+                    <div className="text-sm leading-9 text-gray-500">
+                      SHIPMENTS MADE
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center py-4 m-auto cursor-pointer border-b-4 border-gray-200 hover:border-black">
+                  <div className="flex-shrink-0 h-24 w-24">
+                    <img
+                      className="h-24 w-24 rounded-full"
+                      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=60"
+                      alt=""
+                    />
+                  </div>
+                  <div className="mt-auto ml-4">
+                    <div className="text-5xl leading-9 italic font-medium text-gray-900">
+                      85/90
+                    </div>
+                    <div className="text-sm leading-9 text-gray-500">
+                      POST APPROVAL
+                    </div>
                   </div>
                 </div>
               </div>
-              <main className="p-4 flex-1">
-                <h1 className="text-5xl">Main</h1>
-              </main>
-
-              <footer className="h-32 border-t border-gray-400 p-10">
-                <div className="grid grid-cols-12 gap-4">
-                  <div className="col-span-11">
-                    <input
-                      className="p-3 w-full text-black text-2xl border border-white"
-                      placeholder="Type a Massage..."
-                      type="text"
-                    />
-                  </div>
-                  <div className="col-span-1">
-                    <span className="w-full h-full rounded-md shadow-sm">
-                      <button
-                        type="button"
-                        className="w-full h-full items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"
-                      >
-                        SEND
-                      </button>
-                    </span>
-                  </div>
-                </div>
-              </footer>
+              <div className="align-middle inline-block min-w-full "></div>
             </div>
           </main>
         </div>
@@ -291,4 +302,4 @@ const Chat = () => {
   );
 };
 
-export default Chat;
+export default Influencers;

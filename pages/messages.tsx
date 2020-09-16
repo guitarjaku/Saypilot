@@ -3,7 +3,7 @@ import { useState } from "preact/hooks/";
 import Head from "next/head";
 import Header from "../components/Header";
 
-const Message = () => {
+const Messages = () => {
   return (
     <>
       <div className="h-screen flex overflow-hidden bg-white">
@@ -287,4 +287,4 @@ const Message = () => {
   );
 };
 
-export default Message;
+export default Messages;
