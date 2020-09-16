@@ -34,3 +34,8 @@
 
 - [x] Set Massage page UI
 - [x] Link massage page to chat page
+
+## 16/09/2020, 20.00-22.00
+
+- [x] Set Chat page UI
+- [x] Set Influencers page UI
