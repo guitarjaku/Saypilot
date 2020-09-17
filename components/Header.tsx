@@ -82,7 +82,7 @@ const Header = () => {
                 Messages
               </a>
             </Link>
-            <Link href="/socials">
+            <Link href="/postsAndAnalytics">
               <a className="text-base leading-6 font-medium text-black hover:text-gray-200 focus:outline-none focus:text-gray-400 transition ease-in-out duration-150">
                 Posts & Analytics
               </a>

@@ -52,3 +52,7 @@
 
 - [x] modal track product shipments ui mockup
 - [x] modal shipping detail mock UI mockup
+
+## 18/09/2020, 00.00-02.00
+
+- [x] Set Post & Analytics page UI

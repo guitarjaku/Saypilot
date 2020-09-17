@@ -591,7 +591,7 @@ export default function Application() {
                             <p>27.9k</p>
                           </div>
                           <div className="grid grid-cols-2 text-left border-b border-gray-200">
-                            <div className="p-4  border-r border-gray-200">
+                            <div className="p-4 border-r border-gray-200">
                               <p>LIKE / POST</p>
                               <div className="flex items-center">
                                 <div className="flex-shrink-0 h-8 w-8">
