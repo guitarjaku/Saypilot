@@ -47,3 +47,8 @@
 ## 17/09/2020, 18.00-20.00
 
 - [x] Influencers page modal track product shipments
+
+## 17/09/2020, 22.00-24.00
+
+- [x] modal track product shipments ui mockup
+- [x] modal shipping detail mock UI mockup
