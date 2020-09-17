@@ -574,7 +574,11 @@ const Influencers = () => {
                 <div className="grid grid-cols-7 bg-gray-200 gap-4 py-4 px-3">
                   <div className="col-span-2 text-1xl text-black m-auto">
                     <p>Awaiting Post - 8</p>
-                    <span>These Influencers have yet  to post if you are looking for status on when they will post, feel free to message them at any point.</span>
+                    <span>
+                      These Influencers have yet to post if you are looking for
+                      status on when they will post, feel free to message them
+                      at any point.
+                    </span>
                   </div>
                 </div>
                 <div className="flex flex-col">
@@ -771,6 +775,66 @@ const Influencers = () => {
                           </tbody>
                         </table>
                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* modal */}
+              <div className="fixed z-10 inset-0 overflow-y-auto">
+                <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                  {/* <!--
+                              Background overlay, show/hide based on modal state.
+
+                              Entering: "ease-out duration-300"
+                                From: "opacity-0"
+                                To: "opacity-100"
+                              Leaving: "ease-in duration-200"
+                                From: "opacity-100"
+                                To: "opacity-0"
+                            --> */}
+                  <div className="fixed inset-0 transition-opacity">
+                    <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
+                  </div>
+                  {/* <!-- This element is to trick the browser into centering the modal contents. --> */}
+                  <span className="hidden sm:inline-block sm:align-middle sm:h-screen"></span>
+                  &#8203;
+                  {/* <!--
+                              Modal panel, show/hide based on modal state.
+
+                              Entering: "ease-out duration-300"
+                                From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                To: "opacity-100 translate-y-0 sm:scale-100"
+                              Leaving: "ease-in duration-200"
+                                From: "opacity-100 translate-y-0 sm:scale-100"
+                                To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                            --> */}
+                  <div
+                    className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-labelledby="modal-headline"
+                  >
+                    <div className="flex flex-col h-64 justify-between">
+                      <div className="grid grid-cols-12 px-10 h-24  sm:px-6 sm:py-4 lg:px-8 md:justify-start border-b"></div>
+                      <main className="p-4 h-24 flex-1">
+                        <h1 className="text-5xl">Main</h1>
+                      </main>
+
+                      <footer className="h-24 border-t border-gray-400 p-4">
+                        <div className="grid grid-cols-1 gap-4">
+                          <div className="col-span-1 text-right">
+                            <span className="w-full h-full rounded-md shadow-sm">
+                              <button
+                                type="button"
+                                className="w-24 h-full items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"
+                              >
+                                SEND
+                              </button>
+                            </span>
+                          </div>
+                        </div>
+                      </footer>
                     </div>
                   </div>
                 </div>
