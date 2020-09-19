@@ -2,9 +2,9 @@ import { h } from "preact";
 import { useState } from "preact/hooks";
 import Head from "next/head";
 import Header from "../../components/Header";
-import { InfluencerList } from "./influencerList";
-import { ShipmentsMade } from "./shipmentsMade";
-import { PostApproval } from "./postApproval";
+import InfluencerList from "./influencerList";
+import ShipmentsMade from "./shipmentsMade";
+import PostApproval from "./postApproval";
 
 const Influencers = () => {
   const [menu, setMenu] = useState(1);

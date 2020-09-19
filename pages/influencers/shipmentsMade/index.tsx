@@ -1,7 +1,7 @@
 import { h } from "preact";
 import { useState } from "preact/hooks/";
 
-export const ShipmentsMade = () => {
+const ShipmentsMade = () => {
   const [openModal, setOpenModal] = useState(false);
 
   const onOpenModal = () => {
@@ -489,3 +489,5 @@ export const ShipmentsMade = () => {
     </>
   );
 };
+
+export default ShipmentsMade;

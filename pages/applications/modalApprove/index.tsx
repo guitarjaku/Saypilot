@@ -1,7 +1,7 @@
 import { h } from "preact";
 import { useState } from "preact/hooks/";
 
-export const ModalApprove = (props: any) => {
+const ModalApprove = (props: any) => {
   return (
     <>
       <div className="fixed z-10 inset-0 overflow-y-auto">
@@ -64,3 +64,5 @@ export const ModalApprove = (props: any) => {
     </>
   );
 };
+
+export default ModalApprove;

@@ -1,7 +1,7 @@
 import { h } from "preact";
 import { useState } from "preact/hooks/";
 
-export const PostApproval = () => {
+const PostApproval = () => {
   return (
     <>
       <div className="grid grid-cols-7 gap-4 py-4 px-3">
@@ -213,3 +213,5 @@ export const PostApproval = () => {
     </>
   );
 };
+
+export default PostApproval;

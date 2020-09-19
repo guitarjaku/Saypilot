@@ -1,8 +1,8 @@
 import { h } from "preact";
 import { useState } from "preact/hooks/";
-import { ModalApprove } from "../modalApprove";
+import ModalApprove from "../modalApprove";
 
-export const OverSide = (props: any) => {
+const OverSide = (props: any) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const onModalOpen = () => {
@@ -168,3 +168,5 @@ export const OverSide = (props: any) => {
     </>
   );
 };
+
+export default OverSide;

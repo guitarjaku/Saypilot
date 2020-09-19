@@ -1,7 +1,7 @@
 import { h } from "preact";
 import { useState } from "preact/hooks/";
 
-export const InfluencerList = () => {
+const InfluencerList = () => {
   return (
     <>
       <div className="flex flex-col">
@@ -126,3 +126,6 @@ export const InfluencerList = () => {
     </>
   );
 };
+
+export default InfluencerList;
+ 

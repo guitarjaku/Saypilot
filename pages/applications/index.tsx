@@ -4,7 +4,7 @@ import React from "react";
 import { useState, useEffect } from "preact/hooks/";
 import Head from "next/head";
 import Header from "../../components/Header";
-import { OverSide } from "./overSide";
+import OverSide from "./overSide";
 
 const ProgressLine = (label: string, percentage: number) => {
   const [widths, setWidths] = React.useState(0);
