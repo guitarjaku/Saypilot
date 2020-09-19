@@ -47,7 +47,6 @@
 ## 17/09/2020, 18.00-20.00
 
 - [x] Influencers page modal track product shipments
-<<<<<<< HEAD
 
 ## 17/09/2020, 22.00-24.00
 
@@ -61,6 +60,11 @@
 ## 19/09/2020, 16.00-18.00
 
 - [x] Card Post UI
-- [x] UI 60/100 state 0/0 UX 0/0
-=======
->>>>>>> 103a0618d59ebf87c1825fe29f47ec0b7d117094
+- [x] UI 60/100 state 0/100 UX 0/100
+
+## 19/09/2020, 22.00-24.00
+
+- [x] Modal & OverSide Action on Application page
+- [x] Menu Action on Influencer page
+- [x] sniper shoot on Application page 20%
+- [x] UI 65/100 state 0/100 UX 10/100
