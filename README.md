@@ -56,3 +56,8 @@
 ## 18/09/2020, 00.00-02.00
 
 - [x] Set Post & Analytics page UI
+
+## 19/09/2020, 16.00-18.00
+
+- [x] Card Post UI
+- [x] UI 60/100 state 0/0 UX 0/0

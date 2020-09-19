@@ -2,6 +2,7 @@ import { h } from "preact";
 import { useState } from "preact/hooks";
 import Head from "next/head";
 import Header from "../components/Header";
+import CardPost from "../components/cardPost";
 
 const PostsAndAnalytics = () => {
   return (
@@ -487,6 +488,18 @@ const PostsAndAnalytics = () => {
                         </div>
                       </div>
                     </button>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-3 gap-6 px-8">
+                  <div className="m-auto">
+                    <CardPost />
+                  </div>
+                  <div className="m-auto">
+                    <CardPost />
+                  </div>
+                  <div className="m-auto">
+                    <CardPost />
                   </div>
                 </div>
               </div>
