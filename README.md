@@ -78,3 +78,11 @@
 
 - [x] set add credits page
 - [x] UI 75/100 state 0/100 UX 15/100
+
+## 20/09/2020, 20.00-22.00
+
+- [x] add skeleton loading
+- [x] add fake json server
+- [x] add crud service
+- [x] UI 80/100 state 10/100 UX 20/100
+

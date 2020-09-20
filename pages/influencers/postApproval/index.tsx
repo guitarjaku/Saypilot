@@ -4,7 +4,7 @@ import { useState } from "preact/hooks/";
 const PostApproval = () => {
   return (
     <>
-      <div className="grid grid-cols-7 gap-4 py-4 px-3">
+      <div className="grid grid-cols-7 gap-4 py-4">
         <div className="col-span-2 text-1xl text-black m-auto">
           <p>Awaiting Post - 8</p>
           <span>
@@ -15,8 +15,8 @@ const PostApproval = () => {
       </div>
       <div className="flex flex-col">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-            <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+          <div className="py-2 align-middle inline-block min-w-full">
+            <div className="overflow-hidden rounded-none border border-gray-400">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead>
                   <tr>
@@ -100,15 +100,15 @@ const PostApproval = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-7 bg-gray-200 gap-4 py-4 px-3">
-        <div className="col-span-1 text-1xl text-black m-auto">
+      <div className="grid grid-cols-7 gap-4 py-4 ">
+        <div className="col-span-1 text-1xl text-black">
           Approved Posts - 91
         </div>
       </div>
       <div className="flex flex-col">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-            <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+          <div className="py-2 align-middle inline-block min-w-full">
+            <div className="overflow-hidden rounded-none border border-gray-400">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead>
                   <tr>

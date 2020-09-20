@@ -1,17 +1,31 @@
 import { h } from "preact";
-import { useState } from "preact/hooks";
+import { useState, useEffect } from "preact/hooks";
 import Head from "next/head";
 import Header from "../../components/Header";
+import DataService from "../../service/service";
 import InfluencerList from "./influencerList";
 import ShipmentsMade from "./shipmentsMade";
 import PostApproval from "./postApproval";
+import TableLoader from "./tableLoader/";
 
 const Influencers = () => {
-  const [menu, setMenu] = useState(1);
+  const [menu, setMenu] = useState(2);
+  const [loading, setLoading] = useState(true);
 
   const handelChaneMenu = (props: number) => {
     setMenu(props);
   };
+
+  const getInfluencerList = () => {
+    DataService.getAll("sara").then((res) => {
+      // console.log(res.data);
+      setLoading(false);
+    });
+  };
+
+  useEffect(() => {
+    getInfluencerList();
+  }, []);
 
   return (
     <>
@@ -249,7 +263,7 @@ const Influencers = () => {
             <Header />
 
             <div className=" sm:block">
-              <div className="grid grid-cols-3 bg-gray-200 gap-4  px-3">
+              <div className="grid grid-cols-3 bg-gray-200 gap-4">
                 <div
                   onClick={() => handelChaneMenu(1)}
                   className="flex items-center py-4 m-auto cursor-pointer  border-b-4 border-gray-200 hover:border-black"
@@ -312,13 +326,15 @@ const Influencers = () => {
                 </div>
               </div>
               <div className="align-middle inline-block min-w-full ">
-                {menu === 1 ? (
-                  <InfluencerList />
-                ) : menu === 2 ? (
-                  <ShipmentsMade />
-                ) : (
-                  <PostApproval />
-                )}
+                <div className="p-8">
+                  {menu === 1 ? (
+                    <div>{loading ? <TableLoader /> : <InfluencerList />}</div>
+                  ) : menu === 2 ? (
+                    <ShipmentsMade />
+                  ) : (
+                    <PostApproval />
+                  )}
+                </div>
               </div>
             </div>
           </main>

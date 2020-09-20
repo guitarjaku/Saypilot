@@ -14,7 +14,7 @@ const ShipmentsMade = () => {
 
   return (
     <>
-      <div className="grid grid-cols-7 gap-4 py-4 px-3">
+      <div className="grid grid-cols-7 gap-4 py-4">
         <div className="col-span-1 text-1xl text-black m-auto">
           Needs to be shipped 6
         </div>
@@ -30,9 +30,9 @@ const ShipmentsMade = () => {
       </div>
       <div className="flex flex-col">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-            <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-              <table className="min-w-full divide-y divide-gray-200">
+          <div className="py-2 align-middle inline-block min-w-full ">
+            <div className="overflow-hidden rounded-none border border-gray-400">
+              <table className="w-full divide-y divide-gray-200">
                 <thead>
                   <tr>
                     <th className="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
@@ -96,15 +96,15 @@ const ShipmentsMade = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-7 bg-gray-200 gap-4 py-4 px-3">
-        <div className="col-span-1 text-1xl text-black m-auto">
+      <div className="grid grid-cols-7 gap-4 py-4">
+        <div className="col-span-1 text-1xl text-black">
           Shipped - 41
         </div>
       </div>
       <div className="flex flex-col">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-            <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+          <div className="py-2 align-middle inline-block min-w-full ">
+            <div className="overflow-hidden rounded-none border border-gray-400">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead>
                   <tr>
