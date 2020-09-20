@@ -68,3 +68,8 @@
 - [x] Menu Action on Influencer page
 - [x] sniper shoot on Application page 20%
 - [x] UI 65/100 state 0/100 UX 10/100
+
+## 20/09/2020, 08.00-10.00
+
+- [x] sniper shoot on Application page UI && menu select 95%
+- [x] UI 68/100 state 0/100 UX 10/100

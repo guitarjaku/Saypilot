@@ -5,6 +5,9 @@ import { useState, useEffect } from "preact/hooks/";
 import Head from "next/head";
 import Header from "../../components/Header";
 import OverSide from "./overSide";
+import Instagram from "./instagram";
+import Youtube from "./youtube";
+import Tiktok from "./tiktok";
 
 const ProgressLine = (label: string, percentage: number) => {
   const [widths, setWidths] = React.useState(0);
@@ -38,6 +41,7 @@ const ProgressLine = (label: string, percentage: number) => {
 
 export default function Application() {
   const [overSideOpen, setOverSideOpen] = useState(false);
+  const [sniperMenu, setSniperMenu] = useState(1);
 
   const onOverSideOpen = () => {
     setOverSideOpen(true);
@@ -45,6 +49,10 @@ export default function Application() {
 
   const onOverSideClose = () => {
     setOverSideOpen(false);
+  };
+
+  const onSniperChange = (props: number) => {
+    setSniperMenu(props);
   };
 
   return (
@@ -285,6 +293,7 @@ export default function Application() {
               <span className="relative z-0 inline-flex shadow-sm rounded-md">
                 <button
                   type="button"
+                  onClick={() => onSniperChange(1)}
                   className="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
                 >
                   <div className="flex items-center">
@@ -318,6 +327,7 @@ export default function Application() {
                 </button>
                 <button
                   type="button"
+                  onClick={() => onSniperChange(2)}
                   className="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
                 >
                   <div className="flex items-center">
@@ -343,6 +353,7 @@ export default function Application() {
                 </button>
                 <button
                   type="button"
+                  onClick={() => onSniperChange(3)}
                   className="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
                 >
                   <div className="flex items-center">
@@ -364,6 +375,7 @@ export default function Application() {
                 </button>
                 <button
                   type="button"
+                  onClick={() => onSniperChange(4)}
                   className="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
                 >
                   <div className="flex items-center">
@@ -386,6 +398,17 @@ export default function Application() {
                   </div>
                 </button>
               </span>
+            </div>
+            <div className="border border-gray-300 m-4">
+              {sniperMenu === 1 ? (
+                <Instagram />
+              ) : sniperMenu === 2 ? (
+                ""
+              ) : sniperMenu === 3 ? (
+                <Youtube />
+              ) : (
+                <Tiktok />
+              )}
             </div>
             <div className="grid grid-cols-8 gap-4 py-4 px-3">
               <select
@@ -430,7 +453,7 @@ export default function Application() {
                       className="form-checkbox h-8 w-8 text-indigo-600 rounded-none transition duration-150 ease-in-out"
                     />
                   </div>
-                  <div className="ml-3 text-sm leading-5">
+                  <div className=" text-sm leading-5">
                     <label className="font-medium text-gray-700 ">
                       Select Multiple
                     </label>
