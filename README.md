@@ -86,3 +86,8 @@
 - [x] add crud service
 - [x] UI 80/100 state 10/100 UX 20/100
 
+## 20/09/2020, 22.00-24.00
+
+- [x] set state on editcampaign and sidebar
+- [x] UI 80/100 state 20/100 UX 25/100
+

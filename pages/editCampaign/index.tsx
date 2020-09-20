@@ -1,9 +1,78 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable react/react-in-jsx-scope */
 import { h } from "preact";
-import { useState } from "preact/hooks/";
+import { useState, useEffect } from "preact/hooks/";
+import DataService from "../../service/service";
+
+interface CampaignI {
+  id?: string;
+  name: string;
+  imageMain: string;
+  productWebsite: string;
+  productValue: string;
+  productCategory: string;
+  productCategoryValue: string;
+  productSend: string;
+  productInfluencerCaption: string;
+  productPostStyle: string;
+  styleGuides: [];
+  firstPostLooking: string;
+  instagramStoryRequire: boolean;
+  tragetStates: [];
+  gender: string;
+  instagramHandles: [];
+  hashtags: [];
+  vipcreator: boolean;
+  productFolder: string;
+}
 
 const Editcapaign = () => {
+  let queryString;
+  if (typeof window !== "undefined") {
+    queryString = window.location.search;
+  }
+  const urlParams = new URLSearchParams(queryString);
+  const id: string = urlParams.get("id") || "";
+
+  const [campaign, setCampaign] = useState<CampaignI>({
+    name: "",
+    imageMain: "",
+    productWebsite: "",
+    productValue: "",
+    productCategory: "",
+    productCategoryValue: "",
+    productSend: "",
+    productInfluencerCaption: "",
+    productPostStyle: "",
+    styleGuides: [],
+    firstPostLooking: "",
+    instagramStoryRequire: false,
+    tragetStates: [],
+    gender: "",
+    instagramHandles: [],
+    hashtags: [],
+    vipcreator: false,
+    productFolder: "",
+  });
+
+  const getCampiagn = () => {
+    DataService.get("/campaigns", id).then((res) => {
+      setCampaign(res.data);
+      console.log(campaign);
+    });
+  };
+
+  const onInputValueChange = (props: any) => (e: any) => {
+    // console.log(e.target.value);
+    setCampaign({ ...campaign, [props]: e?.target.value });
+  };
+
+  const onSubmit = () => {
+    console.log(campaign);
+  };
+
+  useEffect(() => {
+    getCampiagn();
+  }, []);
+
   return (
     <>
       <div className="py-8 bg-black overflow-hidden md:py-20 lg:py-24">
@@ -32,6 +101,8 @@ const Editcapaign = () => {
             <input
               className="p-3 w-full border-b border-white bg-black"
               type="text"
+              value={campaign.name}
+              onChange={onInputValueChange("name")}
             />
           </div>
           <div className="flex items-center" style={{ height: "300px" }}>
@@ -44,13 +115,13 @@ const Editcapaign = () => {
             <div>
               <p>Product Website</p>
               <div className="py-4 text-yellow-400 border-b border-yellow-400">
-                www.newshinewine.com
+                {campaign.productWebsite}
               </div>
             </div>
             <div>
               <p>Product value in dollars</p>
               <div className="py-4 text-yellow-400 border-b border-yellow-400">
-                $100
+                {campaign.productValue}
               </div>
             </div>
           </div>
@@ -61,6 +132,8 @@ const Editcapaign = () => {
               <input
                 className="my-3 p-3 w-full bg-gray-900 text-yellow-400 border border-yellow-400"
                 type="text"
+                value={campaign.productCategory}
+                onChange={onInputValueChange("productCategory")}
               />
             </div>
             <div className="py-4">
@@ -69,6 +142,8 @@ const Editcapaign = () => {
               <input
                 className="my-3 p-3 w-full bg-gray-900 text-yellow-400 border border-yellow-400"
                 type="text"
+                value={campaign.productCategoryValue}
+                onChange={onInputValueChange("productCategoryValue")}
               />
             </div>
           </div>
@@ -86,6 +161,8 @@ const Editcapaign = () => {
             <input
               className="my-3 p-3 w-full bg-gray-900 text-yellow-400 border border-yellow-400"
               type="text"
+              value={campaign.productSend}
+              onChange={onInputValueChange("productSend")}
             />
           </div>
           <div className="py-4">
@@ -95,6 +172,8 @@ const Editcapaign = () => {
             <textarea
               className="my-3 p-3 w-full bg-gray-900 text-yellow-400 border border-yellow-400"
               rows={6}
+              value={campaign.productInfluencerCaption}
+              onChange={onInputValueChange("productInfluencerCaption")}
             />
           </div>
           <div className="py-4">
@@ -102,6 +181,8 @@ const Editcapaign = () => {
             <textarea
               className="my-3 p-3 w-full bg-gray-900 text-yellow-400 border border-yellow-400"
               rows={6}
+              value={campaign.productPostStyle}
+              onChange={onInputValueChange("productPostStyle")}
             />
           </div>
           <div className="py-4">
@@ -110,18 +191,12 @@ const Editcapaign = () => {
               add images so the creators know what kind of content to create.
             </p>
             <div className="grid grid-cols-12 gap-32 py-4">
-              <span
-                className="bg-yellow-400 rounded-none"
-                style={{ height: "100px", width: "100px" }}
-              ></span>
-              <span
-                className="bg-yellow-400 rounded-none"
-                style={{ height: "100px", width: "100px" }}
-              ></span>
-              <span
-                className="bg-yellow-400 rounded-none"
-                style={{ height: "100px", width: "100px" }}
-              ></span>
+              {campaign.styleGuides.map((sg) => (
+                <span
+                  className="bg-yellow-400 rounded-none"
+                  style={{ height: "100px", width: "100px" }}
+                ></span>
+              ))}
             </div>
           </div>
           <div className="py-4">
@@ -170,6 +245,8 @@ const Editcapaign = () => {
             <input
               className="my-3 p-3 w-full bg-gray-900 text-yellow-400 border border-yellow-400"
               type="text"
+              value={campaign.gender}
+              onChange={onInputValueChange("productGender")}
             />
           </div>
           <div className="py-4">
@@ -292,12 +369,14 @@ const Editcapaign = () => {
               className="my-3 p-3 w-1/4 bg-gray-900 text-yellow-400 border border-yellow-400"
               placeholder="Select a Product"
               type="text"
+              value={campaign.productFolder}
             />
           </div>
           <div className="py-4 flex items-center">
             <span className="rounded-md shadow-sm m-auto">
               <button
                 type="button"
+                onClick={() => onSubmit()}
                 className="inline-flex items-center px-6 py-3 border border-transparent text-base font-bold leading-6 font-medium rounded-full text-black bg-yellow-400 hover:bg-yellow-200 focus:outline-none focus:px-15 focus:py-5 focus:text-2xl focus:bg-yellow-200 transition ease-in-out duration-150"
               >
                 Save Campaign Edits

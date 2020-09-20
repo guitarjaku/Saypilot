@@ -446,7 +446,7 @@ export default function Application() {
               <div></div>
               <div>
                 <div className="relative flex items-center">
-                  <div className="flex items-center ">
+                  <div className="flex items-center mr-2">
                     <input
                       id="comments"
                       type="checkbox"
@@ -462,11 +462,11 @@ export default function Application() {
               </div>
             </div>
             <div className=" sm:block">
-              <div className="align-middle inline-block min-w-full border-b border-gray-200 px-3">
+              <div className="align-middle inline-block min-w-full border-b border-gray-200">
                 <div className="flex flex-col">
-                  <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                      <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                  <div className="-my-2 overflow-x-auto ">
+                    <div className="py-2 align-middle inline-block min-w-full">
+                      <div className="overflow-hidden rounded-none border border-gray-400">
                         <table className="min-w-full divide-y divide-gray-200">
                           <thead>
                             <tr>
