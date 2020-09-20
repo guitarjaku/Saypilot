@@ -9,7 +9,7 @@ import PostApproval from "./postApproval";
 import TableLoader from "./tableLoader/";
 
 const Influencers = () => {
-  const [menu, setMenu] = useState(2);
+  const [menu, setMenu] = useState(1);
   const [loading, setLoading] = useState(true);
 
   const handelChaneMenu = (props: number) => {
