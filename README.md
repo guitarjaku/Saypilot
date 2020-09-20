@@ -73,3 +73,8 @@
 
 - [x] sniper shoot on Application page UI && menu select 95%
 - [x] UI 68/100 state 0/100 UX 10/100
+
+## 20/09/2020, 15.00-17.00
+
+- [x] set add credits page
+- [x] UI 75/100 state 0/100 UX 15/100

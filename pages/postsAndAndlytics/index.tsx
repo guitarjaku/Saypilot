@@ -1,8 +1,8 @@
 import { h } from "preact";
 import { useState } from "preact/hooks";
 import Head from "next/head";
-import Header from "../components/Header";
-import CardPost from "../components/cardPost";
+import Header from "../../components/Header";
+import CardPost from "../../components/cardPost";
 
 const PostsAndAnalytics = () => {
   return (

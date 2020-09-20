@@ -1,7 +1,7 @@
 import { h } from "preact";
 import { useState } from "preact/hooks/";
 import Head from "next/head";
-import Header from "../components/Header";
+import Header from "../../components/Header";
 
 const Messages = () => {
   return (
