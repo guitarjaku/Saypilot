@@ -1,5 +1,3 @@
-/* Copyright 2020 Genemator Sakhib. All rights reserved. MPL-2.0 license. */
-
 import Head from "next/head";
 import React from "react";
 import Router from "next/router";
@@ -29,14 +27,6 @@ export default function Custom404() {
             I'm so sorry, this page might be unavailable or underconstruction!
             Stay stunned for new updates...
           </div>
-        </div>
-        <div className="flex mb-4 justify-center mb-64">
-          <a
-            onClick={() => Router.back()}
-            className="text-white text-center xl:text-3xl lg:text-2xl text-1xl hover:underline cursor-pointer"
-          >
-            {"<-"} Go back to hell 🖤
-          </a>
         </div>
       </div>
       <Footer />

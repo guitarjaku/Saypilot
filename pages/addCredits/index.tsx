@@ -52,9 +52,15 @@ const Editcapaign = () => {
           </div>
           <div className="col-span-1 bg-gray-500 p-5">
             <div className="relative flex bottom-24">
-              <div className="rounded-full h-48 w-48 flex items-center justify-center bg-blue-700 border-2 border-white m-auto">
-                <p className="text-5xl">36</p>
-                <span>Creator Credits</span>
+              <div className="rounded-full h-48 w-48 flex items-center justify-center  bg-blue-700 border-2 border-white m-auto">
+                <div className="flex-col mb-8">
+                  <p className="flex items-center justify-center text-6xl">
+                    36
+                  </p>
+                  <span className="flex items-center justify-center text-xs">
+                    Creator Credits
+                  </span>
+                </div>
               </div>
             </div>
             <div className="divide-y divide-gray-400 -mt-20">
