@@ -1,4 +1,12 @@
 const withPrefresh = require("@prefresh/next");
+// const p = process.env.NODE_ENV === "production";
+
+// module.exports = {
+//   env: {
+//     api: p ? "/api" : "http://localhost:3000/",
+//   },
+// };
+
 
 module.exports = withPrefresh({
   experimental: {

@@ -72,17 +72,17 @@ const Header = () => {
                 Applications
               </a>
             </Link>
-            <Link href="/quotes">
+            <Link href="/influencers">
               <a className="text-base leading-6 font-medium text-black hover:text-gray-200 focus:outline-none focus:text-gray-400 transition ease-in-out duration-150">
                 Influencers
               </a>
             </Link>
-            <Link href="/x">
+            <Link href="/messages">
               <a className="text-base leading-6 font-medium text-black hover:text-gray-200 focus:outline-none focus:text-gray-400 transition ease-in-out duration-150">
                 Messages
               </a>
             </Link>
-            <Link href="/socials">
+            <Link href="/postsAndAnalytics">
               <a className="text-base leading-6 font-medium text-black hover:text-gray-200 focus:outline-none focus:text-gray-400 transition ease-in-out duration-150">
                 Posts & Analytics
               </a>

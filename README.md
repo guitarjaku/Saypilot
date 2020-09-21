@@ -29,3 +29,65 @@
 
 - [x] Slide Over Profile on application page
 - [x] some action
+
+## 16/09/2020, 18.00-20.00
+
+- [x] Set Massage page UI
+- [x] Link massage page to chat page
+
+## 16/09/2020, 20.00-22.00
+
+- [x] Set Chat page UI
+- [x] Set Influencers page UI
+
+## 16/09/2020, 22.00-24.00
+
+- [x] Influencers page menu content
+
+## 17/09/2020, 18.00-20.00
+
+- [x] Influencers page modal track product shipments
+
+## 17/09/2020, 22.00-24.00
+
+- [x] modal track product shipments ui mockup
+- [x] modal shipping detail mock UI mockup
+
+## 18/09/2020, 00.00-02.00
+
+- [x] Set Post & Analytics page UI
+
+## 19/09/2020, 16.00-18.00
+
+- [x] Card Post UI
+- [x] UI 60/100 state 0/100 UX 0/100
+
+## 19/09/2020, 22.00-24.00
+
+- [x] Modal & OverSide Action on Application page
+- [x] Menu Action on Influencer page
+- [x] sniper shoot on Application page 20%
+- [x] UI 65/100 state 0/100 UX 10/100
+
+## 20/09/2020, 08.00-10.00
+
+- [x] sniper shoot on Application page UI && menu select 95%
+- [x] UI 68/100 state 0/100 UX 10/100
+
+## 20/09/2020, 15.00-17.00
+
+- [x] set add credits page
+- [x] UI 75/100 state 0/100 UX 15/100
+
+## 20/09/2020, 20.00-22.00
+
+- [x] add skeleton loading
+- [x] add fake json server
+- [x] add crud service
+- [x] UI 80/100 state 10/100 UX 20/100
+
+## 20/09/2020, 23.00-01.00
+
+- [x] set state on editcampaign and sidebar
+- [x] UI 80/100 state 20/100 UX 25/100
+
