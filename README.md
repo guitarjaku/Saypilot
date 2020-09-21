@@ -91,3 +91,7 @@
 - [x] set state on editcampaign and sidebar
 - [x] UI 80/100 state 20/100 UX 25/100
 
+## 20/09/2020, 13.00-15.00
+
+- [x] set action on Editpage
+- [x] UI 80/100 state 20/100 UX 30/100

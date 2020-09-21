@@ -1,6 +1,7 @@
 import { h } from "preact";
 import { useState, useEffect } from "preact/hooks/";
 import DataService from "../../service/service";
+import Select from "react-select";
 
 interface CampaignI {
   id?: string;
@@ -16,13 +17,90 @@ interface CampaignI {
   styleGuides: [];
   firstPostLooking: string;
   instagramStoryRequire: boolean;
-  tragetStates: [];
+  targetStates: [];
   gender: string;
   instagramHandles: [];
   hashtags: [];
   vipcreator: boolean;
   productFolder: string;
 }
+
+const selectSingleStyles = {
+  control: (styles: any) => ({
+    ...styles,
+    borderRadius: 0,
+    border: "1px solid #e3a008",
+    padding: "0.75rem",
+    backgroundColor: "rgba(22, 30, 46, var(--bg-opacity))",
+  }),
+  option: (styles: any) => {
+    const color = "white";
+    return {
+      ...styles,
+      color: "black",
+      backgroundColor: color,
+      ":hover": {
+        ...styles[":hover"],
+        color: "white",
+        cursor: "pointer",
+        backgroundColor: "rgba(22, 30, 46, var(--bg-opacity))",
+      },
+      ":active": {
+        ...styles[":active"],
+        backgroundColor: "white",
+      },
+    };
+  },
+  singleValue: (styles: any) => ({ ...styles, color: "white" }),
+};
+
+const selectMultiStyles = {
+  control: (styles: any) => ({
+    ...styles,
+    borderRadius: 0,
+    border: "1px solid #e3a008",
+    padding: "0.75rem",
+    backgroundColor: "rgba(22, 30, 46, var(--bg-opacity))",
+  }),
+  option: (styles: any) => {
+    const color = "white";
+    return {
+      ...styles,
+      color: "black",
+      backgroundColor: color,
+      ":hover": {
+        ...styles[":hover"],
+        color: "white",
+        cursor: "pointer",
+        backgroundColor: "rgba(22, 30, 46, var(--bg-opacity))",
+      },
+      ":active": {
+        ...styles[":active"],
+        backgroundColor: "white",
+      },
+    };
+  },
+  multiValue: (styles: any) => {
+    const color = "#e3a008";
+    return {
+      ...styles,
+      padding: "0.3rem",
+      backgroundColor: color,
+      borderRadius: 0,
+    };
+  },
+  multiValueLabel: (styles: any) => ({
+    ...styles,
+  }),
+  multiValueRemove: (styles: any) => ({
+    ...styles,
+    color: "black",
+    ":hover": {
+      color: "black",
+      cursor: "pointer",
+    },
+  }),
+};
 
 const Editcapaign = () => {
   let queryString;
@@ -31,6 +109,17 @@ const Editcapaign = () => {
   }
   const urlParams = new URLSearchParams(queryString);
   const id: string = urlParams.get("id") || "";
+
+  const targetStateOption = [
+    { value: "all", label: "All" },
+    { value: "food", label: "Food" },
+  ];
+
+  const genderOption = [
+    { value: "any", label: "Any" },
+    { value: "male", label: "Male" },
+    { value: "female", label: "Female" },
+  ];
 
   const [campaign, setCampaign] = useState<CampaignI>({
     name: "",
@@ -45,7 +134,7 @@ const Editcapaign = () => {
     styleGuides: [],
     firstPostLooking: "",
     instagramStoryRequire: false,
-    tragetStates: [],
+    targetStates: [],
     gender: "",
     instagramHandles: [],
     hashtags: [],
@@ -61,8 +150,17 @@ const Editcapaign = () => {
   };
 
   const onInputValueChange = (props: any) => (e: any) => {
-    // console.log(e.target.value);
+    // console.log(e);
     setCampaign({ ...campaign, [props]: e?.target.value });
+  };
+
+  const onSelectValueChange = (props: any, multi: boolean) => (e: any) => {
+    // console.log(e);
+    if (multi) {
+      setCampaign({ ...campaign, [props]: e });
+    } else {
+      setCampaign({ ...campaign, [props]: e });
+    }
   };
 
   const onSubmit = () => {
@@ -114,15 +212,21 @@ const Editcapaign = () => {
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div>
               <p>Product Website</p>
-              <div className="py-4 text-yellow-400 border-b border-yellow-400">
-                {campaign.productWebsite}
-              </div>
+              <input
+                className="my-3 p-3 w-full bg-black text-yellow-400 border-b border-yellow-400"
+                type="text"
+                value={campaign.productWebsite}
+                onChange={onInputValueChange("productWebsite")}
+              />
             </div>
             <div>
               <p>Product value in dollars</p>
-              <div className="py-4 text-yellow-400 border-b border-yellow-400">
-                {campaign.productValue}
-              </div>
+              <input
+                className="my-3 p-3 w-full bg-black text-yellow-400 border-b border-yellow-400"
+                type="text"
+                value={campaign.productValue}
+                onChange={onInputValueChange("productValue")}
+              />
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4">
@@ -234,19 +338,28 @@ const Editcapaign = () => {
             </span>
           </div>
           <div className="py-4">
-            <p>Enter Traget States</p>
-            <input
-              className="my-3 p-3 w-full bg-gray-900 text-yellow-400 border border-yellow-400"
-              type="text"
+            <p>Enter Target States</p>
+            <Select
+              id="targetState"
+              name="targetState"
+              className="my-3"
+              isMulti
+              value={campaign.targetStates}
+              onChange={onSelectValueChange("targetStates", true)}
+              options={targetStateOption}
+              styles={selectMultiStyles}
             />
           </div>
           <div className="py-4">
             <p>Gender</p>
-            <input
-              className="my-3 p-3 w-full bg-gray-900 text-yellow-400 border border-yellow-400"
-              type="text"
+            <Select
+              id="gender"
+              name="gender"
+              className="my-3"
               value={campaign.gender}
-              onChange={onInputValueChange("productGender")}
+              onChange={onSelectValueChange("gender", false)}
+              options={genderOption}
+              styles={selectSingleStyles}
             />
           </div>
           <div className="py-4">
@@ -262,18 +375,29 @@ const Editcapaign = () => {
           <div className="py-4">
             <p>Required Instagram Handles</p>
             <p>Press "Enter" after each handle</p>
-            <input
-              className="p-3 w-full border-b border-white bg-black"
-              placeholder="YourHandle"
-              type="text"
-            />
-            <div className="grid grid-cols-12 gap-32 py-4">
-              <span
-                className="py-3 bg-yellow-400 rounded-sm text-center text-black"
-                style={{ height: "50px", width: "150px" }}
-              >
-                @newshine x
-              </span>
+            <div className="mt-1 relative rounded-md shadow-sm">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                @
+              </div>
+              <input
+                className="my-3 p-3 pl-7 w-full border-b border-white bg-black"
+                placeholder="YourHandle"
+                type="text"
+              />
+            </div>
+            <div className="flex flex-row my-4">
+              <div className="text-black text-center rounded-sm bg-yellow-400 px-4 py-2 m-2">
+                <div className="flex items-center">
+                  <div className="mr-2">
+                    <div className="text-sm leading-5 font-medium text-gray-900">
+                      @newshine
+                    </div>
+                  </div>
+                  <div className="flex cursor-pointer" onClick={() => {}}>
+                    <span className="font-bold">x</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div className="py-4">
@@ -284,7 +408,7 @@ const Editcapaign = () => {
                 #
               </div>
               <input
-                className="p-3 pl-7 w-full border-b border-white bg-black"
+                className="my-3 p-3 pl-7 w-full border-b border-white bg-black"
                 placeholder="YourHashtag"
                 type="text"
               />
