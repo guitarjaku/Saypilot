@@ -21,7 +21,7 @@ interface CampaignI {
   gender: string;
   instagramHandles: [];
   hashtags: [];
-  vipcreator: boolean;
+  vipCreator: boolean;
   productFolder: string;
 }
 
@@ -132,13 +132,13 @@ const Editcapaign = () => {
     productInfluencerCaption: "",
     productPostStyle: "",
     styleGuides: [],
-    firstPostLooking: "",
+    firstPostLooking: "image",
     instagramStoryRequire: false,
     targetStates: [],
     gender: "",
     instagramHandles: [],
     hashtags: [],
-    vipcreator: false,
+    vipCreator: false,
     productFolder: "",
   });
 
@@ -146,6 +146,36 @@ const Editcapaign = () => {
     DataService.get("/campaigns", id).then((res) => {
       setCampaign(res.data);
       console.log(campaign);
+
+      const image_button = document.getElementById("image-post");
+      const video_button = document.getElementById("video-post");
+      if (res.data.firstPostLooking) {
+        image_button?.classList.remove("bg-white", "text-gray-700");
+        image_button?.classList.add("text-white");
+      } else {
+        video_button?.classList.remove("bg-white", "text-gray-700");
+        video_button?.classList.add("text-white");
+      }
+
+      const insta_no = document.getElementById("insta-no");
+      const insta_yes = document.getElementById("insta-yes");
+      if (res.data.instagramStoryRequire) {
+        insta_yes?.classList.remove("bg-white", "text-gray-700");
+        insta_yes?.classList.add("text-white");
+      } else {
+        insta_no?.classList.remove("bg-white", "text-gray-700");
+        insta_no?.classList.add("text-white");
+      }
+
+      const vip_no = document.getElementById("vip-no");
+      const vip_yes = document.getElementById("vip-yes");
+      if (res.data.vipCreator) {
+        vip_yes?.classList.remove("bg-white", "text-gray-700");
+        vip_yes?.classList.add("text-white");
+      } else {
+        vip_no?.classList.remove("bg-white", "text-gray-700");
+        vip_no?.classList.add("text-white");
+      }
     });
   };
 
@@ -307,13 +337,37 @@ const Editcapaign = () => {
             <p>What are you looking for in your first post?</p>
             <span className="relative z-0 inline-flex shadow-sm rounded-md py-4 w-full">
               <button
+                id="image-post"
                 type="button"
-                className="w-2/4 text-center relative  items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
+                onClick={(e) => {
+                  const image_button = document.getElementById("image-post");
+                  const video_button = document.getElementById("video-post");
+
+                  image_button?.classList.remove("bg-white", "text-gray-700");
+                  image_button?.classList.add("text-white");
+
+                  video_button?.classList.add("bg-white", "text-gray-700");
+                  video_button?.classList.remove("text-white");
+                  setCampaign({ ...campaign, firstPostLooking: "image" });
+                }}
+                className="w-2/4 active:bg-black text-center relative items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 transition ease-in-out duration-150"
               >
                 Image Post
               </button>
               <button
+                id="video-post"
                 type="button"
+                onClick={(e) => {
+                  const image_button = document.getElementById("image-post");
+                  const video_button = document.getElementById("video-post");
+
+                  video_button?.classList.remove("bg-white", "text-gray-700");
+                  video_button?.classList.add("text-white");
+
+                  image_button?.classList.add("bg-white", "text-gray-700");
+                  image_button?.classList.remove("text-white");
+                  setCampaign({ ...campaign, firstPostLooking: "video" });
+                }}
                 className="w-2/4 text-center relative items-center px-4 py-2  border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
               >
                 Video Post
@@ -324,13 +378,37 @@ const Editcapaign = () => {
             <p>Instagram Story Required?</p>
             <span className="relative z-0 inline-flex shadow-sm rounded-md py-4 w-full">
               <button
+                id="insta-no"
                 type="button"
+                onClick={(e) => {
+                  const insta_no = document.getElementById("insta-no");
+                  const insta_yes = document.getElementById("insta-yes");
+
+                  insta_no?.classList.remove("bg-white", "text-gray-700");
+                  insta_no?.classList.add("text-white");
+
+                  insta_yes?.classList.add("bg-white", "text-gray-700");
+                  insta_yes?.classList.remove("text-white");
+                  setCampaign({ ...campaign, instagramStoryRequire: false });
+                }}
                 className="w-2/4 text-center relative  items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
               >
                 No
               </button>
               <button
+                id="insta-yes"
                 type="button"
+                onClick={(e) => {
+                  const insta_no = document.getElementById("insta-no");
+                  const insta_yes = document.getElementById("insta-yes");
+
+                  insta_yes?.classList.remove("bg-white", "text-gray-700");
+                  insta_yes?.classList.add("text-white");
+
+                  insta_no?.classList.add("bg-white", "text-gray-700");
+                  insta_no?.classList.remove("text-white");
+                  setCampaign({ ...campaign, instagramStoryRequire: true });
+                }}
                 className="w-2/4 text-center relative items-center px-4 py-2  border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
               >
                 Yes
@@ -383,21 +461,46 @@ const Editcapaign = () => {
                 className="my-3 p-3 pl-7 w-full border-b border-white bg-black"
                 placeholder="YourHandle"
                 type="text"
+                onKeyDown={(e) => {
+                  const copyHandle = [...campaign.instagramHandles];
+                  if (e.key === "Enter") {
+                    if (e.target.value !== "") {
+                      copyHandle.push(`@${e.target.value}`);
+                      e.target.value = "";
+                    }
+                  }
+                  setCampaign({
+                    ...campaign,
+                    instagramHandles: copyHandle,
+                  });
+                }}
               />
             </div>
             <div className="flex flex-row my-4">
-              <div className="text-black text-center rounded-sm bg-yellow-400 px-4 py-2 m-2">
-                <div className="flex items-center">
-                  <div className="mr-2">
-                    <div className="text-sm leading-5 font-medium text-gray-900">
-                      @newshine
+              {campaign.instagramHandles.map((handle, i) => (
+                <div className="text-black text-center rounded-sm bg-yellow-400 px-4 py-2 m-2">
+                  <div className="flex items-center">
+                    <div className="mr-2">
+                      <div className="text-sm leading-5 font-medium text-gray-900">
+                        {handle}
+                      </div>
+                    </div>
+                    <div
+                      className="flex cursor-pointer"
+                      onClick={() => {
+                        const copyHandle = [...campaign.instagramHandles];
+                        copyHandle.splice(i, 1);
+                        setCampaign({
+                          ...campaign,
+                          instagramHandles: copyHandle,
+                        });
+                      }}
+                    >
+                      <span className="font-bold">x</span>
                     </div>
                   </div>
-                  <div className="flex cursor-pointer" onClick={() => {}}>
-                    <span className="font-bold">x</span>
-                  </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
           <div className="py-4">
@@ -411,33 +514,50 @@ const Editcapaign = () => {
                 className="my-3 p-3 pl-7 w-full border-b border-white bg-black"
                 placeholder="YourHashtag"
                 type="text"
+                onKeyDown={(e) => {
+                  const copyHashtag = [...campaign.hashtags];
+                  if (e.key === "Enter") {
+                    if (e.target.value !== "") {
+                      if (copyHashtag.length !== 5) {
+                        copyHashtag.push(`#${e.target.value}`);
+                        e.target.value = "";
+                      } else {
+                        alert("Hashtags are maximum");
+                      }
+                    }
+                  }
+                  setCampaign({
+                    ...campaign,
+                    hashtags: copyHashtag,
+                  });
+                }}
               />
             </div>
-            <div className="py-7">
-              <span
-                className="py-3 px-3 mr-3 bg-yellow-400 rounded-sm text-center text-black"
-                style={{ height: "50px", width: "150px" }}
-              >
-                #TIMETOSHINE x
-              </span>
-              <span
-                className="py-3 px-3 mr-3 bg-yellow-400 rounded-sm text-center text-black"
-                style={{ height: "50px", width: "190px" }}
-              >
-                #NewShineWindes x
-              </span>
-              <span
-                className="py-3 px-3 mr-3 bg-yellow-400 rounded-sm text-center text-black"
-                style={{ height: "50px", width: "150px" }}
-              >
-                #WineforALl x
-              </span>
-              <span
-                className="py-3 px-3 mr-3 bg-yellow-400 rounded-sm text-center text-black"
-                style={{ height: "50px", width: "190px" }}
-              >
-                #isitfridayyet? x
-              </span>
+            <div className="flex flex-row my-4">
+              {campaign.hashtags.map((hashtag, i) => (
+                <div className="text-black text-center rounded-sm bg-yellow-400 px-4 py-2 m-2">
+                  <div className="flex items-center">
+                    <div className="mr-2">
+                      <div className="text-sm leading-5 font-medium text-gray-900">
+                        {hashtag}
+                      </div>
+                    </div>
+                    <div
+                      className="flex cursor-pointer"
+                      onClick={() => {
+                        const copyHashtag = [...campaign.hashtags];
+                        copyHashtag.splice(i, 1);
+                        setCampaign({
+                          ...campaign,
+                          hashtags: copyHashtag,
+                        });
+                      }}
+                    >
+                      <span className="font-bold">x</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
           <div className="py-4">
@@ -455,13 +575,37 @@ const Editcapaign = () => {
               <div className="flex flex-row-reverse">
                 <span className="rounded-md py-4 w-1/4">
                   <button
+                    id="vip-no"
                     type="button"
+                    onClick={(e) => {
+                      const vip_no = document.getElementById("vip-no");
+                      const vip_yes = document.getElementById("vip-yes");
+
+                      vip_no?.classList.remove("bg-white", "text-gray-700");
+                      vip_no?.classList.add("text-white");
+
+                      vip_yes?.classList.add("bg-white", "text-gray-700");
+                      vip_yes?.classList.remove("text-white");
+                      setCampaign({ ...campaign, vipCreator: false });
+                    }}
                     className="w-2/4 text-center relative  items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
                   >
                     No
                   </button>
                   <button
+                    id="vip-yes"
                     type="button"
+                    onClick={(e) => {
+                      const vip_no = document.getElementById("vip-no");
+                      const vip_yes = document.getElementById("vip-yes");
+
+                      vip_yes?.classList.remove("bg-white", "text-gray-700");
+                      vip_yes?.classList.add("text-white");
+
+                      vip_no?.classList.add("bg-white", "text-gray-700");
+                      vip_no?.classList.remove("text-white");
+                      setCampaign({ ...campaign, vipCreator: true });
+                    }}
                     className="w-2/4 text-center relative items-center px-4 py-2  border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
                   >
                     Yes

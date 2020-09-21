@@ -95,3 +95,10 @@
 
 - [x] set action on Editpage
 - [x] UI 80/100 state 20/100 UX 30/100
+
+## 20/09/2020, 15.00-17.00
+
+- [x] input action by enter hashtag && handle
+- [x] select action
+- [x] button action
+- [x] UI 80/100 state 20/100 UX 35/100
