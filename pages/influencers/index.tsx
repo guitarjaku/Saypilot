@@ -7,6 +7,7 @@ import InfluencerList from "./influencerList";
 import ShipmentsMade from "./shipmentsMade";
 import PostApproval from "./postApproval";
 import TableLoader from "./tableLoader/";
+import SideBar from "../../components/Sidebar";
 
 const Influencers = () => {
   const [menu, setMenu] = useState(1);
@@ -145,64 +146,7 @@ const Influencers = () => {
         </div>
 
         {/* desktop */}
-        <div className="hidden lg:flex lg:flex-shrink-0">
-          <div className="flex flex-col w-64 border-r border-gray-200 pt-5 pb-4 bg-black">
-            <div className="flex items-center flex-shrink-0 px-6 justify-center">
-              <img
-                className="h-4 w-auto"
-                src={"/trend-logo.png"}
-                alt="Workflow"
-              />
-            </div>
-
-            <div className="h-0 flex-1 flex flex-col overflow-y-auto">
-              <div className="mt-6 relative inline-block text-left">
-                <nav className="mt-6">
-                  <div className="mt-8">
-                    {/* <!-- Secondary navigation --> */}
-                    <h3
-                      className="px-3 text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider"
-                      id="teams-headline"
-                    >
-                      My Campaigns
-                    </h3>
-                    <div
-                      className="mt-1 space-y-1"
-                      role="group"
-                      aria-labelledby="teams-headline"
-                    >
-                      <a
-                        href="/editCampaign"
-                        className="group flex items-center px-3 py-2 text-sm leading-5 font-medium text-gray-200 rounded-none border-r-4 border-black hover:text-gray-500 hover:bg-gray-700 hover:border-yellow-400 focus:outline-none focus:bg-gray-700 focus:border-yellow-400 transition ease-in-out duration-150"
-                      >
-                        <span className="w-10 h-10 mr-4 bg-indigo-500 rounded-none"></span>
-                        <span className="truncate"></span>
-                      </a>
-
-                      <a
-                        href="#"
-                        className="group flex items-center px-3 py-2 text-sm leading-5 font-medium text-gray-200 rounded-none border-r-4 border-black hover:text-gray-500 hover:bg-gray-700 hover:border-yellow-400 focus:outline-none focus:bg-gray-700 focus:border-yellow-400 transition ease-in-out duration-150"
-                      >
-                        <span className="w-10 h-10 mr-4 bg-teal-400 rounded-none"></span>
-                        <span className="truncate">New Session, New Wine</span>
-                      </a>
-
-                      <a
-                        href="#"
-                        className="group flex items-center px-3 py-2 text-sm leading-5 font-medium text-gray-200 rounded-none border-r-4 border-black hover:text-gray-500 hover:bg-gray-700 hover:border-yellow-400 focus:outline-none focus:bg-gray-700 focus:border-yellow-400 transition ease-in-out duration-150"
-                      >
-                        <span className="rounded-full h-10 w-10 flex items-center justify-center bg-yellow-400 text-4xl mr-4">
-                          +
-                        </span>
-                        <span className="truncate">Create New Campaign</span>
-                      </a>
-                    </div>
-                  </div>
-                </nav>
-              </div>
-            </div>
-          </div>
-        </div>
+        <SideBar />
 
         <div className="flex flex-col w-0 flex-1 overflow-hidden">
           <div className="relative z-10 flex-shrink-0 flex h-16 bg-white border-b border-gray-200 lg:hidden">

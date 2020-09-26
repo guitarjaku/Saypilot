@@ -2,6 +2,7 @@ import { h } from "preact";
 import { useState, useEffect } from "preact/hooks/";
 import DataService from "../../service/service";
 import Select from "react-select";
+import { useRouter } from "next/router";
 
 interface CampaignI {
   id?: string;
@@ -14,13 +15,13 @@ interface CampaignI {
   productSend: string;
   productInfluencerCaption: string;
   productPostStyle: string;
-  styleGuides: [];
+  styleGuides: string[];
   firstPostLooking: string;
   instagramStoryRequire: boolean;
-  targetStates: [];
-  gender: string;
-  instagramHandles: [];
-  hashtags: [];
+  targetStates: string[];
+  gender: string[];
+  instagramHandles: string[];
+  hashtags: string[];
   vipCreator: boolean;
   productFolder: string;
 }
@@ -110,6 +111,8 @@ const Editcapaign = () => {
   const urlParams = new URLSearchParams(queryString);
   const id: string = urlParams.get("id") || "";
 
+  const router = useRouter();
+
   const targetStateOption = [
     { value: "all", label: "All" },
     { value: "food", label: "Food" },
@@ -135,7 +138,7 @@ const Editcapaign = () => {
     firstPostLooking: "image",
     instagramStoryRequire: false,
     targetStates: [],
-    gender: "",
+    gender: [],
     instagramHandles: [],
     hashtags: [],
     vipCreator: false,
@@ -195,6 +198,16 @@ const Editcapaign = () => {
 
   const onSubmit = () => {
     console.log(campaign);
+    if (campaign.id) {
+      DataService.update(`campaigns`, campaign.id, JSON.stringify(campaign))
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    } else {
+      DataService.create("campaign", campaign)
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    }
+    router.push("/");
   };
 
   useEffect(() => {
@@ -461,7 +474,7 @@ const Editcapaign = () => {
                 className="my-3 p-3 pl-7 w-full border-b border-white bg-black"
                 placeholder="YourHandle"
                 type="text"
-                onKeyDown={(e) => {
+                onKeyDown={(e: any) => {
                   const copyHandle = [...campaign.instagramHandles];
                   if (e.key === "Enter") {
                     if (e.target.value !== "") {
@@ -514,16 +527,12 @@ const Editcapaign = () => {
                 className="my-3 p-3 pl-7 w-full border-b border-white bg-black"
                 placeholder="YourHashtag"
                 type="text"
-                onKeyDown={(e) => {
+                onKeyDown={(e: any) => {
                   const copyHashtag = [...campaign.hashtags];
                   if (e.key === "Enter") {
                     if (e.target.value !== "") {
-                      if (copyHashtag.length !== 5) {
-                        copyHashtag.push(`#${e.target.value}`);
-                        e.target.value = "";
-                      } else {
-                        alert("Hashtags are maximum");
-                      }
+                      copyHashtag.push(`@${e.target.value}`);
+                      e.target.value = "";
                     }
                   }
                   setCampaign({
@@ -547,6 +556,7 @@ const Editcapaign = () => {
                       onClick={() => {
                         const copyHashtag = [...campaign.hashtags];
                         copyHashtag.splice(i, 1);
+
                         setCampaign({
                           ...campaign,
                           hashtags: copyHashtag,
