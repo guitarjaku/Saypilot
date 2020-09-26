@@ -42,7 +42,7 @@
     },
     {
       "id": "2",
-      "name": "New",
+      "name": "New Campiagn TEST",
       "imageMain": "",
       "productWebsite": "www.newshinewine.com",
       "productValue": "$100",
@@ -73,6 +73,48 @@
       "hashtags": [],
       "vipCreator": false,
       "productFolder": ""
+    },
+    {
+      "name": "HELLO TEST",
+      "imageMain": "",
+      "productWebsite": "",
+      "productValue": "",
+      "productCategory": "",
+      "productCategoryValue": "",
+      "productSend": "",
+      "productInfluencerCaption": "",
+      "productPostStyle": "",
+      "styleGuides": [],
+      "firstPostLooking": "image",
+      "instagramStoryRequire": false,
+      "targetStates": [],
+      "gender": [],
+      "instagramHandles": [],
+      "hashtags": [],
+      "vipCreator": false,
+      "productFolder": "",
+      "id": "3432573"
+    },
+    {
+      "name": "",
+      "imageMain": "",
+      "productWebsite": "",
+      "productValue": "",
+      "productCategory": "",
+      "productCategoryValue": "",
+      "productSend": "",
+      "productInfluencerCaption": "",
+      "productPostStyle": "",
+      "styleGuides": [],
+      "firstPostLooking": "image",
+      "instagramStoryRequire": false,
+      "targetStates": [],
+      "gender": [],
+      "instagramHandles": [],
+      "hashtags": [],
+      "vipCreator": false,
+      "productFolder": "",
+      "id": "2600503"
     }
   ]
 }
