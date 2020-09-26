@@ -102,3 +102,10 @@
 - [x] select action
 - [x] button action
 - [x] UI 80/100 state 20/100 UX 35/100
+
+## 26/09/2020, 20.00-22.00
+
+- [x] input action by enter hashtag && handle
+- [x] select action
+- [x] button action
+- [x] UI 90/100 state 25/100 UX 40/100
