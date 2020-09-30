@@ -60,7 +60,7 @@ const Header = () => {
             </button>
           </div>
           <nav className="hidden md:flex space-x-10">
-            <Link href="/summary">
+            <Link href="/">
               <a className="text-base leading-6 font-medium text-black hover:text-gray-200 focus:outline-none focus:text-gray-400 transition ease-in-out duration-150">
                 Summarys
               </a>
