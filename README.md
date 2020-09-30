@@ -117,3 +117,8 @@
 
 - [x] summary page UI 30%
 - [x] UI 93/100 state 40/100 UX 45/100
+
+## 30/09/2020, 14.00-16.00
+
+- [x] summary page UI 30%
+- [x] UI 95/100 state 40/100 UX 50/100
