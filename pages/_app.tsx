@@ -21,12 +21,11 @@ Router.events.on("routeChangeError", () => NProgress.done());
 export default class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
-    const preview = `https://genemator.me/preview.png`;
     return (
       <div className="h-screen bg-black">
         <Head>
-          <meta property="og:image" content={preview} />
-          <meta property="og:site_name" content="Genemator's" />
+          {/* <meta property="og:image" content={preview} />
+          <meta property="og:site_name" content="Genemator's" /> */}
           <title>Saypilot Website</title>
         </Head>
         <Component {...pageProps} />

@@ -1,8 +1,7 @@
 {
-  "name": "genemators-portfolio",
-  "version": "3.0.2",
+  "name": "saypilot",
   "private": true,
-  "description": "The portfolio website of Genemator",
+  "description": "Saypilot",
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -15,21 +14,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/genemators/genemators.git"
+    "url": ""
   },
   "keywords": [
     "Portfolio",
     "NextJS",
     "Next",
     "JS",
-    "Genemator"
+    "Saypilot"
   ],
-  "author": "Genemator Sakhib <genemators@gmail.com> (genemator.me)",
+  "author": "",
   "license": "MPL-2.0",
   "bugs": {
-    "url": "https://github.com/genemators/genemators/issues"
+    "url": ""
   },
-  "homepage": "https://genemator.me",
+  "homepage": "",
   "dependencies": {
     "@prefresh/next": "^0.4.0",
     "@tailwindcss/ui": "^0.5.0",

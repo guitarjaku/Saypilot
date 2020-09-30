@@ -1,12 +1,5 @@
 {
-  "sara": {
-    "type": "github",
-    "owner": "genemators",
-    "repo": "sara",
-    "desc": "The Voice Assistant for myself for making automatising"
-  },
-  "campaigns": [
-    {
+  "campaigns": [{
       "id": "1",
       "name": "New Shine Wine",
       "imageMain": "",
@@ -23,12 +16,10 @@
       ],
       "firstPostLooking": "image",
       "instagramStoryRequire": true,
-      "targetStates": [
-        {
-          "value": "all",
-          "label": "All"
-        }
-      ],
+      "targetStates": [{
+        "value": "all",
+        "label": "All"
+      }],
       "gender": {
         "value": "any",
         "label": "Any"
@@ -57,12 +48,10 @@
       ],
       "firstPostLooking": "image",
       "instagramStoryRequire": true,
-      "targetStates": [
-        {
-          "value": "all",
-          "label": "All"
-        }
-      ],
+      "targetStates": [{
+        "value": "all",
+        "label": "All"
+      }],
       "gender": {
         "value": "any",
         "label": "Any"

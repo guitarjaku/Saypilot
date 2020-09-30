@@ -105,10 +105,15 @@
 
 ## 26/09/2020, 20.00-22.00
 
-- [x] editcampaign state 
+- [x] editcampaign state
 - [x] UI 90/100 state 25/100 UX 40/100
 
 ## 26/09/2020, 20.00-22.00
 
 - [x] createcampaign state
 - [x] UI 90/100 state 30/100 UX 40/100
+
+## 30/09/2020, 12.00-14.00
+
+- [x] summary page UI 30%
+- [x] UI 93/100 state 40/100 UX 45/100

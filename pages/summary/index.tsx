@@ -1,8 +1,8 @@
 import { h } from "preact";
 import { useState } from "preact/hooks";
 import Head from "next/head";
-import Header from "../components/Header";
-import SideBar from "../components/Sidebar";
+import Header from "../../components/Header";
+import SideBar from "../../components/Sidebar";
 
 const Home = () => {
   return (
@@ -138,7 +138,51 @@ const Home = () => {
             <Header />
 
             <div className=" sm:block">
-              <div className="align-middle inline-block min-w-full border-b border-gray-200"></div>
+              <div className="p-4 align-middle inline-block min-w-full border-gray-200">
+                <div className="grid grid-cols-3 gap-4">
+                  <div className="col-span-2">
+                    <div className="w-full h-32 bg-blue-200">
+                      <img src="" alt="" />
+                    </div>
+                    <div className="flex text-black mt-3 p-2">
+                      <div className="flex-auto">
+                        <p className="text-4xl italic">49</p>
+                        <span className="text-sm font-medium text-gray-900">
+                          INFLUENCERS
+                        </span>
+                      </div>
+                      <div className="flex-auto">
+                        <p className="text-4xl italic">91/94</p>
+                        <span className="text-sm font-medium text-gray-900">
+                          LIVE POSTS
+                        </span>
+                      </div>
+                      <div className="flex-auto">
+                        <p className="text-4xl italic">24,865</p>
+
+                        <span className="text-sm font-medium text-gray-900">
+                          LIKES
+                        </span>
+                      </div>
+                      <div className="flex-auto">
+                        <p className="text-4xl italic">2,508</p>
+
+                        <span className="text-sm font-medium text-gray-900">
+                          COMMENTS
+                        </span>
+                      </div>
+                      <div className="flex-auto">
+                        <p className="text-4xl italic">323,245</p>
+
+                        <span className="text-sm font-medium text-gray-900">
+                          IMMPESSION
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-span-1"></div>
+                </div>
+              </div>
             </div>
           </main>
         </div>
