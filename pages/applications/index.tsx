@@ -59,7 +59,7 @@ export default function Application() {
   return (
     <>
       <div className="h-screen flex overflow-hidden bg-white">
-        <div className="lg:hidden">
+        {/* <div className="lg:hidden">
           <div className="fixed inset-0 flex z-40">
             <div className="fixed inset-0">
               <div className="absolute inset-0 bg-gray-600 opacity-75"></div>
@@ -170,8 +170,8 @@ export default function Application() {
               </div>
             </div>
             <div className="flex-shrink-0 w-14"></div>
-          </div>
-        </div>
+          </div> 
+        </div>*/}
 
         {/* desktop */}
         <SideBar />

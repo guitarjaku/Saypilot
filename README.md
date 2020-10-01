@@ -122,3 +122,8 @@
 
 - [x] summary page UI 30%
 - [x] UI 95/100 state 40/100 UX 50/100
+
+## 1/10/2020, 16.00-18.00
+
+- [x] ปรับ responsive ใหม่
+- [x] UI 80/100 state 40/100 UX 50/100

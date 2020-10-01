@@ -86,7 +86,7 @@ const Header = () => {
               </a>
             </Link>
           </nav>
-          <div className="md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0">
+          <div className="hidden md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0">
             <button
               className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border  border-gray-400 rounded-none text-left leading-5"
               onClick={() => {}}
