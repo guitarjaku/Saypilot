@@ -1,7 +1,8 @@
 {
-  "name": "saypilot",
+  "name": "genemators-portfolio",
+  "version": "3.0.2",
   "private": true,
-  "description": "Saypilot",
+  "description": "The portfolio website of Genemator",
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -14,29 +15,28 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/genemators/genemators.git"
   },
   "keywords": [
     "Portfolio",
     "NextJS",
     "Next",
     "JS",
-    "Saypilot"
+    "Genemator"
   ],
-  "author": "",
+  "author": "Genemator Sakhib <genemators@gmail.com> (genemator.me)",
   "license": "MPL-2.0",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/genemators/genemators/issues"
   },
-  "homepage": "",
+  "homepage": "https://genemator.me",
   "dependencies": {
+    "@babel/plugin-transform-react-jsx-source": "^7.10.5",
     "@prefresh/next": "^0.4.0",
     "@tailwindcss/ui": "^0.5.0",
     "@types/nprogress": "^0.2.0",
-    "@types/react-select": "^3.0.20",
     "@types/react-transition-group": "^4.4.0",
     "axios": "^0.20.0",
-    "chart.js": "^2.9.3",
     "dompurify": "^2.0.12",
     "isomorphic-unfetch": "^3.0.0",
     "marked": "^1.1.1",
@@ -47,7 +47,6 @@
     "prism-react-renderer": "^1.1.1",
     "prismjs": "^1.21.0",
     "react": "github:preact-compat/react#1.0.0",
-    "react-chartjs-2": "^2.10.0",
     "react-content-loader": "^5.1.1",
     "react-dom": "github:preact-compat/react-dom#1.0.0",
     "react-select": "^3.1.0",
@@ -58,7 +57,6 @@
     "typewriter-effect": "^2.13.1"
   },
   "devDependencies": {
-    "@babel/plugin-transform-react-jsx-source": "^7.10.5",
     "@types/dompurify": "^2.0.3",
     "@types/marked": "^1.1.0",
     "@types/node": "^14.11.1",
