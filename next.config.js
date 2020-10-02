@@ -6,8 +6,8 @@ module.exports = withPrefresh({
     polyfillsOptimization: true,
     redirects() {
       return [{
-        source: "/summary.html",
-        destination: "/summary",
+        source: "/index.html",
+        destination: "/index",
         permanent: true,
       }, ];
     },
