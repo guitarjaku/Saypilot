@@ -127,3 +127,8 @@
 
 - [x] ปรับ responsive ใหม่
 - [x] UI 80/100 state 40/100 UX 50/100
+
+## 2/10/2020, 08.00-10.00
+
+- [x] เพิ่ม chart ในหน้่า post analytics
+- [x] UI 85/100 state 40/100 UX 50/100

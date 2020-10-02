@@ -26,11 +26,11 @@ const Home = () => {
             <div className=" sm:block">
               <div className="p-4 align-middle inline-block min-w-full border-gray-200">
                 <div className="grid grid-cols-3 gap-4">
-                  <div className="col-span-3 md:col-span-2">
+                  <div className="col-span-3 lg:col-span-2">
                     <div className="w-full h-32 bg-blue-200">
                       <img src="" alt="" />
                     </div>
-                    <div className="flex border-b border-gray-400 text-black mt-3 p-2">
+                    <div className="flex flex-wrap border-b border-gray-400 text-black mt-3 p-2">
                       <div className="flex-auto p-3">
                         <p className="text-4xl italic">49</p>
                         <span className="text-sm font-medium text-gray-900">

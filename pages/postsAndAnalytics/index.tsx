@@ -2,8 +2,9 @@ import { h } from "preact";
 import { useState } from "preact/hooks";
 import Head from "next/head";
 import Header from "../../components/Header";
-import CardPost from "../../components/cardPost";
 import SideBar from "../../components/Sidebar";
+import LineChart from "./chart";
+import CardPost from "./cardPost";
 
 const PostsAndAnalytics = () => {
   return (
@@ -132,6 +133,9 @@ const PostsAndAnalytics = () => {
                         1Y
                       </button>
                     </span>
+                  </div>
+                  <div className="col-span-8">
+                    <LineChart />
                   </div>
                 </div>
 

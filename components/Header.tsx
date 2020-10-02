@@ -86,7 +86,7 @@ const Header = () => {
               </a>
             </Link>
           </nav>
-          <div className="hidden md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0">
+          <div className="hidden lg:flex items-center justify-end space-x-8 md:flex-1 lg:w-0">
             <button
               className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border  border-gray-400 rounded-none text-left leading-5"
               onClick={() => {}}
@@ -95,7 +95,7 @@ const Header = () => {
                 <div className="fill-current w-8 h-8 mr-2">
                   <img src={"/icons/email.png"} alt="" />
                 </div>
-                <div className="flex-1 italic ">
+                <div className="flex-1 italic">
                   <span>Email</span>
                   <br />
                   <span>Analytics</span>
