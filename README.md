@@ -138,3 +138,8 @@
 - [x] เพิ่ม slider input ในหน้่า add Credit
 - [x] function discount
 - [x] UI 89/100 state 40/100 UX 55/100
+
+## 3/10/2020, 16.00-18.00
+
+- [x] UI 89/100 state 43/100 UX 58/100
+- [x] function discount 100%

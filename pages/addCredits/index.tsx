@@ -27,14 +27,18 @@ const Editcapaign = () => {
 
   const calDiscount = () => {
     let discountSum = 100;
-    if (credit > 20) {
+    if (credit > 20 && credit <= 40) {
       discountSum -= discountSum * 0.05;
-    } else if (credit > 40) {
+      setDiscount(5);
+    } else if (credit > 40 && credit <= 60) {
       discountSum -= discountSum * 0.1;
-    } else if (credit > 60) {
+      setDiscount(10);
+    } else if (credit > 60 && credit <= 80) {
       discountSum -= discountSum * 0.15;
+      setDiscount(15);
     } else if (credit > 80) {
       discountSum -= discountSum * 0.2;
+      setDiscount(20);
     }
 
     return discountSum;
@@ -121,7 +125,7 @@ const Editcapaign = () => {
                 <div className="col-span-1 text-right">
                   <div>{"$" + calDiscount()}</div>
                   <div>{discount + "% Off"}</div>
-                  <div>NO</div>
+                  <div>{discount > 0 ? "YES!" : "NO"}</div>
                 </div>
               </div>
               <div className="grid grid-cols-2 pt-4">
@@ -129,7 +133,7 @@ const Editcapaign = () => {
                   <div>Order total</div>
                 </div>
                 <div className="col-span-1 text-right">
-                  <div>$500</div>
+                  <div>${credit * (100 - discount)}</div>
                 </div>
                 <div className="col-span-2">
                   <div className="py-4 flex items-center">
