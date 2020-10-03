@@ -1,7 +1,45 @@
 import { h } from "preact";
 import { useState } from "preact/hooks/";
+import Slider from "rc-slider";
+import Tooltip from "rc-tooltip";
+
+const { Handle, createSliderWithTooltip } = Slider;
+const SliderWithTooltip = createSliderWithTooltip(Slider);
+
+const handle = (props: any) => {
+  const { value, dragging, index, ...restProps } = props;
+  return (
+    <Tooltip
+      prefixCls="rc-slider-tooltip"
+      overlay={value}
+      visible={dragging}
+      placement="top"
+      key={index}
+    >
+      <Handle value={value} {...restProps} />
+    </Tooltip>
+  );
+};
 
 const Editcapaign = () => {
+  const [credit, setCredit] = useState(1);
+  const [discount, setDiscount] = useState(0);
+
+  const calDiscount = () => {
+    let discountSum = 100;
+    if (credit > 20) {
+      discountSum -= discountSum * 0.05;
+    } else if (credit > 40) {
+      discountSum -= discountSum * 0.1;
+    } else if (credit > 60) {
+      discountSum -= discountSum * 0.15;
+    } else if (credit > 80) {
+      discountSum -= discountSum * 0.2;
+    }
+
+    return discountSum;
+  };
+
   return (
     <>
       <div className="py-8 bg-black overflow-hidden md:py-20 lg:py-24">
@@ -49,13 +87,23 @@ const Editcapaign = () => {
                 one-on-one strategy session with our head of customer success.
               </span>
             </div>
+            <div className="my-16">
+              <SliderWithTooltip
+                min={0}
+                max={100}
+                value={credit}
+                handle={handle}
+                tipFormatter={(value) => `$${credit} in saving`}
+                onChange={(value) => setCredit(value)}
+              />
+            </div>
           </div>
           <div className="col-span-1 bg-gray-500 p-5">
             <div className="relative flex bottom-24">
               <div className="rounded-full h-48 w-48 flex items-center justify-center  bg-blue-700 border-2 border-white m-auto">
                 <div className="flex-col mb-8">
                   <p className="flex items-center justify-center text-6xl">
-                    36
+                    {credit}
                   </p>
                   <span className="flex items-center justify-center text-xs">
                     Creator Credits
@@ -71,8 +119,8 @@ const Editcapaign = () => {
                   <div>account manager + strategy session (20+)</div>
                 </div>
                 <div className="col-span-1 text-right">
-                  <div>$100</div>
-                  <div>0% Off</div>
+                  <div>{"$" + calDiscount()}</div>
+                  <div>{discount + "% Off"}</div>
                   <div>NO</div>
                 </div>
               </div>

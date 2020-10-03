@@ -1,10 +1,4 @@
 {
-  "sara": {
-    "type": "github",
-    "owner": "genemators",
-    "repo": "sara",
-    "desc": "The Voice Assistant for myself for making automatising"
-  },
   "campaigns": [
     {
       "id": "1",
@@ -17,15 +11,51 @@
       "productSend": "We'll be sending you 1 free month of our wine subscription box",
       "productInfluencerCaption": "We're looking for influencers to help spread the word about our monthly wine delivery service. We're a new company that is aiming to make wine much more of an approachable hobby. We understand that the culture of wine can be intimidating. With NewShine Wine we make discovering and enjoying wine fun and stress-free. <br/> After you try box of our wines for your self, we hope you'll truly see and understand our mission. Could you please communicate the following with your audience:",
       "productPostStyle": "We looking for fun!That is the baseline for everything we do. Wine is not something only meant to be enjoyed by the aristocrats. It's meant for all of us to enjoy together Make sure you represent youself and show the world what having fun means to you. Take a look at the images in our listing at some aesthetics that we like.",
-      "styleGuides": ["", ""],
+      "styleGuides": [
+        "",
+        ""
+      ],
       "firstPostLooking": "image",
       "instagramStoryRequire": true,
-      "targetStates": [{ "value": "all", "label": "All" }],
-      "gender": { "value": "any", "label": "Any" },
-      "instagramHandles": ["@newshine"],
-      "hashtags": [],
+      "targetStates": [
+        {
+          "value": "all",
+          "label": "All"
+        }
+      ],
+      "gender": {
+        "value": "any",
+        "label": "Any"
+      },
+      "instagramHandles": [
+        "@newshine"
+      ],
+      "hashtags": [
+        "@dfng"
+      ],
       "vipCreator": false,
       "productFolder": ""
+    },
+    {
+      "name": "",
+      "imageMain": "",
+      "productWebsite": "",
+      "productValue": "",
+      "productCategory": "",
+      "productCategoryValue": "",
+      "productSend": "",
+      "productInfluencerCaption": "",
+      "productPostStyle": "",
+      "styleGuides": [],
+      "firstPostLooking": "image",
+      "instagramStoryRequire": false,
+      "targetStates": [],
+      "gender": [],
+      "instagramHandles": [],
+      "hashtags": [],
+      "vipCreator": false,
+      "productFolder": "",
+      "id": "2359101"
     }
   ]
 }

@@ -409,7 +409,7 @@ export default function Application() {
               <div className="align-middle inline-block min-w-full border-b border-gray-200">
                 <div className="flex flex-col">
                   <div className="-my-2 overflow-x-auto ">
-                    <div className="py-2 align-middle inline-block min-w-full">
+                    <div className="py-2 px-8 align-middle inline-block min-w-full">
                       <div className="overflow-hidden rounded-none border border-gray-400">
                         <table className="min-w-full divide-y divide-gray-200">
                           <thead>

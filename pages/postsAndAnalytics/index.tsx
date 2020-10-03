@@ -325,7 +325,7 @@ const PostsAndAnalytics = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-6 px-8">
+                <div className="grid grid-cols-3 gap-6 p-8">
                   <div className="m-auto">
                     <CardPost />
                   </div>

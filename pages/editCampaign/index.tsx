@@ -146,40 +146,42 @@ const Editcapaign = () => {
   });
 
   const getCampiagn = () => {
-    DataService.get("/campaigns", id).then((res) => {
-      setCampaign(res.data);
-      console.log(campaign);
+    if (id) {
+      DataService.get("/campaigns", id).then((res) => {
+        setCampaign(res.data);
+        // console.log(campaign);
 
-      const image_button = document.getElementById("image-post");
-      const video_button = document.getElementById("video-post");
-      if (res.data.firstPostLooking) {
-        image_button?.classList.remove("bg-white", "text-gray-700");
-        image_button?.classList.add("text-white");
-      } else {
-        video_button?.classList.remove("bg-white", "text-gray-700");
-        video_button?.classList.add("text-white");
-      }
+        const image_button = document.getElementById("image-post");
+        const video_button = document.getElementById("video-post");
+        if (res.data.firstPostLooking) {
+          image_button?.classList.remove("bg-white", "text-gray-700");
+          image_button?.classList.add("text-white");
+        } else {
+          video_button?.classList.remove("bg-white", "text-gray-700");
+          video_button?.classList.add("text-white");
+        }
 
-      const insta_no = document.getElementById("insta-no");
-      const insta_yes = document.getElementById("insta-yes");
-      if (res.data.instagramStoryRequire) {
-        insta_yes?.classList.remove("bg-white", "text-gray-700");
-        insta_yes?.classList.add("text-white");
-      } else {
-        insta_no?.classList.remove("bg-white", "text-gray-700");
-        insta_no?.classList.add("text-white");
-      }
+        const insta_no = document.getElementById("insta-no");
+        const insta_yes = document.getElementById("insta-yes");
+        if (res.data.instagramStoryRequire) {
+          insta_yes?.classList.remove("bg-white", "text-gray-700");
+          insta_yes?.classList.add("text-white");
+        } else {
+          insta_no?.classList.remove("bg-white", "text-gray-700");
+          insta_no?.classList.add("text-white");
+        }
 
-      const vip_no = document.getElementById("vip-no");
-      const vip_yes = document.getElementById("vip-yes");
-      if (res.data.vipCreator) {
-        vip_yes?.classList.remove("bg-white", "text-gray-700");
-        vip_yes?.classList.add("text-white");
-      } else {
-        vip_no?.classList.remove("bg-white", "text-gray-700");
-        vip_no?.classList.add("text-white");
-      }
-    });
+        const vip_no = document.getElementById("vip-no");
+        const vip_yes = document.getElementById("vip-yes");
+        if (res.data.vipCreator) {
+          vip_yes?.classList.remove("bg-white", "text-gray-700");
+          vip_yes?.classList.add("text-white");
+        } else {
+          vip_no?.classList.remove("bg-white", "text-gray-700");
+          vip_no?.classList.add("text-white");
+        }
+      });
+    }
   };
 
   const onInputValueChange = (props: any) => (e: any) => {

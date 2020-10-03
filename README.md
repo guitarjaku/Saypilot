@@ -132,3 +132,9 @@
 
 - [x] เพิ่ม chart ในหน้่า post analytics
 - [x] UI 85/100 state 40/100 UX 50/100
+
+## 3/10/2020, 08.00-10.00
+
+- [x] เพิ่ม slider input ในหน้่า add Credit
+- [x] function discount
+- [x] UI 89/100 state 40/100 UX 55/100

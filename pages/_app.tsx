@@ -6,6 +6,7 @@ import Head from "next/head";
 import Router from "next/router";
 import NProgress from "nprogress";
 import "../components/app.css";
+import "rc-slider/assets/index.css";
 
 NProgress.configure({
   showSpinner: false,

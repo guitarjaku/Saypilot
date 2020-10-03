@@ -48,6 +48,7 @@
     "preact-render-to-string": "^5.1.10",
     "prism-react-renderer": "^1.1.1",
     "prismjs": "^1.21.0",
+    "rc-slider": "^9.5.1",
     "react": "github:preact-compat/react#1.0.0",
     "react-chartjs-2": "^2.10.0",
     "react-content-loader": "^5.1.1",
