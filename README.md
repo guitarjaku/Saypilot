@@ -143,3 +143,8 @@
 
 - [x] UI 89/100 state 43/100 UX 58/100
 - [x] function discount 100%
+
+## 4/10/2020, 18.00-20.00
+
+- [x] UI 89/100 state 43/100 UX 58/100
+- [x] search modal 40%
