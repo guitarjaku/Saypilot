@@ -91,12 +91,12 @@
 - [x] set state on editcampaign and sidebar
 - [x] UI 80/100 state 20/100 UX 25/100
 
-## 20/09/2020, 13.00-15.00
+## 21/09/2020, 13.00-15.00
 
 - [x] set action on Editpage
 - [x] UI 80/100 state 20/100 UX 30/100
 
-## 20/09/2020, 15.00-17.00
+## 21/09/2020, 15.00-17.00
 
 - [x] input action by enter hashtag && handle
 - [x] select action
@@ -153,4 +153,9 @@
 
 - [x] search modal 100%
 - [x] Sumary page get data
+- [x] UI 90/100 state 50/100 UX 65/100
+
+## 4/10/2020, 22.00-24.00
+
+- [x] Sumary Footer layout && function
 - [x] UI 90/100 state 50/100 UX 65/100

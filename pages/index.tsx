@@ -4,6 +4,7 @@ import Head from "next/head";
 import Header from "../components/Header";
 import SideBar from "../components/Sidebar";
 import DataService from "../service/service";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const [campaign, setCampaign] = useState({
@@ -46,23 +47,23 @@ const Home = () => {
 
   return (
     <>
-      <div className="h-screen flex overflow-hidden bg-white">
-        {/* desktop */}
-        <SideBar />
+      {/* desktop */}
 
-        <div className="flex flex-col w-0 flex-1 overflow-hidden">
-          <main className="flex-1 relative z-0 overflow-y-auto focus:outline-none">
-            <Head>
-              <title>Home | Saypilot</title>
-              <meta property="og:title" content="Information about Genemator" />
-              <meta
-                property="og:description"
-                content="In this page you can get detailed information about Genemator and his works & experiences."
-              />
-            </Head>
+      <div className="flex flex-row flex-1 overflow-hidden bg-white h-screen">
+        <SideBar />
+        <main className="flex flex-grow relative z-0 overflow-y-auto focus:outline-none ">
+          <Head>
+            <title>Home | Saypilot</title>
+            <meta property="og:title" content="Information about Genemator" />
+            <meta
+              property="og:description"
+              content="In this page you can get detailed information about Genemator and his works & experiences."
+            />
+          </Head>
+          <div className="flex flex-grow flex-col ">
             <Header />
 
-            <div className=" sm:block">
+            <div className=" sm:block flex-grow">
               <div className="p-4 align-middle inline-block min-w-full border-gray-200">
                 <div className="grid grid-cols-3 gap-4">
                   <div className="col-span-3 lg:col-span-2">
@@ -261,8 +262,9 @@ const Home = () => {
                 </div>
               </div>
             </div>
-          </main>
-        </div>
+            <Footer />
+          </div>
+        </main>
       </div>
     </>
   );

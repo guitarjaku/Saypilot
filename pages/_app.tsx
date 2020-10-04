@@ -23,7 +23,7 @@ export default class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
-      <div className="h-screen bg-black">
+      <div className="h-screen">
         <Head>
           {/* <meta property="og:image" content={preview} />
           <meta property="og:site_name" content="Genemator's" /> */}
