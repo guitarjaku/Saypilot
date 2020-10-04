@@ -148,3 +148,9 @@
 
 - [x] UI 89/100 state 43/100 UX 58/100
 - [x] search modal 40%
+
+## 4/10/2020, 20.00-22.00
+
+- [x] search modal 100%
+- [x] Sumary page get data
+- [x] UI 90/100 state 50/100 UX 65/100

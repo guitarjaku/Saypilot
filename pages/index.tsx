@@ -1,10 +1,49 @@
 import { h } from "preact";
-import { useState } from "preact/hooks";
+import { useState, useEffect } from "preact/hooks";
 import Head from "next/head";
 import Header from "../components/Header";
 import SideBar from "../components/Sidebar";
+import DataService from "../service/service";
 
 const Home = () => {
+  const [campaign, setCampaign] = useState({
+    name: "",
+    imageMain: "",
+    productWebsite: "",
+    productValue: "",
+    productCategory: "",
+    productCategoryValue: "",
+    productSend: "",
+    productInfluencerCaption: "",
+    productPostStyle: "",
+    styleGuides: [],
+    firstPostLooking: "image",
+    instagramStoryRequire: false,
+    targetStates: [],
+    gender: [],
+    instagramHandles: [],
+    hashtags: [],
+    vipCreator: false,
+    productFolder: "",
+  });
+
+  const getCampaig = () => {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const id: string = urlParams.get("id") || "";
+
+    DataService.get("/campaigns", id)
+      .then((res) => {
+        console.log(res.data);
+        setCampaign(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    getCampaig();
+  }, []);
+
   return (
     <>
       <div className="h-screen flex overflow-hidden bg-white">
@@ -75,10 +114,7 @@ const Home = () => {
                         </span>
                       </div>
                       <div className="flex-1 mb-6">
-                        <span>
-                          We'll be sending you 1 free mount of our wine
-                          subscription box.
-                        </span>
+                        <span>{campaign.productSend}</span>
                       </div>
                       <div className="flex-1 text-xl text-bold mb-3">
                         <span>
@@ -86,8 +122,26 @@ const Home = () => {
                           thier caption?
                         </span>
                       </div>
-                      <div className="flex-1"></div>
-                      <div className="flex-1"></div>
+                      <div className="flex-1 mb-6">
+                        <span>{campaign.productInfluencerCaption}</span>
+                      </div>
+                      <div className="flex-1 text-xl text-bold mb-3">
+                        <span>What photo/video style are you looking for?</span>
+                      </div>
+                      <div className="flex-1 mb-6">
+                        <span>{campaign.productPostStyle}</span>
+                      </div>
+                      <div className="flex-1 text-xl text-bold mb-3">
+                        <span>Style Guide</span>
+                      </div>
+                      <div className="flex-1 mb-6">
+                        {campaign.styleGuides?.map((sg) => (
+                          <span
+                            className="bg-yellow-400 rounded-none"
+                            style={{ height: "100px", width: "100px" }}
+                          ></span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                   <div className="col-span-1">
@@ -150,19 +204,19 @@ const Home = () => {
                           <span>WEBSITE</span>
                         </div>
                         <div className="flex-1 text-1xl font-bold mb-3">
-                          <span>wwww.newshine.com</span>
+                          <span>{campaign.productWebsite}</span>
                         </div>
                         <div className="flex-1 text-sm text-gray-500">
                           <span>PRODUCT VALUE</span>
                         </div>
                         <div className="flex-1 text-1xl font-bold mb-3">
-                          <span>100$</span>
+                          <span>{campaign.productValue}</span>
                         </div>
                         <div className="flex-1 text-sm text-gray-500">
                           <span>PRODUCT CATEGORY</span>
                         </div>
                         <div className="flex-1 text-1xl font-bold mb-3">
-                          <span>Braverages</span>
+                          <span>{campaign.productCategory}</span>
                         </div>
                       </div>
                       <div className="flex-1">

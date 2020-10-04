@@ -65,15 +65,14 @@ const SideBar = () => {
                   role="group"
                   aria-labelledby="teams-headline"
                 >
-                  {campaigns.map((campaign : any) => (
+                  {campaigns.map((campaign: any) => (
                     <a
-                      href={`/editCampaign/?id=${campaign.id}`}
+                      href={`/?id=${campaign.id}`}
                       className="group flex items-center px-3 py-2 text-sm leading-5 font-medium text-gray-200 rounded-none border-r-4 border-black hover:text-gray-500 hover:bg-gray-700 hover:border-yellow-400 focus:outline-none focus:bg-gray-700 focus:border-yellow-400 transition ease-in-out duration-150"
                     >
                       <span className="w-10 h-10 mr-4 bg-indigo-500 rounded-none"></span>
                       <span className="truncate">{campaign.name}</span>
                     </a>
-                    
                   ))}
                   <a
                     href="/editCampaign/?id="
