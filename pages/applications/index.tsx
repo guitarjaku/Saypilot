@@ -45,6 +45,27 @@ export default function Application() {
   const [overSideOpen, setOverSideOpen] = useState(false);
   const [modalSearchOpen, setModalSearchOpen] = useState(false);
   const [sniperMenu, setSniperMenu] = useState(1);
+  const [search, setSearch] = useState({
+    youtubeAccount: false,
+    contactDetail: false,
+    influencerInfo: {
+      country: "",
+      followerRange: [0, 0],
+      AVGViews: [0, 0],
+      language: "",
+      engagementRate: "",
+      Interests: "",
+    },
+    targetAudienceInfo: {
+      country: "",
+      age: "",
+      gender: "",
+      language: "",
+      Interests: "",
+    },
+    byChannel: "",
+    byRelevance: "",
+  });
 
   const onOverSideOpen = () => {
     setOverSideOpen(true);
@@ -60,10 +81,6 @@ export default function Application() {
 
   const onModalSearchClose = () => {
     setModalSearchOpen(false);
-  };
-
-  const onSniperChange = (props: number) => {
-    setSniperMenu(props);
   };
 
   return (
@@ -505,7 +522,9 @@ export default function Application() {
             {/* Over side */}
             {overSideOpen && <OverSide onClose={onOverSideClose} />}
             {/* Modal Search */}
-            {modalSearchOpen && <ModalSearch onClose={onModalSearchClose} />}
+            {modalSearchOpen && (
+              <ModalSearch onClose={onModalSearchClose} search={setSearch} />
+            )}
           </main>
         </div>
       </div>

@@ -60,7 +60,7 @@ const ModalSearch = (props: any) => {
                 </div>
               </div>
             </button>
-            <button
+            {/* <button
               type="button"
               onClick={() => onSniperChange(2)}
               className="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
@@ -85,7 +85,7 @@ const ModalSearch = (props: any) => {
                   <span>Twitch</span>
                 </div>
               </div>
-            </button>
+            </button> */}
             <button
               type="button"
               onClick={() => onSniperChange(3)}
@@ -135,13 +135,13 @@ const ModalSearch = (props: any) => {
             <div>
               <div className="border border-gray-300 m-4">
                 {sniperMenu === 1 ? (
-                  <Instagram />
+                  <Instagram search={props.search} />
                 ) : sniperMenu === 2 ? (
                   ""
                 ) : sniperMenu === 3 ? (
-                  <Youtube />
+                  <Youtube search={props.search} />
                 ) : (
-                  <Tiktok />
+                  <Tiktok search={props.search} />
                 )}
               </div>
             </div>

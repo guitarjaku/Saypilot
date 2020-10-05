@@ -159,3 +159,10 @@
 
 - [x] Sumary Footer layout && function
 - [x] UI 90/100 state 50/100 UX 65/100
+
+## -------------------------------------
+
+## 5/10/2020, 20.00-22.00
+
+- [x] aplication search state 50%
+- [x] UI 90/100 state 60/100 UX 65/100

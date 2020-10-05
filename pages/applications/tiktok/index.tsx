@@ -1,7 +1,7 @@
 import { h } from "preact";
 import { useState } from "preact/hooks/";
 
-const Tiktok = () => {
+const Tiktok = (props: any) => {
   return (
     <>
       <div className="bg-white overflow-hidden shadow rounded-lg text-black">

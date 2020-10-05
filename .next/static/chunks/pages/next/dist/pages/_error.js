@@ -391,7 +391,7 @@ eval("module.exports = function(module) {\n\tif (!module.webpackPolyfill) {\n\t\
 
 /***/ }),
 
-/***/ 6:
+/***/ 7:
 /*!****************************************************************************************************************************************************************************************************************************!*\
   !*** multi ./node_modules/@prefresh/core/src/index.js next-client-pages-loader?page=%2Fnext%2Fdist%2Fpages%2F_error&absolutePagePath=%2FUsers%2Fg4rtu1%2FWork%2Fsaypilot%2Fnode_modules%2Fnext%2Fdist%2Fpages%2F_error.js ***!
   \****************************************************************************************************************************************************************************************************************************/
@@ -404,4 +404,4 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fnext%2
 
 /***/ })
 
-},[[6,"webpack","commons"]]]);
+},[[7,"webpack","commons"]]]);
