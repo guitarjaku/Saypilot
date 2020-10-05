@@ -50,8 +50,8 @@ export default function Application() {
     contactDetail: false,
     influencerInfo: {
       country: "",
-      followerRange: [0, 0],
-      AVGViews: [0, 0],
+      followerRange: { min: "", max: "" },
+      AVGViews: { min: "", max: "" },
       language: "",
       engagementRate: "",
       Interests: "",

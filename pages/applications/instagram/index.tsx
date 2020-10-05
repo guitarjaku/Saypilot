@@ -1,7 +1,57 @@
 import { h } from "preact";
-import { useState } from "preact/hooks/";
+import { useState, useEffect } from "preact/hooks/";
+import DataService from "../../../service/service";
+import Select from "react-select";
 
 const Instagram = (props: any) => {
+  const [seacrhForm, setSearchForm] = useState({
+    youtubeAccount: false,
+    contactDetail: false,
+    influencerInfo: {
+      country: "",
+      followerRange: { min: "", max: "" },
+      AVGViews: { min: "", max: "" },
+      language: "",
+      engagementRate: "",
+      Interests: "",
+    },
+    targetAudienceInfo: {
+      country: "",
+      age: "",
+      gender: "",
+      language: "",
+      Interests: "",
+    },
+    byChannel: "",
+    byRelevance: "",
+  });
+
+  const [countryStateOption, setCountryStateOption] = useState([]);
+  const [languageStateOption, setLanguageStateOption] = useState([]);
+
+  const getCountry = () => {
+    DataService.getAll("https://restcountries.eu/rest/v2/all")
+      .then((res) => {
+        // console.log(res.data);
+        const dataCountry: any = [];
+        const dataLanguage: any = [];
+        res.data.forEach((el: any) => {
+          dataCountry.push({ value: el.alpha2Code, label: el.name });
+          el.languages.forEach((lang: any) => {
+            dataLanguage.push({ value: lang.iso639_1, label: lang.name });
+          });
+        });
+        // console.log(dataLanguage);
+        setCountryStateOption(dataCountry);
+        setLanguageStateOption(dataLanguage);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    getCountry();
+  }, []);
+
   return (
     <>
       <div className="bg-white overflow-hidden shadow rounded-lg text-black">
@@ -117,7 +167,16 @@ const Instagram = (props: any) => {
                 Location
               </label>
               <div className="mt-1 relative rounded-none shadow-sm">
-                <select
+                <Select
+                  id="countryState"
+                  name="countryState"
+                  className="my-3"
+                  isMulti
+                  // value={}
+                  // onChange={}
+                  options={countryStateOption}
+                />
+                {/* <select
                   id="location"
                   placeholder="Locaition"
                   className="mt-1 form-select rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
@@ -126,7 +185,7 @@ const Instagram = (props: any) => {
                   <option>USA</option>
                   <option>Canada</option>
                   <option>EU</option>
-                </select>
+                </select> */}
               </div>
             </div>
             <div className="col-span-1">
@@ -180,15 +239,15 @@ const Instagram = (props: any) => {
                 Language
               </label>
               <div className="mt-1 relative rounded-none shadow-sm">
-                <select
-                  id="location"
-                  placeholder="To"
-                  className="mt-1 form-select rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                >
-                  <option>Language</option>
-                  <option>Canada</option>
-                  <option>EU</option>
-                </select>
+                <Select
+                  id="languageState"
+                  name="languageState"
+                  className="my-3"
+                  isMulti
+                  // value={}
+                  // onChange={}
+                  options={languageStateOption}
+                />
               </div>
             </div>
             <div className="col-span-2">
