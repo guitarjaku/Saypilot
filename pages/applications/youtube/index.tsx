@@ -50,7 +50,6 @@ const Youtube = (props: any) => {
                   name="countryState1"
                   width="100%"
                   placeholderButtonLabel="Location"
-                  value={props.influencerInfo.country}
                   onChange={(e: any) => {
                     props.setInfluencerInfo({
                       ...props.influencerInfo,
@@ -71,7 +70,6 @@ const Youtube = (props: any) => {
                   name="fmin"
                   className="my-3"
                   placeholder="From"
-                  value={props.followerRange.min}
                   onChange={(e: any) => {
                     props.setFollowerRange({ ...props.followerRange, min: e });
                   }}
@@ -87,7 +85,6 @@ const Youtube = (props: any) => {
                   name="fmax"
                   className="my-3"
                   placeholder="To"
-                  value={props.followerRange.max}
                   onChange={(e: any) => {
                     props.setFollowerRange({ ...props.followerRange, max: e });
                   }}
@@ -105,7 +102,6 @@ const Youtube = (props: any) => {
                   name="avg-min"
                   className="my-3"
                   placeholder="To"
-                  value={props.AVGViews.min}
                   onChange={(e: any) => {
                     props.setAVGViews({ ...props.AVGViews, min: e });
                   }}
@@ -121,7 +117,6 @@ const Youtube = (props: any) => {
                   name="avg-max"
                   className="my-3"
                   placeholder="To"
-                  value={props.AVGViews.max}
                   onChange={(e: any) => {
                     props.setAVGViews({ ...props.AVGViews, max: e });
                   }}
@@ -139,7 +134,6 @@ const Youtube = (props: any) => {
                   name="languageState1"
                   width="100%"
                   placeholderButtonLabel="Language"
-                  value={props.influencerInfo.language}
                   onChange={(e: any) => {
                     props.setInfluencerInfo({
                       ...props.influencerInfo,
@@ -189,7 +183,6 @@ const Youtube = (props: any) => {
                   name="enengagementRate1"
                   className="my-3"
                   placeholder="Engagement Rate"
-                  value={props.influencerInfo.engagementRate}
                   onChange={(e: any) => {
                     props.setInfluencerInfo({
                       ...props.influencerInfo,
@@ -241,7 +234,6 @@ const Youtube = (props: any) => {
                   name="countryState2"
                   width="100%"
                   placeholderButtonLabel="Location"
-                  value={props.targetAudienceInfo.country}
                   onChange={(e: any) => {
                     props.setTargetAudienceInfo({
                       ...props.targetAudienceInfo,
@@ -262,7 +254,6 @@ const Youtube = (props: any) => {
                   name="age"
                   width="100%"
                   placeholderButtonLabel="Age"
-                  value={props.targetAudienceInfo.age}
                   onChange={(e: any) => {
                     props.setTargetAudienceInfo({
                       ...props.targetAudienceInfo,
@@ -283,7 +274,6 @@ const Youtube = (props: any) => {
                   name="gender2"
                   className="my-3"
                   placeholder="Gender"
-                  value={props.targetAudienceInfo.gender}
                   onChange={(e: any) => {
                     props.setTargetAudienceInfo({
                       ...props.targetAudienceInfo,
@@ -304,7 +294,6 @@ const Youtube = (props: any) => {
                   name="languageState2"
                   width="100%"
                   placeholderButtonLabel="Language"
-                  value={props.targetAudienceInfo.language}
                   onChange={(e: any) => {
                     props.setTargetAudienceInfo({
                       ...props.targetAudienceInfo,
@@ -349,7 +338,6 @@ const Youtube = (props: any) => {
                   name="username"
                   width="100%"
                   placeholderButtonLabel="@username"
-                  value={props.byChannel}
                   onChange={(e: any) => {
                     props.setByChannel(e);
                   }}
@@ -389,7 +377,6 @@ const Youtube = (props: any) => {
                   name="hashtag"
                   width="100%"
                   placeholderButtonLabel="#hashtags"
-                  value={props.byRelevance}
                   onChange={(e: any) => {
                     props.setByRelevance(e);
                   }}
@@ -403,7 +390,6 @@ const Youtube = (props: any) => {
                 <div className="mt-1 relative rounded-md shadow-sm">
                   <CreatableSelect
                     id="keywords"
-                    value={props.keywords}
                     isMulti
                     placeholder="Keyword"
                     onChange={(e: any) => {

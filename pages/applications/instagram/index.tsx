@@ -44,7 +44,6 @@ const Instagram = (props: any) => {
                   <input
                     id="youtube-account"
                     type="checkbox"
-                    value={props.youtubeAccount}
                     onChange={() => {
                       props.setYoutubeAccount(!props.youtubeAccount);
                     }}
@@ -80,7 +79,6 @@ const Instagram = (props: any) => {
                   <input
                     id="contact-detail"
                     type="checkbox"
-                    value={props.contactDetail}
                     onChange={() => {
                       props.setContactDetail(!props.contactDetail);
                     }}
@@ -134,7 +132,6 @@ const Instagram = (props: any) => {
                   name="countryState1"
                   width="100%"
                   placeholderButtonLabel="Location"
-                  value={props.influencerInfo.country}
                   onChange={(e: any) => {
                     props.setInfluencerInfo({
                       ...props.influencerInfo,
@@ -155,7 +152,6 @@ const Instagram = (props: any) => {
                   name="fmin"
                   className="my-3"
                   placeholder="From"
-                  value={props.followerRange.min}
                   onChange={(e: any) => {
                     props.setFollowerRange({ ...props.followerRange, min: e });
                   }}
@@ -171,7 +167,6 @@ const Instagram = (props: any) => {
                   name="fmax"
                   className="my-3"
                   placeholder="To"
-                  value={props.followerRange.max}
                   onChange={(e: any) => {
                     props.setFollowerRange({ ...props.followerRange, max: e });
                   }}
@@ -189,7 +184,6 @@ const Instagram = (props: any) => {
                   name="gender1"
                   className="my-3"
                   placeholder="Gender"
-                  value={props.influencerInfo.gender}
                   onChange={(e: any) => {
                     props.setInfluencerInfo({
                       ...props.influencerInfo,
@@ -210,7 +204,6 @@ const Instagram = (props: any) => {
                   name="languageState1"
                   width="100%"
                   placeholderButtonLabel="Language"
-                  value={props.influencerInfo.language}
                   onChange={(e: any) => {
                     props.setInfluencerInfo({
                       ...props.influencerInfo,
@@ -230,7 +223,6 @@ const Instagram = (props: any) => {
                   id="interrests1"
                   name="interrests1"
                   placeholderButtonLabel="Interrests"
-                  value={props.influencerInfo.interests}
                   onChange={(e: any) => {
                     props.setInfluencerInfo({
                       ...props.influencerInfo,
@@ -281,7 +273,6 @@ const Instagram = (props: any) => {
                   name="enengagementRate1"
                   className="my-3"
                   placeholder="Engagement Rate"
-                  value={props.influencerInfo.engagementRate}
                   onChange={(e: any) => {
                     props.setInfluencerInfo({
                       ...props.influencerInfo,
@@ -333,7 +324,6 @@ const Instagram = (props: any) => {
                   name="countryState2"
                   width="100%"
                   placeholderButtonLabel="Location"
-                  value={props.targetAudienceInfo.country}
                   onChange={(e: any) => {
                     props.setTargetAudienceInfo({
                       ...props.targetAudienceInfo,
@@ -354,7 +344,6 @@ const Instagram = (props: any) => {
                   name="age"
                   width="100%"
                   placeholderButtonLabel="Age"
-                  value={props.targetAudienceInfo.age}
                   onChange={(e: any) => {
                     props.setTargetAudienceInfo({
                       ...props.targetAudienceInfo,
@@ -375,7 +364,6 @@ const Instagram = (props: any) => {
                   name="gender2"
                   className="my-3"
                   placeholder="Gender"
-                  value={props.targetAudienceInfo.gender}
                   onChange={(e: any) => {
                     props.setTargetAudienceInfo({
                       ...props.targetAudienceInfo,
@@ -396,7 +384,6 @@ const Instagram = (props: any) => {
                   name="interrests2"
                   width="100%"
                   placeholderButtonLabel="Interrests"
-                  value={props.targetAudienceInfo.interests}
                   onChange={(e: any) => {
                     props.setTargetAudienceInfo({
                       ...props.targetAudienceInfo,
@@ -417,7 +404,6 @@ const Instagram = (props: any) => {
                   name="languageState2"
                   width="100%"
                   placeholderButtonLabel="Language"
-                  value={props.targetAudienceInfo.language}
                   onChange={(e: any) => {
                     props.setTargetAudienceInfo({
                       ...props.targetAudienceInfo,
@@ -462,7 +448,6 @@ const Instagram = (props: any) => {
                   name="username"
                   width="100%"
                   placeholderButtonLabel="@username"
-                  value={props.byChannel}
                   onChange={(e: any) => {
                     props.setByChannel(e);
                   }}
@@ -509,7 +494,6 @@ const Instagram = (props: any) => {
                   name="hashtag"
                   width="100%"
                   placeholderButtonLabel="#hashtags"
-                  value={props.byRelevance}
                   onChange={(e: any) => {
                     props.setByRelevance(e);
                   }}
@@ -529,7 +513,6 @@ const Instagram = (props: any) => {
                 <div className="mt-1 relative rounded-md shadow-sm">
                   <CreatableSelect
                     id="keywords"
-                    value={props.keywords}
                     isMulti
                     placeholder="Keyword"
                     onChange={(e: any) => {
