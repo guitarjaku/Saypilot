@@ -67,7 +67,7 @@ const Home = () => {
             <Header />
             <div className=" sm:block flex-grow">
               {loading ? (
-                <ContentLoader viewBox="0 0 1200 400" height={400} width={1920}>
+                <ContentLoader viewBox="0 0 800 400" height={400} width={800}>
                   <circle cx="472" cy="159" r="7" />
                   <rect x="487" y="154" rx="5" ry="5" width="220" height="10" />
                   <circle cx="472" cy="190" r="7" />

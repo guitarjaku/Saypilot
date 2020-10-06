@@ -2,6 +2,8 @@ import { h } from "preact";
 import { useState, useEffect } from "preact/hooks/";
 import DataService from "../../../service/service";
 import Select from "react-select";
+//@ts-ignore
+import ReactMultiSelectCheckboxes from "react-multiselect-checkboxes";
 
 const Instagram = (props: any) => {
   const [seacrhForm, setSearchForm] = useState({
@@ -28,6 +30,95 @@ const Instagram = (props: any) => {
 
   const [countryStateOption, setCountryStateOption] = useState([]);
   const [languageStateOption, setLanguageStateOption] = useState([]);
+  const genderOption = [
+    { value: "male", label: "Male" },
+    { value: "female", label: "Female" },
+  ];
+  const followerMinOption = [
+    { value: "1000", label: "1,000" },
+    { value: "5000", label: "5,000" },
+    { value: "10000", label: "10,000" },
+    { value: "15000", label: "15,000" },
+    { value: "25000", label: "25,000" },
+    { value: "50000", label: "50,000" },
+    { value: "100000", label: "100,000" },
+    { value: "250000", label: "250,000" },
+    { value: "500000", label: "500,000" },
+    { value: "1000000", label: "1,000,000" },
+  ];
+  const followerMaxOption = [
+    { value: "5000", label: "5,000" },
+    { value: "10000", label: "10,000" },
+    { value: "15000", label: "15,000" },
+    { value: "25000", label: "25,000" },
+    { value: "50000", label: "50,000" },
+    { value: "100000", label: "100,000" },
+    { value: "250000", label: "250,000" },
+    { value: "500000", label: "500,000" },
+    { value: "1000000", label: "1,000,000" },
+    { value: "1000000+", label: "1,000,000+" },
+  ];
+
+  const interestsOption = [
+    { value: 1, label: "Televiion & Film" },
+    { value: 2, label: "Music" },
+    { value: 3, label: "Shoping & Retail" },
+    { value: 4, label: "Coffee, Tea & Beverages" },
+    { value: 5, label: "Camera & Photography" },
+    { value: 6, label: "Clothes, Shoes, Handags & Accessries" },
+    { value: 7, label: "Beer, Wine & Spirits" },
+    { value: 8, label: "Sports" },
+    { value: 9, label: "Electronics & Computers" },
+    { value: 10, label: "Gaming" },
+    { value: 11, label: "Activewear" },
+    { value: 12, label: "Art & Design" },
+    { value: 13, label: "Travel, Tourism & Aviation" },
+    { value: 14, label: "Business & Careers" },
+    { value: 15, label: "Beauty & Cosmetics" },
+    { value: 16, label: "Healhcare & Meicine" },
+    { value: 17, label: "Jewellery & Watches" },
+    { value: 18, label: "Restaurants, Food & Grocery" },
+    { value: 19, label: "Toys, Children & Baby" },
+    { value: 20, label: "Fitness & Yoga" },
+    { value: 21, label: "Wedding" },
+    { value: 22, label: "Tobacco & Smoking" },
+    { value: 23, label: "Pets" },
+    { value: 24, label: "Healthy Liftstyle" },
+    { value: 25, label: "Luxury Goods" },
+    { value: 26, label: "Home Decor, Furniture & Garden" },
+    { value: 27, label: "Friends, Familys & Relationships" },
+    { value: 28, label: "Cars & Motorbies" },
+  ];
+
+  const engagementRateOption = [
+    { value: ">=1%", label: ">=1%" },
+    { value: ">=2%", label: ">=2%" },
+    { value: ">=3%", label: ">=3%" },
+    { value: ">=4%", label: ">=4%" },
+    { value: ">=5%", label: ">=5%" },
+    { value: ">=6%", label: ">=6%" },
+    { value: ">=7%", label: ">=7%" },
+    { value: ">=8%", label: ">=8%" },
+    { value: ">=9%", label: ">=9%" },
+    { value: ">=10%", label: ">=10%" },
+    { value: ">=11%", label: ">=11%" },
+    { value: ">=12%", label: ">=12%" },
+    { value: ">=13%", label: ">=13%" },
+    { value: ">=14%", label: ">=14%" },
+    { value: ">=15%", label: ">=15%" },
+    { value: ">=16%", label: ">=16%" },
+    { value: ">=17%", label: ">=17%" },
+    { value: ">=18%", label: ">=18%" },
+    { value: ">=19%", label: ">=19%" },
+    { value: ">=20%", label: ">=20%" },
+  ];
+
+  const ageOption = [
+    { value: 1, label: "18-24" },
+    { value: 2, label: "25-34" },
+    { value: 3, label: "35-44" },
+    { value: 4, label: "45+" },
+  ];
 
   const getCountry = () => {
     DataService.getAll("https://restcountries.eu/rest/v2/all")
@@ -168,8 +259,8 @@ const Instagram = (props: any) => {
               </label>
               <div className="mt-1 relative rounded-none shadow-sm">
                 <Select
-                  id="countryState"
-                  name="countryState"
+                  id="countryState1"
+                  name="countryState1"
                   className="my-3"
                   isMulti
                   // value={}
@@ -193,29 +284,29 @@ const Instagram = (props: any) => {
                 Followers
               </label>
               <div className="mt-1 relative rounded-none shadow-sm">
-                <select
-                  id="location"
-                  placeholder="From"
-                  className="mt-1 form-select rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                >
-                  <option>From</option>
-                  <option>Canada</option>
-                  <option>EU</option>
-                </select>
+                <Select
+                  id="fmin"
+                  name="fmin"
+                  className="my-3"
+                  // value={campaign.gender}
+                  // onChange={onSelectValueChange("gender", false)}
+                  options={followerMinOption}
+                  // styles=
+                />
               </div>
             </div>
             <div className="col-span-1 mt-auto">
               <label className="block text-sm font-medium leading-5 text-gray-700"></label>
               <div className="mt-1 relative rounded-none shadow-sm">
-                <select
-                  id="location"
-                  placeholder="To"
-                  className="mt-1 form-select rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                >
-                  <option>To</option>
-                  <option>Canada</option>
-                  <option>EU</option>
-                </select>
+                <Select
+                  id="fmax"
+                  name="fmax"
+                  className="my-3"
+                  // value={campaign.gender}
+                  // onChange={onSelectValueChange("gender", false)}
+                  options={followerMaxOption}
+                  // styles=
+                />
               </div>
             </div>
             <div className="col-span-1">
@@ -223,15 +314,15 @@ const Instagram = (props: any) => {
                 Gender
               </label>
               <div className="mt-1 relative rounded-none shadow-sm">
-                <select
-                  id="location"
-                  placeholder="To"
-                  className="mt-1 form-select rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                >
-                  <option>Gender</option>
-                  <option>Canada</option>
-                  <option>EU</option>
-                </select>
+                <Select
+                  id="gender1"
+                  name="gender1"
+                  className="my-3"
+                  // value={campaign.gender}
+                  // onChange={onSelectValueChange("gender", false)}
+                  options={genderOption}
+                  // styles=
+                />
               </div>
             </div>
             <div className="col-span-2">
@@ -240,8 +331,8 @@ const Instagram = (props: any) => {
               </label>
               <div className="mt-1 relative rounded-none shadow-sm">
                 <Select
-                  id="languageState"
-                  name="languageState"
+                  id="languageState1"
+                  name="languageState1"
                   className="my-3"
                   isMulti
                   // value={}
@@ -254,16 +345,13 @@ const Instagram = (props: any) => {
               <label className="block text-sm font-medium leading-5 text-gray-700">
                 Interrests
               </label>
-              <div className="mt-1 relative rounded-none shadow-sm">
-                <select
-                  id="location"
-                  placeholder="To"
-                  className="mt-1 form-select rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                >
-                  <option>Interrests</option>
-                  <option>Canada</option>
-                  <option>EU</option>
-                </select>
+              <div className="relative rounded-none shadow-sm my-3">
+                <ReactMultiSelectCheckboxes
+                  id="interrests1"
+                  name="interrests1"
+                  width="100%"
+                  options={interestsOption}
+                />
               </div>
             </div>
             <div className="col-span-2">
@@ -300,15 +388,15 @@ const Instagram = (props: any) => {
                 </div>
               </label>
               <div className="mt-1 relative rounded-none shadow-sm">
-                <select
-                  id="location"
-                  placeholder="To"
-                  className="mt-1 form-select rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                >
-                  <option>Interrests</option>
-                  <option>Canada</option>
-                  <option>EU</option>
-                </select>
+                <Select
+                  id="enengagementRate1"
+                  name="enengagementRate1"
+                  className="my-3"
+                  isMulti
+                  // value={}
+                  // onChange={}
+                  options={engagementRateOption}
+                />
               </div>
             </div>
           </div>
@@ -347,32 +435,28 @@ const Instagram = (props: any) => {
                 Location
               </label>
               <div className="mt-1 relative rounded-none shadow-sm">
-                <select
-                  id="location"
-                  placeholder="Locaition"
-                  className="mt-1 form-select rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                >
-                  <option>Location</option>
-                  <option>USA</option>
-                  <option>Canada</option>
-                  <option>EU</option>
-                </select>
+                <Select
+                  id="countryState2"
+                  name="countryState2"
+                  className="my-3"
+                  isMulti
+                  // value={}
+                  // onChange={}
+                  options={countryStateOption}
+                />
               </div>
             </div>
             <div className="col-span-1">
               <label className="block text-sm font-medium leading-5 text-gray-700">
                 Age
               </label>
-              <div className="mt-1 relative rounded-none shadow-sm">
-                <select
-                  id="location"
-                  placeholder="To"
-                  className="mt-1 form-select rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                >
-                  <option>Age</option>
-                  <option>Canada</option>
-                  <option>EU</option>
-                </select>
+              <div className="my-3 relative rounded-none shadow-sm">
+                <ReactMultiSelectCheckboxes
+                  id="age"
+                  name="age"
+                  width="100%"
+                  options={ageOption}
+                />
               </div>
             </div>
             <div className="col-span-1">
@@ -380,15 +464,15 @@ const Instagram = (props: any) => {
                 Gender
               </label>
               <div className="mt-1 relative rounded-none shadow-sm">
-                <select
-                  id="location"
-                  placeholder="To"
-                  className="mt-1 form-select rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                >
-                  <option>Gender</option>
-                  <option>Canada</option>
-                  <option>EU</option>
-                </select>
+                <Select
+                  id="gender2"
+                  name="gender2"
+                  className="my-3"
+                  // value={campaign.gender}
+                  // onChange={onSelectValueChange("gender", false)}
+                  options={genderOption}
+                  // styles=
+                />
               </div>
             </div>
             <div className="col-span-2">
@@ -396,31 +480,28 @@ const Instagram = (props: any) => {
                 Language
               </label>
               <div className="mt-1 relative rounded-none shadow-sm">
-                <select
-                  id="location"
-                  placeholder="To"
-                  className="mt-1 form-select rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                >
-                  <option>Language</option>
-                  <option>Canada</option>
-                  <option>EU</option>
-                </select>
+                <Select
+                  id="languageState2"
+                  name="languageState2"
+                  className="my-3"
+                  isMulti
+                  // value={}
+                  // onChange={}
+                  options={languageStateOption}
+                />
               </div>
             </div>
             <div className="col-span-2">
               <label className="block text-sm font-medium leading-5 text-gray-700">
                 Interrests
               </label>
-              <div className="mt-1 relative rounded-none shadow-sm">
-                <select
-                  id="location"
-                  placeholder="To"
-                  className="mt-1 form-select rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                >
-                  <option>Interrests</option>
-                  <option>Canada</option>
-                  <option>EU</option>
-                </select>
+              <div className="my-3 relative rounded-none shadow-sm">
+                <ReactMultiSelectCheckboxes
+                  id="interrests2"
+                  name="interrests2"
+                  width="100%"
+                  options={interestsOption}
+                />
               </div>
             </div>
             <div className="col-span-2">
@@ -457,15 +538,15 @@ const Instagram = (props: any) => {
                 </div>
               </label>
               <div className="mt-1 relative rounded-none shadow-sm">
-                <select
-                  id="location"
-                  placeholder="To"
-                  className="mt-1 form-select rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                >
-                  <option>Interrests</option>
-                  <option>Canada</option>
-                  <option>EU</option>
-                </select>
+                <Select
+                  id="enengagementRate2"
+                  name="enengagementRate2"
+                  className="my-3"
+                  isMulti
+                  // value={}
+                  // onChange={}
+                  options={engagementRateOption}
+                />
               </div>
             </div>
           </div>
@@ -498,7 +579,7 @@ const Instagram = (props: any) => {
               </div>
               <div className="mt-1 relative rounded-none shadow-sm">
                 <input
-                  id="location"
+                  id="username"
                   placeholder="@username"
                   className="mt-1 rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
                 />
@@ -532,8 +613,8 @@ const Instagram = (props: any) => {
               </div>
               <div className="mt-1 relative rounded-none shadow-sm ">
                 <input
-                  id="location"
-                  placeholder="@#hashtag"
+                  id="relevance"
+                  placeholder="#hashtag"
                   className="mt-1 rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
                 />
               </div>
