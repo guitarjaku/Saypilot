@@ -2,8 +2,10 @@ import { h } from "preact";
 import { useState, useEffect } from "preact/hooks/";
 import DataService from "../../../service/service";
 import Select from "react-select";
+import CreatableSelect from "react-select/creatable";
 //@ts-ignore
 import ReactMultiSelectCheckboxes from "react-multiselect-checkboxes";
+import { use } from "marked";
 
 const selectMultiStyles = {
   container: (provided: any) => ({
@@ -50,6 +52,9 @@ const Instagram = (props: any) => {
     keyword: [],
   });
 
+  const [byChannel, setByChannel] = useState([]);
+  const [byRelevance, setByRelevance] = useState([]);
+  const [keywords, setKeywords] = useState([]);
   const [influencerInfo, setInfluencerInfo] = useState({
     gender: {},
     country: [],
@@ -162,10 +167,10 @@ const Instagram = (props: any) => {
   ];
 
   const ageOption = [
-    { value: 1, label: "18-24" },
-    { value: 2, label: "25-34" },
-    { value: 3, label: "35-44" },
-    { value: 4, label: "45+" },
+    { value: 1, label: "18 - 24" },
+    { value: 2, label: "25 - 34" },
+    { value: 3, label: "35 - 44" },
+    { value: 4, label: "45 +" },
   ];
 
   const getCountry = () => {
@@ -209,7 +214,7 @@ const Instagram = (props: any) => {
 
   return (
     <>
-      <div className="bg-white overflow-hidden shadow rounded-lg text-black">
+      <div className="bg-white shadow rounded-lg text-black">
         <div className="px-4 py-5 sm:p-6">
           <div className="grid grid-cols-12 gap-4">
             <div className="col-span-2">
@@ -326,6 +331,7 @@ const Instagram = (props: any) => {
                   id="countryState1"
                   name="countryState1"
                   width="100%"
+                  placeholderButtonLabel="Location"
                   value={influencerInfo.country}
                   onChange={(e: any) => {
                     setInfluencerInfo({ ...influencerInfo, country: e });
@@ -343,6 +349,7 @@ const Instagram = (props: any) => {
                   id="fmin"
                   name="fmin"
                   className="my-3"
+                  placeholder="From"
                   value={followerRange.min}
                   onChange={(e: any) => {
                     setFollowerRange({ ...followerRange, min: e });
@@ -359,6 +366,7 @@ const Instagram = (props: any) => {
                   id="fmax"
                   name="fmax"
                   className="my-3"
+                  placeholder="To"
                   value={followerRange.max}
                   onChange={(e: any) => {
                     setFollowerRange({ ...followerRange, max: e });
@@ -377,6 +385,7 @@ const Instagram = (props: any) => {
                   id="gender1"
                   name="gender1"
                   className="my-3"
+                  placeholder="Gender"
                   value={influencerInfo.gender}
                   onChange={(e: any) => {
                     setInfluencerInfo({ ...influencerInfo, gender: e });
@@ -394,6 +403,7 @@ const Instagram = (props: any) => {
                   id="languageState1"
                   name="languageState1"
                   width="100%"
+                  placeholderButtonLabel="Language"
                   value={influencerInfo.language}
                   onChange={(e: any) => {
                     setInfluencerInfo({ ...influencerInfo, language: e });
@@ -410,6 +420,7 @@ const Instagram = (props: any) => {
                 <ReactMultiSelectCheckboxes
                   id="interrests1"
                   name="interrests1"
+                  placeholderButtonLabel="Interrests"
                   value={influencerInfo.interests}
                   onChange={(e: any) => {
                     setInfluencerInfo({ ...influencerInfo, interests: e });
@@ -457,6 +468,7 @@ const Instagram = (props: any) => {
                   id="enengagementRate1"
                   name="enengagementRate1"
                   className="my-3"
+                  placeholder="Engagement Rate"
                   value={influencerInfo.engagementRate}
                   onChange={(e: any) => {
                     setInfluencerInfo({ ...influencerInfo, engagementRate: e });
@@ -505,6 +517,7 @@ const Instagram = (props: any) => {
                   id="countryState2"
                   name="countryState2"
                   width="100%"
+                  placeholderButtonLabel="Location"
                   value={targetAudienceInfo.country}
                   onChange={(e: any) => {
                     setTargetAudienceInfo({
@@ -525,8 +538,14 @@ const Instagram = (props: any) => {
                   id="age"
                   name="age"
                   width="100%"
-                  value={seacrhForm.targetAudienceInfo.age}
-                  onChange={onSelectValueChange("age", true)}
+                  placeholderButtonLabel="Age"
+                  value={targetAudienceInfo.age}
+                  onChange={(e: any) => {
+                    setTargetAudienceInfo({
+                      ...targetAudienceInfo,
+                      age: e,
+                    });
+                  }}
                   options={ageOption}
                 />
               </div>
@@ -540,8 +559,14 @@ const Instagram = (props: any) => {
                   id="gender2"
                   name="gender2"
                   className="my-3"
-                  value={seacrhForm.targetAudienceInfo.gender}
-                  onChange={onSelectValueChange("gender", false)}
+                  placeholder="Gender"
+                  value={targetAudienceInfo.gender}
+                  onChange={(e: any) => {
+                    setTargetAudienceInfo({
+                      ...targetAudienceInfo,
+                      gender: e,
+                    });
+                  }}
                   options={genderOption}
                   // styles=
                 />
@@ -556,8 +581,14 @@ const Instagram = (props: any) => {
                   id="interrests2"
                   name="interrests2"
                   width="100%"
-                  value={seacrhForm.targetAudienceInfo.interests}
-                  onChange={onSelectValueChange("interests", true)}
+                  placeholderButtonLabel="Interrests"
+                  value={targetAudienceInfo.interests}
+                  onChange={(e: any) => {
+                    setTargetAudienceInfo({
+                      ...targetAudienceInfo,
+                      interests: e,
+                    });
+                  }}
                   options={interestsOption}
                 />
               </div>
@@ -566,14 +597,19 @@ const Instagram = (props: any) => {
               <label className="block text-sm font-medium leading-5 text-gray-700">
                 Language
               </label>
-              <div className="mt-1 relative rounded-none shadow-sm">
-                <Select
+              <div className="my-3 relative rounded-none shadow-sm">
+                <ReactMultiSelectCheckboxes
                   id="languageState2"
                   name="languageState2"
-                  className="my-3"
-                  isMulti
-                  value={seacrhForm.targetAudienceInfo.language}
-                  onChange={onSelectValueChange("language", true)}
+                  width="100%"
+                  placeholderButtonLabel="Language"
+                  value={targetAudienceInfo.language}
+                  onChange={(e: any) => {
+                    setTargetAudienceInfo({
+                      ...targetAudienceInfo,
+                      language: e,
+                    });
+                  }}
                   options={languageStateOption}
                 />
               </div>
@@ -607,13 +643,24 @@ const Instagram = (props: any) => {
                 </div>
               </div>
               <div className="mt-1 relative rounded-none shadow-sm">
-                <input
+                <ReactMultiSelectCheckboxes
+                  id="username"
+                  name="username"
+                  width="100%"
+                  placeholderButtonLabel="@username"
+                  value={byChannel}
+                  onChange={(e: any) => {
+                    setByChannel(e);
+                  }}
+                  options={languageStateOption}
+                />
+                {/* <input
                   id="username"
                   placeholder="@username"
                   value={seacrhForm.byChannel}
                   onChange={onInputValueChange("byChannel")}
                   className="mt-1 rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                />
+                /> */}
               </div>
             </div>
             <div className="col-span-3">
@@ -643,24 +690,44 @@ const Instagram = (props: any) => {
                 </div>
               </div>
               <div className="mt-1 relative rounded-none shadow-sm">
-                <input
+                <ReactMultiSelectCheckboxes
+                  id="hashtag"
+                  name="hashtag"
+                  width="100%"
+                  placeholderButtonLabel="#hashtag"
+                  value={byRelevance}
+                  onChange={(e: any) => {
+                    setByRelevance(e);
+                  }}
+                  options={languageStateOption}
+                />
+                {/* <input
                   id="relevance"
                   placeholder="#hashtag"
                   value={seacrhForm.byRelevance}
                   className="mt-1 rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                />
+                /> */}
               </div>
             </div>
             <div className="col-span-3 mt-auto">
               <div>
                 <label className="block text-sm font-medium leading-5 text-gray-700"></label>
                 <div className="mt-1 relative rounded-md shadow-sm">
-                  <input
+                  <CreatableSelect
+                    id="keywords"
+                    value={keywords}
+                    isMulti
+                    placeholder="Keyword"
+                    onChange={(e: any) => {
+                      setKeywords(e);
+                    }}
+                  />
+                  {/* <input
                     id="keyword"
-                    value={seacrhForm.keyword}
+                    //value={seacrhForm.keyword}
                     className="form-input rounded-none block w-full sm:text-sm sm:leading-5"
                     placeholder="Keywords"
-                  />
+                  /> */}
                 </div>
               </div>
             </div>
