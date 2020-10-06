@@ -1,10 +1,14 @@
 import { h } from "preact";
 import { useState } from "preact/hooks/";
+import Select from "react-select";
+import CreatableSelect from "react-select/creatable";
+//@ts-ignore
+import ReactMultiSelectCheckboxes from "react-multiselect-checkboxes";
 
 const Youtube = (props: any) => {
   return (
     <>
-      <div className="bg-white overflow-hidden shadow rounded-lg text-black">
+      <div className="bg-white shadow rounded-lg text-black">
         <div className="px-4 py-5 sm:p-6">
           <div className="grid grid-cols-12 gap-4">
             <div className="col-span-2">
@@ -40,17 +44,21 @@ const Youtube = (props: any) => {
               <label className="block text-sm font-medium leading-5 text-gray-700">
                 Location by country
               </label>
-              <div className="mt-1 relative rounded-none shadow-sm">
-                <select
-                  id="location"
-                  placeholder="Locaition"
-                  className="mt-1 form-select rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                >
-                  <option>Location</option>
-                  <option>USA</option>
-                  <option>Canada</option>
-                  <option>EU</option>
-                </select>
+              <div className="mt-3 relative rounded-none shadow-sm">
+                <ReactMultiSelectCheckboxes
+                  id="countryState1"
+                  name="countryState1"
+                  width="100%"
+                  placeholderButtonLabel="Location"
+                  value={props.influencerInfo.country}
+                  onChange={(e: any) => {
+                    props.setInfluencerInfo({
+                      ...props.influencerInfo,
+                      country: e,
+                    });
+                  }}
+                  options={props.countryStateOption}
+                />
               </div>
             </div>
             <div className="col-span-1">
@@ -58,29 +66,33 @@ const Youtube = (props: any) => {
                 Subsribers
               </label>
               <div className="mt-1 relative rounded-none shadow-sm">
-                <select
-                  id="location"
+                <Select
+                  id="fmin"
+                  name="fmin"
+                  className="my-3"
                   placeholder="From"
-                  className="mt-1 form-select rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                >
-                  <option>From</option>
-                  <option>Canada</option>
-                  <option>EU</option>
-                </select>
+                  value={props.followerRange.min}
+                  onChange={(e: any) => {
+                    props.setFollowerRange({ ...props.followerRange, min: e });
+                  }}
+                  options={props.followerMinOption}
+                />
               </div>
             </div>
             <div className="col-span-1 mt-auto">
               <label className="block text-sm font-medium leading-5 text-gray-700"></label>
               <div className="mt-1 relative rounded-none shadow-sm">
-                <select
-                  id="location"
+                <Select
+                  id="fmax"
+                  name="fmax"
+                  className="my-3"
                   placeholder="To"
-                  className="mt-1 form-select rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                >
-                  <option>To</option>
-                  <option>Canada</option>
-                  <option>EU</option>
-                </select>
+                  value={props.followerRange.max}
+                  onChange={(e: any) => {
+                    props.setFollowerRange({ ...props.followerRange, max: e });
+                  }}
+                  options={props.followerMaxOption}
+                />
               </div>
             </div>
             <div className="col-span-1">
@@ -88,45 +100,54 @@ const Youtube = (props: any) => {
                 Avg.Views
               </label>
               <div className="mt-1 relative rounded-none shadow-sm">
-                <select
-                  id="location"
-                  placeholder="From"
-                  className="mt-1 form-select rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                >
-                  <option>From</option>
-                  <option>Canada</option>
-                  <option>EU</option>
-                </select>
+                <Select
+                  id="avg-min"
+                  name="avg-min"
+                  className="my-3"
+                  placeholder="To"
+                  value={props.AVGViews.min}
+                  onChange={(e: any) => {
+                    props.setAVGViews({ ...props.AVGViews, min: e });
+                  }}
+                  options={props.followerMinOption}
+                />
               </div>
             </div>
             <div className="col-span-1 mt-auto">
               <label className="block text-sm font-medium leading-5 text-gray-700"></label>
               <div className="mt-1 relative rounded-none shadow-sm">
-                <select
-                  id="location"
+                <Select
+                  id="avg-max"
+                  name="avg-max"
+                  className="my-3"
                   placeholder="To"
-                  className="mt-1 form-select rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                >
-                  <option>To</option>
-                  <option>Canada</option>
-                  <option>EU</option>
-                </select>
+                  value={props.AVGViews.max}
+                  onChange={(e: any) => {
+                    props.setAVGViews({ ...props.AVGViews, max: e });
+                  }}
+                  options={props.followerMaxOption}
+                />
               </div>
             </div>
             <div className="col-span-2">
               <label className="block text-sm font-medium leading-5 text-gray-700">
                 Language
               </label>
-              <div className="mt-1 relative rounded-none shadow-sm">
-                <select
-                  id="location"
-                  placeholder="To"
-                  className="mt-1 form-select rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                >
-                  <option>Language</option>
-                  <option>Canada</option>
-                  <option>EU</option>
-                </select>
+              <div className="mt-3 relative rounded-none shadow-sm">
+                <ReactMultiSelectCheckboxes
+                  id="languageState1"
+                  name="languageState1"
+                  width="100%"
+                  placeholderButtonLabel="Language"
+                  value={props.influencerInfo.language}
+                  onChange={(e: any) => {
+                    props.setInfluencerInfo({
+                      ...props.influencerInfo,
+                      language: e,
+                    });
+                  }}
+                  options={props.languageStateOption}
+                />
               </div>
             </div>
             <div className="col-span-2">
@@ -163,15 +184,20 @@ const Youtube = (props: any) => {
                 </div>
               </label>
               <div className="mt-1 relative rounded-none shadow-sm">
-                <select
-                  id="location"
-                  placeholder="To"
-                  className="mt-1 form-select rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                >
-                  <option>Interrests</option>
-                  <option>Canada</option>
-                  <option>EU</option>
-                </select>
+                <Select
+                  id="enengagementRate1"
+                  name="enengagementRate1"
+                  className="my-3"
+                  placeholder="Engagement Rate"
+                  value={props.influencerInfo.engagementRate}
+                  onChange={(e: any) => {
+                    props.setInfluencerInfo({
+                      ...props.influencerInfo,
+                      engagementRate: e,
+                    });
+                  }}
+                  options={props.engagementRateOption}
+                />
               </div>
             </div>
           </div>
@@ -209,33 +235,42 @@ const Youtube = (props: any) => {
               <label className="block text-sm font-medium leading-5 text-gray-700">
                 Location by country
               </label>
-              <div className="mt-1 relative rounded-none shadow-sm">
-                <select
-                  id="location"
-                  placeholder="Locaition"
-                  className="mt-1 form-select rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                >
-                  <option>Location</option>
-                  <option>USA</option>
-                  <option>Canada</option>
-                  <option>EU</option>
-                </select>
+              <div className="mt-3 relative rounded-none shadow-sm">
+                <ReactMultiSelectCheckboxes
+                  id="countryState2"
+                  name="countryState2"
+                  width="100%"
+                  placeholderButtonLabel="Location"
+                  value={props.targetAudienceInfo.country}
+                  onChange={(e: any) => {
+                    props.setTargetAudienceInfo({
+                      ...props.targetAudienceInfo,
+                      country: e,
+                    });
+                  }}
+                  options={props.countryStateOption}
+                />
               </div>
             </div>
             <div className="col-span-1">
               <label className="block text-sm font-medium leading-5 text-gray-700">
                 Age
               </label>
-              <div className="mt-1 relative rounded-none shadow-sm">
-                <select
-                  id="location"
-                  placeholder="To"
-                  className="mt-1 form-select rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                >
-                  <option>Age</option>
-                  <option>Canada</option>
-                  <option>EU</option>
-                </select>
+              <div className="mt-3 relative rounded-none shadow-sm">
+                <ReactMultiSelectCheckboxes
+                  id="age"
+                  name="age"
+                  width="100%"
+                  placeholderButtonLabel="Age"
+                  value={props.targetAudienceInfo.age}
+                  onChange={(e: any) => {
+                    props.setTargetAudienceInfo({
+                      ...props.targetAudienceInfo,
+                      age: e,
+                    });
+                  }}
+                  options={props.ageOption}
+                />
               </div>
             </div>
             <div className="col-span-1">
@@ -243,31 +278,41 @@ const Youtube = (props: any) => {
                 Gender
               </label>
               <div className="mt-1 relative rounded-none shadow-sm">
-                <select
-                  id="location"
-                  placeholder="To"
-                  className="mt-1 form-select rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                >
-                  <option>Gender</option>
-                  <option>Canada</option>
-                  <option>EU</option>
-                </select>
+                <Select
+                  id="gender2"
+                  name="gender2"
+                  className="my-3"
+                  placeholder="Gender"
+                  value={props.targetAudienceInfo.gender}
+                  onChange={(e: any) => {
+                    props.setTargetAudienceInfo({
+                      ...props.targetAudienceInfo,
+                      gender: e,
+                    });
+                  }}
+                  options={props.genderOption}
+                />
               </div>
             </div>
             <div className="col-span-3">
               <label className="block text-sm font-medium leading-5 text-gray-700">
                 Language
               </label>
-              <div className="mt-1 relative rounded-none shadow-sm">
-                <select
-                  id="location"
-                  placeholder="To"
-                  className="mt-1 form-select rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                >
-                  <option>Language</option>
-                  <option>Canada</option>
-                  <option>EU</option>
-                </select>
+              <div className="mt-3 relative rounded-none shadow-sm">
+                <ReactMultiSelectCheckboxes
+                  id="languageState2"
+                  name="languageState2"
+                  width="100%"
+                  placeholderButtonLabel="Language"
+                  value={props.targetAudienceInfo.language}
+                  onChange={(e: any) => {
+                    props.setTargetAudienceInfo({
+                      ...props.targetAudienceInfo,
+                      language: e,
+                    });
+                  }}
+                  options={props.languageStateOption}
+                />
               </div>
             </div>
           </div>
@@ -299,10 +344,16 @@ const Youtube = (props: any) => {
                 </div>
               </div>
               <div className="mt-1 relative rounded-none shadow-sm">
-                <input
-                  id="location"
-                  placeholder="Youtube profile URL, user or channel ID or channel name"
-                  className="mt-1 rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
+                <ReactMultiSelectCheckboxes
+                  id="username"
+                  name="username"
+                  width="100%"
+                  placeholderButtonLabel="@username"
+                  value={props.byChannel}
+                  onChange={(e: any) => {
+                    props.setByChannel(e);
+                  }}
+                  options={props.languageStateOption}
                 />
               </div>
             </div>
@@ -333,10 +384,16 @@ const Youtube = (props: any) => {
                 </div>
               </div>
               <div className="mt-1 relative rounded-none shadow-sm ">
-                <input
-                  id="location"
-                  placeholder="@#hashtag"
-                  className="mt-1 rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
+                <ReactMultiSelectCheckboxes
+                  id="hashtag"
+                  name="hashtag"
+                  width="100%"
+                  placeholderButtonLabel="#hashtags"
+                  value={props.byRelevance}
+                  onChange={(e: any) => {
+                    props.setByRelevance(e);
+                  }}
+                  options={props.languageStateOption}
                 />
               </div>
             </div>
@@ -344,10 +401,14 @@ const Youtube = (props: any) => {
               <div>
                 <label className="block text-sm font-medium leading-5 text-gray-700"></label>
                 <div className="mt-1 relative rounded-md shadow-sm">
-                  <input
-                    id="email"
-                    className="form-input rounded-none block w-full sm:text-sm sm:leading-5"
-                    placeholder="Keywords"
+                  <CreatableSelect
+                    id="keywords"
+                    value={props.keywords}
+                    isMulti
+                    placeholder="Keyword"
+                    onChange={(e: any) => {
+                      props.setKeywords(e);
+                    }}
                   />
                 </div>
               </div>

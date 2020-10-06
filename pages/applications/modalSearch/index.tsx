@@ -1,5 +1,6 @@
 import { h } from "preact";
-import { useState } from "preact/hooks/";
+import { useState, useEffect } from "preact/hooks/";
+import DataService from "../../../service/service";
 import Youtube from "../youtube";
 import Instagram from "../instagram";
 import Tiktok from "../tiktok";
@@ -7,9 +8,185 @@ import Tiktok from "../tiktok";
 const ModalSearch = (props: any) => {
   const [sniperMenu, setSniperMenu] = useState(1);
 
+  // init state
+  const [youtubeAccount, setYoutubeAccount] = useState(false);
+  const [contactDetail, setContactDetail] = useState(false);
+  const [byChannel, setByChannel] = useState([]);
+  const [byRelevance, setByRelevance] = useState([]);
+  const [keywords, setKeywords] = useState([]);
+  const [influencerInfo, setInfluencerInfo] = useState({
+    gender: {},
+    country: [],
+    language: [],
+    engagementRate: {},
+    interests: [],
+  });
+  const [targetAudienceInfo, setTargetAudienceInfo] = useState({
+    country: [],
+    age: [],
+    gender: {},
+    language: [],
+    interests: [],
+  });
+  const [followerRange, setFollowerRange] = useState({
+    min: {},
+    max: {},
+  });
+  const [AVGViews, setAVGViews] = useState({
+    min: {},
+    max: {},
+  });
+
+  // option state
+  const [countryStateOption, setCountryStateOption] = useState([]);
+  const [languageStateOption, setLanguageStateOption] = useState([]);
+
+  const genderOption = [
+    { value: "male", label: "Male" },
+    { value: "female", label: "Female" },
+  ];
+  const followerMinOption = [
+    { value: "1000", label: "1,000" },
+    { value: "5000", label: "5,000" },
+    { value: "10000", label: "10,000" },
+    { value: "15000", label: "15,000" },
+    { value: "25000", label: "25,000" },
+    { value: "50000", label: "50,000" },
+    { value: "100000", label: "100,000" },
+    { value: "250000", label: "250,000" },
+    { value: "500000", label: "500,000" },
+    { value: "1000000", label: "1,000,000" },
+  ];
+  const followerMaxOption = [
+    { value: "5000", label: "5,000" },
+    { value: "10000", label: "10,000" },
+    { value: "15000", label: "15,000" },
+    { value: "25000", label: "25,000" },
+    { value: "50000", label: "50,000" },
+    { value: "100000", label: "100,000" },
+    { value: "250000", label: "250,000" },
+    { value: "500000", label: "500,000" },
+    { value: "1000000", label: "1,000,000" },
+    { value: "1000000+", label: "1,000,000+" },
+  ];
+
+  const interestsOption = [
+    { value: 1, label: "Televiion & Film" },
+    { value: 2, label: "Music" },
+    { value: 3, label: "Shoping & Retail" },
+    { value: 4, label: "Coffee, Tea & Beverages" },
+    { value: 5, label: "Camera & Photography" },
+    { value: 6, label: "Clothes, Shoes, Handags & Accessries" },
+    { value: 7, label: "Beer, Wine & Spirits" },
+    { value: 8, label: "Sports" },
+    { value: 9, label: "Electronics & Computers" },
+    { value: 10, label: "Gaming" },
+    { value: 11, label: "Activewear" },
+    { value: 12, label: "Art & Design" },
+    { value: 13, label: "Travel, Tourism & Aviation" },
+    { value: 14, label: "Business & Careers" },
+    { value: 15, label: "Beauty & Cosmetics" },
+    { value: 16, label: "Healhcare & Meicine" },
+    { value: 17, label: "Jewellery & Watches" },
+    { value: 18, label: "Restaurants, Food & Grocery" },
+    { value: 19, label: "Toys, Children & Baby" },
+    { value: 20, label: "Fitness & Yoga" },
+    { value: 21, label: "Wedding" },
+    { value: 22, label: "Tobacco & Smoking" },
+    { value: 23, label: "Pets" },
+    { value: 24, label: "Healthy Liftstyle" },
+    { value: 25, label: "Luxury Goods" },
+    { value: 26, label: "Home Decor, Furniture & Garden" },
+    { value: 27, label: "Friends, Familys & Relationships" },
+    { value: 28, label: "Cars & Motorbies" },
+  ];
+
+  const engagementRateOption = [
+    { value: ">=1%", label: ">=1%" },
+    { value: ">=2%", label: ">=2%" },
+    { value: ">=3%", label: ">=3%" },
+    { value: ">=4%", label: ">=4%" },
+    { value: ">=5%", label: ">=5%" },
+    { value: ">=6%", label: ">=6%" },
+    { value: ">=7%", label: ">=7%" },
+    { value: ">=8%", label: ">=8%" },
+    { value: ">=9%", label: ">=9%" },
+    { value: ">=10%", label: ">=10%" },
+    { value: ">=11%", label: ">=11%" },
+    { value: ">=12%", label: ">=12%" },
+    { value: ">=13%", label: ">=13%" },
+    { value: ">=14%", label: ">=14%" },
+    { value: ">=15%", label: ">=15%" },
+    { value: ">=16%", label: ">=16%" },
+    { value: ">=17%", label: ">=17%" },
+    { value: ">=18%", label: ">=18%" },
+    { value: ">=19%", label: ">=19%" },
+    { value: ">=20%", label: ">=20%" },
+  ];
+
+  const ageOption = [
+    { value: 1, label: "18 - 24" },
+    { value: 2, label: "25 - 34" },
+    { value: 3, label: "35 - 44" },
+    { value: 4, label: "45 +" },
+  ];
+
+  const getCountry = () => {
+    DataService.getAll("https://restcountries.eu/rest/v2/all")
+      .then((res) => {
+        // console.log(res.data);
+        const dataCountry: any = [];
+        let dataLanguage: any = [];
+        res.data.forEach((el: any) => {
+          dataCountry.push({ value: el.alpha2Code, label: el.name });
+          el.languages.forEach((lang: any) => {
+            // console.log(lang);
+            dataLanguage.push({ value: lang.iso639_1, label: lang.name });
+          });
+        });
+        dataLanguage.sort((a: any, b: any) => {
+          if (a.label < b.label) {
+            return -1;
+          }
+          if (a.label > b.label) {
+            return 1;
+          }
+          return 0;
+        });
+
+        dataLanguage = dataLanguage.filter(
+          (v: any, i: any, a: any) =>
+            a.findIndex((t: any) => t.label == v.label) == i
+        );
+        setCountryStateOption(dataCountry);
+        setLanguageStateOption(dataLanguage);
+      })
+      .catch((err) => console.log(err));
+  };
+
   const onSniperChange = (props: number) => {
     setSniperMenu(props);
   };
+
+  const onSubmit = () => {
+    const data = {};
+    Object.assign(data, {
+      youtubeAccount: youtubeAccount,
+      contactDetail: contactDetail,
+      byChannel: byChannel,
+      byRelevance: byRelevance,
+      influencerInfo: influencerInfo,
+      targetAudienceInfo: targetAudienceInfo,
+      followerRange: followerRange,
+      AVGViews: AVGViews,
+      keywords: keywords,
+    });
+    props.searchSubmit(data);
+  };
+
+  useEffect(() => {
+    getCountry();
+  }, []);
 
   return (
     <>
@@ -135,13 +312,90 @@ const ModalSearch = (props: any) => {
             <div>
               <div className="border border-gray-300 m-4">
                 {sniperMenu === 1 ? (
-                  <Instagram search={props.search} />
+                  <Instagram
+                    youtubeAccount={youtubeAccount}
+                    contactDetail={contactDetail}
+                    byChannel={byChannel}
+                    byRelevance={byRelevance}
+                    influencerInfo={influencerInfo}
+                    targetAudienceInfo={targetAudienceInfo}
+                    followerRange={followerRange}
+                    AVGViews={AVGViews}
+                    keywords={keywords}
+                    setYoutubeAccount={setYoutubeAccount}
+                    setContactDetail={setContactDetail}
+                    setByChannel={setByChannel}
+                    setByRelevance={setByRelevance}
+                    setInfluencerInfo={setInfluencerInfo}
+                    setTargetAudienceInfo={setTargetAudienceInfo}
+                    setFollowerRange={setFollowerRange}
+                    setAVGViews={setAVGViews}
+                    setKeywords={setKeywords}
+                    countryStateOption={countryStateOption}
+                    languageStateOption={languageStateOption}
+                    genderOption={genderOption}
+                    followerMinOption={followerMinOption}
+                    followerMaxOption={followerMaxOption}
+                    interestsOption={interestsOption}
+                    engagementRateOption={engagementRateOption}
+                    ageOption={ageOption}
+                  />
                 ) : sniperMenu === 2 ? (
                   ""
                 ) : sniperMenu === 3 ? (
-                  <Youtube search={props.search} />
+                  <Youtube
+                    byChannel={byChannel}
+                    byRelevance={byRelevance}
+                    influencerInfo={influencerInfo}
+                    targetAudienceInfo={targetAudienceInfo}
+                    followerRange={followerRange}
+                    AVGViews={AVGViews}
+                    keywords={keywords}
+                    setYoutubeAccount={setYoutubeAccount}
+                    setContactDetail={setContactDetail}
+                    setByChannel={setByChannel}
+                    setByRelevance={setByRelevance}
+                    setInfluencerInfo={setInfluencerInfo}
+                    setTargetAudienceInfo={setTargetAudienceInfo}
+                    setFollowerRange={setFollowerRange}
+                    setAVGViews={setAVGViews}
+                    setKeywords={setKeywords}
+                    countryStateOption={countryStateOption}
+                    languageStateOption={languageStateOption}
+                    genderOption={genderOption}
+                    followerMinOption={followerMinOption}
+                    followerMaxOption={followerMaxOption}
+                    interestsOption={interestsOption}
+                    engagementRateOption={engagementRateOption}
+                    ageOption={ageOption}
+                  />
                 ) : (
-                  <Tiktok search={props.search} />
+                  <Tiktok
+                    byChannel={byChannel}
+                    byRelevance={byRelevance}
+                    influencerInfo={influencerInfo}
+                    targetAudienceInfo={targetAudienceInfo}
+                    followerRange={followerRange}
+                    AVGViews={AVGViews}
+                    keywords={keywords}
+                    setYoutubeAccount={setYoutubeAccount}
+                    setContactDetail={setContactDetail}
+                    setByChannel={setByChannel}
+                    setByRelevance={setByRelevance}
+                    setInfluencerInfo={setInfluencerInfo}
+                    setTargetAudienceInfo={setTargetAudienceInfo}
+                    setFollowerRange={setFollowerRange}
+                    setAVGViews={setAVGViews}
+                    setKeywords={setKeywords}
+                    countryStateOption={countryStateOption}
+                    languageStateOption={languageStateOption}
+                    genderOption={genderOption}
+                    followerMinOption={followerMinOption}
+                    followerMaxOption={followerMaxOption}
+                    interestsOption={interestsOption}
+                    engagementRateOption={engagementRateOption}
+                    ageOption={ageOption}
+                  />
                 )}
               </div>
             </div>
@@ -149,9 +403,10 @@ const ModalSearch = (props: any) => {
               <span className="flex w-full rounded-md shadow-sm sm:col-start-2">
                 <button
                   type="button"
+                  onClick={() => onSubmit()}
                   className="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-indigo-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition ease-in-out duration-150 sm:text-sm sm:leading-5"
                 >
-                  Approve
+                  Search
                 </button>
               </span>
               <span className="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:col-start-1">

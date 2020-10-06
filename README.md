@@ -191,3 +191,8 @@
 
 - [x] aplication search state 95%
 - [x] UI 90/100 state 69/100 UX 65/100
+
+## 6/10/2020, 20.00-22.00
+
+- [x] aplication search state 99%
+- [x] UI 90/100 state 73/100 UX 65/100

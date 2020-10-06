@@ -1,217 +1,11 @@
 import { h } from "preact";
 import { useState, useEffect } from "preact/hooks/";
-import DataService from "../../../service/service";
 import Select from "react-select";
 import CreatableSelect from "react-select/creatable";
 //@ts-ignore
 import ReactMultiSelectCheckboxes from "react-multiselect-checkboxes";
-import { use } from "marked";
-
-const selectMultiStyles = {
-  container: (provided: any) => ({
-    ...provided,
-  }),
-  control: (styles: any) => ({
-    ...styles,
-    textOverflow: "ellipsis",
-  }),
-  option: (styles: any) => {
-    return {
-      ...styles,
-    };
-  },
-  multiValue: (styles: any) => {
-    return {
-      ...styles,
-    };
-  },
-};
 
 const Instagram = (props: any) => {
-  const [seacrhForm, setSearchForm] = useState({
-    youtubeAccount: false,
-    contactDetail: false,
-    influencerInfo: {
-      gender: {},
-      country: [],
-      followerRange: { min: {}, max: {} },
-      AVGViews: { min: {}, max: {} },
-      language: [],
-      engagementRate: {},
-      interests: [],
-    },
-    targetAudienceInfo: {
-      country: [],
-      age: [],
-      gender: {},
-      language: [],
-      interests: [],
-    },
-    byChannel: [],
-    byRelevance: [],
-    keyword: [],
-  });
-
-  const [byChannel, setByChannel] = useState([]);
-  const [byRelevance, setByRelevance] = useState([]);
-  const [keywords, setKeywords] = useState([]);
-  const [influencerInfo, setInfluencerInfo] = useState({
-    gender: {},
-    country: [],
-    language: [],
-    engagementRate: {},
-    interests: [],
-  });
-  const [targetAudienceInfo, setTargetAudienceInfo] = useState({
-    country: [],
-    age: [],
-    gender: {},
-    language: [],
-    interests: [],
-  });
-  const [countryTarget, setCountryTarget] = useState([]);
-  const [followerRange, setFollowerRange] = useState({
-    min: {},
-    max: {},
-  });
-  const [AVGViews, setAVGViews] = useState({
-    min: {},
-    max: {},
-  });
-
-  // option state
-  const [countryStateOption, setCountryStateOption] = useState([]);
-  const [languageStateOption, setLanguageStateOption] = useState([]);
-
-  const genderOption = [
-    { value: "male", label: "Male" },
-    { value: "female", label: "Female" },
-  ];
-  const followerMinOption = [
-    { value: "1000", label: "1,000" },
-    { value: "5000", label: "5,000" },
-    { value: "10000", label: "10,000" },
-    { value: "15000", label: "15,000" },
-    { value: "25000", label: "25,000" },
-    { value: "50000", label: "50,000" },
-    { value: "100000", label: "100,000" },
-    { value: "250000", label: "250,000" },
-    { value: "500000", label: "500,000" },
-    { value: "1000000", label: "1,000,000" },
-  ];
-  const followerMaxOption = [
-    { value: "5000", label: "5,000" },
-    { value: "10000", label: "10,000" },
-    { value: "15000", label: "15,000" },
-    { value: "25000", label: "25,000" },
-    { value: "50000", label: "50,000" },
-    { value: "100000", label: "100,000" },
-    { value: "250000", label: "250,000" },
-    { value: "500000", label: "500,000" },
-    { value: "1000000", label: "1,000,000" },
-    { value: "1000000+", label: "1,000,000+" },
-  ];
-
-  const interestsOption = [
-    { value: 1, label: "Televiion & Film" },
-    { value: 2, label: "Music" },
-    { value: 3, label: "Shoping & Retail" },
-    { value: 4, label: "Coffee, Tea & Beverages" },
-    { value: 5, label: "Camera & Photography" },
-    { value: 6, label: "Clothes, Shoes, Handags & Accessries" },
-    { value: 7, label: "Beer, Wine & Spirits" },
-    { value: 8, label: "Sports" },
-    { value: 9, label: "Electronics & Computers" },
-    { value: 10, label: "Gaming" },
-    { value: 11, label: "Activewear" },
-    { value: 12, label: "Art & Design" },
-    { value: 13, label: "Travel, Tourism & Aviation" },
-    { value: 14, label: "Business & Careers" },
-    { value: 15, label: "Beauty & Cosmetics" },
-    { value: 16, label: "Healhcare & Meicine" },
-    { value: 17, label: "Jewellery & Watches" },
-    { value: 18, label: "Restaurants, Food & Grocery" },
-    { value: 19, label: "Toys, Children & Baby" },
-    { value: 20, label: "Fitness & Yoga" },
-    { value: 21, label: "Wedding" },
-    { value: 22, label: "Tobacco & Smoking" },
-    { value: 23, label: "Pets" },
-    { value: 24, label: "Healthy Liftstyle" },
-    { value: 25, label: "Luxury Goods" },
-    { value: 26, label: "Home Decor, Furniture & Garden" },
-    { value: 27, label: "Friends, Familys & Relationships" },
-    { value: 28, label: "Cars & Motorbies" },
-  ];
-
-  const engagementRateOption = [
-    { value: ">=1%", label: ">=1%" },
-    { value: ">=2%", label: ">=2%" },
-    { value: ">=3%", label: ">=3%" },
-    { value: ">=4%", label: ">=4%" },
-    { value: ">=5%", label: ">=5%" },
-    { value: ">=6%", label: ">=6%" },
-    { value: ">=7%", label: ">=7%" },
-    { value: ">=8%", label: ">=8%" },
-    { value: ">=9%", label: ">=9%" },
-    { value: ">=10%", label: ">=10%" },
-    { value: ">=11%", label: ">=11%" },
-    { value: ">=12%", label: ">=12%" },
-    { value: ">=13%", label: ">=13%" },
-    { value: ">=14%", label: ">=14%" },
-    { value: ">=15%", label: ">=15%" },
-    { value: ">=16%", label: ">=16%" },
-    { value: ">=17%", label: ">=17%" },
-    { value: ">=18%", label: ">=18%" },
-    { value: ">=19%", label: ">=19%" },
-    { value: ">=20%", label: ">=20%" },
-  ];
-
-  const ageOption = [
-    { value: 1, label: "18 - 24" },
-    { value: 2, label: "25 - 34" },
-    { value: 3, label: "35 - 44" },
-    { value: 4, label: "45 +" },
-  ];
-
-  const getCountry = () => {
-    DataService.getAll("https://restcountries.eu/rest/v2/all")
-      .then((res) => {
-        // console.log(res.data);
-        const dataCountry: any = [];
-        const dataLanguage: any = [];
-        res.data.forEach((el: any) => {
-          dataCountry.push({ value: el.alpha2Code, label: el.name });
-          el.languages.forEach((lang: any) => {
-            dataLanguage.push({ value: lang.iso639_1, label: lang.name });
-          });
-        });
-        // console.log(dataLanguage);
-        setCountryStateOption(dataCountry);
-        setLanguageStateOption(dataLanguage);
-      })
-      .catch((err) => console.log(err));
-  };
-
-  const onInputValueChange = (props: any) => (e: any) => {
-    // console.log(e);
-    setSearchForm({ ...seacrhForm, [props]: e?.target.value });
-  };
-
-  const onSelectValueChange = (props: any, multi: boolean) => (e: any) => {
-    console.log(e);
-    console.log({ ...seacrhForm, [props.main]: { [props.sub]: e } });
-    setSearchForm({ ...seacrhForm, [props.main]: { [props.sub]: e } });
-    if (multi) {
-      setSearchForm({ ...seacrhForm, [props.main]: { [props.sub]: e } });
-    } else {
-      setSearchForm({ ...seacrhForm, [props]: e });
-    }
-  };
-
-  useEffect(() => {
-    getCountry();
-  }, []);
-
   return (
     <>
       <div className="bg-white shadow rounded-lg text-black">
@@ -248,8 +42,12 @@ const Instagram = (props: any) => {
               <div className="flex items-center">
                 <div className="flex items-center mr-2">
                   <input
-                    id="comments"
+                    id="youtube-account"
                     type="checkbox"
+                    value={props.youtubeAccount}
+                    onChange={() => {
+                      props.setYoutubeAccount(!props.youtubeAccount);
+                    }}
                     className="form-checkbox h-6 w-6 text-indigo-600 rounded-none transition duration-150 ease-in-out"
                   />
                 </div>
@@ -280,8 +78,12 @@ const Instagram = (props: any) => {
               <div className="flex items-center">
                 <div className="flex items-center mr-2">
                   <input
-                    id="comments"
+                    id="contact-detail"
                     type="checkbox"
+                    value={props.contactDetail}
+                    onChange={() => {
+                      props.setContactDetail(!props.contactDetail);
+                    }}
                     className="form-checkbox h-6 w-6 text-indigo-600 rounded-none transition duration-150 ease-in-out"
                   />
                 </div>
@@ -332,11 +134,14 @@ const Instagram = (props: any) => {
                   name="countryState1"
                   width="100%"
                   placeholderButtonLabel="Location"
-                  value={influencerInfo.country}
+                  value={props.influencerInfo.country}
                   onChange={(e: any) => {
-                    setInfluencerInfo({ ...influencerInfo, country: e });
+                    props.setInfluencerInfo({
+                      ...props.influencerInfo,
+                      country: e,
+                    });
                   }}
-                  options={countryStateOption}
+                  options={props.countryStateOption}
                 />
               </div>
             </div>
@@ -350,12 +155,11 @@ const Instagram = (props: any) => {
                   name="fmin"
                   className="my-3"
                   placeholder="From"
-                  value={followerRange.min}
+                  value={props.followerRange.min}
                   onChange={(e: any) => {
-                    setFollowerRange({ ...followerRange, min: e });
+                    props.setFollowerRange({ ...props.followerRange, min: e });
                   }}
-                  options={followerMinOption}
-                  // styles=
+                  options={props.followerMinOption}
                 />
               </div>
             </div>
@@ -367,12 +171,11 @@ const Instagram = (props: any) => {
                   name="fmax"
                   className="my-3"
                   placeholder="To"
-                  value={followerRange.max}
+                  value={props.followerRange.max}
                   onChange={(e: any) => {
-                    setFollowerRange({ ...followerRange, max: e });
+                    props.setFollowerRange({ ...props.followerRange, max: e });
                   }}
-                  options={followerMaxOption}
-                  // styles=
+                  options={props.followerMaxOption}
                 />
               </div>
             </div>
@@ -386,11 +189,14 @@ const Instagram = (props: any) => {
                   name="gender1"
                   className="my-3"
                   placeholder="Gender"
-                  value={influencerInfo.gender}
+                  value={props.influencerInfo.gender}
                   onChange={(e: any) => {
-                    setInfluencerInfo({ ...influencerInfo, gender: e });
+                    props.setInfluencerInfo({
+                      ...props.influencerInfo,
+                      gender: e,
+                    });
                   }}
-                  options={genderOption}
+                  options={props.genderOption}
                 />
               </div>
             </div>
@@ -404,11 +210,14 @@ const Instagram = (props: any) => {
                   name="languageState1"
                   width="100%"
                   placeholderButtonLabel="Language"
-                  value={influencerInfo.language}
+                  value={props.influencerInfo.language}
                   onChange={(e: any) => {
-                    setInfluencerInfo({ ...influencerInfo, language: e });
+                    props.setInfluencerInfo({
+                      ...props.influencerInfo,
+                      language: e,
+                    });
                   }}
-                  options={languageStateOption}
+                  options={props.languageStateOption}
                 />
               </div>
             </div>
@@ -421,12 +230,15 @@ const Instagram = (props: any) => {
                   id="interrests1"
                   name="interrests1"
                   placeholderButtonLabel="Interrests"
-                  value={influencerInfo.interests}
+                  value={props.influencerInfo.interests}
                   onChange={(e: any) => {
-                    setInfluencerInfo({ ...influencerInfo, interests: e });
+                    props.setInfluencerInfo({
+                      ...props.influencerInfo,
+                      interests: e,
+                    });
                   }}
                   width="100%"
-                  options={interestsOption}
+                  options={props.interestsOption}
                 />
               </div>
             </div>
@@ -469,11 +281,14 @@ const Instagram = (props: any) => {
                   name="enengagementRate1"
                   className="my-3"
                   placeholder="Engagement Rate"
-                  value={influencerInfo.engagementRate}
+                  value={props.influencerInfo.engagementRate}
                   onChange={(e: any) => {
-                    setInfluencerInfo({ ...influencerInfo, engagementRate: e });
+                    props.setInfluencerInfo({
+                      ...props.influencerInfo,
+                      engagementRate: e,
+                    });
                   }}
-                  options={engagementRateOption}
+                  options={props.engagementRateOption}
                 />
               </div>
             </div>
@@ -518,14 +333,14 @@ const Instagram = (props: any) => {
                   name="countryState2"
                   width="100%"
                   placeholderButtonLabel="Location"
-                  value={targetAudienceInfo.country}
+                  value={props.targetAudienceInfo.country}
                   onChange={(e: any) => {
-                    setTargetAudienceInfo({
-                      ...targetAudienceInfo,
+                    props.setTargetAudienceInfo({
+                      ...props.targetAudienceInfo,
                       country: e,
                     });
                   }}
-                  options={countryStateOption}
+                  options={props.countryStateOption}
                 />
               </div>
             </div>
@@ -539,14 +354,14 @@ const Instagram = (props: any) => {
                   name="age"
                   width="100%"
                   placeholderButtonLabel="Age"
-                  value={targetAudienceInfo.age}
+                  value={props.targetAudienceInfo.age}
                   onChange={(e: any) => {
-                    setTargetAudienceInfo({
-                      ...targetAudienceInfo,
+                    props.setTargetAudienceInfo({
+                      ...props.targetAudienceInfo,
                       age: e,
                     });
                   }}
-                  options={ageOption}
+                  options={props.ageOption}
                 />
               </div>
             </div>
@@ -560,15 +375,14 @@ const Instagram = (props: any) => {
                   name="gender2"
                   className="my-3"
                   placeholder="Gender"
-                  value={targetAudienceInfo.gender}
+                  value={props.targetAudienceInfo.gender}
                   onChange={(e: any) => {
-                    setTargetAudienceInfo({
-                      ...targetAudienceInfo,
+                    props.setTargetAudienceInfo({
+                      ...props.targetAudienceInfo,
                       gender: e,
                     });
                   }}
-                  options={genderOption}
-                  // styles=
+                  options={props.genderOption}
                 />
               </div>
             </div>
@@ -582,14 +396,14 @@ const Instagram = (props: any) => {
                   name="interrests2"
                   width="100%"
                   placeholderButtonLabel="Interrests"
-                  value={targetAudienceInfo.interests}
+                  value={props.targetAudienceInfo.interests}
                   onChange={(e: any) => {
-                    setTargetAudienceInfo({
-                      ...targetAudienceInfo,
+                    props.setTargetAudienceInfo({
+                      ...props.targetAudienceInfo,
                       interests: e,
                     });
                   }}
-                  options={interestsOption}
+                  options={props.interestsOption}
                 />
               </div>
             </div>
@@ -603,14 +417,14 @@ const Instagram = (props: any) => {
                   name="languageState2"
                   width="100%"
                   placeholderButtonLabel="Language"
-                  value={targetAudienceInfo.language}
+                  value={props.targetAudienceInfo.language}
                   onChange={(e: any) => {
-                    setTargetAudienceInfo({
-                      ...targetAudienceInfo,
+                    props.setTargetAudienceInfo({
+                      ...props.targetAudienceInfo,
                       language: e,
                     });
                   }}
-                  options={languageStateOption}
+                  options={props.languageStateOption}
                 />
               </div>
             </div>
@@ -648,11 +462,11 @@ const Instagram = (props: any) => {
                   name="username"
                   width="100%"
                   placeholderButtonLabel="@username"
-                  value={byChannel}
+                  value={props.byChannel}
                   onChange={(e: any) => {
-                    setByChannel(e);
+                    props.setByChannel(e);
                   }}
-                  options={languageStateOption}
+                  options={props.languageStateOption}
                 />
                 {/* <input
                   id="username"
@@ -694,12 +508,12 @@ const Instagram = (props: any) => {
                   id="hashtag"
                   name="hashtag"
                   width="100%"
-                  placeholderButtonLabel="#hashtag"
-                  value={byRelevance}
+                  placeholderButtonLabel="#hashtags"
+                  value={props.byRelevance}
                   onChange={(e: any) => {
-                    setByRelevance(e);
+                    props.setByRelevance(e);
                   }}
-                  options={languageStateOption}
+                  options={props.languageStateOption}
                 />
                 {/* <input
                   id="relevance"
@@ -715,11 +529,11 @@ const Instagram = (props: any) => {
                 <div className="mt-1 relative rounded-md shadow-sm">
                   <CreatableSelect
                     id="keywords"
-                    value={keywords}
+                    value={props.keywords}
                     isMulti
                     placeholder="Keyword"
                     onChange={(e: any) => {
-                      setKeywords(e);
+                      props.setKeywords(e);
                     }}
                   />
                   {/* <input

@@ -44,28 +44,6 @@ const ProgressLine = (label: string, percentage: number) => {
 export default function Application() {
   const [overSideOpen, setOverSideOpen] = useState(false);
   const [modalSearchOpen, setModalSearchOpen] = useState(false);
-  const [sniperMenu, setSniperMenu] = useState(1);
-  const [search, setSearch] = useState({
-    youtubeAccount: false,
-    contactDetail: false,
-    influencerInfo: {
-      country: "",
-      followerRange: { min: "", max: "" },
-      AVGViews: { min: "", max: "" },
-      language: "",
-      engagementRate: "",
-      Interests: "",
-    },
-    targetAudienceInfo: {
-      country: "",
-      age: "",
-      gender: "",
-      language: "",
-      Interests: "",
-    },
-    byChannel: "",
-    byRelevance: "",
-  });
 
   const onOverSideOpen = () => {
     setOverSideOpen(true);
@@ -81,6 +59,10 @@ export default function Application() {
 
   const onModalSearchClose = () => {
     setModalSearchOpen(false);
+  };
+
+  const onSearchSubmit = (props: any) => {
+    console.log(props);
   };
 
   return (
@@ -523,7 +505,10 @@ export default function Application() {
             {overSideOpen && <OverSide onClose={onOverSideClose} />}
             {/* Modal Search */}
             {modalSearchOpen && (
-              <ModalSearch onClose={onModalSearchClose} search={setSearch} />
+              <ModalSearch
+                onClose={onModalSearchClose}
+                searchSubmit={onSearchSubmit}
+              />
             )}
           </main>
         </div>
