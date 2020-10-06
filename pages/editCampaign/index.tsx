@@ -190,7 +190,7 @@ const Editcapaign = () => {
   };
 
   const onSelectValueChange = (props: any, multi: boolean) => (e: any) => {
-    // console.log(e);
+    console.log(e);
     if (multi) {
       setCampaign({ ...campaign, [props]: e });
     } else {
@@ -199,13 +199,13 @@ const Editcapaign = () => {
   };
 
   const onSubmit = () => {
-    console.log(campaign);
+    // console.log(campaign);
     if (campaign.id) {
       DataService.update(`campaigns`, campaign.id, JSON.stringify(campaign))
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
     } else {
-      console.log("create");
+      // console.log("create");
       campaign.id = (Math.random() * 10000000).toFixed(0);
       DataService.create("campaigns", JSON.stringify(campaign))
         .then((res) => console.log(res))

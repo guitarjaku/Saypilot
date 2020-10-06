@@ -24,8 +24,8 @@
         }
       ],
       "gender": {
-        "value": "any",
-        "label": "Any"
+        "value": "male",
+        "label": "Male"
       },
       "instagramHandles": [
         "@newshine"
