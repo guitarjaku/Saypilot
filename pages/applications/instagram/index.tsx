@@ -10,22 +10,24 @@ const Instagram = (props: any) => {
     youtubeAccount: false,
     contactDetail: false,
     influencerInfo: {
-      country: "",
-      followerRange: { min: "", max: "" },
-      AVGViews: { min: "", max: "" },
-      language: "",
-      engagementRate: "",
-      Interests: "",
+      gender: {},
+      country: [],
+      followerRange: { min: {}, max: {} },
+      AVGViews: { min: {}, max: {} },
+      language: [],
+      engagementRate: {},
+      interests: [],
     },
     targetAudienceInfo: {
-      country: "",
-      age: "",
-      gender: "",
-      language: "",
-      Interests: "",
+      country: [],
+      age: [],
+      gender: {},
+      language: [],
+      interests: [],
     },
-    byChannel: "",
-    byRelevance: "",
+    byChannel: [],
+    byRelevance: [],
+    keyword: [],
   });
 
   const [countryStateOption, setCountryStateOption] = useState([]);
@@ -137,6 +139,20 @@ const Instagram = (props: any) => {
         setLanguageStateOption(dataLanguage);
       })
       .catch((err) => console.log(err));
+  };
+
+  const onInputValueChange = (props: any) => (e: any) => {
+    // console.log(e);
+    setSearchForm({ ...seacrhForm, [props]: e?.target.value });
+  };
+
+  const onSelectValueChange = (props: any, multi: boolean) => (e: any) => {
+    console.log(e);
+    if (multi) {
+      setSearchForm({ ...seacrhForm, [props]: e });
+    } else {
+      setSearchForm({ ...seacrhForm, [props]: e });
+    }
   };
 
   useEffect(() => {
@@ -263,20 +279,10 @@ const Instagram = (props: any) => {
                   name="countryState1"
                   className="my-3"
                   isMulti
-                  // value={}
-                  // onChange={}
+                  value={seacrhForm.influencerInfo.country}
+                  onChange={onSelectValueChange("country", true)}
                   options={countryStateOption}
                 />
-                {/* <select
-                  id="location"
-                  placeholder="Locaition"
-                  className="mt-1 form-select rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                >
-                  <option>Location</option>
-                  <option>USA</option>
-                  <option>Canada</option>
-                  <option>EU</option>
-                </select> */}
               </div>
             </div>
             <div className="col-span-1">
@@ -288,8 +294,8 @@ const Instagram = (props: any) => {
                   id="fmin"
                   name="fmin"
                   className="my-3"
-                  // value={campaign.gender}
-                  // onChange={onSelectValueChange("gender", false)}
+                  value={seacrhForm.influencerInfo.followerRange.min}
+                  onChange={onSelectValueChange("min", false)}
                   options={followerMinOption}
                   // styles=
                 />
@@ -302,8 +308,8 @@ const Instagram = (props: any) => {
                   id="fmax"
                   name="fmax"
                   className="my-3"
-                  // value={campaign.gender}
-                  // onChange={onSelectValueChange("gender", false)}
+                  value={seacrhForm.influencerInfo.followerRange.max}
+                  onChange={onSelectValueChange("max", false)}
                   options={followerMaxOption}
                   // styles=
                 />
@@ -318,8 +324,8 @@ const Instagram = (props: any) => {
                   id="gender1"
                   name="gender1"
                   className="my-3"
-                  // value={campaign.gender}
-                  // onChange={onSelectValueChange("gender", false)}
+                  value={seacrhForm.influencerInfo.gender}
+                  onChange={onSelectValueChange("gender", false)}
                   options={genderOption}
                   // styles=
                 />
@@ -335,8 +341,8 @@ const Instagram = (props: any) => {
                   name="languageState1"
                   className="my-3"
                   isMulti
-                  // value={}
-                  // onChange={}
+                  value={seacrhForm.influencerInfo.language}
+                  onChange={onSelectValueChange("language", false)}
                   options={languageStateOption}
                 />
               </div>
@@ -349,6 +355,8 @@ const Instagram = (props: any) => {
                 <ReactMultiSelectCheckboxes
                   id="interrests1"
                   name="interrests1"
+                  value={seacrhForm.influencerInfo.interests}
+                  nChange={onSelectValueChange("interests", false)}
                   width="100%"
                   options={interestsOption}
                 />
@@ -392,9 +400,8 @@ const Instagram = (props: any) => {
                   id="enengagementRate1"
                   name="enengagementRate1"
                   className="my-3"
-                  isMulti
-                  // value={}
-                  // onChange={}
+                  value={seacrhForm.influencerInfo.engagementRate}
+                  onChange={onSelectValueChange("engagementRate", false)}
                   options={engagementRateOption}
                 />
               </div>
@@ -440,8 +447,8 @@ const Instagram = (props: any) => {
                   name="countryState2"
                   className="my-3"
                   isMulti
-                  // value={}
-                  // onChange={}
+                  value={seacrhForm.targetAudienceInfo.country}
+                  onChange={onSelectValueChange("country", true)}
                   options={countryStateOption}
                 />
               </div>
@@ -455,6 +462,8 @@ const Instagram = (props: any) => {
                   id="age"
                   name="age"
                   width="100%"
+                  value={seacrhForm.targetAudienceInfo.age}
+                  onChange={onSelectValueChange("age", true)}
                   options={ageOption}
                 />
               </div>
@@ -468,14 +477,29 @@ const Instagram = (props: any) => {
                   id="gender2"
                   name="gender2"
                   className="my-3"
-                  // value={campaign.gender}
-                  // onChange={onSelectValueChange("gender", false)}
+                  value={seacrhForm.targetAudienceInfo.gender}
+                  onChange={onSelectValueChange("gender", false)}
                   options={genderOption}
                   // styles=
                 />
               </div>
             </div>
-            <div className="col-span-2">
+            <div className="col-span-3">
+              <label className="block text-sm font-medium leading-5 text-gray-700">
+                Interrests
+              </label>
+              <div className="my-3 relative rounded-none shadow-sm">
+                <ReactMultiSelectCheckboxes
+                  id="interrests2"
+                  name="interrests2"
+                  width="100%"
+                  value={seacrhForm.targetAudienceInfo.interests}
+                  onChange={onSelectValueChange("interests", true)}
+                  options={interestsOption}
+                />
+              </div>
+            </div>
+            <div className="col-span-3">
               <label className="block text-sm font-medium leading-5 text-gray-700">
                 Language
               </label>
@@ -485,67 +509,9 @@ const Instagram = (props: any) => {
                   name="languageState2"
                   className="my-3"
                   isMulti
-                  // value={}
-                  // onChange={}
+                  value={seacrhForm.targetAudienceInfo.language}
+                  onChange={onSelectValueChange("language", true)}
                   options={languageStateOption}
-                />
-              </div>
-            </div>
-            <div className="col-span-2">
-              <label className="block text-sm font-medium leading-5 text-gray-700">
-                Interrests
-              </label>
-              <div className="my-3 relative rounded-none shadow-sm">
-                <ReactMultiSelectCheckboxes
-                  id="interrests2"
-                  name="interrests2"
-                  width="100%"
-                  options={interestsOption}
-                />
-              </div>
-            </div>
-            <div className="col-span-2">
-              <label className="block text-sm font-medium leading-5 text-gray-700">
-                <div className="flex items-center">
-                  <div className="mr-2">
-                    <div className="text-sm leading-5 font-medium text-gray-900">
-                      Engagement rate
-                    </div>
-                  </div>
-                  <div className="flex-shrink-0 h-4 w-4">
-                    <svg
-                      version="1.1"
-                      id="Capa_1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      x="0px"
-                      y="0px"
-                      viewBox="0 0 426.667 426.667"
-                    >
-                      <rect x="192" y="192" width="42.667" height="128" />
-                      <path
-                        d="M213.333,0C95.467,0,0,95.467,0,213.333s95.467,213.333,213.333,213.333S426.667,331.2,426.667,213.333
-                        S331.2,0,213.333,0z M213.333,384c-94.08,0-170.667-76.587-170.667-170.667S119.253,42.667,213.333,42.667
-                        S384,119.253,384,213.333S307.413,384,213.333,384z"
-                      />
-                      <rect
-                        x="192"
-                        y="106.667"
-                        width="42.667"
-                        height="42.667"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </label>
-              <div className="mt-1 relative rounded-none shadow-sm">
-                <Select
-                  id="enengagementRate2"
-                  name="enengagementRate2"
-                  className="my-3"
-                  isMulti
-                  // value={}
-                  // onChange={}
-                  options={engagementRateOption}
                 />
               </div>
             </div>
@@ -581,6 +547,8 @@ const Instagram = (props: any) => {
                 <input
                   id="username"
                   placeholder="@username"
+                  value={seacrhForm.byChannel}
+                  onChange={onInputValueChange("byChannel")}
                   className="mt-1 rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
                 />
               </div>
@@ -615,6 +583,7 @@ const Instagram = (props: any) => {
                 <input
                   id="relevance"
                   placeholder="#hashtag"
+                  value={seacrhForm.byRelevance}
                   className="mt-1 rounded-none block w-full pl-3 pr-10 py-2 text-base leading-6 border border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
                 />
               </div>
@@ -624,7 +593,8 @@ const Instagram = (props: any) => {
                 <label className="block text-sm font-medium leading-5 text-gray-700"></label>
                 <div className="mt-1 relative rounded-md shadow-sm">
                   <input
-                    id="email"
+                    id="keyword"
+                    value={seacrhForm.keyword}
                     className="form-input rounded-none block w-full sm:text-sm sm:leading-5"
                     placeholder="Keywords"
                   />
