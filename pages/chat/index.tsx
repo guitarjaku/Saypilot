@@ -80,7 +80,7 @@ const Chat = () => {
                   </div>
                 </a>
                 <div className="col-span-2 my-auto  mr-auto pl-4">
-                  <div className="text-3xl leading-5 font-medium text-gray-900 mb-3">
+                  <div className="text-2xl leading-5 font-medium text-gray-900 mb-3">
                     Ansley gordon
                   </div>
                   <div className="text-sm leading-5 text-yellow-500">
@@ -90,15 +90,9 @@ const Chat = () => {
               </div>
               <main className="p-4 flex-1">
                 {/* <!-- This is an example component --> */}
-                <link
-                  rel="stylesheet"
-                  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
-                  integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
-                />
-
                 <div className="min-h-screen bg-gray-100">
                   <div className="min-h-screen flex justify-center">
-                    <div className="w-2/3 mx-auto">
+                    <div className="w-full mx-auto">
                       <div className="flex flex-row w-full">
                         {/* <!-- left col --> */}
 
@@ -127,14 +121,7 @@ const Chat = () => {
                           </div>
                         </div>
                         {/* <!--line column--> */}
-                        <div className="w-1/5  flex justify-center">
-                          <div className="relative flex h-full w-1 bg-green-300 items-center justify-center">
-                            <div className="absolute flex flex-col justify-center h-24 w-24 rounded-full border-2 border-green-300 leading-none text-center z-10 bg-white font-thin">
-                              <div>20</div>
-                              <div>September</div>
-                            </div>
-                          </div>
-                        </div>
+                        <div className="w-1/5  flex justify-center"></div>
                         {/* <!--right column--> */}
                         <div className="w-2/5 px-2 py-10 "></div>
                       </div>
@@ -143,14 +130,7 @@ const Chat = () => {
 
                         <div className="w-2/5 px-2 py-10"></div>
                         {/* <!--line column--> */}
-                        <div className="w-1/5  flex justify-center">
-                          <div className="relative flex h-full w-1 bg-green-300 items-center justify-center">
-                            <div className="absolute flex flex-col justify-center h-24 w-24 rounded-full border-2 border-green-300 leading-none text-center z-10 bg-white font-thin">
-                              <div>20</div>
-                              <div>сентября</div>
-                            </div>
-                          </div>
-                        </div>
+                        <div className="w-1/5  flex justify-center"></div>
                         {/* <!--right column--> */}
                         <div className="w-2/5 px-2 py-10 ">
                           <div className="flex flex-col w-full rounded-lg shadow bg-white px-4 py-5">
@@ -199,14 +179,7 @@ const Chat = () => {
                           </div>
                         </div>
                         {/* <!--line column--> */}
-                        <div className="w-1/5  flex justify-center">
-                          <div className="relative flex h-full w-1 bg-green-300 items-center justify-center">
-                            <div className="absolute flex flex-col justify-center h-24 w-24 rounded-full border-2 border-green-300 leading-none text-center z-10 bg-white font-thin">
-                              <div>20</div>
-                              <div>сентября</div>
-                            </div>
-                          </div>
-                        </div>
+                        <div className="w-1/5  flex justify-center"></div>
                         {/* <!--right column--> */}
                         <div className="w-2/5 px-2 py-10 "></div>
                       </div>

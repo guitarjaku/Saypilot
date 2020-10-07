@@ -217,8 +217,13 @@
 - [x] set CSS default tailwind 75%
 - [x] UI 95/100 state 73/100 UX 65/100
 
-## 7/10/2020, 18.00-22.00
+## 7/10/2020, 18.00-20.00
 
 - [x] set CSS default tailwind 80%
 - [x] set chat box function 30%
+- [x] UI 95/100 state 73/100 UX 65/100
+
+## 7/10/2020, 20.00-22.00
+
+- [x] set CSS default tailwind 90%
 - [x] UI 95/100 state 73/100 UX 65/100
