@@ -211,3 +211,8 @@
 
 - [x] set CSS default tailwind 65%
 - [x] UI 95/100 state 73/100 UX 65/100
+
+## 7/10/2020, 15.00-17.00
+
+- [x] set CSS default tailwind 75%
+- [x] UI 95/100 state 73/100 UX 65/100

@@ -73,12 +73,12 @@ const Messages = () => {
               <div className="align-middle inline-block min-w-full  border-b border-gray-200">
                 <div className="grid grid-cols-7 bg-gray-200 gap-4 py-4 px-3">
                   <div className="text-center">
-                    <button className="py-4 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border  border-gray-400 rounded-none text-left leading-5">
+                    <button className="py-4 text-sm bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border  border-gray-400 rounded-md text-left leading-5">
                       <div className="flex items-center">
                         <div className="flex">
                           <img src={"/icons/bullhorn.png"} alt="" />
                         </div>
-                        <div className="flex italic">
+                        <div className="flex ml-4 italic">
                           <span>GROUP MESSAGE</span>
                         </div>
                       </div>

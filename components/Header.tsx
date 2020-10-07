@@ -33,7 +33,7 @@ const Header = () => {
               </svg>
             </button>
           </div>
-          <nav className="hidden md:flex space-x-10">
+          <nav className="hidden md:flex space-x-5">
             <ActiveLink activeClassName="bg-indigo-400 rounded-md" href="/">
               <a className="text-base p-4 leading-6 font-medium text-black hover:text-gray-200 focus:outline-none focus:text-gray-400 transition ease-in-out duration-150">
                 Summarys
