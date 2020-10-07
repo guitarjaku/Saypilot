@@ -29,17 +29,17 @@
       "static/chunks/commons.js",
       "static/chunks/pages/_error.js"
     ],
-    "/addCredits": [
+    "/influencers": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",
       "static/chunks/commons.js",
-      "static/chunks/pages/addCredits.js"
+      "static/chunks/pages/influencers.js"
     ],
-    "/chat": [
+    "/postsAndAnalytics": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",
       "static/chunks/commons.js",
-      "static/chunks/pages/chat.js"
+      "static/chunks/pages/postsAndAnalytics.js"
     ]
   },
   "ampFirstPages": []

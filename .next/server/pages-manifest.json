@@ -2,6 +2,6 @@
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
-  "/chat": "pages/chat.js",
-  "/addCredits": "pages/addCredits.js"
+  "/postsAndAnalytics": "pages/postsAndAnalytics.js",
+  "/influencers": "pages/influencers.js"
 }

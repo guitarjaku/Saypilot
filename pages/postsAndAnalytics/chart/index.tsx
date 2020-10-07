@@ -1,10 +1,10 @@
 import { h } from "preact";
-import { useState, useRef } from "preact/hooks";
+import { useState, useRef, useEffect } from "preact/hooks";
 import { Line } from "react-chartjs-2";
 
 const Chart = (props: any) => {
   const chartRef = useRef(null);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(props.data);
 
   const chartData = {
     labels: [],
@@ -46,6 +46,7 @@ const Chart = (props: any) => {
       ],
       yAxes: [
         {
+          position: "right",
           gridLines: {
             display: true,
             drawOnChartArea: false,
@@ -78,6 +79,27 @@ const Chart = (props: any) => {
     },
     maintainAspectRatio: false,
   };
+
+  const onReceive = (chartRef: any) => {
+    // console.log(chartRef.current.chartInstance.config.data.datasets);
+
+    props.data.map((x: any) => {
+      chartRef.current.chartInstance.config.data.datasets.map(
+        (chart: any, i: any) => {
+          chart.data.push(x);
+        }
+      );
+    });
+
+    // update chart datasets keeping the current animation
+    chartRef.current.chartInstance.update({
+      preservation: true,
+    });
+  };
+
+  useEffect(() => {
+    onReceive(chartRef);
+  }, [props]);
 
   return (
     <div>

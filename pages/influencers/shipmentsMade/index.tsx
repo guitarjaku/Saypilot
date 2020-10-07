@@ -1,25 +1,36 @@
 import { h } from "preact";
 import { useState } from "preact/hooks/";
+import MarkShippedModal from "./markShippedModal";
+import ShippingDetailModal from "./shippingDetailModal";
 
 const ShipmentsMade = () => {
-  const [openModal, setOpenModal] = useState(false);
+  const [openMarkModal, setOpenMarkModal] = useState(false);
+  const [openShippingModal, setOpenShippingModal] = useState(false);
 
-  const onOpenModal = () => {
-    setOpenModal(true);
+  const onOpenMarkModal = (props: any) => {
+    if (props === "mark") {
+      setOpenMarkModal(true);
+    } else {
+      setOpenShippingModal(true);
+    }
   };
 
-  const onCloseModal = () => {
-    setOpenModal(false);
+  const onCloseModal = (props: any) => {
+    if (props === "mark") {
+      setOpenMarkModal(false);
+    } else {
+      setOpenShippingModal(false);
+    }
   };
 
   return (
     <>
-      <div className="grid grid-cols-7 gap-4 py-4">
+      <div className="grid grid-cols-6 gap-4 py-4">
         <div className="col-span-1 text-1xl text-black m-auto">
           Needs to be shipped 6
         </div>
         <div className="text-center">
-          <button className="py-2 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border  border-gray-400 rounded-none text-left leading-5">
+          <button className="py-2 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border  border-gray-400 rounded-md text-left leading-5">
             <div className="flex items-center">
               <div className="flex">
                 <span>CSV DOWNLOAD</span>
@@ -81,7 +92,7 @@ const ShipmentsMade = () => {
                       <span className="rounded-md shadow-sm">
                         <button
                           type="button"
-                          onClick={() => onOpenModal()}
+                          onClick={() => onOpenMarkModal("mark")}
                           className="items-center px-6 py-3 border border-transparent text-base leading-6 font-medium rounded-none text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"
                         >
                           MARK AS SHIPPED
@@ -152,6 +163,7 @@ const ShipmentsMade = () => {
                       <span className="rounded-md shadow-sm">
                         <button
                           type="button"
+                          onClick={() => onOpenMarkModal("")}
                           className="items-center px-6 py-3 border border-transparent text-base leading-6 font-medium rounded-none text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"
                         >
                           SHIPPING DETAILS
@@ -165,8 +177,9 @@ const ShipmentsMade = () => {
           </div>
         </div>
       </div>
-
-      {openModal && (
+      {openMarkModal && <MarkShippedModal close={onCloseModal} />}
+      {openShippingModal && <ShippingDetailModal close={onCloseModal} />}
+      {/* {openModal && (
         <div className="fixed z-10 inset-0 overflow-y-auto">
           <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
             <div className="fixed inset-0 transition-opacity">
@@ -483,7 +496,7 @@ const ShipmentsMade = () => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </>
   );
 };

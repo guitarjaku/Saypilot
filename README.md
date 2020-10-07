@@ -227,3 +227,8 @@
 
 - [x] set CSS default tailwind 90%
 - [x] UI 95/100 state 73/100 UX 65/100
+
+## 7/10/2020, 22.00-24.00
+
+- [x] fake chart data
+- [x] UI 95/100 state 80/100 UX 70/100

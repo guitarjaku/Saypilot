@@ -5,9 +5,6 @@ import { useState, useEffect } from "preact/hooks/";
 import Head from "next/head";
 import Header from "../../components/Header";
 import OverSide from "./overSide";
-import Instagram from "./instagram";
-import Youtube from "./youtube";
-import Tiktok from "./tiktok";
 import ModalSearch from "./modalSearch";
 import SideBar from "../../components/Sidebar";
 

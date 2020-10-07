@@ -1,12 +1,31 @@
 import { h } from "preact";
-import { useState } from "preact/hooks";
+import { useState, useEffect } from "preact/hooks";
 import Head from "next/head";
 import Header from "../../components/Header";
 import SideBar from "../../components/Sidebar";
+import DataService from "../../service/service";
 import LineChart from "./chart";
 import CardPost from "./cardPost";
 
 const PostsAndAnalytics = () => {
+  const [chartData, setChartData] = useState([]);
+
+  const getChartData = () => {
+    DataService.getAll("/chartData").then((res) => {
+      res.data.sort(function (a: any, b: any) {
+        // Turn your strings into dates, and then subtract them
+        // to get a value that is either negative, positive, or zero.
+        return new Date(b.x) - new Date(a.x);
+      });
+      console.log(res.data.reverse());
+      setChartData(res.data.reverse());
+    });
+  };
+
+  useEffect(() => {
+    getChartData();
+  }, []);
+
   return (
     <>
       <div className="h-screen flex overflow-hidden bg-white">
@@ -141,7 +160,7 @@ const PostsAndAnalytics = () => {
                     </span>
                   </div>
                   <div className="col-span-8">
-                    <LineChart />
+                    <LineChart data={chartData} />
                   </div>
                 </div>
 

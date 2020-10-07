@@ -5,8 +5,8 @@ const PostApproval = () => {
   return (
     <>
       <div className="grid grid-cols-6 gap-4 py-4">
-        <div className="col-span-2 text-1xl text-black m-auto">
-          <p>Awaiting Post - 8</p>
+        <div className="col-span-2 text-1xl m-auto">
+          <p className="font-bold">Awaiting Post - 8</p>
           <span>
             These Influencers have yet to post if you are looking for status on
             when they will post, feel free to message them at any point.
@@ -101,9 +101,7 @@ const PostApproval = () => {
       </div>
 
       <div className="grid grid-cols-6 gap-4 py-4 ">
-        <div className="col-span-1 text-1xl text-black">
-          Approved Posts - 91
-        </div>
+        <div className="col-span-1 text-1xl font-bold">Approved Posts - 91</div>
       </div>
       <div className="flex flex-col">
         <div className="-my-2 overflow-x-auto">
