@@ -1,16 +1,7 @@
-/* Copyright 2020 Genemator Sakhib. All rights reserved. MPL-2.0 license. */
-
 import React from "react";
 import Link from "next/link";
 
-const Footer = (props: { simple?: boolean }) => {
-  let queryString;
-  if (typeof window !== "undefined") {
-    queryString = window.location.search;
-  }
-  const urlParams = new URLSearchParams(queryString);
-  const id: string = urlParams.get("id") || "";
-
+const Footer = (props: any) => {
   return (
     <div
       className={
@@ -23,7 +14,7 @@ const Footer = (props: { simple?: boolean }) => {
         <nav className="-mx-5 -my-2 flex flex-wrap justify-start">
           <div className="px-5 py-2 text-black">
             <a
-              href={`editCampaign/?id=${id}`}
+              href={`editCampaign/?id=${props.id}`}
               className="text-base leading-6 text-black hover:text-gray-200 border  border-gray-400 rounded-none p-4"
             >
               EDIT CAMPAIGN

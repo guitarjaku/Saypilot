@@ -15,17 +15,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/genemators/genemators.git"
+    "url": "git+"
   },
   "keywords": [
-    "Portfolio",
     "NextJS",
     "Next",
     "JS",
-    "Genemator"
+    "Saypilot"
   ],
-  "author": "Genemator Sakhib <genemators@gmail.com> (genemator.me)",
-  "license": "MPL-2.0",
+  "author": "",
+  "license": "",
   "bugs": {
     "url": "https://github.com/genemators/genemators/issues"
   },

@@ -25,8 +25,8 @@ export default class MyApp extends App {
     return (
       <div className="h-screen">
         <Head>
-          {/* <meta property="og:image" content={preview} />
-          <meta property="og:site_name" content="Genemator's" /> */}
+          {/* <meta property="og:image" content={} />
+          <meta property="og:site_name" content="Saypilot's" /> */}
           <title>Saypilot Website</title>
         </Head>
         <Component {...pageProps} />

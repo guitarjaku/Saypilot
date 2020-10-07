@@ -1,52 +1,9 @@
-/* Copyright 2020 Genemator Sakhib. All rights reserved. MPL-2.0 license. */
-
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-
-@font-face {
-  font-family: "Fette Haenel Fraktur";
-  src: url("https://genemator.me/fonts/FetteHaenelFraktur.ttf");
-}
-
-@font-face {
-  font-family: "JetBrains Mono";
-  src: url("https://genemator.me/fonts/JetBrains.woff2") format("woff2"),
-    url("https://genemator.me/fonts/JetBrains.woff") format("woff"),
-    url("https://genemator.me/fonts/JetBrains.ttf") format("truetype");
-}
 
 html {
   scroll-behavior: smooth;
   overflow: scroll;
   overflow-x: hidden;
-  font-family: "JetBrains Mono", monospace;
-}
-
-:root {
-  --grey: #5e5d5e;
-  --mid-grey: #3f3f3f;
-}
-
-select option {
-  background-color: rgba(0, 0, 0, 255);
-}
-
-body {
-  color: white;
-  background-position: center;
-}
-
-.genemator-title {
-  font-family: "Fette Haenel Fraktur", monospace;
-  font-size: 1.6rem;
-}
-
-.custom-error {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 1.6rem;
-}
-
-.logo-head {
-  -webkit-animation: rotation 10s infinite linear;
 }

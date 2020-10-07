@@ -196,3 +196,8 @@
 
 - [x] aplication search state 99%
 - [x] UI 90/100 state 73/100 UX 65/100
+
+## 7/10/2020, 08.00-10.00
+
+- [x] set CSS default tailwind 30%
+- [x] UI 90/100 state 73/100 UX 65/100

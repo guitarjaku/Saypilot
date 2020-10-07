@@ -3,20 +3,10 @@ const defaultTheme = require("tailwindcss/defaultTheme"); // eslint-disable-line
 module.exports = {
   theme: {
     fontFamily: {
-      mono: [
-        // "Menlo",
-        // "Monaco",
-        // '"Lucida Console"',
-        // "Consolas",
-        // '"Liberation Mono"',
-        // '"Courier New"',
-        // "monospace",
-      ],
+      mono: [],
     },
     extend: {
-      fontFamily: {
-        // sans: ["Inter var", ...defaultTheme.fontFamily.sans],
-      },
+      fontFamily: {},
       width: {
         72: "18rem",
       },
@@ -35,7 +25,6 @@ module.exports = {
     content: [
       "./components/**/*.tsx",
       "./pages/**/*.tsx",
-      "./public/posts/*.json",
     ],
   },
 };

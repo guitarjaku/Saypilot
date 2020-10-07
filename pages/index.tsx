@@ -298,7 +298,7 @@ const Home = () => {
                 </div>
               )}
             </div>
-            <Footer />
+            <Footer id={campaign.id} />
           </div>
         </main>
       </div>

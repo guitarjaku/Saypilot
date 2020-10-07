@@ -21,7 +21,7 @@ const SideBar = () => {
   return (
     <>
       <div className="hidden lg:flex lg:flex-shrink-0">
-        <div className="flex flex-col w-64 border-r border-gray-200 pb-4 bg-white text-black">
+        <div className="flex flex-col w-64 border-r border-gray-200 pb-4 bg-indigo-800 text-white">
           <div className="flex items-start flex-shrink-0 pt-4 px-6 justify-center h-32">
             <img
               className="h-4 w-auto"
@@ -55,7 +55,7 @@ const SideBar = () => {
               <nav className="mt-6">
                 {/* <!-- Secondary navigation --> */}
                 <h3
-                  className="px-3 text-xs leading-4 font-semibold text-gray-800 uppercase tracking-wider"
+                  className="px-3 text-xs leading-4 font-semibold uppercase tracking-wider"
                   id="teams-headline"
                 >
                   My Campaigns
@@ -68,7 +68,7 @@ const SideBar = () => {
                   {campaigns.map((campaign: any) => (
                     <a
                       href={`/?id=${campaign.id}`}
-                      className="group flex items-center px-3 py-2 text-sm leading-5 font-medium text-black rounded-none border-r-4 border-black hover:text-gray-500 hover:bg-gray-700 hover:border-yellow-400 focus:outline-none focus:bg-gray-700 focus:border-yellow-400 transition ease-in-out duration-150"
+                      className="group flex items-center px-3 py-2 text-sm leading-5 font-medium rounded-none hover:text-gray-500 hover:bg-indigo-900 hover:border-yellow-400 focus:outline-none focus:bg-indigo-900 focus:border-yellow-400 transition ease-in-out duration-150"
                     >
                       <span className="w-10 h-10 mr-4 bg-indigo-500 rounded-none"></span>
                       <span className="truncate">{campaign.name}</span>
@@ -76,7 +76,7 @@ const SideBar = () => {
                   ))}
                   <a
                     href="/editCampaign/?id="
-                    className="group flex items-center px-3 py-2 text-sm leading-5 font-medium text-gray-200 rounded-none border-r-4 border-black hover:text-gray-500 hover:bg-gray-700 hover:border-yellow-400 focus:outline-none focus:bg-gray-700 focus:border-yellow-400 transition ease-in-out duration-150"
+                    className="group flex items-center px-3 py-2 text-sm leading-5 font-medium text-gray-200 rounded-none hover:text-gray-500 hover:bg-indigo-900 hover:border-yellow-400 focus:outline-none focus:bg-indigo-900 focus:border-yellow-400 transition ease-in-out duration-150"
                   >
                     <span className="rounded-full h-10 w-10 flex items-center justify-center bg-yellow-400 text-4xl mr-4">
                       +
