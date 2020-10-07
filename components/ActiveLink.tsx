@@ -4,24 +4,27 @@ import Link from "next/link";
 import { h, cloneElement } from "preact";
 import { Children } from "preact/compat";
 
+//@ts-ignore
 const ActiveLink = ({ children, activeClassName, ...props }) => {
   const { asPath } = useRouter();
   const child = Children.only(children);
+  //@ts-ignore
   const childClassName = child.props.className || "";
 
-  // pages/index.js will be matched via props.href
-  // pages/about.js will be matched via props.href
-  // pages/[slug].js will be matched via props.as
   const className =
     asPath === props.href || asPath === props.as
       ? `${childClassName} ${activeClassName}`.trim()
       : childClassName;
 
   return (
+    //@ts-ignore
     <Link {...props}>
-      {cloneElement(child, {
-        className: className || null,
-      })}
+      {
+        //@ts-ignore
+        cloneElement(child, {
+          className: className || null,
+        })
+      }
     </Link>
   );
 };
