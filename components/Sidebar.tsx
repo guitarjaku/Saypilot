@@ -9,7 +9,7 @@ const SideBar = () => {
 
   const getCampaigns = () => {
     DataService.getAll("/campaigns").then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       setCampaigns(res.data);
     });
   };

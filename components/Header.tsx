@@ -2,6 +2,7 @@ import { h } from "preact";
 import { useState } from "preact/hooks";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import ActiveLink from "./ActiveLink";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -33,35 +34,47 @@ const Header = () => {
             </button>
           </div>
           <nav className="hidden md:flex space-x-10">
-            <Link href="/">
+            <ActiveLink activeClassName="bg-indigo-400 rounded-md" href="/">
               <a className="text-base p-4 leading-6 font-medium text-black hover:text-gray-200 focus:outline-none focus:text-gray-400 transition ease-in-out duration-150">
                 Summarys
               </a>
-            </Link>
-            <Link href="/applications">
+            </ActiveLink>
+            <ActiveLink
+              activeClassName="bg-indigo-400 rounded-md"
+              href="/applications"
+            >
               <a className="text-base p-4 leading-6 font-medium text-black hover:text-gray-200 focus:outline-none focus:text-gray-400 transition ease-in-out duration-150">
                 Applications
               </a>
-            </Link>
-            <Link href="/influencers">
+            </ActiveLink>
+            <ActiveLink
+              activeClassName="bg-indigo-400 rounded-md"
+              href="/influencers"
+            >
               <a className="text-base p-4 leading-6 font-medium text-black hover:text-gray-200 focus:outline-none focus:text-gray-400 transition ease-in-out duration-150">
                 Influencers
               </a>
-            </Link>
-            <Link href="/messages">
+            </ActiveLink>
+            <ActiveLink
+              activeClassName="bg-indigo-400 rounded-md"
+              href="/messages"
+            >
               <a className="text-base p-4 leading-6 font-medium text-black hover:text-gray-200 focus:outline-none focus:text-gray-400 transition ease-in-out duration-150">
                 Messages
               </a>
-            </Link>
-            <Link href="/postsAndAnalytics">
+            </ActiveLink>
+            <ActiveLink
+              activeClassName="bg-indigo-400 rounded-md"
+              href="/postsAndAnalytics"
+            >
               <a className="text-base p-4 leading-6 font-medium text-black hover:text-gray-200 focus:outline-none focus:text-gray-400 transition ease-in-out duration-150">
                 Posts & Analytics
               </a>
-            </Link>
+            </ActiveLink>
           </nav>
           <div className="hidden lg:flex items-center justify-end space-x-8 md:flex-1 lg:w-0">
             <button
-              className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border  border-gray-400 rounded-md text-left leading-5"
+              className="bg-whitec text-sm hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border  border-gray-400 rounded-md text-left leading-5"
               onClick={() => {}}
             >
               <div className="flex items-center">
@@ -75,7 +88,7 @@ const Header = () => {
                 </div>
               </div>
             </button>
-            <button className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border  border-gray-400 rounded-md text-left leading-5">
+            <button className="bg-white text-sm hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border  border-gray-400 rounded-md text-left leading-5">
               <div className="flex items-center">
                 <div className="flex-1 ">
                   <svg

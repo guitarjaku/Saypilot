@@ -29,7 +29,7 @@ const ShipmentsMade = () => {
         </div>
       </div>
       <div className="flex flex-col">
-        <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div className="-my-2 overflow-x-auto">
           <div className="py-2 align-middle inline-block min-w-full ">
             <div className="overflow-hidden rounded-none border border-gray-400">
               <table className="w-full divide-y divide-gray-200">
@@ -97,12 +97,10 @@ const ShipmentsMade = () => {
       </div>
 
       <div className="grid grid-cols-7 gap-4 py-4">
-        <div className="col-span-1 text-1xl text-black">
-          Shipped - 41
-        </div>
+        <div className="col-span-1 text-1xl text-black">Shipped - 41</div>
       </div>
       <div className="flex flex-col">
-        <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div className="-my-2 overflow-x-auto">
           <div className="py-2 align-middle inline-block min-w-full ">
             <div className="overflow-hidden rounded-none border border-gray-400">
               <table className="min-w-full divide-y divide-gray-200">
