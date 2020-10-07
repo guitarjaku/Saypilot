@@ -2119,7 +2119,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(f
 
 /***/ }),
 
-/***/ 8:
+/***/ 9:
 /*!**********************************************************************************************************************************************************************************************!*\
   !*** multi ./node_modules/@prefresh/core/src/index.js next-client-pages-loader?page=%2Fapplications&absolutePagePath=%2FUsers%2Fg4rtu1%2FWork%2Fsaypilot%2Fpages%2Fapplications%2Findex.tsx ***!
   \**********************************************************************************************************************************************************************************************/
@@ -2132,4 +2132,4 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fapplic
 
 /***/ })
 
-},[[8,"webpack","commons"]]]);
+},[[9,"webpack","commons"]]]);
