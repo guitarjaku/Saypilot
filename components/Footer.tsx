@@ -15,7 +15,7 @@ const Footer = (props: any) => {
           <div className="px-5 py-2 text-black">
             <a
               href={`editCampaign/?id=${props.id}`}
-              className="text-base leading-6 text-black hover:text-gray-200 border  border-gray-400 rounded-none p-4"
+              className="text-base leading-6 text-black hover:text-gray-200 border  border-gray-400 rounded-md p-4"
             >
               EDIT CAMPAIGN
             </a>
@@ -23,7 +23,7 @@ const Footer = (props: any) => {
           <div className="px-5 py-2">
             <a
               href="https://t.me/bsba_bot"
-              className="text-base leading-6 text-black hover:text-gray-200 border  border-gray-400 rounded-none p-4"
+              className="text-base leading-6 text-black hover:text-gray-200 border  border-gray-400 rounded-md p-4"
             >
               STOP ACCEPTING APPLICATIONS
             </a>
@@ -31,7 +31,7 @@ const Footer = (props: any) => {
           <div className="px-5 py-2">
             <a
               href="https://t.me/bsba_bot"
-              className="text-base leading-6 text-black hover:text-gray-200 border  border-gray-400 rounded-none p-4"
+              className="text-base leading-6 text-black hover:text-gray-200 border  border-gray-400 rounded-md p-4"
             >
               ARCHIVE CAMPAIGN
             </a>

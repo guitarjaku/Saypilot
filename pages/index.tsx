@@ -122,7 +122,7 @@ const Home = () => {
                 <div className="p-4 align-middle inline-block min-w-full border-gray-200">
                   <div className="grid grid-cols-3 gap-4">
                     <div className="col-span-3 lg:col-span-2">
-                      <div className="w-full h-32 bg-blue-200">
+                      <div className="w-full h-48 bg-blue-200">
                         <img src="" alt="" />
                       </div>
                       <div className="flex flex-wrap border-b border-gray-400 text-black mt-3 p-2">

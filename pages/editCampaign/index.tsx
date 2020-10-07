@@ -30,9 +30,9 @@ const selectSingleStyles = {
   control: (styles: any) => ({
     ...styles,
     borderRadius: 0,
-    border: "1px solid #e3a008",
+    border: "1px solid #8da2fb",
     padding: "0.75rem",
-    backgroundColor: "rgba(22, 30, 46, var(--bg-opacity))",
+    backgroundColor: "white",
   }),
   option: (styles: any) => {
     const color = "white";
@@ -42,9 +42,9 @@ const selectSingleStyles = {
       backgroundColor: color,
       ":hover": {
         ...styles[":hover"],
-        color: "white",
+        color: "black",
         cursor: "pointer",
-        backgroundColor: "rgba(22, 30, 46, var(--bg-opacity))",
+        backgroundColor: "#8da2fb",
       },
       ":active": {
         ...styles[":active"],
@@ -52,28 +52,27 @@ const selectSingleStyles = {
       },
     };
   },
-  singleValue: (styles: any) => ({ ...styles, color: "white" }),
+  singleValue: (styles: any) => ({ ...styles, color: "black" }),
 };
 
 const selectMultiStyles = {
   control: (styles: any) => ({
     ...styles,
     borderRadius: 0,
-    border: "1px solid #e3a008",
+    border: "1px solid #8da2fb",
     padding: "0.75rem",
-    backgroundColor: "rgba(22, 30, 46, var(--bg-opacity))",
+    backgroundColor: "white",
   }),
   option: (styles: any) => {
-    const color = "white";
+    const color = "#8da2fb";
     return {
       ...styles,
       color: "black",
-      backgroundColor: color,
+      backgroundColor: "white",
       ":hover": {
         ...styles[":hover"],
-        color: "white",
         cursor: "pointer",
-        backgroundColor: "rgba(22, 30, 46, var(--bg-opacity))",
+        backgroundColor: "#8da2fb",
       },
       ":active": {
         ...styles[":active"],
@@ -82,12 +81,12 @@ const selectMultiStyles = {
     };
   },
   multiValue: (styles: any) => {
-    const color = "#e3a008";
+    const color = "#8da2fb";
     return {
       ...styles,
       padding: "0.3rem",
       backgroundColor: color,
-      borderRadius: 0,
+      borderRadius: 2,
     };
   },
   multiValueLabel: (styles: any) => ({
@@ -220,56 +219,56 @@ const Editcapaign = () => {
 
   return (
     <>
-      <div className="py-8 bg-black overflow-hidden md:py-20 lg:py-24">
+      <div className="py-8 overflow-hidden md:py-20 lg:py-24">
         <div className=" max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-12 ">
           <a
             href="/"
-            className="absolute bg-black text-yellow-400 font-semibold rounded-none text-left leading-5 left-20"
+            className="absolute font-semibold rounded-none text-left leading-5 left-20"
           >
             <div className="flex items-center">
               <div className="fill-current w-8 h-8 mr-2">
-                <img src={"/icons/return.svg"} alt="" />
+                <img src={"/icons/return-black.svg"} alt="" />
                 <span>Back</span>
               </div>
             </div>
           </a>
           <img
-            className="w-auto m-auto"
-            src={"/trend-logo.svg"}
+            className="w-auto m-auto h-10"
+            src={"https://tailwindui.com/img/logos/workflow-logo-on-white.svg"}
             alt="Workflow"
           />
-          <div className="mt-10 text-center">
+          <div className="mt-10 text-center text-3xl">
             <span>Edit Campaign</span>
           </div>
           <div className="mt-10">
-            <p>Name your campaign</p>
+            <p className="font-semibold">Name your campaign</p>
             <input
-              className="p-3 w-full border-b border-white bg-black"
+              className="mt-3 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5k"
               type="text"
               value={campaign.name}
               onChange={onInputValueChange("name")}
             />
           </div>
-          <div className="flex items-center" style={{ height: "300px" }}>
+          <div className="flex items-center" style={{ height: "350px" }}>
             <span
-              className="bg-yellow-400 rounded-none m-auto"
-              style={{ height: "200px", width: "80%" }}
+              className="bg-indigo-400 rounded-none m-auto"
+              style={{ height: "300px", width: "80%" }}
             ></span>
           </div>
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div>
-              <p>Product Website</p>
+              <p className="font-semibold">Product Website</p>
               <input
-                className="my-3 p-3 w-full bg-black text-yellow-400 border-b border-yellow-400"
+                className="my-3 p-3 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5k"
                 type="text"
                 value={campaign.productWebsite}
                 onChange={onInputValueChange("productWebsite")}
               />
             </div>
-            <div>
-              <p>Product value in dollars</p>
+            <div className="font-semibold">
+              <p className="font-semibold">Product value in dollars</p>
               <input
-                className="my-3 p-3 w-full bg-black text-yellow-400 border-b border-yellow-400"
+                className="my-3 p-3 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5k"
                 type="text"
                 value={campaign.productValue}
                 onChange={onInputValueChange("productValue")}
@@ -278,20 +277,20 @@ const Editcapaign = () => {
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div className="py-4">
-              <p>Product Category</p>
+              <p className="font-semibold">Product Category</p>
               <p>Select One</p>
               <input
-                className="my-3 p-3 w-full bg-gray-900 text-yellow-400 border border-yellow-400"
+                className="my-3 p-3 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5k"
                 type="text"
                 value={campaign.productCategory}
                 onChange={onInputValueChange("productCategory")}
               />
             </div>
             <div className="py-4">
-              <p>Product Category</p>
+              <p className="font-semibold">Product Category</p>
               <p>Brand must provide over $175 to warrant 2 posts</p>
               <input
-                className="my-3 p-3 w-full bg-gray-900 text-yellow-400 border border-yellow-400"
+                className="my-3 p-3 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5k"
                 type="text"
                 value={campaign.productCategoryValue}
                 onChange={onInputValueChange("productCategoryValue")}
@@ -299,7 +298,7 @@ const Editcapaign = () => {
             </div>
           </div>
           <div className="py-4">
-            <p>General Post Guidelines</p>
+            <p className="font-semibold">General Post Guidelines</p>
             <p className="my-3">
               Give them a general undetstanding of what you're looking for and
               have faith in their creative minds to come up with content that
@@ -308,36 +307,40 @@ const Editcapaign = () => {
             </p>
           </div>
           <div className="py-4">
-            <p>Which product will you send the influencers?</p>
+            <p className="font-semibold">
+              Which product will you send the influencers?
+            </p>
             <input
-              className="my-3 p-3 w-full bg-gray-900 text-yellow-400 border border-yellow-400"
+              className="my-3 p-3 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5k"
               type="text"
               value={campaign.productSend}
               onChange={onInputValueChange("productSend")}
             />
           </div>
           <div className="py-4">
-            <p>
+            <p className="font-semibold">
               What would you like the influencers to mention in thier caption
             </p>
             <textarea
-              className="my-3 p-3 w-full bg-gray-900 text-yellow-400 border border-yellow-400"
+              className="my-3 p-3 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5k"
               rows={6}
               value={campaign.productInfluencerCaption}
               onChange={onInputValueChange("productInfluencerCaption")}
             />
           </div>
           <div className="py-4">
-            <p>What photo/video style are you looking for?</p>
+            <p className="font-semibold">
+              What photo/video style are you looking for?
+            </p>
             <textarea
-              className="my-3 p-3 w-full bg-gray-900 text-yellow-400 border border-yellow-400"
+              className="my-3 p-3 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5k"
               rows={6}
               value={campaign.productPostStyle}
               onChange={onInputValueChange("productPostStyle")}
             />
           </div>
           <div className="py-4">
-            <p>Style Guide</p>
+            <p className="font-semibold">Style Guide</p>
             <p>
               add images so the creators know what kind of content to create.
             </p>
@@ -351,7 +354,9 @@ const Editcapaign = () => {
             </div>
           </div>
           <div className="py-4">
-            <p>What are you looking for in your first post?</p>
+            <p className="font-semibold">
+              What are you looking for in your first post?
+            </p>
             <span className="relative z-0 inline-flex shadow-sm rounded-md py-4 w-full">
               <button
                 id="image-post"
@@ -392,7 +397,7 @@ const Editcapaign = () => {
             </span>
           </div>
           <div className="py-4">
-            <p>Instagram Story Required?</p>
+            <p className="font-semibold">Instagram Story Required?</p>
             <span className="relative z-0 inline-flex shadow-sm rounded-md py-4 w-full">
               <button
                 id="insta-no"
@@ -433,7 +438,7 @@ const Editcapaign = () => {
             </span>
           </div>
           <div className="py-4">
-            <p>Enter Target States</p>
+            <p className="font-semibold">Enter Target States</p>
             <Select
               id="targetState"
               name="targetState"
@@ -446,7 +451,7 @@ const Editcapaign = () => {
             />
           </div>
           <div className="py-4">
-            <p>Gender</p>
+            <p className="font-semibold">Gender</p>
             <Select
               id="gender"
               name="gender"
@@ -458,7 +463,7 @@ const Editcapaign = () => {
             />
           </div>
           <div className="py-4">
-            <p>Brand Tags and Hash Tags</p>
+            <p className="font-semibold">Brand Tags and Hash Tags</p>
             <p className="my-3">
               Make influencers inclue youe brands Instagram handle with their
               posts. This way audience members will have a clear path to visit
@@ -468,14 +473,14 @@ const Editcapaign = () => {
             </p>
           </div>
           <div className="py-4">
-            <p>Required Instagram Handles</p>
+            <p className="font-semibold">Required Instagram Handles</p>
             <p>Press "Enter" after each handle</p>
             <div className="mt-1 relative rounded-md shadow-sm">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 @
               </div>
               <input
-                className="my-3 p-3 pl-7 w-full border-b border-white bg-black"
+                className="my-3 p-3 pl-7 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5k"
                 placeholder="YourHandle"
                 type="text"
                 onKeyDown={(e: any) => {
@@ -493,9 +498,9 @@ const Editcapaign = () => {
                 }}
               />
             </div>
-            <div className="flex flex-row my-4">
+            <div className="flex flex-wrap my-4">
               {campaign.instagramHandles.map((handle, i) => (
-                <div className="text-black text-center rounded-sm bg-yellow-400 px-4 py-2 m-2">
+                <div className="text-black text-center rounded-sm bg-indigo-400 px-4 py-2 m-2">
                   <div className="flex items-center">
                     <div className="mr-2">
                       <div className="text-sm leading-5 font-medium text-gray-900">
@@ -521,22 +526,24 @@ const Editcapaign = () => {
             </div>
           </div>
           <div className="py-4">
-            <p>Required Hashtags (Max 5)</p>
+            <p className="font-semibold">Required Hashtags (Max 5)</p>
             <p>Press "Enter" after each tag</p>
             <div className="mt-1 relative rounded-md shadow-sm">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 #
               </div>
               <input
-                className="my-3 p-3 pl-7 w-full border-b border-white bg-black"
+                className="my-3 p-3 pl-7 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5k"
                 placeholder="YourHashtag"
                 type="text"
                 onKeyDown={(e: any) => {
                   const copyHashtag = [...campaign.hashtags];
                   if (e.key === "Enter") {
                     if (e.target.value !== "") {
-                      copyHashtag.push(`@${e.target.value}`);
-                      e.target.value = "";
+                      if (copyHashtag.length < 5) {
+                        copyHashtag.push(`@${e.target.value}`);
+                        e.target.value = "";
+                      }
                     }
                   }
                   setCampaign({
@@ -546,9 +553,9 @@ const Editcapaign = () => {
                 }}
               />
             </div>
-            <div className="flex flex-row my-4">
+            <div className="flex flex-wrap my-4">
               {campaign.hashtags.map((hashtag, i) => (
-                <div className="text-black text-center rounded-sm bg-yellow-400 px-4 py-2 m-2">
+                <div className="flex text-black text-center rounded-sm bg-indigo-400 px-4 py-2 m-2">
                   <div className="flex items-center">
                     <div className="mr-2">
                       <div className="text-sm leading-5 font-medium text-gray-900">
@@ -577,7 +584,9 @@ const Editcapaign = () => {
           <div className="py-4">
             <div className="grid grid-cols-2 gap-32 py-4">
               <div>
-                <p>Show this listing to VIP influencers?</p>
+                <p className="font-semibold">
+                  Show this listing to VIP influencers?
+                </p>
                 <p>(VIP creators cost 2 campaign credits)</p>
                 <p className="my-3">
                   VIP Influencers are our best of the best influencers. They
@@ -631,7 +640,7 @@ const Editcapaign = () => {
           <div className="py-4">
             <div className="grid grid-cols-2 gap-32 py-4">
               <div>
-                <p>Connect to a Yotpo Product ID</p>
+                <p className="font-semibold">Connect to a Yotpo Product ID</p>
                 <p className="my-3">
                   Enter a yotpo product ID to be able to automatically send your
                   content over a specific Folder in your Yotpo account.
@@ -646,9 +655,9 @@ const Editcapaign = () => {
             </div>
           </div>
           <div className="py-4">
-            <p>Product Folder (optional)</p>
+            <p className="font-semibold">Product Folder (optional)</p>
             <input
-              className="my-3 p-3 w-1/4 bg-gray-900 text-yellow-400 border border-yellow-400"
+              className="my-3 p-3 w-1/4 form-input block transition duration-150 ease-in-out sm:text-sm sm:leading-5k"
               placeholder="Select a Product"
               type="text"
               value={campaign.productFolder}
@@ -659,7 +668,7 @@ const Editcapaign = () => {
               <button
                 type="button"
                 onClick={() => onSubmit()}
-                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-bold leading-6 font-medium rounded-full text-black bg-yellow-400 hover:bg-yellow-200 focus:outline-none focus:px-15 focus:py-5 focus:text-2xl focus:bg-yellow-200 transition ease-in-out duration-150"
+                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-bold leading-6 font-medium rounded-md text-black bg-indigo-400 hover:bg-indigo-200 focus:outline-none focus:px-15 focus:py-5 focus:text-2xl focus:bg-indigo-200 transition ease-in-out duration-150"
               >
                 Save Campaign Edits
               </button>
