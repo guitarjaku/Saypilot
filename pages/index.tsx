@@ -7,9 +7,31 @@ import DataService from "../service/service";
 import Footer from "../components/Footer";
 import ContentLoader from "react-content-loader";
 
+interface CampaignI {
+  id?: string;
+  name: string;
+  imageMain: string;
+  productWebsite: string;
+  productValue: string;
+  productCategory: string;
+  productCategoryValue: string;
+  productSend: string;
+  productInfluencerCaption: string;
+  productPostStyle: string;
+  styleGuides: Object[];
+  firstPostLooking: string;
+  instagramStoryRequire: boolean;
+  targetStates: Object[];
+  gender: Object[];
+  instagramHandles: Object[];
+  hashtags: Object[];
+  vipCreator: boolean;
+  productFolder: string;
+}
+
 const Home = () => {
   const [loading, setLoading] = useState(true);
-  const [campaign, setCampaign] = useState({
+  const [campaign, setCampaign] = useState<CampaignI>({
     name: "",
     imageMain: "",
     productWebsite: "",
