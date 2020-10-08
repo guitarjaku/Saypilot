@@ -252,3 +252,8 @@
 
 - [x] influencers fake data json
 - [x] UI 95/100 state 85/100 UX 85/100
+
+## 8/10/2020, 20.00-22.00
+
+- [x] fix build && fix bug post and andlytic
+- [x] UI 95/100 state 85/100 UX 85/100

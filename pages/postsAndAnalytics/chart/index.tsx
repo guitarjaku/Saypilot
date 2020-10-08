@@ -1,5 +1,5 @@
 import { h } from "preact";
-import { useState, useRef, useEffect } from "preact/hooks";
+import { useRef, useEffect } from "preact/hooks";
 import { Line } from "react-chartjs-2";
 
 const Chart = (props: any) => {
@@ -13,7 +13,7 @@ const Chart = (props: any) => {
         fill: false,
         backgroundColor: "",
         borderColor: "",
-        data: [],
+        data: props.data,
       },
     ],
   };
@@ -82,8 +82,10 @@ const Chart = (props: any) => {
   };
 
   const onReceive = (chartRef: any) => {
-    // console.log(chartRef.current.chartInstance.config.data.datasets[0].data);
-    chartRef.current.chartInstance.config.data.datasets[0].data = [];
+    // console.log(chartRef.current.chartInstance?.config.data.datasets[0].data);
+    // if (chartRef.current.chartInstance) {
+    //   chartRef.current.chartInstance.config.data.datasets[0].data = [];
+    // }
 
     props.data.map((x: any) => {
       chartRef.current.chartInstance.config.data.datasets.map(
@@ -94,14 +96,14 @@ const Chart = (props: any) => {
     });
 
     // update chart datasets keeping the current animation
-    chartRef.current.chartInstance.update({
-      preservation: true,
-    });
+    // chartRef.current.chartInstance.update({
+    //   preservation: true,
+    // });
   };
 
   useEffect(() => {
     onReceive(chartRef);
-  }, [props.data]);
+  }, [props]);
 
   return (
     <div>
