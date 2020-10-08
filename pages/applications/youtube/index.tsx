@@ -341,7 +341,7 @@ const Youtube = (props: any) => {
                   onChange={(e: any) => {
                     props.setByChannel(e);
                   }}
-                  options={props.languageStateOption}
+                  options={props.influencerListOption}
                 />
               </div>
             </div>
@@ -380,7 +380,7 @@ const Youtube = (props: any) => {
                   onChange={(e: any) => {
                     props.setByRelevance(e);
                   }}
-                  options={props.languageStateOption}
+                  options={props.hashtags}
                 />
               </div>
             </div>

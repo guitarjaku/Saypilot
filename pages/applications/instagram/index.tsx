@@ -451,7 +451,7 @@ const Instagram = (props: any) => {
                   onChange={(e: any) => {
                     props.setByChannel(e);
                   }}
-                  options={props.languageStateOption}
+                  options={props.influencerListOption}
                 />
                 {/* <input
                   id="username"
@@ -497,7 +497,7 @@ const Instagram = (props: any) => {
                   onChange={(e: any) => {
                     props.setByRelevance(e);
                   }}
-                  options={props.languageStateOption}
+                  options={props.hashtags}
                 />
                 {/* <input
                   id="relevance"

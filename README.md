@@ -247,3 +247,8 @@
 
 - [x] post analytic ux
 - [x] UI 95/100 state 83/100 UX 80/100
+
+## 8/10/2020, 15.00-17.00
+
+- [x] influencers fake data json
+- [x] UI 95/100 state 85/100 UX 85/100

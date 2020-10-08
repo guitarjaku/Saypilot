@@ -40,6 +40,8 @@ const ModalSearch = (props: any) => {
   // option state
   const [countryStateOption, setCountryStateOption] = useState([]);
   const [languageStateOption, setLanguageStateOption] = useState([]);
+  const [influencerListOption, setInfluencerListOption] = useState([]);
+  const [hashtags, setHashtags] = useState([]);
 
   const genderOption = [
     { value: "male", label: "Male" },
@@ -164,6 +166,36 @@ const ModalSearch = (props: any) => {
       .catch((err) => console.log(err));
   };
 
+  const getInfluencerList = () => {
+    DataService.getAll("/influencers")
+      .then((res) => {
+        //@ts-ignore
+        const data = [];
+        res.data.forEach((x: any) => {
+          data.push({ value: x.id, label: x.username });
+        });
+        // console.log(data);
+        //@ts-ignore
+        setInfluencerListOption(data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const getHashtags = () => {
+    DataService.getAll("/hashtags")
+      .then((res) => {
+        // console.log(res.data);
+        // @ts-ignore
+        const data = [];
+        res.data.forEach((x: any) => {
+          data.push({ value: x.id, label: x.hashtag });
+        });
+        // @ts-ignore
+        setHashtags(data);
+      })
+      .catch((err) => console.log(err));
+  };
+
   const onSniperChange = (props: number) => {
     setSniperMenu(props);
   };
@@ -186,6 +218,8 @@ const ModalSearch = (props: any) => {
 
   useEffect(() => {
     getCountry();
+    getInfluencerList();
+    getHashtags();
   }, []);
 
   return (
@@ -372,6 +406,8 @@ const ModalSearch = (props: any) => {
                     interestsOption={interestsOption}
                     engagementRateOption={engagementRateOption}
                     ageOption={ageOption}
+                    influencerListOption={influencerListOption}
+                    hashtags={hashtags}
                   />
                 ) : sniperMenu === 2 ? (
                   ""
@@ -401,6 +437,8 @@ const ModalSearch = (props: any) => {
                     interestsOption={interestsOption}
                     engagementRateOption={engagementRateOption}
                     ageOption={ageOption}
+                    influencerListOption={influencerListOption}
+                    hashtags={hashtags}
                   />
                 ) : (
                   <Tiktok
@@ -428,6 +466,8 @@ const ModalSearch = (props: any) => {
                     interestsOption={interestsOption}
                     engagementRateOption={engagementRateOption}
                     ageOption={ageOption}
+                    influencerListOption={influencerListOption}
+                    hashtags={hashtags}
                   />
                 )}
               </div>
@@ -436,7 +476,10 @@ const ModalSearch = (props: any) => {
               <span className="flex flex-row-reverse w-full rounded-md sm:col-start-2">
                 <button
                   type="button"
-                  onClick={() => onSubmit()}
+                  onClick={() => {
+                    onSubmit();
+                    props.onClose();
+                  }}
                   className="inline-flex justify-center w-1/10 rounded-md border border-transparent px-4 py-2 bg-indigo-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition ease-in-out duration-150 sm:text-sm sm:leading-5"
                 >
                   Search
