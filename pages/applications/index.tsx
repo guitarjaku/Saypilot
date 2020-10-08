@@ -266,7 +266,7 @@ export default function Application() {
                 </button>
               </span>
             </div>
-            <div className="grid grid-cols-8 gap-4 py-4 px-3">
+            {/* <div className="grid grid-cols-8 gap-4 py-4 px-3">
               <select
                 id="category"
                 className=" form-select block w-full text-gray-500 rounded-full text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
@@ -314,9 +314,9 @@ export default function Application() {
                       Select Multiple
                     </label>
                   </div>
-                </div>
+                </div> 
               </div>
-            </div>
+            </div>  */}
             <div className=" sm:block">
               <div className="align-middle inline-block min-w-full border-b border-gray-200">
                 <div className="flex flex-col">

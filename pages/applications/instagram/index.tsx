@@ -10,7 +10,7 @@ const Instagram = (props: any) => {
     <>
       <div className="bg-white shadow rounded-lg text-black">
         <div className="px-4 py-5 sm:p-6">
-          <div className="grid grid-cols-12 gap-4">
+          <div className="grid grid-cols-12">
             <div className="col-span-2">
               <div className="flex items-center">
                 <div className="mr-2">

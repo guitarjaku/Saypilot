@@ -11,6 +11,7 @@ const PostsAndAnalytics = () => {
   const [chartData, setChartData] = useState([]);
   const [backupData, setBackupData] = useState([]);
   const [time, setTime] = useState(5);
+  const [menu, setMenu] = useState(1);
 
   const getChartData = () => {
     DataService.getAll("/chartData")
@@ -40,6 +41,10 @@ const PostsAndAnalytics = () => {
       data = backupData;
       setChartData(data);
     }
+  };
+
+  const onChangeMenu = (props: any) => {
+    setMenu(props);
   };
 
   useEffect(() => {
@@ -200,13 +205,22 @@ const PostsAndAnalytics = () => {
                 </div>
 
                 <div className="grid grid-cols-4 gap-4 px-3 border-b border-gray-400">
-                  <div className="flex items-center py-4 m-auto cursor-pointer  border-b-4 border-white hover:border-black">
+                  <div
+                    onClick={() => onChangeMenu(1)}
+                    className={`${
+                      menu === 1 ? "border-indigo-400" : "border-white"
+                    } flex items-center py-4 m-auto cursor-pointer border-b-4 hover:border-indigo-400`}
+                  >
                     <div className="flex-shrink-0 h-24 w-24">
-                      <img
-                        className="h-24 w-24 rounded-full"
-                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=60"
-                        alt=""
-                      />
+                      <div
+                        className={`${
+                          menu === 1
+                            ? "bg-indigo-400 text-white"
+                            : "bg-white border border-black"
+                        } w-full h-full rounded-full flex items-center justify-center text-4xl font-bold`}
+                      >
+                        ALL
+                      </div>
                     </div>
                     <div className="mt-auto ml-4">
                       <div className="text-5xl leading-9 font-bold text-gray-900">
@@ -217,13 +231,22 @@ const PostsAndAnalytics = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center py-4 m-auto cursor-pointer border-b-4 border-white hover:border-black">
+                  <div
+                    onClick={() => onChangeMenu(2)}
+                    className={`${
+                      menu === 2 ? "border-indigo-400" : "border-white"
+                    } flex items-center py-4 m-auto cursor-pointer border-b-4 hover:border-indigo-400`}
+                  >
                     <div className="flex-shrink-0 h-24 w-24">
-                      <img
-                        className="h-24 w-24 rounded-full"
-                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=60"
-                        alt=""
-                      />
+                      <div
+                        className={`${
+                          menu === 2
+                            ? "bg-indigo-400 text-white"
+                            : "bg-white border border-black"
+                        } w-full h-full rounded-full flex items-center justify-center text-4xl font-bold`}
+                      >
+                        IMG
+                      </div>
                     </div>
                     <div className="mt-auto ml-4">
                       <div className="text-5xl leading-9 font-bold text-gray-900">
@@ -234,13 +257,22 @@ const PostsAndAnalytics = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center py-4 m-auto cursor-pointer border-b-4 border-white hover:border-black">
+                  <div
+                    onClick={() => onChangeMenu(3)}
+                    className={`${
+                      menu === 3 ? "border-indigo-400" : "border-white"
+                    } flex items-center py-4 m-auto cursor-pointer border-b-4 hover:border-indigo-400`}
+                  >
                     <div className="flex-shrink-0 h-24 w-24">
-                      <img
-                        className="h-24 w-24 rounded-full"
-                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=60"
-                        alt=""
-                      />
+                      <div
+                        className={`${
+                          menu === 3
+                            ? "bg-indigo-400 text-white"
+                            : "bg-white border border-black"
+                        } w-full h-full rounded-full flex items-center justify-center text-4xl font-bold`}
+                      >
+                        VDO
+                      </div>
                     </div>
                     <div className="mt-auto ml-4">
                       <div className="text-5xl leading-9 font-bold text-gray-900">
@@ -251,13 +283,22 @@ const PostsAndAnalytics = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center py-4 m-auto cursor-pointer border-b-4 border-white hover:border-black">
+                  <div
+                    onClick={() => onChangeMenu(4)}
+                    className={`${
+                      menu === 4 ? "border-indigo-400" : "border-white"
+                    } flex items-center py-4 m-auto cursor-pointer border-b-4 hover:border-indigo-400`}
+                  >
                     <div className="flex-shrink-0 h-24 w-24">
-                      <img
-                        className="h-24 w-24 rounded-full"
-                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=60"
-                        alt=""
-                      />
+                      <div
+                        className={`${
+                          menu === 4
+                            ? "bg-indigo-400 text-white"
+                            : "bg-white border border-black"
+                        } w-full h-full rounded-full flex items-center justify-center text-4xl font-bold`}
+                      >
+                        STY
+                      </div>
                     </div>
                     <div className="mt-auto ml-4">
                       <div className="text-5xl leading-9 font-bold text-gray-900">

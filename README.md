@@ -242,3 +242,8 @@
 
 - [x] chart select range time 100%
 - [x] UI 95/100 state 83/100 UX 70/100
+
+## 8/10/2020, 13.00-15.00
+
+- [x] post analytic ux
+- [x] UI 95/100 state 83/100 UX 80/100
