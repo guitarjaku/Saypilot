@@ -167,6 +167,8 @@ exports.DocumentContext = _utils.DocumentContext;
 exports.DocumentInitialProps = _utils.DocumentInitialProps;
 exports.DocumentProps = _utils.DocumentProps;
 
+var _getPageFiles = __webpack_require__("vHio");
+
 var _utils2 = __webpack_require__("ri/Y");
 
 var _htmlescape = __webpack_require__("AXZJ");
@@ -249,6 +251,16 @@ function getOptionalModernScriptVariant(path) {
 
   return path;
 }
+
+function getDocumentFiles(buildManifest, pathname) {
+  const sharedFiles = (0, _getPageFiles.getPageFiles)(buildManifest, '/_app');
+  const pageFiles = pathname !== '/_error' ? (0, _getPageFiles.getPageFiles)(buildManifest, pathname) : [];
+  return {
+    sharedFiles,
+    pageFiles,
+    allFiles: [...new Set([...sharedFiles, ...pageFiles])]
+  };
+}
 /**
 * `Document` component handles the initial `document` markup and renders only on the server side.
 * Commonly used for implementing server side rendering for `css-in-js` libraries.
@@ -296,8 +308,10 @@ Document.headTagsMiddleware =  false ? undefined : () => [];
 
 function Html(props) {
   const {
-    inAmpMode
+    inAmpMode,
+    docComponentsRendered
   } = (0, _react.useContext)(_documentContext.DocumentContext);
+  docComponentsRendered.Html = true;
   return /*#__PURE__*/_react.default.createElement("html", Object.assign({}, props, {
     amp: inAmpMode ? '' : undefined,
     "data-ampdevmode": inAmpMode && false ? '' : undefined
@@ -310,15 +324,25 @@ class Head extends _react.Component {
     this.context = void 0;
   }
 
-  getCssLinks() {
+  getCssLinks(files) {
     const {
       assetPrefix,
-      files,
-      devOnlyCacheBusterQueryString
+      devOnlyCacheBusterQueryString,
+      dynamicImports
     } = this.context;
-    const cssFiles = files && files.length ? files.filter(f => f.endsWith('.css')) : [];
+    const cssFiles = files.allFiles.filter(f => f.endsWith('.css'));
+    const sharedFiles = new Set(files.sharedFiles);
+    let dynamicCssFiles = dedupe(dynamicImports.filter(f => f.file.endsWith('.css'))).map(f => f.file);
+
+    if (dynamicCssFiles.length) {
+      const existing = new Set(cssFiles);
+      dynamicCssFiles = dynamicCssFiles.filter(f => !(existing.has(f) || sharedFiles.has(f)));
+      cssFiles.push(...dynamicCssFiles);
+    }
+
     const cssLinkElements = [];
     cssFiles.forEach(file => {
+      const isSharedFile = sharedFiles.has(file);
       cssLinkElements.push( /*#__PURE__*/_react.default.createElement("link", {
         key: `${file}-preload`,
         nonce: this.props.nonce,
@@ -331,7 +355,9 @@ class Head extends _react.Component {
         nonce: this.props.nonce,
         rel: "stylesheet",
         href: `${assetPrefix}/_next/${encodeURI(file)}${devOnlyCacheBusterQueryString}`,
-        crossOrigin: this.props.crossOrigin || "anonymous"
+        crossOrigin: this.props.crossOrigin || "anonymous",
+        "data-n-g": isSharedFile ? '' : undefined,
+        "data-n-p": isSharedFile ? undefined : ''
       }));
     });
     return cssLinkElements.length === 0 ? null : cssLinkElements;
@@ -363,18 +389,17 @@ class Head extends _react.Component {
     .filter(Boolean);
   }
 
-  getPreloadMainLinks() {
+  getPreloadMainLinks(files) {
     const {
       assetPrefix,
-      files,
       devOnlyCacheBusterQueryString
     } = this.context;
-    const preloadFiles = files && files.length ? files.filter(file => {
+    const preloadFiles = files.allFiles.filter(file => {
       // `dynamicImports` will contain both `.js` and `.module.js` when
       // the feature is enabled. This clause will filter down to the
       // modern variants only.
       return file.endsWith(getOptionalModernScriptVariant('.js'));
-    }) : [];
+    });
     return !preloadFiles.length ? null : preloadFiles.map(file => /*#__PURE__*/_react.default.createElement("link", {
       key: file,
       nonce: this.props.nonce,
@@ -392,7 +417,7 @@ class Head extends _react.Component {
 
         newProps['data-href'] = newProps['href'];
         newProps['href'] = undefined;
-        return _react.default.cloneElement(c, newProps);
+        return /*#__PURE__*/_react.default.cloneElement(c, newProps);
       } else if (c.props && c.props['children']) {
         c.props['children'] = this.makeStylesheetInert(c.props['children']);
       }
@@ -414,6 +439,7 @@ class Head extends _react.Component {
       unstable_runtimeJS
     } = this.context;
     const disableRuntimeJS = unstable_runtimeJS === false;
+    this.context.docComponentsRendered.Head = true;
     let {
       head
     } = this.context;
@@ -476,7 +502,7 @@ class Head extends _react.Component {
       const hasStyles = el => {
         var _el$props, _el$props$dangerously;
 
-        return el === null || el === void 0 ? void 0 : (_el$props = el.props) === null || _el$props === void 0 ? void 0 : (_el$props$dangerously = _el$props.dangerouslySetInnerHTML) === null || _el$props$dangerously === void 0 ? void 0 : _el$props$dangerously.__html;
+        return el == null ? void 0 : (_el$props = el.props) == null ? void 0 : (_el$props$dangerously = _el$props.dangerouslySetInnerHTML) == null ? void 0 : _el$props$dangerously.__html;
       }; // @ts-ignore Property 'props' does not exist on type ReactElement
 
 
@@ -489,6 +515,7 @@ class Head extends _react.Component {
       });
     }
 
+    const files = getDocumentFiles(this.context.buildManifest, this.context.__NEXT_DATA__.page);
     return /*#__PURE__*/_react.default.createElement("head", this.props, this.context.isDevelopment && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("style", {
       "data-next-hide-fouc": true,
       "data-ampdevmode": inAmpMode ? 'true' : undefined,
@@ -502,10 +529,7 @@ class Head extends _react.Component {
       dangerouslySetInnerHTML: {
         __html: `body{display:block}`
       }
-    }))), children, head, /*#__PURE__*/_react.default.createElement("meta", {
-      name: "next-head-count",
-      content: _react.default.Children.count(head || []).toString()
-    }), inAmpMode && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("meta", {
+    }))), children, head, inAmpMode && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("meta", {
       name: "viewport",
       content: "width=device-width,minimum-scale=1,initial-scale=1"
     }), !hasCanonicalRel && /*#__PURE__*/_react.default.createElement("link", {
@@ -536,14 +560,16 @@ class Head extends _react.Component {
     })), !inAmpMode && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, !hasAmphtmlRel && hybridAmp && /*#__PURE__*/_react.default.createElement("link", {
       rel: "amphtml",
       href: canonicalBase + getAmpPath(ampPath, dangerousAsPath)
-    }),  false ? undefined : this.getCssLinks(), !disableRuntimeJS && this.getPreloadDynamicChunks(), !disableRuntimeJS && this.getPreloadMainLinks(), this.context.isDevelopment &&
+    }),  false ? undefined : this.getCssLinks(files), /*#__PURE__*/_react.default.createElement("noscript", {
+      "data-n-css": true
+    }), !disableRuntimeJS && this.getPreloadDynamicChunks(), !disableRuntimeJS && this.getPreloadMainLinks(files), this.context.isDevelopment &&
     /*#__PURE__*/
     // this element is used to mount development styles so the
     // ordering matches production
     // (by default, style-loader injects at the bottom of <head />)
     _react.default.createElement("noscript", {
       id: "__next_css__DO_NOT_USE__"
-    }), styles || null), _react.default.createElement(_react.default.Fragment, {}, ...(headTags || [])));
+    }), styles || null), /*#__PURE__*/_react.default.createElement(_react.default.Fragment, {}, ...(headTags || [])));
   }
 
 }
@@ -558,8 +584,10 @@ Head.propTypes = {
 function Main() {
   const {
     inAmpMode,
-    html
+    html,
+    docComponentsRendered
   } = (0, _react.useContext)(_documentContext.DocumentContext);
+  docComponentsRendered.Main = true;
   if (inAmpMode) return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, _constants.AMP_RENDER_TARGET);
   return /*#__PURE__*/_react.default.createElement("div", {
     id: "__next",
@@ -575,11 +603,10 @@ class NextScript extends _react.Component {
     this.context = void 0;
   }
 
-  getDynamicChunks() {
+  getDynamicChunks(files) {
     const {
       dynamicImports,
       assetPrefix,
-      files,
       isDevelopment,
       devOnlyCacheBusterQueryString
     } = this.context;
@@ -594,7 +621,7 @@ class NextScript extends _react.Component {
         };
       }
 
-      if (!bundle.file.endsWith('.js') || files.includes(bundle.file)) return null;
+      if (!bundle.file.endsWith('.js') || files.allFiles.includes(bundle.file)) return null;
       return /*#__PURE__*/_react.default.createElement("script", Object.assign({
         async: !isDevelopment,
         key: bundle.file,
@@ -605,18 +632,17 @@ class NextScript extends _react.Component {
     });
   }
 
-  getScripts() {
+  getScripts(files) {
     var _buildManifest$lowPri;
 
     const {
       assetPrefix,
-      files,
       buildManifest,
       isDevelopment,
       devOnlyCacheBusterQueryString
     } = this.context;
-    const normalScripts = files === null || files === void 0 ? void 0 : files.filter(file => file.endsWith('.js'));
-    const lowPriorityScripts = (_buildManifest$lowPri = buildManifest.lowPriorityFiles) === null || _buildManifest$lowPri === void 0 ? void 0 : _buildManifest$lowPri.filter(file => file.endsWith('.js'));
+    const normalScripts = files.allFiles.filter(file => file.endsWith('.js'));
+    const lowPriorityScripts = (_buildManifest$lowPri = buildManifest.lowPriorityFiles) == null ? void 0 : _buildManifest$lowPri.filter(file => file.endsWith('.js'));
     return [...normalScripts, ...lowPriorityScripts].map(file => {
       let modernProps = {};
 
@@ -678,9 +704,11 @@ class NextScript extends _react.Component {
       inAmpMode,
       buildManifest,
       unstable_runtimeJS,
+      docComponentsRendered,
       devOnlyCacheBusterQueryString
     } = this.context;
     const disableRuntimeJS = unstable_runtimeJS === false;
+    docComponentsRendered.NextScript = true;
 
     if (inAmpMode) {
       if (true) {
@@ -708,6 +736,7 @@ class NextScript extends _react.Component {
 
     if (false) {}
 
+    const files = getDocumentFiles(this.context.buildManifest, this.context.__NEXT_DATA__.page);
     return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, !disableRuntimeJS && buildManifest.devFiles ? buildManifest.devFiles.map(file => /*#__PURE__*/_react.default.createElement("script", {
       key: file,
       src: `${assetPrefix}/_next/${encodeURI(file)}${devOnlyCacheBusterQueryString}`,
@@ -728,7 +757,7 @@ class NextScript extends _react.Component {
       dangerouslySetInnerHTML: {
         __html: NextScript.safariNomoduleFix
       }
-    }) : null, !disableRuntimeJS && this.getPolyfillScripts(), disableRuntimeJS ? null : this.getDynamicChunks(), disableRuntimeJS ? null : this.getScripts());
+    }) : null, !disableRuntimeJS && this.getPolyfillScripts(), disableRuntimeJS ? null : this.getDynamicChunks(files), disableRuntimeJS ? null : this.getScripts(files));
   }
 
 }
@@ -825,6 +854,13 @@ module.exports = require("prop-types");
 /***/ (function(module, exports) {
 
 module.exports = require("next/dist/next-server/server/utils.js");
+
+/***/ }),
+
+/***/ "vHio":
+/***/ (function(module, exports) {
+
+module.exports = require("next/dist/next-server/server/get-page-files.js");
 
 /***/ })
 
