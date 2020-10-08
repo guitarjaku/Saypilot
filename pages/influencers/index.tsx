@@ -13,7 +13,7 @@ const Influencers = () => {
   const [menu, setMenu] = useState(1);
   const [loading, setLoading] = useState(true);
 
-  const handelChaneMenu = (props: number) => {
+  const handelChangeMenu = (props: number) => {
     setMenu(props);
   };
 
@@ -95,8 +95,10 @@ const Influencers = () => {
             <div className=" sm:block">
               <div className="grid grid-cols-3 bg-gray-200 gap-4">
                 <div
-                  onClick={() => handelChaneMenu(1)}
-                  className="flex items-center py-4 m-auto cursor-pointer  border-b-4 border-gray-200 hover:border-black"
+                  onClick={() => handelChangeMenu(1)}
+                  className={`flex items-center py-4 m-auto cursor-pointer border-b-4 ${
+                    menu === 1 ? "border-black" : "border-gray-200"
+                  } hover:border-black`}
                 >
                   <div className="flex-shrink-0 h-24 w-24">
                     <img
@@ -115,8 +117,10 @@ const Influencers = () => {
                   </div>
                 </div>
                 <div
-                  onClick={() => handelChaneMenu(2)}
-                  className="flex items-center py-4 m-auto cursor-pointer border-b-4 border-gray-200 hover:border-black"
+                  onClick={() => handelChangeMenu(2)}
+                  className={`flex items-center py-4 m-auto cursor-pointer border-b-4 ${
+                    menu === 2 ? "border-black" : "border-gray-200"
+                  } hover:border-black`}
                 >
                   <div className="flex-shrink-0 h-24 w-24">
                     <img
@@ -135,8 +139,10 @@ const Influencers = () => {
                   </div>
                 </div>
                 <div
-                  onClick={() => handelChaneMenu(3)}
-                  className="flex items-center py-4 m-auto cursor-pointer border-b-4 border-gray-200 hover:border-black"
+                  onClick={() => handelChangeMenu(3)}
+                  className={`flex items-center py-4 m-auto cursor-pointer border-b-4 ${
+                    menu === 3 ? "border-black" : "border-gray-200"
+                  } hover:border-black`}
                 >
                   <div className="flex-shrink-0 h-24 w-24">
                     <img

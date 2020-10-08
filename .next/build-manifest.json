@@ -29,11 +29,17 @@
       "static/chunks/commons.js",
       "static/chunks/pages/_error.js"
     ],
-    "/postsAndAnalytics": [
+    "/applications": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",
       "static/chunks/commons.js",
-      "static/chunks/pages/postsAndAnalytics.js"
+      "static/chunks/pages/applications.js"
+    ],
+    "/influencers": [
+      "static/chunks/main.js",
+      "static/chunks/webpack.js",
+      "static/chunks/commons.js",
+      "static/chunks/pages/influencers.js"
     ]
   },
   "ampFirstPages": []

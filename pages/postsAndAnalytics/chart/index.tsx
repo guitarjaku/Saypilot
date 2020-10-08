@@ -54,7 +54,9 @@ const Chart = (props: any) => {
             display: true,
             labelString: "",
           },
-          ticks: {},
+          ticks: {
+            min: 0,
+          },
         },
       ],
     },
@@ -80,7 +82,8 @@ const Chart = (props: any) => {
   };
 
   const onReceive = (chartRef: any) => {
-    // console.log(chartRef.current.chartInstance.config.data.datasets);
+    // console.log(chartRef.current.chartInstance.config.data.datasets[0].data);
+    chartRef.current.chartInstance.config.data.datasets[0].data = [];
 
     props.data.map((x: any) => {
       chartRef.current.chartInstance.config.data.datasets.map(

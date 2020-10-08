@@ -235,5 +235,10 @@
 
 ## 8/10/2020, 08.00-10.00
 
-- [x] chart select range time
+- [x] chart select range time 70%
 - [x] UI 95/100 state 80/100 UX 70/100
+
+## 8/10/2020, 10.00-12.00
+
+- [x] chart select range time 100%
+- [x] UI 95/100 state 83/100 UX 70/100

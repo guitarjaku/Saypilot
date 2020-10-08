@@ -206,7 +206,9 @@ const ModalSearch = (props: any) => {
             <button
               type="button"
               onClick={() => onSniperChange(1)}
-              className="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
+              className={`${
+                sniperMenu === 1 ? "bg-indigo-400" : "bg-white"
+              } relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150`}
             >
               <div className="flex items-center">
                 <div className="flex mr-2">
@@ -266,7 +268,9 @@ const ModalSearch = (props: any) => {
             <button
               type="button"
               onClick={() => onSniperChange(3)}
-              className="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
+              className={`${
+                sniperMenu === 3 ? "bg-indigo-400" : "bg-white"
+              } relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150`}
             >
               <div className="flex items-center">
                 <div className="flex mr-2">
@@ -288,7 +292,9 @@ const ModalSearch = (props: any) => {
             <button
               type="button"
               onClick={() => onSniperChange(4)}
-              className="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
+              className={`${
+                sniperMenu === 4 ? "bg-indigo-400" : "bg-white"
+              } relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150`}
             >
               <div className="flex items-center">
                 <div className="flex mr-2">
@@ -308,6 +314,25 @@ const ModalSearch = (props: any) => {
                   <span>Tiktok</span>
                 </div>
               </div>
+            </button>
+            <button
+              type="button"
+              className="ml-auto mr-6 text-gray-400 hover:text-gray-500 focus:outline-none focus:text-gray-500 transition ease-in-out duration-150"
+              onClick={() => props.onClose()}
+            >
+              <svg
+                className="h-6 w-6"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                fill="none"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
             </button>
             <div>
               <div className="border border-gray-300 m-4">
@@ -404,18 +429,9 @@ const ModalSearch = (props: any) => {
                 <button
                   type="button"
                   onClick={() => onSubmit()}
-                  className="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-indigo-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition ease-in-out duration-150 sm:text-sm sm:leading-5"
+                  className="inline-flex justify-center w-1/5 rounded-md border border-transparent px-4 py-2 bg-indigo-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition ease-in-out duration-150 sm:text-sm sm:leading-5"
                 >
                   Search
-                </button>
-              </span>
-              <span className="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:col-start-1">
-                <button
-                  type="button"
-                  onClick={() => props.onClose()}
-                  className="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5"
-                >
-                  Cancel
                 </button>
               </span>
             </div>

@@ -9,36 +9,36 @@ import CardPost from "./cardPost";
 
 const PostsAndAnalytics = () => {
   const [chartData, setChartData] = useState([]);
-  const [time, setTime] = useState(1);
+  const [backupData, setBackupData] = useState([]);
+  const [time, setTime] = useState(5);
 
   const getChartData = () => {
-    DataService.getAll("/chartData").then((res) => {
-      const dateSort = [...res.data];
-      const dataSort = [...res.data];
-      const data = [];
-      dateSort.sort(function (a: any, b: any) {
-        // Turn your strings into dates, and then subtract them
-        // to get a value that is either negative, positive, or zero.
-        return new Date(a.x) - new Date(b.x);
-      });
-      dataSort.sort(function (a: any, b: any) {
-        return a.y - b.y;
-      });
-      for (let i = 0; i < dataSort.length; i++) {
-        data.push({ x: dateSort[i].x, y: dataSort[i].y });
-      }
-      setChartData(data);
-    });
+    DataService.getAll("/chartData")
+      .then((res) => {
+        setBackupData(res.data);
+        setChartData(res.data);
+      })
+      .catch((err) => console.log(err));
   };
 
   const onChangeTime = (props: any) => {
-    const chartDataCopy = [...chartData];
     let data = [];
     setTime(props);
     if (props === 1) {
-      data = chartDataCopy.slice(493);
+      data = backupData.slice(358);
       setChartData(data);
-      // console.log(data);
+    } else if (props === 2) {
+      data = backupData.slice(335);
+      setChartData(data);
+    } else if (props === 3) {
+      data = backupData.slice(275);
+      setChartData(data);
+    } else if (props === 4) {
+      data = backupData.slice(185);
+      setChartData(data);
+    } else if (props === 5) {
+      data = backupData;
+      setChartData(data);
     }
   };
 
