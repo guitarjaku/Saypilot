@@ -9,17 +9,37 @@ import CardPost from "./cardPost";
 
 const PostsAndAnalytics = () => {
   const [chartData, setChartData] = useState([]);
+  const [time, setTime] = useState(1);
 
   const getChartData = () => {
     DataService.getAll("/chartData").then((res) => {
-      res.data.sort(function (a: any, b: any) {
+      const dateSort = [...res.data];
+      const dataSort = [...res.data];
+      const data = [];
+      dateSort.sort(function (a: any, b: any) {
         // Turn your strings into dates, and then subtract them
         // to get a value that is either negative, positive, or zero.
-        return new Date(b.x) - new Date(a.x);
+        return new Date(a.x) - new Date(b.x);
       });
-      console.log(res.data.reverse());
-      setChartData(res.data.reverse());
+      dataSort.sort(function (a: any, b: any) {
+        return a.y - b.y;
+      });
+      for (let i = 0; i < dataSort.length; i++) {
+        data.push({ x: dateSort[i].x, y: dataSort[i].y });
+      }
+      setChartData(data);
     });
+  };
+
+  const onChangeTime = (props: any) => {
+    const chartDataCopy = [...chartData];
+    let data = [];
+    setTime(props);
+    if (props === 1) {
+      data = chartDataCopy.slice(493);
+      setChartData(data);
+      // console.log(data);
+    }
   };
 
   useEffect(() => {
@@ -129,31 +149,46 @@ const PostsAndAnalytics = () => {
                     <span className="relative z-0 inline-flex shadow-sm rounded-md">
                       <button
                         type="button"
-                        className="relative inline-flex items-center px-4 py-2 rounded-l-md border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
+                        onClick={() => onChangeTime(1)}
+                        className={`${
+                          time === 1 ? "bg-indigo-400" : "bg-white"
+                        } relative inline-flex items-center px-4 py-2 rounded-l-md border border-gray-300 text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150`}
                       >
                         1W
                       </button>
                       <button
                         type="button"
-                        className="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
+                        onClick={() => onChangeTime(2)}
+                        className={`${
+                          time === 2 ? "bg-indigo-400" : "bg-white"
+                        } relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150`}
                       >
                         1M
                       </button>
                       <button
                         type="button"
-                        className="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
+                        onClick={() => onChangeTime(3)}
+                        className={`${
+                          time === 3 ? "bg-indigo-400" : "bg-white"
+                        } relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150`}
                       >
                         3M
                       </button>
                       <button
                         type="button"
-                        className="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
+                        onClick={() => onChangeTime(4)}
+                        className={`${
+                          time === 4 ? "bg-indigo-400" : "bg-white"
+                        } relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150`}
                       >
                         6M
                       </button>
                       <button
                         type="button"
-                        className="-ml-px relative inline-flex items-center px-4 py-2 rounded-r-md border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
+                        onClick={() => onChangeTime(5)}
+                        className={`${
+                          time === 5 ? "bg-indigo-400" : "bg-white"
+                        } relative inline-flex items-center px-4 py-2 rounded-r-md border border-gray-300 text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150`}
                       >
                         1Y
                       </button>

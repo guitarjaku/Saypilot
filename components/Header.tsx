@@ -7,7 +7,7 @@ import ActiveLink from "./ActiveLink";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const path = useRouter().pathname;
-  console.log(path);
+  // console.log(path);
   return (
     <div className="relative bg-white">
       <div className="mx-auto px-4 sm:px-6">

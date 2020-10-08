@@ -4,7 +4,6 @@ import { Line } from "react-chartjs-2";
 
 const Chart = (props: any) => {
   const chartRef = useRef(null);
-  const [data, setData] = useState(props.data);
 
   const chartData = {
     labels: [],
@@ -14,7 +13,7 @@ const Chart = (props: any) => {
         fill: false,
         backgroundColor: "",
         borderColor: "",
-        data: data,
+        data: [],
       },
     ],
   };
@@ -99,7 +98,7 @@ const Chart = (props: any) => {
 
   useEffect(() => {
     onReceive(chartRef);
-  }, [props]);
+  }, [props.data]);
 
   return (
     <div>

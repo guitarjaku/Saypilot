@@ -29,12 +29,6 @@
       "static/chunks/commons.js",
       "static/chunks/pages/_error.js"
     ],
-    "/influencers": [
-      "static/chunks/main.js",
-      "static/chunks/webpack.js",
-      "static/chunks/commons.js",
-      "static/chunks/pages/influencers.js"
-    ],
     "/postsAndAnalytics": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",

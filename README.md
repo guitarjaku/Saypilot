@@ -232,3 +232,8 @@
 
 - [x] fake chart data
 - [x] UI 95/100 state 80/100 UX 70/100
+
+## 8/10/2020, 08.00-10.00
+
+- [x] chart select range time
+- [x] UI 95/100 state 80/100 UX 70/100
