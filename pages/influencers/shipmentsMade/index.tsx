@@ -1,11 +1,30 @@
 import { h } from "preact";
-import { useState } from "preact/hooks/";
+import { useState, useEffect } from "preact/hooks/";
 import MarkShippedModal from "./markShippedModal";
 import ShippingDetailModal from "./shippingDetailModal";
+import DataService from "../../../service/service";
 
 const ShipmentsMade = (props: any) => {
   const [openMarkModal, setOpenMarkModal] = useState(false);
   const [openShippingModal, setOpenShippingModal] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [influencers, setInfluencers] = useState([]);
+  const [cntShiped, setCntShipped] = useState(0);
+
+  const getInfluencerList = () => {
+    DataService.getAll("/influencers").then((res) => {
+      // console.log(res.data);
+      let cnt = 0;
+      res.data.forEach((influ: any) => {
+        if (influ.ship_status) {
+          cnt++;
+        }
+      });
+      setCntShipped(cnt);
+      setInfluencers(res.data);
+      setLoading(false);
+    });
+  };
 
   const onOpenMarkModal = (props: any) => {
     if (props === "mark") {
@@ -23,11 +42,15 @@ const ShipmentsMade = (props: any) => {
     }
   };
 
+  useEffect(() => {
+    getInfluencerList();
+  }, []);
+
   return (
     <>
-      <div className="grid grid-cols-6 gap-4 py-4">
+      <div className="grid grid-cols-6 gap-2 py-4">
         <div className="col-span-1 text-1xl text-black m-auto">
-          Needs to be shipped {props.unship}
+          Needs to be shipped {influencers.length - cntShiped}
         </div>
         <div className="text-center">
           <button className="py-2 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border  border-gray-400 rounded-md text-left leading-5">
@@ -56,7 +79,7 @@ const ShipmentsMade = (props: any) => {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {props.data.map(
+                  {influencers.map(
                     (influ: any) =>
                       !influ.ship_status && (
                         <tr className="hover:bg-gray-100">
@@ -114,7 +137,7 @@ const ShipmentsMade = (props: any) => {
 
       <div className="grid grid-cols-7 gap-4 py-4">
         <div className="col-span-1 text-1xl text-black">
-          Shipped - {props.shipped}
+          Shipped - {cntShiped}
         </div>
       </div>
       <div className="flex flex-col">
@@ -134,7 +157,7 @@ const ShipmentsMade = (props: any) => {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {props.data.map(
+                  {influencers.map(
                     (influ: any) =>
                       influ.ship_status && (
                         <tr className="hover:bg-gray-100">

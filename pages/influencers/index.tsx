@@ -21,7 +21,7 @@ const Influencers = () => {
 
   const getInfluencerList = () => {
     DataService.getAll("/influencers").then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       let cnt = 0;
       res.data.forEach((influ: any) => {
         if (influ.ship_status) {
@@ -257,19 +257,9 @@ const Influencers = () => {
               <div className="align-middle inline-block min-w-full ">
                 <div className="p-8">
                   {menu === 1 ? (
-                    <div>
-                      {loading ? (
-                        <TableLoader />
-                      ) : (
-                        <InfluencerList data={influencers} />
-                      )}
-                    </div>
+                    <div>{loading ? <TableLoader /> : <InfluencerList />}</div>
                   ) : menu === 2 ? (
-                    <ShipmentsMade
-                      data={influencers}
-                      shipped={cntShiped}
-                      unship={influencers.length - cntShiped}
-                    />
+                    <ShipmentsMade />
                   ) : (
                     <PostApproval />
                   )}

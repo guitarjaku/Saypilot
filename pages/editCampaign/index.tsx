@@ -345,8 +345,9 @@ const Editcapaign = () => {
               add images so the creators know what kind of content to create.
             </p>
             <div className="grid grid-cols-12 gap-32 py-4">
-              {campaign.styleGuides.map((sg) => (
+              {campaign.styleGuides.map((sg, key) => (
                 <span
+                  key={key}
                   className="bg-yellow-400 rounded-none"
                   style={{ height: "100px", width: "100px" }}
                 ></span>
@@ -500,7 +501,10 @@ const Editcapaign = () => {
             </div>
             <div className="flex flex-wrap my-4">
               {campaign.instagramHandles.map((handle, i) => (
-                <div className="text-black text-center rounded-sm bg-indigo-400 px-4 py-2 m-2">
+                <div
+                  key={i}
+                  className="text-black text-center rounded-sm bg-indigo-400 px-4 py-2 m-2"
+                >
                   <div className="flex items-center">
                     <div className="mr-2">
                       <div className="text-sm leading-5 font-medium text-gray-900">
@@ -555,7 +559,10 @@ const Editcapaign = () => {
             </div>
             <div className="flex flex-wrap my-4">
               {campaign.hashtags.map((hashtag, i) => (
-                <div className="flex text-black text-center rounded-sm bg-indigo-400 px-4 py-2 m-2">
+                <div
+                  key={i}
+                  className="flex text-black text-center rounded-sm bg-indigo-400 px-4 py-2 m-2"
+                >
                   <div className="flex items-center">
                     <div className="mr-2">
                       <div className="text-sm leading-5 font-medium text-gray-900">

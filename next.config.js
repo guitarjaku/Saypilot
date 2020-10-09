@@ -13,8 +13,7 @@ module.exports = withPrefresh({
     modern: true,
     polyfillsOptimization: true,
     redirects() {
-      return [
-        {
+      return [{
           source: "/about.html",
           destination: "/about",
           permanent: true,
@@ -27,7 +26,10 @@ module.exports = withPrefresh({
       ];
     },
   },
-  webpack(config, { dev, isServer }) {
+  webpack(config, {
+    dev,
+    isServer
+  }) {
     const splitChunks = config.optimization && config.optimization.splitChunks;
     if (splitChunks) {
       const cacheGroups = splitChunks.cacheGroups;

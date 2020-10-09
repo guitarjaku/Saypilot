@@ -1,9 +1,30 @@
 import { h } from "preact";
-import { useState } from "preact/hooks/";
+import { useState, useEffect } from "preact/hooks/";
 import { useRouter } from "next/router";
+import DataService from "../../../service/service";
 
 const InfluencerList = (props: any) => {
   const router = useRouter();
+  const [loading, setLoading] = useState(true);
+  const [influencers, setInfluencers] = useState([]);
+
+  const getInfluencerList = () => {
+    DataService.getAll("/influencers").then((res) => {
+      // console.log(res.data);
+      let cnt = 0;
+      res.data.forEach((influ: any) => {
+        if (influ.ship_status) {
+          cnt++;
+        }
+      });
+      setInfluencers(res.data);
+      setLoading(false);
+    });
+  };
+
+  useEffect(() => {
+    getInfluencerList();
+  }, []);
 
   return (
     <>
@@ -33,7 +54,7 @@ const InfluencerList = (props: any) => {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {props.data.map((influ: any) => (
+                  {influencers.map((influ: any) => (
                     <tr className="hover:bg-gray-100">
                       <td className="px-6 py-4 whitespace-no-wrap">
                         <div className="flex items-center">

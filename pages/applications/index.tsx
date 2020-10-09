@@ -142,57 +142,6 @@ export default function Application() {
                 </button>
               </span>
             </div>
-            {/* <div className="grid grid-cols-8 gap-4 py-4 px-3">
-              <select
-                id="category"
-                className=" form-select block w-full text-gray-500 rounded-full text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-              >
-                <option selected>Categories</option>
-                <option>USA</option>
-                <option>Canada</option>
-                <option>EU</option>
-              </select>
-
-              <select
-                id="location"
-                className=" form-select block w-full text-gray-500 rounded-full text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-              >
-                <option selected>Location</option>
-                <option>USA</option>
-                <option>Canada</option>
-                <option>EU</option>
-              </select>
-
-              <select
-                id="creators"
-                className=" form-select block w-full text-gray-500 rounded-full text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-              >
-                <option selected>All Creators</option>
-                <option>USA</option>
-                <option>Canada</option>
-                <option>EU</option>
-              </select>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div>
-                <div className="relative flex items-center">
-                  <div className="flex items-center mr-2">
-                    <input
-                      id="comments"
-                      type="checkbox"
-                      className="form-checkbox h-8 w-8 text-indigo-600 rounded-none transition duration-150 ease-in-out"
-                    />
-                  </div>
-                  <div className=" text-sm leading-5">
-                    <label className="font-medium text-gray-700 ">
-                      Select Multiple
-                    </label>
-                  </div>
-                </div> 
-              </div>
-            </div>  */}
             <div className=" sm:block mb-3">
               <div className="align-middle inline-block min-w-full">
                 <div className="flex flex-col">
