@@ -31,30 +31,30 @@ const SideBar = () => {
               alt="Workflow"
             />
           </div>
-          <div className="h-0 flex-1 flex flex-col overflow-y-auto">
-            <div className="flex pt-2 mx-auto text-5xl">67</div>
-            <div className="flex py-2 mx-auto text-lg italic">
-              Creator Credits
-            </div>
-            <div className="flex py-2 mx-auto text-xs text-center">
-              <span>
-                These credits do not expire, when you run out you can add more
-                any time
-              </span>
-            </div>
-            <div className="py-2 flex items-center">
-              <span className="rounded-md shadow-sm m-auto">
-                <button
-                  type="button"
-                  onClick={() => router.push("addCredits")}
-                  className="inline-flex italic  font-bold items-center px-6 py-3 border border-transparent text-base font-bold leading-6 font-medium rounded-md text-black bg-indigo-400 hover:bg-indigo-200 focus:outline-none transition ease-in-out duration-150"
-                >
-                  Add Creator Credits
-                </button>
-              </span>
-            </div>
-            <div className="mt-6 relative inline-block text-left">
-              <nav className="mt-6">
+          <div className="flex pt-2 mx-auto text-5xl">67</div>
+          <div className="flex py-2 mx-auto text-lg italic">
+            Creator Credits
+          </div>
+          <div className="flex py-2 mx-auto text-xs text-center">
+            <span>
+              These credits do not expire, when you run out you can add more any
+              time
+            </span>
+          </div>
+          <div className="py-2 flex items-center">
+            <span className="rounded-md shadow-sm m-auto">
+              <button
+                type="button"
+                onClick={() => router.push("addCredits")}
+                className="inline-flex italic  font-bold items-center px-6 py-3 border border-transparent text-base font-bold leading-6 font-medium rounded-md text-black bg-indigo-400 hover:bg-indigo-200 focus:outline-none transition ease-in-out duration-150"
+              >
+                Add Creator Credits
+              </button>
+            </span>
+          </div>
+          <div className="flex-1 overflow-auto">
+            <div className="text-left h-full">
+              <nav className="">
                 {/* <!-- Secondary navigation --> */}
                 <h3
                   className="px-3 text-xs leading-4 font-semibold uppercase tracking-wider"

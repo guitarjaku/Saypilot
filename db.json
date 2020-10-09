@@ -1,7 +1,8 @@
 {
-  "campaigns": [{
+  "campaigns": [
+    {
       "id": "1",
-      "name": "New",
+      "name": "New Shine Wine",
       "imageMain": "",
       "productWebsite": "www.newshinewine.com",
       "productValue": "$100",
@@ -16,10 +17,12 @@
       ],
       "firstPostLooking": "image",
       "instagramStoryRequire": true,
-      "targetStates": [{
-        "value": "all",
-        "label": "All"
-      }],
+      "targetStates": [
+        {
+          "value": "all",
+          "label": "All"
+        }
+      ],
       "gender": {
         "value": "male",
         "label": "Male"
@@ -74,9 +77,31 @@
       "vipCreator": false,
       "productFolder": "",
       "id": "5107726"
+    },
+    {
+      "name": "TEST",
+      "imageMain": "",
+      "productWebsite": "",
+      "productValue": "",
+      "productCategory": "",
+      "productCategoryValue": "",
+      "productSend": "",
+      "productInfluencerCaption": "",
+      "productPostStyle": "",
+      "styleGuides": [],
+      "firstPostLooking": "image",
+      "instagramStoryRequire": false,
+      "targetStates": [],
+      "gender": [],
+      "instagramHandles": [],
+      "hashtags": [],
+      "vipCreator": false,
+      "productFolder": "",
+      "id": "7505863"
     }
   ],
-  "chartData": [{
+  "chartData": [
+    {
       "x": 1569888000000,
       "y": 0
     },
@@ -1537,7 +1562,8 @@
       "y": 364000
     }
   ],
-  "influencers": [{
+  "influencers": [
+    {
       "id": 1,
       "name": "Berti McGuinness",
       "username": "bmcguinness0",
@@ -1647,7 +1673,7 @@
       "like_post": 67254,
       "com_post": 474,
       "engagement_rate": 82.21,
-      "content_qa": 3.0,
+      "content_qa": 3,
       "attitude": 4.6,
       "gender": "Female",
       "category": "Other",
@@ -1866,7 +1892,7 @@
       "followers": 239140,
       "like_post": 7029,
       "com_post": 969,
-      "engagement_rate": 62.0,
+      "engagement_rate": 62,
       "content_qa": 4.11,
       "attitude": 0.74,
       "gender": "Male",
@@ -1926,7 +1952,7 @@
       "followers": 520174,
       "like_post": 17237,
       "com_post": 124,
-      "engagement_rate": 58.0,
+      "engagement_rate": 58,
       "content_qa": 1.65,
       "attitude": 2.87,
       "gender": "Female",
@@ -2228,7 +2254,7 @@
       "com_post": 604,
       "engagement_rate": 31.54,
       "content_qa": 4.91,
-      "attitude": 3.0,
+      "attitude": 3,
       "gender": "Male",
       "category": "Fashion",
       "address": "41588 Lillian Alley",
@@ -3068,7 +3094,7 @@
       "com_post": 627,
       "engagement_rate": 83.3,
       "content_qa": 3.05,
-      "attitude": 0.0,
+      "attitude": 0,
       "gender": "Male",
       "category": "Fashion",
       "address": "2356 Morrow Alley",
@@ -3538,7 +3564,8 @@
       "img": "http://dummyimage.com/156x176.bmp/dddddd/000000"
     }
   ],
-  "hashtags": [{
+  "hashtags": [
+    {
       "id": 1,
       "hashtag": "#arraigning"
     },
@@ -3939,7 +3966,8 @@
       "hashtag": "#December's"
     }
   ],
-  "chatlogs": [{
+  "chatlogs": [
+    {
       "id": 13,
       "username": "Meow",
       "text": "proin interdum mauris non ligula pellentesque ultrices phasellus id sapien",

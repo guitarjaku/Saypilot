@@ -149,36 +149,6 @@ const Editcapaign = () => {
       DataService.get("/campaigns", id).then((res) => {
         setCampaign(res.data);
         // console.log(campaign);
-
-        const image_button = document.getElementById("image-post");
-        const video_button = document.getElementById("video-post");
-        if (res.data.firstPostLooking) {
-          image_button?.classList.remove("bg-white", "text-gray-700");
-          image_button?.classList.add("text-white");
-        } else {
-          video_button?.classList.remove("bg-white", "text-gray-700");
-          video_button?.classList.add("text-white");
-        }
-
-        const insta_no = document.getElementById("insta-no");
-        const insta_yes = document.getElementById("insta-yes");
-        if (res.data.instagramStoryRequire) {
-          insta_yes?.classList.remove("bg-white", "text-gray-700");
-          insta_yes?.classList.add("text-white");
-        } else {
-          insta_no?.classList.remove("bg-white", "text-gray-700");
-          insta_no?.classList.add("text-white");
-        }
-
-        const vip_no = document.getElementById("vip-no");
-        const vip_yes = document.getElementById("vip-yes");
-        if (res.data.vipCreator) {
-          vip_yes?.classList.remove("bg-white", "text-gray-700");
-          vip_yes?.classList.add("text-white");
-        } else {
-          vip_no?.classList.remove("bg-white", "text-gray-700");
-          vip_no?.classList.add("text-white");
-        }
       });
     }
   };
@@ -214,7 +184,7 @@ const Editcapaign = () => {
   };
 
   useEffect(() => {
-    getCampiagn();
+    // getCampiagn();
   }, []);
 
   return (
@@ -363,14 +333,6 @@ const Editcapaign = () => {
                 id="image-post"
                 type="button"
                 onClick={(e) => {
-                  const image_button = document.getElementById("image-post");
-                  const video_button = document.getElementById("video-post");
-
-                  image_button?.classList.remove("bg-white", "text-gray-700");
-                  image_button?.classList.add("text-white");
-
-                  video_button?.classList.add("bg-white", "text-gray-700");
-                  video_button?.classList.remove("text-white");
                   setCampaign({ ...campaign, firstPostLooking: "image" });
                 }}
                 className="w-2/4 active:bg-black text-center relative items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 transition ease-in-out duration-150"
@@ -381,14 +343,6 @@ const Editcapaign = () => {
                 id="video-post"
                 type="button"
                 onClick={(e) => {
-                  const image_button = document.getElementById("image-post");
-                  const video_button = document.getElementById("video-post");
-
-                  video_button?.classList.remove("bg-white", "text-gray-700");
-                  video_button?.classList.add("text-white");
-
-                  image_button?.classList.add("bg-white", "text-gray-700");
-                  image_button?.classList.remove("text-white");
                   setCampaign({ ...campaign, firstPostLooking: "video" });
                 }}
                 className="w-2/4 text-center relative items-center px-4 py-2  border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
@@ -404,14 +358,6 @@ const Editcapaign = () => {
                 id="insta-no"
                 type="button"
                 onClick={(e) => {
-                  const insta_no = document.getElementById("insta-no");
-                  const insta_yes = document.getElementById("insta-yes");
-
-                  insta_no?.classList.remove("bg-white", "text-gray-700");
-                  insta_no?.classList.add("text-white");
-
-                  insta_yes?.classList.add("bg-white", "text-gray-700");
-                  insta_yes?.classList.remove("text-white");
                   setCampaign({ ...campaign, instagramStoryRequire: false });
                 }}
                 className="w-2/4 text-center relative  items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
@@ -422,14 +368,6 @@ const Editcapaign = () => {
                 id="insta-yes"
                 type="button"
                 onClick={(e) => {
-                  const insta_no = document.getElementById("insta-no");
-                  const insta_yes = document.getElementById("insta-yes");
-
-                  insta_yes?.classList.remove("bg-white", "text-gray-700");
-                  insta_yes?.classList.add("text-white");
-
-                  insta_no?.classList.add("bg-white", "text-gray-700");
-                  insta_no?.classList.remove("text-white");
                   setCampaign({ ...campaign, instagramStoryRequire: true });
                 }}
                 className="w-2/4 text-center relative items-center px-4 py-2  border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
