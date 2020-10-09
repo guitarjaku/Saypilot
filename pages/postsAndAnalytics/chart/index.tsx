@@ -4,7 +4,7 @@ import Chart from "chart.js";
 // import { Line } from "react-chartjs-2";
 
 const LineChart = (props: any) => {
-  const chartRef = useRef(null);
+  const chartRef = useRef<any>(null);
   const [chartInstance, setChartInstance] = useState(null);
 
   const chartData = {
@@ -107,8 +107,7 @@ const LineChart = (props: any) => {
 
   useEffect(() => {
     if (chartRef && chartRef.current) {
-      // @ts-ignore
-      const newChartInstance = new Chart(chartRef.current, chartConfig);
+      const newChartInstance: any = new Chart(chartRef.current, chartConfig);
       setChartInstance(newChartInstance);
     }
   }, [props.data]);
