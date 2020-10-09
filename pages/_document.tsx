@@ -17,7 +17,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link rel="icon" type="image/png" href="/favicon.png" />
+          {/* <link rel="icon" type="image/png" href="/favicon.png" /> */}
           <meta name="msapplication-TileColor" content="#000000" />
           <meta name="theme-color" content="#000000" />
         </Head>

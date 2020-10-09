@@ -1,9 +1,11 @@
-import { h } from "preact";
-import { useRef, useEffect } from "preact/hooks";
-import { Line } from "react-chartjs-2";
+import React from "react";
+import { useRef, useEffect, useState } from "preact/hooks";
+import Chart from "chart.js";
+// import { Line } from "react-chartjs-2";
 
-const Chart = (props: any) => {
+const LineChart = (props: any) => {
   const chartRef = useRef(null);
+  const [chartInstance, setChartInstance] = useState(null);
 
   const chartData = {
     labels: [],
@@ -81,35 +83,42 @@ const Chart = (props: any) => {
     maintainAspectRatio: false,
   };
 
+  const chartConfig = {
+    type: "line",
+    data: chartData,
+    options: options,
+  };
+
   const onReceive = (chartRef: any) => {
-    // console.log(chartRef.current.chartInstance?.config.data.datasets[0].data);
-    // if (chartRef.current.chartInstance) {
-    //   chartRef.current.chartInstance.config.data.datasets[0].data = [];
-    // }
-
+    console.log(chartRef);
+    if (chartRef) {
+      chartRef.config.data.datasets[0].data = [];
+    }
     props.data.map((x: any) => {
-      chartRef.current.chartInstance.config.data.datasets.map(
-        (chart: any, i: any) => {
-          chart.data.push(x);
-        }
-      );
+      chartRef.config.data.datasets.map((chart: any, i: any) => {
+        chart.data.push(x);
+      });
     });
-
     // update chart datasets keeping the current animation
-    // chartRef.current.chartInstance.update({
+    // chartRef.update({
     //   preservation: true,
     // });
   };
 
   useEffect(() => {
-    onReceive(chartRef);
-  }, [props]);
+    if (chartRef && chartRef.current) {
+      // @ts-ignore
+      const newChartInstance = new Chart(chartRef.current, chartConfig);
+      setChartInstance(newChartInstance);
+    }
+  }, [props.data]);
 
   return (
     <div>
-      <Line data={chartData} options={options} height={320} ref={chartRef} />
+      {/* <Line data={chartData} options={options} height={320} ref={chartRef} /> */}
+      <canvas ref={chartRef} height={320} />
     </div>
   );
 };
 
-export default Chart;
+export default LineChart;

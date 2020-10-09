@@ -17,6 +17,12 @@
     "static/development/_ssgManifest.module.js"
   ],
   "pages": {
+    "/404": [
+      "static/chunks/main.js",
+      "static/chunks/webpack.js",
+      "static/chunks/commons.js",
+      "static/chunks/pages/404.js"
+    ],
     "/_app": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",
@@ -29,11 +35,11 @@
       "static/chunks/commons.js",
       "static/chunks/pages/_error.js"
     ],
-    "/influencers": [
+    "/postsAndAnalytics": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",
       "static/chunks/commons.js",
-      "static/chunks/pages/influencers.js"
+      "static/chunks/pages/postsAndAnalytics.js"
     ]
   },
   "ampFirstPages": []

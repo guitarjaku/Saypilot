@@ -257,3 +257,8 @@
 
 - [x] fix build && fix bug post and andlytic
 - [x] UI 95/100 state 85/100 UX 85/100
+
+## 9/10/2020, 08.00-10.00
+
+- [x] chart fix bug
+- [x] UI 95/100 state 85/100 UX 85/100
