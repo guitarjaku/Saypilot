@@ -1,10 +1,34 @@
 import { h } from "preact";
-import { useState } from "preact/hooks";
+import { useEffect, useState, useRef } from "preact/hooks";
 import Head from "next/head";
 import SideBar from "../../components/Sidebar";
+import DataService from "../../service/service";
 
 const Chat = () => {
-  const [chatLog, setChatLog] = useState([]);
+  const [inputText, setInpuText] = useState("");
+  const [chatLogs, setChatLogs] = useState([]);
+  const messagesEndRef = useRef<any>(null);
+
+  const getChatLogs = () => {
+    DataService.getAll("/chatlogs")
+      .then((res) => {
+        console.log(res.data);
+        setChatLogs(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const scrollToBottom = () => {
+    messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    getChatLogs();
+  }, []);
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [chatLogs]);
 
   return (
     <>
@@ -94,101 +118,62 @@ const Chat = () => {
               </div>
               <main className="flex-1 overflow-auto bg-gray-100 h-full">
                 {/* <!-- This is an example component --> */}
-                <div className="">
-                  <div className="flex justify-center">
-                    <div className="w-full mx-auto">
-                      <div className="flex flex-row w-full">
-                        {/* <!-- left col --> */}
-
-                        <div className="w-2/5 px-2 py-10">
-                          <div className="flex flex-col w-full rounded-lg shadow bg-white px-4 py-5">
-                            <div className="text-gray-600 mb-2 flex justify-between">
-                              <div className="font-bold">Svjatoslav Torn</div>
-                              <div className="flex flex-row">
-                                <button className="text-blue-500 mr-2 hover:text-blue-300 transition duration-200">
-                                  <i className="far fa-edit"></i>
-                                </button>
-                                <button className="text-red-500 hover:text-red-300 transition duration-200">
-                                  <i className="far fa-trash-alt"></i>
-                                </button>
+                <div className="flex justify-center">
+                  <div className="w-full mx-auto">
+                    {chatLogs.map((chat: any) =>
+                      chat.username === "Meow" ? (
+                        <div className="flex flex-row w-full">
+                          {/* <!-- left col --> */}
+                          <div className="w-2/5 px-2 py-10">
+                            <div className="flex flex-col w-full rounded-lg shadow bg-white px-4 py-5">
+                              <div className="text-gray-600 mb-2 flex justify-between">
+                                <div className="font-bold">{chat.username}</div>
+                                <div className="flex flex-row">
+                                  {new Intl.DateTimeFormat("default", {
+                                    year: "numeric",
+                                    month: "numeric",
+                                    day: "numeric",
+                                    hour: "numeric",
+                                    minute: "numeric",
+                                    second: "numeric",
+                                    hour12: false,
+                                  }).format(chat.time)}
+                                </div>
                               </div>
-                            </div>
-                            <div className="text-gray-600">
-                              Привет Lorem ipsum dolor sit amet, consectetur
+                              <div className="text-gray-600">{chat.text}</div>
                             </div>
                           </div>
+                          {/* <!--line column--> */}
+                          <div className="w-3/5  flex justify-center"></div>
                         </div>
-                        {/* <!--line column--> */}
-                        <div className="w-1/5  flex justify-center"></div>
-                        {/* <!--right column--> */}
-                        <div className="w-2/5 px-2 py-10 "></div>
-                      </div>
-                      <div className="flex flex-row w-full">
-                        {/* <!-- left col --> */}
-
-                        <div className="w-2/5 px-2 py-10"></div>
-                        {/* <!--line column--> */}
-                        <div className="w-1/5  flex justify-center"></div>
-                        {/* <!--right column--> */}
-                        <div className="w-2/5 px-2 py-10 ">
-                          <div className="flex flex-col w-full rounded-lg shadow bg-white px-4 py-5">
-                            <div className="text-gray-600 mb-2 flex justify-between">
-                              <div className="font-bold">Svetlana Torn</div>
-                            </div>
-                            <div className="text-gray-600">
-                              Lorem ipsum dolor sit amet, consectetur
-                              adipisicing elit. Corporis enim esse fuga modi
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="flex flex-row w-full">
-                        {/* <!-- left col --> */}
-
-                        <div className="w-2/5 px-2 py-10">
-                          <div className="flex flex-col w-full rounded-lg shadow bg-white px-4 py-5">
-                            <div className="text-gray-600 mb-2 flex justify-between">
-                              <div className="font-bold">Svjatoslav Torn</div>
-                              <div className="flex flex-row">
-                                <button className="text-blue-500 mr-2 hover:text-blue-300 transition duration-200">
-                                  <i className="far fa-edit"></i>
-                                </button>
-                                <button className="text-red-500 hover:text-red-300 transition duration-200">
-                                  <i className="far fa-trash-alt"></i>
-                                </button>
+                      ) : (
+                        <div className="flex flex-row w-full">
+                          {/* <!--line column--> */}
+                          <div className="w-3/5  flex justify-center"></div>
+                          {/* <!--right column--> */}
+                          <div className="w-2/5 px-2 py-10 ">
+                            <div className="flex flex-col w-full rounded-lg shadow bg-white px-4 py-5">
+                              <div className="text-gray-600 mb-2 flex justify-between">
+                                <div className="font-bold">{chat.username}</div>
+                                <div className="flex flex-row">
+                                  {new Intl.DateTimeFormat("default", {
+                                    year: "numeric",
+                                    month: "numeric",
+                                    day: "numeric",
+                                    hour: "numeric",
+                                    minute: "numeric",
+                                    second: "numeric",
+                                    hour12: false,
+                                  }).format(chat.time)}
+                                </div>
                               </div>
-                            </div>
-                            <div className="text-gray-600">
-                              Привет Lorem ipsum dolor sit amet, consectetur
-                              adipisicing elit. Ad corporis culpa deserunt,
+                              <div className="text-gray-600">{chat.text}</div>
                             </div>
                           </div>
                         </div>
-                        {/* <!--line column--> */}
-                        <div className="w-1/5  flex justify-center"></div>
-                        {/* <!--right column--> */}
-                        <div className="w-2/5 px-2 py-10 "></div>
-                      </div>
-                      <div className="flex flex-row w-full">
-                        {/* <!-- left col --> */}
-
-                        <div className="w-2/5 px-2 py-10"></div>
-                        {/* <!--line column--> */}
-                        <div className="w-1/5  flex justify-center"></div>
-                        {/* <!--right column--> */}
-                        <div className="w-2/5 px-2 py-10 ">
-                          <div className="flex flex-col w-full rounded-lg shadow bg-white px-4 py-5">
-                            <div className="text-gray-600 mb-2 flex justify-between">
-                              <div className="font-bold">Svetlana Torn</div>
-                            </div>
-                            <div className="text-gray-600">
-                              Lorem ipsum dolor sit amet, consectetur
-                              adipisicing elit. Corporis enim esse fuga modi
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                      )
+                    )}
+                    <div ref={messagesEndRef} />
                   </div>
                 </div>
               </main>
@@ -197,15 +182,50 @@ const Chat = () => {
                 <div className="grid grid-cols-12 gap-4 w-full">
                   <div className="col-span-11">
                     <input
+                      id="message-input"
                       className="p-3 w-full text-black text-2xl border border-white"
                       placeholder="Type a Massage..."
                       type="text"
+                      value={inputText}
+                      onChange={(e: any) => {
+                        setInpuText(e.target.value);
+                      }}
+                      onKeyDown={(e: any) => {
+                        const copyChatLogs = [...chatLogs];
+                        if (e.key === "Enter") {
+                          if (e.target.value !== "") {
+                            const data = {
+                              id: chatLogs.length + 1,
+                              username: "Me",
+                              text: e.target.value,
+                              time: new Date().valueOf(),
+                            };
+                            // @ts-ignore
+                            copyChatLogs.push(data);
+                            setInpuText("");
+                          }
+                        }
+                        setChatLogs(copyChatLogs);
+                      }}
                     />
                   </div>
                   <div className="col-span-1">
                     <span className="w-full h-full rounded-md shadow-sm">
                       <button
                         type="button"
+                        onClick={() => {
+                          const copyChatLogs = [...chatLogs];
+                          const data = {
+                            id: chatLogs.length + 1,
+                            username: "Me",
+                            text: inputText,
+                            time: new Date().valueOf(),
+                          };
+                          setInpuText("");
+                          // @ts-ignore
+                          copyChatLogs.push(data);
+                          setChatLogs(copyChatLogs);
+                        }}
                         className="w-full h-full items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"
                       >
                         SEND

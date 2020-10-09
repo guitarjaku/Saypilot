@@ -267,3 +267,8 @@
 
 - [x] chat mock fucntion
 - [x] UI 95/100 state 85/100 UX 85/100
+
+## 9/10/2020, 11.00-13.00
+
+- [x] chat mock fucntion
+- [x] UI 95/100 state 90/100 UX 90/100
