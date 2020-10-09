@@ -12,14 +12,24 @@ import SideBar from "../../components/Sidebar";
 const Influencers = () => {
   const [menu, setMenu] = useState(1);
   const [loading, setLoading] = useState(true);
+  const [influencers, setInfluencers] = useState([]);
+  const [cntShiped, setCntShipped] = useState(0);
 
   const handelChangeMenu = (props: number) => {
     setMenu(props);
   };
 
   const getInfluencerList = () => {
-    DataService.getAll("/campaigns").then((res) => {
-      // console.log(res.data);
+    DataService.getAll("/influencers").then((res) => {
+      console.log(res.data);
+      let cnt = 0;
+      res.data.forEach((influ: any) => {
+        if (influ.ship_status) {
+          cnt++;
+        }
+      });
+      setCntShipped(cnt);
+      setInfluencers(res.data);
       setLoading(false);
     });
   };
@@ -110,7 +120,7 @@ const Influencers = () => {
                   </div>
                   <div className="mt-auto ml-4">
                     <div className="text-5xl leading-9 italic font-medium text-gray-900">
-                      46
+                      {influencers.length}
                     </div>
                     <div className="text-sm leading-9 text-gray-500">
                       INFLUENCER LIST
@@ -193,7 +203,7 @@ const Influencers = () => {
                   </div>
                   <div className="mt-auto ml-4">
                     <div className="text-5xl leading-9 italic font-medium text-gray-900">
-                      41/46
+                      {cntShiped}/{influencers.length}
                     </div>
                     <div className="text-sm leading-9 text-gray-500">
                       SHIPMENTS MADE
@@ -247,9 +257,19 @@ const Influencers = () => {
               <div className="align-middle inline-block min-w-full ">
                 <div className="p-8">
                   {menu === 1 ? (
-                    <div>{loading ? <TableLoader /> : <InfluencerList />}</div>
+                    <div>
+                      {loading ? (
+                        <TableLoader />
+                      ) : (
+                        <InfluencerList data={influencers} />
+                      )}
+                    </div>
                   ) : menu === 2 ? (
-                    <ShipmentsMade />
+                    <ShipmentsMade
+                      data={influencers}
+                      shipped={cntShiped}
+                      unship={influencers.length - cntShiped}
+                    />
                   ) : (
                     <PostApproval />
                   )}

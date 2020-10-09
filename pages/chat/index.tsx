@@ -4,6 +4,8 @@ import Head from "next/head";
 import SideBar from "../../components/Sidebar";
 
 const Chat = () => {
+  const [chatLog, setChatLog] = useState([]);
+
   return (
     <>
       <div className="h-screen flex overflow-hidden bg-white">
@@ -67,31 +69,33 @@ const Chat = () => {
               />
             </Head>
             <div className="flex flex-col h-screen justify-between">
-              <div className="grid grid-cols-12 px-10 h-24  sm:px-6 sm:py-4 lg:px-8 md:justify-start border-b">
-                <a
-                  href="/messages"
-                  className="relative text-black font-semibold rounded-none ml-auto border-r border-gray-400"
-                >
-                  <div className="flex items-center pr-4">
-                    <div className="fill-current w-8 h-8 mr-2">
-                      <img src={"/icons/return-black.svg"} alt="" />
-                      <span>Back</span>
+              <div className="flex h-24">
+                <div className="grid grid-cols-12 px-10 w-full  sm:px-6 sm:py-4 lg:px-8 md:justify-start border-b">
+                  <a
+                    href="/messages"
+                    className="relative text-black font-semibold rounded-none ml-auto border-r border-gray-400"
+                  >
+                    <div className="flex items-center pr-4">
+                      <div className="fill-current w-8 h-8 mr-2">
+                        <img src={"/icons/return-black.svg"} alt="" />
+                        <span>Back</span>
+                      </div>
                     </div>
-                  </div>
-                </a>
-                <div className="col-span-2 my-auto  mr-auto pl-4">
-                  <div className="text-2xl leading-5 font-medium text-gray-900 mb-3">
-                    Ansley gordon
-                  </div>
-                  <div className="text-sm leading-5 text-yellow-500">
-                    See Profile
+                  </a>
+                  <div className="col-span-2 my-auto  mr-auto pl-4">
+                    <div className="text-2xl leading-5 font-medium text-gray-900 mb-3">
+                      Ansley gordon
+                    </div>
+                    <div className="text-sm leading-5 text-yellow-500">
+                      See Profile
+                    </div>
                   </div>
                 </div>
               </div>
-              <main className="p-4 flex-1">
+              <main className="flex-1 overflow-auto bg-gray-100 h-full">
                 {/* <!-- This is an example component --> */}
-                <div className="min-h-screen bg-gray-100">
-                  <div className="min-h-screen flex justify-center">
+                <div className="">
+                  <div className="flex justify-center">
                     <div className="w-full mx-auto">
                       <div className="flex flex-row w-full">
                         {/* <!-- left col --> */}
@@ -111,12 +115,6 @@ const Chat = () => {
                             </div>
                             <div className="text-gray-600">
                               Привет Lorem ipsum dolor sit amet, consectetur
-                              adipisicing elit. Ad corporis culpa deserunt,
-                              dignissimos dolor esse fugit ipsam minus odit
-                              officiis placeat qui, quidem quis soluta vero?
-                              Adipisci alias eius et iure nam nihil reiciendis
-                              saepe, voluptatem. Alias cumque dicta dignissimos
-                              ea et laborum, minima similique.
                             </div>
                           </div>
                         </div>
@@ -140,13 +138,6 @@ const Chat = () => {
                             <div className="text-gray-600">
                               Lorem ipsum dolor sit amet, consectetur
                               adipisicing elit. Corporis enim esse fuga modi
-                              quisquam veritatis? Привет Lorem ipsum dolor sit
-                              amet, consectetur adipisicing elit. Ad corporis
-                              culpa deserunt, dignissimos dolor esse fugit ipsam
-                              minus odit officiis placeat qui, quidem quis
-                              soluta vero? Adipisci alias eius et iure nam nihil
-                              reiciendis saepe, voluptatem. Alias cumque dicta
-                              dignissimos ea et laborum, minima similique.
                             </div>
                           </div>
                         </div>
@@ -170,11 +161,6 @@ const Chat = () => {
                             <div className="text-gray-600">
                               Привет Lorem ipsum dolor sit amet, consectetur
                               adipisicing elit. Ad corporis culpa deserunt,
-                              dignissimos dolor esse fugit ipsam minus odit
-                              officiis placeat qui, quidem quis soluta vero?
-                              Adipisci alias eius et iure nam nihil reiciendis
-                              saepe, voluptatem. Alias cumque dicta dignissimos
-                              ea et laborum, minima similique.
                             </div>
                           </div>
                         </div>
@@ -183,13 +169,32 @@ const Chat = () => {
                         {/* <!--right column--> */}
                         <div className="w-2/5 px-2 py-10 "></div>
                       </div>
+                      <div className="flex flex-row w-full">
+                        {/* <!-- left col --> */}
+
+                        <div className="w-2/5 px-2 py-10"></div>
+                        {/* <!--line column--> */}
+                        <div className="w-1/5  flex justify-center"></div>
+                        {/* <!--right column--> */}
+                        <div className="w-2/5 px-2 py-10 ">
+                          <div className="flex flex-col w-full rounded-lg shadow bg-white px-4 py-5">
+                            <div className="text-gray-600 mb-2 flex justify-between">
+                              <div className="font-bold">Svetlana Torn</div>
+                            </div>
+                            <div className="text-gray-600">
+                              Lorem ipsum dolor sit amet, consectetur
+                              adipisicing elit. Corporis enim esse fuga modi
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </main>
 
-              <footer className="h-32 border-t border-gray-400 p-10">
-                <div className="grid grid-cols-12 gap-4">
+              <footer className="flex h-32 w-full lg:h-24 lg:p-5 border-t border-gray-400 p-10">
+                <div className="grid grid-cols-12 gap-4 w-full">
                   <div className="col-span-11">
                     <input
                       className="p-3 w-full text-black text-2xl border border-white"
