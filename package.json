@@ -31,7 +31,6 @@
   "homepage": "https://genemator.me",
   "dependencies": {
     "@babel/plugin-transform-react-jsx": "^7.10.4",
-    "@babel/plugin-transform-react-jsx-source": "^7.10.5",
     "@prefresh/next": "^0.4.0",
     "@tailwindcss/ui": "^0.5.0",
     "@types/nprogress": "^0.2.0",
@@ -45,6 +44,7 @@
     "next": "^9.5.1",
     "nprogress": "^0.2.0",
     "preact": "^10.4.7",
+    "preact-chartjs-2": "^1.0.3",
     "preact-render-to-string": "^5.1.10",
     "prism-react-renderer": "^1.1.1",
     "prismjs": "^1.21.0",
@@ -62,6 +62,7 @@
     "typewriter-effect": "^2.13.1"
   },
   "devDependencies": {
+    "@babel/plugin-transform-react-jsx-source": "^7.10.5",
     "@types/dompurify": "^2.0.3",
     "@types/marked": "^1.1.0",
     "@types/node": "^14.11.1",
