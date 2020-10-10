@@ -5,6 +5,8 @@ import Router from "next/router";
 import NProgress from "nprogress";
 import "../components/app.css";
 import "rc-slider/assets/index.css";
+import "filepond/dist/filepond.min.css";
+import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 
 NProgress.configure({
   showSpinner: false,

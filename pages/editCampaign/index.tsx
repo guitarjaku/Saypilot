@@ -3,6 +3,11 @@ import { useState, useEffect } from "preact/hooks/";
 import DataService from "../../service/service";
 import Select from "react-select";
 import { useRouter } from "next/router";
+import { FilePond, registerPlugin } from "react-filepond";
+import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
+import FilePondPluginImagePreview from "filepond-plugin-image-preview";
+
+registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 interface CampaignI {
   id?: string;
@@ -111,6 +116,7 @@ const Editcapaign = () => {
   const id: string = urlParams.get("id") || "";
 
   const router = useRouter();
+  const [files, setFiles] = useState([]);
 
   const targetStateOption = [
     { value: "all", label: "All" },
@@ -314,6 +320,15 @@ const Editcapaign = () => {
             <p>
               add images so the creators know what kind of content to create.
             </p>
+            <div className="App">
+              <FilePond
+                files={files}
+                allowReorder={true}
+                allowMultiple={true}
+                onupdatefiles={setFiles}
+                labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
+              />
+            </div>
             <div className="grid grid-cols-12 gap-32 py-4">
               {campaign.styleGuides.map((sg, key) => (
                 <span
