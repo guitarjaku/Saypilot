@@ -1,5 +1,5 @@
 import { h } from "preact";
-import { useState, useEffect } from "preact/hooks/";
+import { useState, useEffect, useRef } from "preact/hooks/";
 import DataService from "../../service/service";
 import Select from "react-select";
 import { useRouter } from "next/router";
@@ -117,6 +117,7 @@ const Editcapaign = () => {
 
   const router = useRouter();
   const [files, setFiles] = useState([]);
+  // const fileRef = useRef(null);
 
   const targetStateOption = [
     { value: "all", label: "All" },
@@ -190,7 +191,7 @@ const Editcapaign = () => {
   };
 
   useEffect(() => {
-    // getCampiagn();
+    getCampiagn();
   }, []);
 
   return (
@@ -322,10 +323,18 @@ const Editcapaign = () => {
             </p>
             <div className="App">
               <FilePond
+                // ref={fileRef}
                 files={files}
                 allowReorder={true}
                 allowMultiple={true}
-                onupdatefiles={setFiles}
+                onupdatefiles={(fileItems) => {
+                  const data: any = [];
+                  fileItems.map((fileItem) => {
+                    data.push(fileItem.file);
+                  });
+                  // console.log(data);
+                  setFiles(data);
+                }}
                 labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
               />
             </div>

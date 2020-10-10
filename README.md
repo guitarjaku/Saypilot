@@ -278,7 +278,7 @@
 - [x] sidebar layout modify
 - [x] UI 95/100 state 90/100 UX 90/100
 
-## 10/10/2020, 20.00-22.00
+## 10/10/2020, 22.00-24.00
 
-- [x] input file on create && edit campaign
-- [x] UI 95/100 state 93/100 UX 90/100
+- [x] input file on create && edit campaign state 80%
+- [x] UI 95/100 state 9ถ/100 UX 90/100
