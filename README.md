@@ -292,3 +292,8 @@
 
 - [x] set env config
 - [x] UI 95/100 state 95/100 UX 90/100
+
+## 11/10/2020, 16.00-18.00
+
+- [x] set mocki json mock data
+- [x] UI 95/100 state 95/100 UX 90/100

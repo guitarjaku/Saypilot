@@ -8,7 +8,7 @@ const p = process.env.NODE_ENV === "production";
 
 module.exports = withPrefresh({
   env: {
-    api: p ? "/api" : "https://api.mocki.io/v1/fb925b6c/",
+    api: p ? "https://api.mocki.io/v1/fb925b6c/" : "http://localhost:3000/",
   },
   experimental: {
     modern: true,
