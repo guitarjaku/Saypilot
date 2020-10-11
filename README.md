@@ -281,4 +281,9 @@
 ## 10/10/2020, 22.00-24.00
 
 - [x] input file on create && edit campaign state 80%
-- [x] UI 95/100 state 9ถ/100 UX 90/100
+- [x] UI 95/100 state 95/100 UX 90/100
+
+## 11/10/2020, 13.00-15.00
+
+- [x] input file on create && edit campaign state 90%
+- [x] UI 95/100 state 95/100 UX 90/100

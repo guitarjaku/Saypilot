@@ -12,7 +12,7 @@ registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 interface CampaignI {
   id?: string;
   name: string;
-  imageMain: string;
+  imageMain: string[];
   productWebsite: string;
   productValue: string;
   productCategory: string;
@@ -132,7 +132,7 @@ const Editcapaign = () => {
 
   const [campaign, setCampaign] = useState<CampaignI>({
     name: "",
-    imageMain: "",
+    imageMain: [],
     productWebsite: "",
     productValue: "",
     productCategory: "",
@@ -226,11 +226,26 @@ const Editcapaign = () => {
               onChange={onInputValueChange("name")}
             />
           </div>
-          <div className="flex items-center" style={{ height: "350px" }}>
-            <span
+          <div className="p-4">
+            <FilePond
+              // ref={fileRef}
+              files={campaign.imageMain}
+              allowReorder={true}
+              allowMultiple={false}
+              onupdatefiles={(fileItems) => {
+                const data: any = [];
+                fileItems.map((fileItem) => {
+                  data.push(fileItem.file);
+                });
+                // console.log(data);
+                setFiles(data);
+              }}
+              labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
+            />
+            {/* <span
               className="bg-indigo-400 rounded-none m-auto"
               style={{ height: "300px", width: "80%" }}
-            ></span>
+            ></span> */}
           </div>
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div>
@@ -321,24 +336,24 @@ const Editcapaign = () => {
             <p>
               add images so the creators know what kind of content to create.
             </p>
-            <div className="App">
-              <FilePond
-                // ref={fileRef}
-                files={files}
-                allowReorder={true}
-                allowMultiple={true}
-                onupdatefiles={(fileItems) => {
-                  const data: any = [];
-                  fileItems.map((fileItem) => {
-                    data.push(fileItem.file);
-                  });
-                  // console.log(data);
-                  setFiles(data);
-                }}
-                labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
-              />
-            </div>
-            <div className="grid grid-cols-12 gap-32 py-4">
+            {/* <div className="App"> */}
+            <FilePond
+              // ref={fileRef}
+              files={files}
+              allowReorder={true}
+              allowMultiple={true}
+              onupdatefiles={(fileItems) => {
+                const data: any = [];
+                fileItems.map((fileItem) => {
+                  data.push(fileItem.file);
+                });
+                // console.log(data);
+                setFiles(data);
+              }}
+              labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
+            />
+            {/* </div> */}
+            {/* <div className="grid grid-cols-12 gap-32 py-4">
               {campaign.styleGuides.map((sg, key) => (
                 <span
                   key={key}
@@ -346,7 +361,7 @@ const Editcapaign = () => {
                   style={{ height: "100px", width: "100px" }}
                 ></span>
               ))}
-            </div>
+            </div> */}
           </div>
           <div className="py-4">
             <p className="font-semibold">
