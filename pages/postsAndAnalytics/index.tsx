@@ -16,6 +16,7 @@ const PostsAndAnalytics = () => {
   const getChartData = () => {
     DataService.getAll("/chartData")
       .then((res) => {
+        console.log(res.data);
         setBackupData(res.data);
         setChartData(res.data);
       })
