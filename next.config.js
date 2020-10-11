@@ -1,20 +1,20 @@
 const withPrefresh = require("@prefresh/next");
-// const p = process.env.NODE_ENV === "production";
+const p = process.env.NODE_ENV === "production";
 
 // module.exports = {
-//   env: {
-//     api: p ? "/api" : "http://localhost:3000/",
-//   },
+
 // };
 
 
 module.exports = withPrefresh({
+  env: {
+    api: p ? "/api" : "http://localhost:3000/",
+  },
   experimental: {
     modern: true,
     polyfillsOptimization: true,
     redirects() {
-      return [
-        {
+      return [{
           source: "/about.html",
           destination: "/about",
           permanent: true,
@@ -27,7 +27,10 @@ module.exports = withPrefresh({
       ];
     },
   },
-  webpack(config, { dev, isServer }) {
+  webpack(config, {
+    dev,
+    isServer
+  }) {
     const splitChunks = config.optimization && config.optimization.splitChunks;
     if (splitChunks) {
       const cacheGroups = splitChunks.cacheGroups;

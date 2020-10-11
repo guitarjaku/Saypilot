@@ -238,7 +238,7 @@ const Editcapaign = () => {
                   data.push(fileItem.file);
                 });
                 // console.log(data);
-                setFiles(data);
+                setCampaign({ ...campaign, imageMain: data });
               }}
               labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
             />

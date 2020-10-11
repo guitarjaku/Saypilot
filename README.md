@@ -287,3 +287,8 @@
 
 - [x] input file on create && edit campaign state 90%
 - [x] UI 95/100 state 95/100 UX 90/100
+
+## 11/10/2020, 16.00-18.00
+
+- [x] set env config
+- [x] UI 95/100 state 95/100 UX 90/100
