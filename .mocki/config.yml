@@ -6,7 +6,7 @@ endpoints:
     responses:
       - statusCode: 200
         body:
-          message:
+          campaigns:
             [
               {
                 "id": "1",
