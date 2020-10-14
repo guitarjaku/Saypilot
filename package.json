@@ -1,8 +1,8 @@
 {
-  "name": "genemators-portfolio",
+  "name": "saypilot",
   "version": "3.0.2",
   "private": true,
-  "description": "The portfolio website of Genemator",
+  "description": "Sayplilot",
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -26,9 +26,9 @@
   "author": "",
   "license": "",
   "bugs": {
-    "url": "https://github.com/genemators/genemators/issues"
+    "url": "https://github.com"
   },
-  "homepage": "https://genemator.me",
+  "homepage": "https://saypilot.me",
   "dependencies": {
     "@babel/plugin-transform-react-jsx-source": "^7.10.5",
     "@prefresh/next": "^0.4.0",

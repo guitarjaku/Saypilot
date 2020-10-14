@@ -297,3 +297,8 @@
 
 - [x] set mocki json mock data
 - [x] UI 95/100 state 95/100 UX 90/100
+
+## 14/10/2020, 18.00-20.00
+
+- [x] influencer register page
+- [x] UI 80/100 state 80/100 UX 90/100
