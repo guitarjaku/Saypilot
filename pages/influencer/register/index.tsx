@@ -40,10 +40,56 @@ const RegisterInfluencer = () => {
                         <div className="mt-1 sm:mt-0 sm:col-span-2">
                           <div className="max-w-lg flex rounded-md shadow-sm">
                             <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
-                              workcation.com/
+                              <svg
+                                className=" h-4"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                                />
+                              </svg>
                             </span>
                             <input
                               id="username"
+                              className="flex-1 form-input block w-full min-w-0 rounded-none rounded-r-md transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                        <label
+                          htmlFor="password"
+                          className="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2"
+                        >
+                          Password
+                        </label>
+                        <div className="mt-1 sm:mt-0 sm:col-span-2">
+                          <div className="max-w-lg flex rounded-md shadow-sm">
+                            <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
+                              <svg
+                                className="h-4"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                                />
+                              </svg>
+                            </span>
+                            <input
+                              id="password"
                               className="flex-1 form-input block w-full min-w-0 rounded-none rounded-r-md transition duration-150 ease-in-out sm:text-sm sm:leading-5"
                             />
                           </div>
@@ -97,46 +143,6 @@ const RegisterInfluencer = () => {
                                 Change
                               </button>
                             </span>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                        <label
-                          htmlFor="cover_photo"
-                          className="block text-sm leading-5 font-medium text-gray-700 sm:mt-px sm:pt-2"
-                        >
-                          Cover photo
-                        </label>
-                        <div className="mt-2 sm:mt-0 sm:col-span-2">
-                          <div className="max-w-lg flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
-                            <div className="text-center">
-                              <svg
-                                className="mx-auto h-12 w-12 text-gray-400"
-                                stroke="currentColor"
-                                fill="none"
-                                viewBox="0 0 48 48"
-                              >
-                                <path
-                                  d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                                  stroke-width="2"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                />
-                              </svg>
-                              <p className="mt-1 text-sm text-gray-600">
-                                <button
-                                  type="button"
-                                  className="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition duration-150 ease-in-out"
-                                >
-                                  Upload a file
-                                </button>
-                                or drag and drop
-                              </p>
-                              <p className="mt-1 text-xs text-gray-500">
-                                PNG, JPG, GIF up to 10MB
-                              </p>
-                            </div>
                           </div>
                         </div>
                       </div>
@@ -293,6 +299,26 @@ const RegisterInfluencer = () => {
                         </div>
                       </div>
                     </div>
+                  </div>
+                </div>
+                <div className="mt-8 border-t border-gray-200 pt-5">
+                  <div className="flex justify-end">
+                    <span className="inline-flex rounded-md shadow-sm">
+                      <button
+                        type="button"
+                        className="py-2 px-4 border border-gray-300 rounded-md text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out"
+                      >
+                        Cancel
+                      </button>
+                    </span>
+                    <span className="ml-3 inline-flex rounded-md shadow-sm">
+                      <button
+                        type="submit"
+                        className="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out"
+                      >
+                        Save
+                      </button>
+                    </span>
                   </div>
                 </div>
               </form>
