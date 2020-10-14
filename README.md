@@ -302,3 +302,8 @@
 
 - [x] influencer register page
 - [x] UI 80/100 state 80/100 UX 90/100
+
+## 14/10/2020, 20.00-22.00
+
+- [x] influencer register form page
+- [x] UI 85/100 state 80/100 UX 90/100
