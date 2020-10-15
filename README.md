@@ -325,7 +325,12 @@
 - [x] influencer register form validation 20%
 - [x] UI 85/100 state 80/100 UX 90/100
 
-## 15/10/2020, 22.00-20.00
+## 15/10/2020, 18.00-20.00
 
 - [x] influencer register form validation 40%
+- [x] UI 85/100 state 80/100 UX 90/100
+
+## 15/10/2020, 20.00-22.00
+
+- [x] influencer register form validation 60%
 - [x] UI 85/100 state 80/100 UX 90/100

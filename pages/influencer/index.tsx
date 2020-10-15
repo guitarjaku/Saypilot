@@ -2,7 +2,7 @@ import { h } from "preact";
 import { useState, useEffect } from "preact/hooks";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import { Formik } from "formik";
+import { Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 const Schema = Yup.object().shape({
@@ -31,7 +31,7 @@ const RegisterInfluencer = () => {
         </Head>
         <div className="flex flex-grow flex-col ">
           <div className=" sm:block flex-grow">
-            <div className="bg-indigo-500 w-full py-16 px-4 sm:px-6 lg:px-8 ">
+            <div className="bg-indigo-500 w-full py-16 px-4 sm:px-6 lg:px-24 ">
               <div className="px-0 sm:px-4 lg:px-0 lg:flex lg:justify-between lg:items-center">
                 <div className="max-w-xl mx-auto text-center">
                   <h2 className="text-4xl leading-10 font-extrabold text-white sm:text-5xl sm:leading-none sm:tracking-tight lg:text-6xl">
@@ -140,12 +140,11 @@ const RegisterInfluencer = () => {
                                     className="flex-1 form-input block w-full min-w-0 rounded-none rounded-r-md transition duration-150 ease-in-out sm:text-sm sm:leading-5"
                                   />
                                 </div>
-                                <div
-                                  className="error"
-                                  style={{ color: "red", fontSize: "0.75rem" }}
-                                >
-                                  {errors.password}
-                                </div>
+                                <ErrorMessage
+                                  component="div"
+                                  name="password"
+                                  className="text-red-400 text-sm"
+                                />
                               </div>
                             </div>
 
