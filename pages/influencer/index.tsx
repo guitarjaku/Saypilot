@@ -53,7 +53,7 @@ const RegisterInfluencer = () => {
                 </div>
               </div>
             </div>
-            <div className="w-full py-16 px-4 sm:px-24">
+            <div className="w-full py-16 px-4 sm:px-24 lg:px-64">
               <Formik
                 initialValues={{
                   password: "",
