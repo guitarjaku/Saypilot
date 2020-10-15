@@ -315,7 +315,12 @@
 - [x] influencer register form page state && connect db
 - [x] UI 85/100 state 80/100 UX 90/100
 
-## 14/10/2020, 22.00-24.00
+## 15/10/2020, 14.00-16.00
 
 - [x] influencer register form page layout
+- [x] UI 85/100 state 80/100 UX 90/100
+
+## 15/10/2020, 16.00-18.00
+
+- [x] influencer register form validation
 - [x] UI 85/100 state 80/100 UX 90/100

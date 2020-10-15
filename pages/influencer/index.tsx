@@ -1,11 +1,18 @@
 import { h } from "preact";
-import { useState, useEffect } from "preact/hooks";
+import { useState, useEffect, useRef } from "preact/hooks";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import SideBar from "../../components/Sidebar";
+import { useForm } from "react-hook-form";
 
 const RegisterInfluencer = () => {
-  const router = useRouter();
+  const { register, errors, handleSubmit, watch } = useForm({});
+  const password = useRef({});
+  password.current = watch("password", "");
+
+  const onSubmit = async (data: any) => {
+    alert(JSON.stringify(data));
+  };
+
   return (
     <div className="flex flex-row flex-1 overflow-hidden bg-white h-screen">
       {/* <SideBar /> */}
@@ -76,7 +83,7 @@ const RegisterInfluencer = () => {
                         </div>
                       </div>
 
-                      <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                      <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:py-5">
                         <label
                           htmlFor="password"
                           className="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2"
@@ -102,31 +109,61 @@ const RegisterInfluencer = () => {
                               </svg>
                             </span>
                             <input
-                              id="password"
+                              name="password"
+                              type="password"
+                              autoComplete="on"
                               className="flex-1 form-input block w-full min-w-0 rounded-none rounded-r-md transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                              ref={register({
+                                required: "You must specify a password",
+                                minLength: {
+                                  value: 8,
+                                  message:
+                                    "Password must have at least 8 characters",
+                                },
+                              })}
                             />
                           </div>
+                          {errors.password && <p>{errors.password.message}</p>}
                         </div>
                       </div>
 
-                      <div className="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                      <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
                         <label
-                          htmlFor="about"
+                          htmlFor="confirm-password"
                           className="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2"
                         >
-                          About
+                          Confirm Password
                         </label>
                         <div className="mt-1 sm:mt-0 sm:col-span-2">
                           <div className="max-w-lg flex rounded-md shadow-sm">
-                            <textarea
-                              id="about"
-                              rows={3}
-                              className="form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"
-                            ></textarea>
+                            <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
+                              <svg
+                                className="h-4"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                                />
+                              </svg>
+                            </span>
+                            <input
+                              name="password_repeat"
+                              type="password"
+                              autoComplete="on"
+                              className="flex-1 form-input block w-full min-w-0 rounded-none rounded-r-md transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                              ref={register({
+                                validate: (value) =>
+                                  value === password.current ||
+                                  "The passwords do not match",
+                              })}
+                            />
                           </div>
-                          <p className="mt-2 text-sm text-gray-500">
-                            Write a few sentences about yourself.
-                          </p>
                         </div>
                       </div>
 

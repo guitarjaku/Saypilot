@@ -7228,6 +7228,11 @@ react-filepond@^7.1.0:
   resolved "https://registry.yarnpkg.com/react-filepond/-/react-filepond-7.1.0.tgz#e3a83321dcfcd9c55f9f7d97ca1042f6d4412e66"
   integrity sha512-hkxhd1PElzbAaPwY0FElQQPdWD1KzIQAYXSkgeE3W2hdFvyXU4hBuBq5/u04emvOJR/RifrdQGXAX1z07DcOvQ==
 
+react-hook-form@^6.9.2:
+  version "6.9.2"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.9.2.tgz#9512cd424e62235fda13c8fc1821f88c352e3d23"
+  integrity sha512-vCPEbHVCRvsoqrQARgQ7a3VrXzqbFOO53gHFRdQzLzHMT9kxum3wfcSi8A1b49KPRsomvsqexH4tBUJMneEu+Q==
+
 react-input-autosize@^2.2.1, react-input-autosize@^2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/react-input-autosize/-/react-input-autosize-2.2.2.tgz#fcaa7020568ec206bc04be36f4eb68e647c4d8c2"
