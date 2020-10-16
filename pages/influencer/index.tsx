@@ -6,16 +6,21 @@ import { Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 const Schema = Yup.object().shape({
+  username: Yup.string()
+    .required("This field is required")
+    .matches(/^[a-z]+$/, "Username must be Lowercase"),
   password: Yup.string()
     .required("This field is required")
     .min(8, "Password must have at least 8 characters"),
-  changepassword: Yup.string().when("password", {
-    is: (val) => (val && val.length > 0 ? true : false),
-    then: Yup.string().oneOf(
-      [Yup.ref("password")],
-      "The passwords do not match"
-    ),
-  }),
+  changepassword: Yup.string()
+    .when("password", {
+      is: (val) => (val && val.length > 0 ? true : false),
+      then: Yup.string().oneOf(
+        [Yup.ref("password")],
+        "The passwords do not match"
+      ),
+    })
+    .required("This field is required"),
 });
 
 const RegisterInfluencer = () => {
@@ -56,6 +61,7 @@ const RegisterInfluencer = () => {
             <div className="w-full py-16 px-4 sm:px-24 lg:px-64">
               <Formik
                 initialValues={{
+                  username: "",
                   password: "",
                   changepassword: "",
                 }}
@@ -110,9 +116,18 @@ const RegisterInfluencer = () => {
                                   </span>
                                   <input
                                     id="username"
+                                    name="username"
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
+                                    value={values.username}
                                     className="flex-1 form-input block w-full min-w-0 rounded-none rounded-r-md transition duration-150 ease-in-out sm:text-sm sm:leading-5"
                                   />
                                 </div>
+                                <ErrorMessage
+                                  component="div"
+                                  name="username"
+                                  className="text-red-400 text-sm"
+                                />
                               </div>
                             </div>
 

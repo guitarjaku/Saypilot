@@ -340,3 +340,8 @@
 - [x] show / hide pass
 - [x] influencer register form validation 80%
 - [x] UI 85/100 state 80/100 UX 90/100
+
+## 16/10/2020, 15.00-17.00
+
+- [x] influencer register form validation 85%
+- [x] UI 85/100 state 80/100 UX 90/100
