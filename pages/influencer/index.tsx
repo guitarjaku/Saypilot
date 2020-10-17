@@ -4,13 +4,33 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import { Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import MaskedInput from "react-text-mask";
+
+const phoneNumberMask = [
+  "(",
+  /[0-9]/,
+  /\d/,
+  /\d/,
+  ")",
+  " ",
+  /\d/,
+  /\d/,
+  /\d/,
+  "-",
+  /\d/,
+  /\d/,
+  /\d/,
+  /\d/,
+];
+
+const phoneRegExp = /^((\\+[0-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
 const Schema = Yup.object().shape({
   username: Yup.string()
-    .required("This field is required")
+    .required("This field is required.")
     .matches(/^[a-z]+$/, "Username must be Lowercase"),
   password: Yup.string()
-    .required("This field is required")
+    .required("This field is required.")
     .min(8, "Password must have at least 8 characters"),
   changepassword: Yup.string()
     .when("password", {
@@ -20,7 +40,15 @@ const Schema = Yup.object().shape({
         "The passwords do not match"
       ),
     })
-    .required("This field is required"),
+    .required("This field is required."),
+  firstname: Yup.string().required("This field is required."),
+  lastname: Yup.string().required("This field is required."),
+  email: Yup.string()
+    .required("This field is required.")
+    .email("Invalid email"),
+  phone: Yup.string()
+    .required("This field is required")
+    .matches(phoneRegExp, "Phone number is not valid"),
 });
 
 const RegisterInfluencer = () => {
@@ -64,6 +92,10 @@ const RegisterInfluencer = () => {
                   username: "",
                   password: "",
                   changepassword: "",
+                  firstname: "",
+                  lastname: "",
+                  email: "",
+                  phone: "",
                 }}
                 validationSchema={Schema}
                 onSubmit={() => {}}
@@ -338,10 +370,19 @@ const RegisterInfluencer = () => {
                               <div className="mt-1 sm:mt-0 sm:col-span-2">
                                 <div className="max-w-lg rounded-md shadow-sm sm:max-w-xs">
                                   <input
-                                    id="first_name"
+                                    id="firstname"
+                                    name="firstname"
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
+                                    value={values.firstname}
                                     className="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"
                                   />
                                 </div>
+                                <ErrorMessage
+                                  component="div"
+                                  name="firstname"
+                                  className="text-red-400 text-sm"
+                                />
                               </div>
                             </div>
 
@@ -355,10 +396,19 @@ const RegisterInfluencer = () => {
                               <div className="mt-1 sm:mt-0 sm:col-span-2">
                                 <div className="max-w-lg rounded-md shadow-sm sm:max-w-xs">
                                   <input
-                                    id="last_name"
+                                    id="lastname"
+                                    name="lastname"
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
+                                    value={values.lastname}
                                     className="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"
                                   />
                                 </div>
+                                <ErrorMessage
+                                  component="div"
+                                  name="lastname"
+                                  className="text-red-400 text-sm"
+                                />
                               </div>
                             </div>
 
@@ -374,9 +424,44 @@ const RegisterInfluencer = () => {
                                   <input
                                     id="email"
                                     type="email"
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
+                                    value={values.email}
                                     className="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"
                                   />
                                 </div>
+                                <ErrorMessage
+                                  component="div"
+                                  name="email"
+                                  className="text-red-400 text-sm"
+                                />
+                              </div>
+                            </div>
+
+                            <div className="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                              <label
+                                htmlFor="email"
+                                className="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2"
+                              >
+                                Phone Number
+                              </label>
+                              <div className="mt-1 sm:mt-0 sm:col-span-2">
+                                <div className="max-w-lg rounded-md shadow-sm">
+                                  <MaskedInput
+                                    id="phone"
+                                    type="phone"
+                                    mask={phoneNumberMask}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
+                                    value={values.phone}
+                                    className="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                                  />
+                                </div>
+                                <ErrorMessage
+                                  component="div"
+                                  name="phone"
+                                  className="text-red-400 text-sm"
+                                />
                               </div>
                             </div>
 
@@ -406,65 +491,15 @@ const RegisterInfluencer = () => {
                                 htmlFor="street_address"
                                 className="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2"
                               >
-                                Street address
+                                Address
                               </label>
                               <div className="mt-1 sm:mt-0 sm:col-span-2">
                                 <div className="max-w-lg rounded-md shadow-sm">
-                                  <input
-                                    id="street_address"
-                                    className="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-
-                            <div className="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                              <label
-                                htmlFor="city"
-                                className="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2"
-                              >
-                                City
-                              </label>
-                              <div className="mt-1 sm:mt-0 sm:col-span-2">
-                                <div className="max-w-lg rounded-md shadow-sm sm:max-w-xs">
-                                  <input
-                                    id="city"
-                                    className="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-
-                            <div className="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                              <label
-                                htmlFor="state"
-                                className="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2"
-                              >
-                                State / Province
-                              </label>
-                              <div className="mt-1 sm:mt-0 sm:col-span-2">
-                                <div className="max-w-lg rounded-md shadow-sm sm:max-w-xs">
-                                  <input
-                                    id="state"
-                                    className="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-
-                            <div className="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                              <label
-                                htmlFor="zip"
-                                className="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2"
-                              >
-                                ZIP / Postal
-                              </label>
-                              <div className="mt-1 sm:mt-0 sm:col-span-2">
-                                <div className="max-w-lg rounded-md shadow-sm sm:max-w-xs">
-                                  <input
-                                    id="zip"
-                                    className="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"
-                                  />
+                                  <textarea
+                                    id="address"
+                                    rows={4}
+                                    className="form-textarea py-3 px-4 block w-full transition ease-in-out duration-150"
+                                  ></textarea>
                                 </div>
                               </div>
                             </div>

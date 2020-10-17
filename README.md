@@ -345,3 +345,8 @@
 
 - [x] influencer register form validation 85%
 - [x] UI 85/100 state 80/100 UX 90/100
+
+## 17/10/2020, 12.00-14.00
+
+- [x] influencer register form validation 95% state 60%
+- [x] UI 85/100 state 80/100 UX 90/100
