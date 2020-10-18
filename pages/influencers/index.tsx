@@ -6,7 +6,7 @@ import DataService from "../../service/service";
 import InfluencerList from "./influencerList";
 import ShipmentsMade from "./shipmentsMade";
 import PostApproval from "./postApproval";
-import TableLoader from "./tableLoader/";
+import TableLoader from "../../components/TableLoader";
 import SideBar from "../../components/Sidebar";
 
 const Influencers = () => {

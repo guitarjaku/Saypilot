@@ -360,3 +360,8 @@
 
 - [x] influencer detail layout 90%
 - [x] UI 85/100 state 80/100 UX 90/100
+
+## 18/10/2020, 18.00-20.00
+
+- [x] skeleton onload 80%
+- [x] UI 85/100 state 80/100 UX 90/100

@@ -6,8 +6,11 @@ import SideBar from "../../components/Sidebar";
 import DataService from "../../service/service";
 import LineChart from "./chart";
 import CardPost from "./cardPost";
+import ImageLoader from "../../components/ImageLoader";
+import ChartLoader from "../../components/ChartLoader";
 
 const PostsAndAnalytics = () => {
+  const [loading, setLoading] = useState(true);
   const [chartData, setChartData] = useState([]);
   const [backupData, setBackupData] = useState([]);
   const [time, setTime] = useState(5);
@@ -16,9 +19,10 @@ const PostsAndAnalytics = () => {
   const getChartData = () => {
     DataService.getAll("/chartData")
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setBackupData(res.data);
         setChartData(res.data);
+        setLoading(false);
       })
       .catch((err) => console.log(err));
   };
@@ -201,7 +205,7 @@ const PostsAndAnalytics = () => {
                     </span>
                   </div>
                   <div className="col-span-8">
-                    <LineChart data={chartData} />
+                    {loading ? <ChartLoader /> : <LineChart data={chartData} />}
                   </div>
                 </div>
 
@@ -427,17 +431,21 @@ const PostsAndAnalytics = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-6 p-8">
-                  <div className="m-auto">
-                    <CardPost />
+                {loading ? (
+                  <ImageLoader />
+                ) : (
+                  <div className="grid grid-cols-3 gap-6 p-8">
+                    <div className="m-auto">
+                      <CardPost />
+                    </div>
+                    <div className="m-auto">
+                      <CardPost />
+                    </div>
+                    <div className="m-auto">
+                      <CardPost />
+                    </div>
                   </div>
-                  <div className="m-auto">
-                    <CardPost />
-                  </div>
-                  <div className="m-auto">
-                    <CardPost />
-                  </div>
-                </div>
+                )}
               </div>
             </div>
           </main>
