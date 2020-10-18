@@ -1,7 +1,7 @@
 import { h } from "preact";
 import { useState, useEffect } from "preact/hooks";
 
-const All = () => {
+const All = (props: any) => {
   return (
     <div className="bg-white lg:min-w-0 lg:flex-1 mt-4">
       <div className="pl-4 pr-6 pt-4 pb-4 border-b border-t border-gray-200 sm:pl-6 lg:pl-8 xl:pl-6 xl:pt-6 xl:border-t-0">
@@ -77,7 +77,10 @@ const All = () => {
         </div>
       </div>
       <ul className="relative z-0 divide-y divide-gray-200 border-b border-gray-200">
-        <li className="relative pl-4 pr-6 py-5 hover:bg-gray-50 sm:py-6 sm:pl-6 lg:pl-8 xl:pl-6">
+        <li
+          onClick={() => props.menuChange(6)}
+          className="relative pl-4 pr-6 py-5 hover:bg-gray-50 sm:py-6 sm:pl-6 lg:pl-8 xl:pl-6"
+        >
           <div className="flex items-center justify-between space-x-4">
             {/* <!-- Repo name and link --> */}
             <div className="min-w-0 space-y-3">
@@ -98,10 +101,7 @@ const All = () => {
                   </h2>
                 </span>
               </div>
-              <a
-                href="#"
-                className="relative group flex items-center space-x-2.5"
-              >
+              <a className="relative group flex items-center space-x-2.5">
                 <svg
                   className="flex-shrink-0 w-5 h-5 text-gray-400 group-hover:text-gray-500"
                   viewBox="0 0 18 18"
@@ -138,10 +138,7 @@ const All = () => {
             {/* <!-- Repo meta info --> */}
             <div className="hidden sm:flex flex-col flex-shrink-0 items-end space-y-3">
               <p className="flex items-center space-x-4">
-                <a
-                  href="#"
-                  className="relative text-sm leading-5 text-gray-500 hover:text-gray-900 font-medium"
-                >
+                <a className="relative text-sm leading-5 text-gray-500 hover:text-gray-900 font-medium">
                   Visit site
                 </a>
                 <button className="relative" type="button">

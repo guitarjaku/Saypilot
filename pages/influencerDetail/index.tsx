@@ -8,6 +8,7 @@ import NewJob from "./newJob";
 import InProgress from "./inProgress";
 import EndJob from "./endJob";
 import CancelJob from "./cancel";
+import JobDetail from "./jobDetail";
 
 const InfluencerDetail = () => {
   const router = useRouter();
@@ -104,7 +105,7 @@ const InfluencerDetail = () => {
             </div>
           </div>
           {menu === 1 ? (
-            <All />
+            <All menuChange={onChangeMenu} />
           ) : menu === 2 ? (
             <NewJob />
           ) : menu === 3 ? (
@@ -113,6 +114,8 @@ const InfluencerDetail = () => {
             <EndJob />
           ) : menu === 5 ? (
             <CancelJob />
+          ) : menu === 6 ? (
+            <JobDetail />
           ) : (
             <></>
           )}

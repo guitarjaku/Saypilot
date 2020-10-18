@@ -371,3 +371,8 @@
 - [x] influencer detail layout 100%
 - [x] influencer detail UX 70%
 - [x] UI 90/100 state 80/100 UX 95/100
+
+## 18/10/2020, 22.00-24.00
+
+- [x] influencer detail UX 90%
+- [x] UI 90/100 state 80/100 UX 95/100
