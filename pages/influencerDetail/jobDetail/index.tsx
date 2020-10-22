@@ -3,7 +3,7 @@ import { useState, useEffect } from "preact/hooks";
 
 const JobDetail = () => {
   return (
-    <div className="bg-white shadow overflow-hidden sm:rounded-lg">
+    <div className="bg-white shadow m-4 sm:rounded-lg">
       <div className="px-4 py-5 border-b border-gray-200 sm:px-6">
         <h3 className="text-lg leading-6 font-medium text-gray-900">
           Applicant Information
