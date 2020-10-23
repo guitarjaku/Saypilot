@@ -15,6 +15,7 @@ const InfluencerDetail = () => {
   const [menu, setMenu] = useState(1);
 
   const onChangeMenu = (props: any) => {
+    // console.log(props);
     setMenu(props);
   };
 
@@ -34,10 +35,10 @@ const InfluencerDetail = () => {
         </Head>
         <div className="flex flex-grow flex-col">
           <div className="mx-auto mt-10 text-2xl">งานของฉัน</div>
-          <div className="mx-auto mt-3 bg-indigo-300 rounded-full h-60 w-60 flex items-center justify-center">
+          <div className="mx-auto mt-3 bg-indigo-300 rounded-full h-40 w-40 sm:h-60 sm:w-60 flex items-center justify-center">
             <div className="flex-col text-white">
-              <div className="text-3xl text-center">รายได้</div>
-              <div className="text-5xl text-center">9,000</div>
+              <div className="text-2xl text-center sm:text-3xl">รายได้</div>
+              <div className="text-4xl text-center sm:text-5xl">9,000</div>
               <div className="text-xl text-center">THB</div>
             </div>
           </div>
@@ -46,11 +47,16 @@ const InfluencerDetail = () => {
               <select
                 aria-label="Selected tab"
                 className="form-select block w-full"
+                onChange={(e: any) => {
+                  // console.log(e.target.value);
+                  onChangeMenu(+e.target.value);
+                }}
               >
-                <option>My Account</option>
-                <option>Company</option>
-                <option selected>Team Members</option>
-                <option>Billing</option>
+                <option value="1">ทั้งหมด</option>
+                <option value="2">งานใหม่</option>
+                <option value="3">กำลังดำเนินการ</option>
+                <option value="4">งานจบ</option>
+                <option value="5">ถูกยกเลิกงาน</option>
               </select>
             </div>
             <div className="hidden mt-3 sm:block">

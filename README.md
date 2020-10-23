@@ -383,3 +383,9 @@
 
 - [x] Job detail 50%
 - [x] UI 90/100 state 80/100 UX 95/100
+
+## 23/10/2020, 16.00-18.00
+
+- [x] Job detail 70%
+- [x] Mobile Header UI UX 50%
+- [x] UI 90/100 state 80/100 UX 95/100
