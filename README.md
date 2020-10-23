@@ -394,3 +394,8 @@
 
 - [x] Mobile Header UI UX 70%
 - [x] UI 90/100 state 80/100 UX 95/100
+
+## 23/10/2020, 20.00-22.00
+
+- [x] Sidebar UX 60%
+- [x] UI 90/100 state 80/100 UX 95/100
