@@ -14,6 +14,7 @@ import JobDetail from "./jobDetail";
 const InfluencerDetail = () => {
   const router = useRouter();
   const [menu, setMenu] = useState(1);
+  const [sortMenu, setSortMenu] = useState(false);
 
   const onChangeMenu = (props: any) => {
     // console.log(props);
