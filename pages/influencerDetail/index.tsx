@@ -2,6 +2,7 @@ import { h } from "preact";
 import { useState, useEffect } from "preact/hooks";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import MobileHeader from "../../components/MobileHeader";
 import InfluencerSideBar from "../../components/InfluencerSidebar";
 import All from "./all";
 import NewJob from "./newJob";
@@ -22,8 +23,9 @@ const InfluencerDetail = () => {
   useEffect(() => {}, []);
 
   return (
-    <div className="flex flex-row flex-1 overflow-hidden bg-white h-screen">
+    <div className="flex flex-col lg:flex-row flex-1 overflow-hidden bg-white h-screen">
       <InfluencerSideBar />
+      <MobileHeader />
       <main className="flex flex-grow relative z-0 overflow-y-auto focus:outline-none ">
         <Head>
           <title>Home | Saypilot</title>
