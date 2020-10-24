@@ -409,3 +409,8 @@
 
 - [x] Job page UX UI 80%
 - [x] UI 90/100 state 80/100 UX 95/100
+
+## 24/10/2020, 19.00-21.00
+
+- [x] Icome page UX UI 50%
+- [x] UI 90/100 state 80/100 UX 95/100

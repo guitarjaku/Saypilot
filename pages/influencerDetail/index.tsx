@@ -5,6 +5,7 @@ import Head from "next/head";
 import MobileHeader from "../../components/MobileHeader";
 import InfluencerSideBar from "../../components/InfluencerSidebar";
 import Job from "./job";
+import Income from "./income";
 
 const InfluencerDetail = () => {
   const router = useRouter();
@@ -30,6 +31,7 @@ const InfluencerDetail = () => {
             content="In this page you can get detailed information about Genemator and his works & experiences."
           />
         </Head>
+        {menu === 3 && <Income />}
         {menu === 4 && <Job />}
       </main>
     </div>
