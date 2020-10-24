@@ -2,9 +2,8 @@ import { h } from "preact";
 import { useState, useEffect } from "preact/hooks";
 import { useRouter } from "next/router";
 import DataService from "../service/service";
-import { get } from "https";
 
-const InfluencerSideBar = () => {
+const InfluencerSideBar = (props: any) => {
   const router = useRouter();
   const [getJob, setGetJob] = useState(false);
 
@@ -60,7 +59,16 @@ const InfluencerSideBar = () => {
           </div>
           <div className="flex pt-2 text-sm">
             <div className="flex-1 text-white text-center px-4 py-2">
-              <div className="p-4 rounded-full bg-indigo-800 text-white border border-whiter cursor-pointer hover:bg-white hover:text-indigo-800">
+              <div
+                onClick={() => {
+                  props.onChangeMenu(1);
+                }}
+                className={`p-4 rounded-full ${
+                  props.menu === 1
+                    ? "bg-white text-indigo-800"
+                    : "bg-indigo-800 text-white"
+                } border border-whiter cursor-pointer hover:bg-white hover:text-indigo-800`}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
@@ -72,7 +80,16 @@ const InfluencerSideBar = () => {
               <span>ภาพรวม</span>
             </div>
             <div className="flex-1 text-white text-center px-4 py-2">
-              <div className="p-4 rounded-full bg-indigo-800 text-white border border-whiter cursor-pointer hover:bg-white hover:text-indigo-800">
+              <div
+                onClick={() => {
+                  props.onChangeMenu(2);
+                }}
+                className={`p-4 rounded-full ${
+                  props.menu === 2
+                    ? "bg-white text-indigo-800"
+                    : "bg-indigo-800 text-white"
+                } border border-whiter cursor-pointer hover:bg-white hover:text-indigo-800`}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
@@ -88,7 +105,16 @@ const InfluencerSideBar = () => {
               <span>บัญชีผู้ใช้</span>
             </div>
             <div className="flex-1 text-white text-center px-4 py-2">
-              <div className="p-4 rounded-full bg-indigo-800 text-white border border-whiter cursor-pointer hover:bg-white hover:text-indigo-800">
+              <div
+                onClick={() => {
+                  props.onChangeMenu(3);
+                }}
+                className={`p-4 rounded-full ${
+                  props.menu === 3
+                    ? "bg-white text-indigo-800"
+                    : "bg-indigo-800 text-white"
+                } border border-whiter cursor-pointer hover:bg-white hover:text-indigo-800`}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
@@ -107,7 +133,16 @@ const InfluencerSideBar = () => {
           </div>
           <div className="flex text-sm">
             <div className="flex-1 text-white text-center px-4 py-2">
-              <div className="p-4 rounded-full bg-indigo-800 text-white border border-whiter cursor-pointer hover:bg-white hover:text-indigo-800">
+              <div
+                onClick={() => {
+                  props.onChangeMenu(4);
+                }}
+                className={`p-4 rounded-full ${
+                  props.menu === 4
+                    ? "bg-white text-indigo-800"
+                    : "bg-indigo-800 text-white"
+                } border border-whiter cursor-pointer hover:bg-white hover:text-indigo-800`}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
@@ -124,7 +159,16 @@ const InfluencerSideBar = () => {
               <span>งานของฉัน</span>
             </div>
             <div className="flex-1 text-white text-center px-4 py-2">
-              <div className="p-4 rounded-full bg-indigo-800 text-white border border-whiter cursor-pointer hover:bg-white hover:text-indigo-800">
+              <div
+                onClick={() => {
+                  props.onChangeMenu(5);
+                }}
+                className={`p-4 rounded-full ${
+                  props.menu === 5
+                    ? "bg-white text-indigo-800"
+                    : "bg-indigo-800 text-white"
+                } border border-whiter cursor-pointer hover:bg-white hover:text-indigo-800`}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -142,7 +186,16 @@ const InfluencerSideBar = () => {
               <span>งานประกาศ</span>
             </div>
             <div className="flex-1 text-white text-center px-4 py-2">
-              <div className="p-4 rounded-full bg-indigo-800 text-white border border-whiter cursor-pointer hover:bg-white hover:text-indigo-800">
+              <div
+                onClick={() => {
+                  props.onChangeMenu(6);
+                }}
+                className={`p-4 rounded-full ${
+                  props.menu === 6
+                    ? "bg-white text-indigo-800"
+                    : "bg-indigo-800 text-white"
+                } border border-whiter cursor-pointer hover:bg-white hover:text-indigo-800`}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"

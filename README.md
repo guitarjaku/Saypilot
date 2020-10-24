@@ -404,3 +404,8 @@
 
 - [x] Sortmenu UX 80%
 - [x] UI 90/100 state 80/100 UX 95/100
+
+## 24/10/2020, 17.00-19.00
+
+- [x] Job page UX UI 80%
+- [x] UI 90/100 state 80/100 UX 95/100
