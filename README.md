@@ -417,5 +417,10 @@
 
 ## 25/10/2020, 16.00-18.00
 
-- [x] Icome page UX UI 70%
+- [x] Income page UX UI 70%
+- [x] UI 90/100 state 80/100 UX 95/100
+
+## 25/10/2020, 18.00-20.00
+
+- [x] Income page UX UI 80%
 - [x] UI 90/100 state 80/100 UX 95/100

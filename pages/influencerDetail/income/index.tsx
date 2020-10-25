@@ -1,5 +1,6 @@
 import { h } from "preact";
 import { useState, useEffect } from "preact/hooks";
+import IncomeDetail from "./incomeDetail";
 
 const Income = () => {
   const [menu, setMenu] = useState(1);
@@ -56,6 +57,7 @@ const Income = () => {
             </nav>
           </div>
         </div>
+        {menu === 1 && <IncomeDetail />}
       </div>
     </div>
   );
