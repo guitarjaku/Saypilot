@@ -429,3 +429,8 @@
 
 - [x] Income page UX UI 90%
 - [x] UI 90/100 state 80/100 UX 95/100
+
+## 25/10/2020, 22.00-24.00
+
+- [x] Bind account UX UI 70%
+- [x] UI 90/100 state 80/100 UX 95/100
