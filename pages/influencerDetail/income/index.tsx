@@ -1,5 +1,6 @@
 import { h } from "preact";
 import { useState, useEffect } from "preact/hooks";
+import BindAccount from "./bindaccount";
 import IncomeDetail from "./incomeDetail";
 
 const Income = () => {
@@ -58,6 +59,7 @@ const Income = () => {
           </div>
         </div>
         {menu === 1 && <IncomeDetail />}
+        {menu === 2 && <BindAccount />}
       </div>
     </div>
   );
