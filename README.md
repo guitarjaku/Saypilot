@@ -434,3 +434,8 @@
 
 - [x] Bind account UX UI 70%
 - [x] UI 90/100 state 80/100 UX 95/100
+
+## 26/10/2020, 00.00-02.00
+
+- [x] Bind account UX UI 90%
+- [x] UI 90/100 state 80/100 UX 95/100

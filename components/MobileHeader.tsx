@@ -1,7 +1,7 @@
 import { h } from "preact";
 import { useState, useEffect } from "preact/hooks";
 
-const MobileHeader = () => {
+const MobileHeader = (props: any) => {
   const [menu, setMenu] = useState(false);
 
   const handleMenu = () => {
@@ -401,7 +401,9 @@ const MobileHeader = () => {
               <div>
                 <nav className="grid gap-y-8">
                   <a
-                    href="#"
+                    onClick={() => {
+                      props.onChangeMenu(1);
+                    }}
                     className="-m-3 p-3 flex items-center space-x-3 rounded-md hover:bg-gray-50 transition ease-in-out duration-150"
                   >
                     {/* <!-- Heroicon name: chart-bar --> */}
@@ -424,7 +426,9 @@ const MobileHeader = () => {
                     </div>
                   </a>
                   <a
-                    href="#"
+                    onClick={() => {
+                      props.onChangeMenu(2);
+                    }}
                     className="-m-3 p-3 flex items-center space-x-3 rounded-md hover:bg-gray-50 transition ease-in-out duration-150"
                   >
                     {/* <!-- Heroicon name: cursor-click --> */}
@@ -447,7 +451,9 @@ const MobileHeader = () => {
                     </div>
                   </a>
                   <a
-                    href="#"
+                    onClick={() => {
+                      props.onChangeMenu(3);
+                    }}
                     className="-m-3 p-3 flex items-center space-x-3 rounded-md hover:bg-gray-50 transition ease-in-out duration-150"
                   >
                     {/* <!-- Heroicon name: shield-check --> */}
@@ -470,7 +476,9 @@ const MobileHeader = () => {
                     </div>
                   </a>
                   <a
-                    href="#"
+                    onClick={() => {
+                      props.onChangeMenu(4);
+                    }}
                     className="-m-3 p-3 flex items-center space-x-3 rounded-md hover:bg-gray-50 transition ease-in-out duration-150"
                   >
                     {/* <!-- Heroicon name: view-grid --> */}
@@ -493,7 +501,9 @@ const MobileHeader = () => {
                     </div>
                   </a>
                   <a
-                    href="#"
+                    onClick={() => {
+                      props.onChangeMenu(5);
+                    }}
                     className="-m-3 p-3 flex items-center space-x-3 rounded-md hover:bg-gray-50 transition ease-in-out duration-150"
                   >
                     {/* <!-- Heroicon name: refresh --> */}

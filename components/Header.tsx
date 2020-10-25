@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import ActiveLink from "./ActiveLink";
 
-const Header = () => {
+const Header = (props: any) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const path = useRouter().pathname;
   // console.log(path);

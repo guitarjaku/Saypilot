@@ -21,7 +21,7 @@ const InfluencerDetail = () => {
   return (
     <div className="flex flex-col lg:flex-row flex-1 overflow-hidden bg-white h-screen">
       <InfluencerSideBar menu={menu} onChangeMenu={onChangeMenu} />
-      <MobileHeader />
+      <MobileHeader menu={menu} onChangeMenu={onChangeMenu} />
       <main className="flex flex-grow relative z-0 overflow-y-auto focus:outline-none ">
         <Head>
           <title>Home | Saypilot</title>
