@@ -446,3 +446,8 @@
 
 - [x] Profile page UX UI 40%
 - [x] UI 90/100 state 80/100 UX 95/100
+
+## 29/10/2020, 22.00-24.00
+
+- [x] Profile page UX UI 60%
+- [x] UI 90/100 state 80/100 UX 95/100
