@@ -13,53 +13,60 @@ const Dashboard = () => {
   return (
     <div className="flex flex-grow flex-col">
       <div className="mx-auto mt-10 text-2xl">ภาพรวม</div>
-      <div>
-        <div className="sm:hidden mt-3 mx-2">
-          <select
-            aria-label="Selected tab"
-            className="form-select block w-full"
-            onChange={(e: any) => {
-              // console.log(e.target.value);
-              onChangeMenu(+e.target.value);
-            }}
+      <span className="mx-auto text-2xl">รายได้รวม</span>
+      <div className="mx-auto">
+        <span className="text-2xl">฿</span>
+        <span className="text-4xl">9,000.00</span>
+      </div>
+      <span className="inline-flex rounded-md mx-auto">
+        <button
+          type="button"
+          className="inline-flex items-center px-3 py-2 border border-transparent text-lg leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"
+        >
+          บัญชีรายได้
+          <svg
+            className="w-10 h-10"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
           >
-            <option value="1">ข้อมูลรายได้</option>
-            <option value="2">ผูกบัญชีรายได้</option>
-          </select>
-        </div>
-        {/* <div className="border-b border-gray-200">
-          <nav className="flex -mb-px">
-            <a
-              onClick={() => onChangeMenu(1)}
-              className={`${
-                menu === 1 ? "border-indigo-500" : "border-transparent"
-              } group inline-flex items-center py-4 px-1 ml-auto border-b-2 font-medium text-sm leading-5 text-gray-500 cursor-pointer hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300`}
-            >
-              <span>ข้อมูลรายได้</span>
-            </a>
-            <a
-              onClick={() => onChangeMenu(2)}
-              className={`${
-                menu === 2 ? "border-indigo-500" : "border-transparent"
-              } ml-8 mr-auto group inline-flex items-center py-4 px-1 border-b-2 font-medium text-sm leading-5 text-gray-500 cursor-pointer hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300`}
-            >
-              <span>ผูกบัญชีรายได้</span>
-            </a>
-          </nav>
-        </div> */}
-      </div>
-      <div className="flex flex-col mt-3">
-        <span className="mx-auto text-2xl">รายได้รวม</span>
-        <div className="mx-auto">
-          <span className="text-2xl">฿</span>
-          <span className="text-4xl">9,000.00</span>
-        </div>
-        <span className="mx-auto">บัญชีรายได้</span>
-        <div
-          className="relative border-opacity-20 border-gray-700 h-20 border-l"
-          style={{ left: "50%" }}
-        ></div>
-      </div>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M17 8l4 4m0 0l-4 4m4-4H3"
+            />
+          </svg>
+        </button>
+      </span>
+      <div className="relative border-opacity-20 border-gray-700 h-10 border-r w-1/2"></div>
+      <span className="mx-auto text-4xl">0</span>
+      <span className="mx-auto text-2xl">แบรน</span>
+      <span className="mx-auto text-4xl">0</span>
+      <span className="mx-auto text-2xl">งาน</span>
+      <span className="inline-flex rounded-md mx-auto">
+        <button
+          type="button"
+          className="inline-flex items-center px-3 py-2 border border-transparent text-lg leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"
+        >
+          งานของฉัน
+          <svg
+            className="w-10 h-10"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M17 8l4 4m0 0l-4 4m4-4H3"
+            />
+          </svg>
+        </button>
+      </span>
     </div>
   );
 };
