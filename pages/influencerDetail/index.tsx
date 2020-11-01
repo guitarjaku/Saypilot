@@ -1,25 +1,37 @@
 import { h } from "preact";
 import { useState, useEffect } from "preact/hooks";
 import { useRouter } from "next/router";
+import DataService from "../../service/service";
 import Head from "next/head";
 import MobileHeader from "../../components/MobileHeader";
 import InfluencerSideBar from "../../components/InfluencerSidebar";
 import Job from "./job";
 import Income from "./income";
 import Profile from "./profile";
-import Post from "./post";
+// import Post from "./post";
 import Dashboard from "./dashboard";
 
 const InfluencerDetail = () => {
   const router = useRouter();
+  const [user, setUser] = useState({});
   const [menu, setMenu] = useState(1);
+
+  const getUser = () => {
+    DataService.getAll("")
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
 
   const onChangeMenu = (props: any) => {
     // console.log(props);
     setMenu(props);
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    getUser();
+  }, []);
 
   return (
     <div className="flex flex-col lg:flex-row flex-1 overflow-hidden bg-white h-screen">
