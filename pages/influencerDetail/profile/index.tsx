@@ -4,6 +4,9 @@ import { useState, useEffect } from "preact/hooks";
 const Profile = () => {
   return (
     <div className="bg-white shadow overflow-hidden sm:rounded-lg p-10">
+      <div className="flex flex-col">
+        <span className="mx-auto text-2xl">บัญชีผู้ใช้</span>
+      </div>
       <div className="flex flex-col w-full text-center my-4">
         <img
           className="inline-block h-14 w-14 rounded-full mx-auto"

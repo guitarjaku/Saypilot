@@ -1,9 +1,7 @@
 import { h } from "preact";
 import { useState, useEffect } from "preact/hooks";
-import BindAccount from "./bindaccount";
-import IncomeDetail from "./incomeDetail";
 
-const Income = () => {
+const Dashboard = () => {
   const [menu, setMenu] = useState(1);
   const [sortMenu, setSortMenu] = useState(false);
 
@@ -14,7 +12,7 @@ const Income = () => {
 
   return (
     <div className="flex flex-grow flex-col">
-      <div className="mx-auto mt-10 text-2xl">บัญชีรายได้</div>
+      <div className="mx-auto mt-10 text-2xl">ภาพรวม</div>
       <div>
         <div className="sm:hidden mt-3 mx-2">
           <select
@@ -51,11 +49,9 @@ const Income = () => {
             </nav>
           </div>
         </div>
-        {menu === 1 && <IncomeDetail />}
-        {menu === 2 && <BindAccount />}
       </div>
     </div>
   );
 };
 
-export default Income;
+export default Dashboard;

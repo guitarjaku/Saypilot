@@ -7,6 +7,8 @@ import InfluencerSideBar from "../../components/InfluencerSidebar";
 import Job from "./job";
 import Income from "./income";
 import Profile from "./profile";
+import Post from "./post";
+import Dashboard from "./dashboard";
 
 const InfluencerDetail = () => {
   const router = useRouter();
@@ -32,9 +34,11 @@ const InfluencerDetail = () => {
             content="In this page you can get detailed information about Genemator and his works & experiences."
           />
         </Head>
+        {menu === 1 && <Dashboard />}
         {menu === 2 && <Profile />}
         {menu === 3 && <Income />}
         {menu === 4 && <Job />}
+        {/* {menu === 5 && <Post />} */}
       </main>
     </div>
   );
