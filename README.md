@@ -461,3 +461,8 @@
 
 - [x] Dashboard page UX UI 40%
 - [x] UI 90/100 state 80/100 UX 95/10
+
+## 1/11/2020, 16.00-18.00
+
+- [x] Dashboard page UX UI 70%
+- [x] UI 90/100 state 80/100 UX 95/10
