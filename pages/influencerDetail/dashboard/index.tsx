@@ -7,7 +7,7 @@ const Dashboard = (props: any) => {
       <div className="container mx-auto text-center">
         <div className="mt-10 text-center text-5xl">ภาพรวม</div>
         <span className="inline-block relative text-center mt-10">
-          <div className="flex flex-col p-10 w-64 h-64 text-white rounded-full bg-indigo-600">
+          <div className="flex flex-col p-10 w-64 h-64 text-white rounded-full bg-indigo-500">
             <span className="text-2xl">รายได้คงเหลือ</span>
             <span className="text-5xl">0</span>
             <span className="text-2xl">จากทั้งมหด</span>
@@ -32,7 +32,7 @@ const Dashboard = (props: any) => {
         </span>
         <br />
         <span className="inline-block relative text-center mt-10">
-          <div className="flex flex-col p-10 w-64 h-64 text-white rounded-full bg-indigo-600">
+          <div className="flex flex-col p-10 w-64 h-64 text-white rounded-full bg-indigo-500">
             <span className="text-2xl">แบรนด์</span>
             <span className="text-5xl">0</span>
             <span className="text-2xl">งาน</span>

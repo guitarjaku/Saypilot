@@ -51,8 +51,10 @@ const Income = () => {
             </nav>
           </div>
         </div>
-        {menu === 1 && <IncomeDetail />}
-        {menu === 2 && <BindAccount />}
+        <div className="mb-10">
+          {menu === 1 && <IncomeDetail />}
+          {menu === 2 && <BindAccount />}
+        </div>
       </div>
     </div>
   );
