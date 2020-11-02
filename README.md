@@ -481,3 +481,10 @@
 
 - [x] Dashboard page state 60%
 - [x] UI 90/100 state 80/100 UX 95/10
+
+## -------------------------
+
+## 2/11/2020, 18.00-20.00
+
+- [x] Resign Influencer detail 20%
+- [x] UI 90/100 state 80/100 UX 95/10

@@ -4,67 +4,56 @@ import { useState, useEffect } from "preact/hooks";
 const Dashboard = (props: any) => {
   return (
     <div className="flex flex-grow flex-col">
-      <div className="mx-auto mt-10 text-2xl">ภาพรวม</div>
-      <span className="mx-auto text-2xl">รายได้รวม</span>
-      <div className="mx-auto">
-        <span className="text-2xl">฿</span>
-        <span className="text-4xl">0.00</span>
+      <div className="container mx-auto text-center">
+        <div className="mt-10 text-center text-5xl">ภาพรวม</div>
+        <span className="inline-block relative text-center mt-10">
+          <div className="flex flex-col p-10 w-64 h-64 text-white rounded-full bg-indigo-600">
+            <span className="text-2xl">รายได้คงเหลือ</span>
+            <span className="text-5xl">0</span>
+            <span className="text-2xl">จากทั้งมหด</span>
+            <span className="text-2xl">0</span>
+          </div>
+          <span className="absolute top-0 right-0 block h-16 w-16 rounded-full text-white bg-green-400 ">
+            <svg
+              className="h-16 w-16 p-2"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"
+              />
+            </svg>
+          </span>
+        </span>
+        <br />
+        <span className="inline-block relative text-center mt-10">
+          <div className="flex flex-col p-10 w-64 h-64 text-white rounded-full bg-indigo-600">
+            <span className="text-2xl">แบรนด์</span>
+            <span className="text-5xl">0</span>
+            <span className="text-2xl">งาน</span>
+          </div>
+          <span className="absolute top-0 right-0 block h-16 w-16 rounded-full text-white bg-green-400">
+            <svg
+              className="h-16 w-16 p-2"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z"
+                clipRule="evenodd"
+              />
+              <path d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z" />
+            </svg>
+          </span>
+        </span>
       </div>
-      <span className="inline-flex rounded-md mx-auto">
-        <button
-          type="button"
-          onClick={() => {
-            props.onChangeMenu(3);
-          }}
-          className="inline-flex items-center px-3 py-2 border border-transparent text-lg leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"
-        >
-          บัญชีรายได้
-          <svg
-            className="w-10 h-10"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M17 8l4 4m0 0l-4 4m4-4H3"
-            />
-          </svg>
-        </button>
-      </span>
-      <div className="relative mt-3 border-opacity-20 border-gray-700 h-10 border-r w-1/2"></div>
-      <span className="mx-auto text-4xl">0</span>
-      <span className="mx-auto text-2xl">แบรน</span>
-      <span className="mx-auto text-4xl">0</span>
-      <span className="mx-auto text-2xl">งาน</span>
-      <span className="inline-flex rounded-md mx-auto">
-        <button
-          type="button"
-          onClick={() => {
-            props.onChangeMenu(4);
-          }}
-          className="inline-flex items-center px-3 py-2 border border-transparent text-lg leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"
-        >
-          งานของฉัน
-          <svg
-            className="w-10 h-10"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M17 8l4 4m0 0l-4 4m4-4H3"
-            />
-          </svg>
-        </button>
-      </span>
     </div>
   );
 };

@@ -11,8 +11,8 @@ const InfluencerSideBar = (props: any) => {
 
   return (
     <>
-      <div className="hidden lg:flex lg:flex-shrink-0">
-        <div className="flex flex-col w-64 border-r border-gray-200 pb-4 bg-indigo-800 text-white">
+      <div className="hidden lg:flex">
+        <div className="flex flex-col w-full border-r border-gray-200 pb-4 bg-indigo-800 text-white">
           <div className="flex items-start flex-shrink-0 pt-4 px-6 justify-center">
             <img
               className="h-10 w-auto"
