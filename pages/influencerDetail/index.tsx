@@ -46,7 +46,7 @@ const InfluencerDetail = () => {
             content="In this page you can get detailed information about Genemator and his works & experiences."
           />
         </Head>
-        {menu === 1 && <Dashboard onChangeMenu={onChangeMenu} />}
+        {menu === 1 && <Dashboard />}
         {menu === 2 && <Profile />}
         {menu === 3 && <Income />}
         {menu === 4 && <Job />}
