@@ -486,15 +486,20 @@
 
 ## 2/11/2020, 18.00-20.00
 
-- [x] Resign Influencer detail 20%
+- [x] Redesign Influencer detail 20%
 - [x] UI 90/100 state 80/100 UX 95/10
 
 ## 2/11/2020, 20.00-22.00
 
-- [x] Resign Influencer detail 30%
+- [x] Redesign Influencer detail 30%
 - [x] UI 90/100 state 80/100 UX 95/10
 
 ## 2/11/2020, 22.00-24.00
 
-- [x] Resign Influencer detail 50%
+- [x] Redesign Influencer detail 50%
+- [x] UI 90/100 state 80/100 UX 95/10
+
+## 3/11/2020, 20.00-22.00
+
+- [x] Redesign Influencer detail 60%
 - [x] UI 90/100 state 80/100 UX 95/10
