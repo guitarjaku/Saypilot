@@ -503,3 +503,8 @@
 
 - [x] Redesign Influencer detail 60%
 - [x] UI 90/100 state 80/100 UX 95/10
+
+## 4/11/2020, 18.00-20.00
+
+- [x] Redesign Influencer detail 70%
+- [x] UI 90/100 state 80/100 UX 95/10
