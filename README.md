@@ -460,51 +460,61 @@
 ## 1/11/2020, 14.00-16.00
 
 - [x] Dashboard page UX UI 40%
-- [x] UI 90/100 state 80/100 UX 95/10
+- [x] UI 90/100 state 80/100 UX 95/100
 
 ## 1/11/2020, 16.00-18.00
 
 - [x] Dashboard page UX UI 70%
-- [x] UI 90/100 state 80/100 UX 95/10
+- [x] UI 90/100 state 80/100 UX 95/100
 
 ## 1/11/2020, 18.00-20.00
 
 - [x] Dashboard page UX UI 90%
-- [x] UI 90/100 state 80/100 UX 95/10
+- [x] UI 90/100 state 80/100 UX 95/100
 
 ## 1/11/2020, 20.00-22.00
 
 - [x] Dashboard page state 40%
-- [x] UI 90/100 state 80/100 UX 95/10
+- [x] UI 90/100 state 80/100 UX 95/100
 
 ## 1/11/2020, 22.00-24.00
 
 - [x] Dashboard page state 60%
-- [x] UI 90/100 state 80/100 UX 95/10
+- [x] UI 90/100 state 80/100 UX 95/100
 
 ## -------------------------
 
 ## 2/11/2020, 18.00-20.00
 
 - [x] Redesign Influencer detail 20%
-- [x] UI 90/100 state 80/100 UX 95/10
+- [x] UI 90/100 state 80/100 UX 95/100
 
 ## 2/11/2020, 20.00-22.00
 
 - [x] Redesign Influencer detail 30%
-- [x] UI 90/100 state 80/100 UX 95/10
+- [x] UI 90/100 state 80/100 UX 95/100
 
 ## 2/11/2020, 22.00-24.00
 
 - [x] Redesign Influencer detail 50%
-- [x] UI 90/100 state 80/100 UX 95/10
+- [x] UI 90/100 state 80/100 UX 95/100
 
 ## 3/11/2020, 20.00-22.00
 
 - [x] Redesign Influencer detail 60%
-- [x] UI 90/100 state 80/100 UX 95/10
+- [x] UI 90/100 state 80/100 UX 95/100
 
 ## 4/11/2020, 18.00-20.00
 
 - [x] Redesign Influencer detail 70%
-- [x] UI 90/100 state 80/100 UX 95/10
+- [x] UI 90/100 state 80/100 UX 95/100
+
+## 4/11/2020, 20.00-22.00
+
+- [x] Redesign Influencer detail 75%
+- [x] UI 80/100 state 70/100 UX 90/100
+
+## 4/11/2020, 22.00-24.00
+
+- [x] Redesign Influencer detail 80%
+- [x] UI 80/100 state 70/100 UX 90/100

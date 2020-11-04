@@ -159,7 +159,7 @@ const InfluencerSideBar = (props: any) => {
               <span>งานของฉัน</span>
             </div>
             <div className="flex-1 text-white text-center px-4 py-2">
-              {/* <div
+              <div
                 onClick={() => {
                   props.onChangeMenu(5);
                 }}
@@ -183,10 +183,10 @@ const InfluencerSideBar = (props: any) => {
                   />
                 </svg>
               </div>
-              <span>งานประกาศ</span> */}
+              <span>งานประกาศ</span>
             </div>
             <div className="flex-1 text-white text-center px-4 py-2">
-              {/* <div
+              <div
                 onClick={() => {
                   props.onChangeMenu(6);
                 }}
@@ -208,7 +208,7 @@ const InfluencerSideBar = (props: any) => {
                   />
                 </svg>
               </div>
-              <span>เพิ่มรายได้</span> */}
+              <span>เพิ่มรายได้</span>
             </div>
           </div>
         </div>

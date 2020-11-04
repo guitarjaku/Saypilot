@@ -18,7 +18,7 @@ const Job = () => {
 
   return (
     <div className="flex flex-grow flex-col">
-      <div className="mx-auto mt-10 text-2xl">งานของฉัน</div>
+      <div className="mt-10 text-center text-5xl">งานของฉัน</div>
       <div className="mx-auto mt-3 bg-indigo-300 rounded-full h-40 w-40 sm:h-60 sm:w-60 flex items-center justify-center">
         <div className="flex-col text-white">
           <div className="text-2xl text-center sm:text-3xl">รายได้</div>

@@ -8,7 +8,8 @@ import InfluencerSideBar from "../../components/InfluencerSidebar";
 import Job from "./job";
 import Income from "./income";
 import Profile from "./profile";
-// import Post from "./post";
+import Post from "./post";
+import Share from "./share";
 import Dashboard from "./dashboard";
 
 const InfluencerDetail = () => {
@@ -50,7 +51,8 @@ const InfluencerDetail = () => {
         {menu === 2 && <Profile />}
         {menu === 3 && <Income />}
         {menu === 4 && <Job />}
-        {/* {menu === 5 && <Post />} */}
+        {menu === 5 && <Post />}
+        {menu === 6 && <Share />}
       </main>
     </div>
   );

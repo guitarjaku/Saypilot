@@ -14,7 +14,7 @@ const Income = () => {
 
   return (
     <div className="flex flex-grow flex-col">
-      <div className="mx-auto mt-10 text-2xl">บัญชีรายได้</div>
+      <div className="mt-10 text-center text-5xl">บัญชีรายได้</div>
       <div>
         <div className="sm:hidden mt-3 mx-2">
           <select
