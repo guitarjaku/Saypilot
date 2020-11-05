@@ -518,3 +518,7 @@
 
 - [x] Redesign Influencer detail 80%
 - [x] UI 80/100 state 70/100 UX 90/100
+
+## 5/11/2020, 18.00-20.00
+
+- [x] Saypilot Policy 30%
