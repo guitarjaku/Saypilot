@@ -533,3 +533,8 @@
 
 - [x] Saypilot Policy 40%
 - [x] UI 85/100 state 70/100 UX 90/100
+
+## 6/11/2020, 22.00-24.00
+
+- [x] Saypilot Policy 50%
+- [x] UI 85/100 state 70/100 UX 90/100
