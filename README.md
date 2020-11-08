@@ -560,3 +560,9 @@
 - [x] Saypilot Redesign 90%
 - [x] login page 70%
 - [x] UI 85/100 state 70/100 UX 90/100
+
+## 8/11/2020, 23.00-01.00
+
+- [x] Saypilot Redesign 90%
+- [x] login page 80%
+- [x] UI 85/100 state 70/100 UX 90/100

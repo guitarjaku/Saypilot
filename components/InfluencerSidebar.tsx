@@ -211,6 +211,16 @@ const InfluencerSideBar = (props: any) => {
               <span>เพิ่มรายได้</span>
             </div>
           </div>
+          <div className="flex text-sm">
+            <a
+              onClick={() => {
+                router.push("/login");
+              }}
+              className="cursor-pointer mx-auto"
+            >
+              ออกจากระบบ
+            </a>
+          </div>
         </div>
       </div>
     </>
