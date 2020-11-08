@@ -5,12 +5,6 @@ import DataService from "../../service/service";
 import Head from "next/head";
 import MobileHeader from "../../components/MobileHeader";
 import InfluencerSideBar from "../../components/InfluencerSidebar";
-// import Job from "./job";
-// import Income from "./income";
-// import Profile from "./profile";
-// import Post from "./post";
-// import Share from "./share";
-// import Dashboard from "./dashboard";
 
 const Login = () => {
   const router = useRouter();
@@ -36,7 +30,7 @@ const Login = () => {
 
   return (
     <div className="flex flex-col lg:flex-row flex-1 overflow-hidden bg-white h-screen">
-      <InfluencerSideBar menu={menu} onChangeMenu={onChangeMenu} />
+      {/* <InfluencerSideBar menu={menu} onChangeMenu={onChangeMenu} /> */}
       <MobileHeader menu={menu} onChangeMenu={onChangeMenu} />
       <main className="flex flex-grow w-full relative z-0 overflow-y-auto focus:outline-none">
         <Head>
@@ -47,7 +41,7 @@ const Login = () => {
             content="In this page you can get detailed information about Genemator and his works & experiences."
           />
         </Head>
-        <div className="w-full max-w-xs mx-auto">
+        <div className="flex content-center flex-wrap w-full max-w-xs mx-auto">
           <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <div className="mb-4">
               <label
@@ -82,6 +76,9 @@ const Login = () => {
             </div>
             <div className="flex items-center justify-between">
               <button
+                onClick={() => {
+                  router.push("/influencerDetail");
+                }}
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="button"
               >
