@@ -11,6 +11,7 @@ import Profile from "./profile";
 import Post from "./post";
 import Share from "./share";
 import Dashboard from "./dashboard";
+import JobDetail from "./job/jobDetail";
 
 const InfluencerDetail = () => {
   const router = useRouter();
@@ -50,9 +51,10 @@ const InfluencerDetail = () => {
         {menu === 1 && <Dashboard />}
         {menu === 2 && <Profile />}
         {menu === 3 && <Income />}
-        {menu === 4 && <Job />}
+        {menu === 4 && <Job onChangeMenu={onChangeMenu} />}
         {menu === 5 && <Post />}
         {menu === 6 && <Share />}
+        {menu === 7 && <JobDetail />}
       </main>
     </div>
   );

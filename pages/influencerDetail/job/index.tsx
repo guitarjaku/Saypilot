@@ -7,7 +7,7 @@ import EndJob from "./endJob";
 import CancelJob from "./cancel";
 import JobDetail from "./jobDetail";
 
-const Job = () => {
+const Job = (props: any) => {
   const [menu, setMenu] = useState(1);
   const [sortMenu, setSortMenu] = useState(false);
 
@@ -95,7 +95,7 @@ const Job = () => {
         </div>
       </div>
       {menu === 1 ? (
-        <All menuChange={onChangeMenu} />
+        <All menuChange={props.onChangeMenu} />
       ) : menu === 2 ? (
         <NewJob />
       ) : menu === 3 ? (
