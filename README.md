@@ -566,3 +566,10 @@
 - [x] Saypilot Redesign 90%
 - [x] login page 80%
 - [x] UI 85/100 state 70/100 UX 90/100
+
+## -------------------------
+
+## 9/11/2020, 20.00-22.00
+
+- [x] job detail page 30%
+- [x] UI 85/100 state 70/100 UX 90/100
