@@ -16,9 +16,7 @@ const InfluencerSideBar = (props: any) => {
           <div className="flex items-start flex-shrink-0 pt-4 px-6 justify-center">
             <img
               className="h-10 w-auto"
-              src={
-                "https://tailwindui.com/img/logos/workflow-logo-on-brand.svg"
-              }
+              src="https://tailwindui.com/img/logos/v1/easywire-logo-on-brand.svg"
               alt="Workflow"
             />
           </div>

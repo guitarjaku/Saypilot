@@ -1,19 +1,13 @@
 import { h } from "preact";
 import { useState, useEffect } from "preact/hooks";
 
-const InProgress = () => {
-  const [sortMenu, setSortMenu] = useState(false);
-
-  const handleSortMenu = () => {
-    setSortMenu(!sortMenu);
-  };
-
+const Other = (props: any) => {
   return (
     <div className="bg-white lg:min-w-0 lg:flex-1 mt-4">
       <div className="flex flex-col justify-between space-x-4">
         {/* <!-- Repo name and link --> */}
         <div className="px-2 sm:px-60">
-          {/* <div className="flex bg-indigo-300 h-32 w-full sm:mx-auto sm:w-1/2 shadow sm:rounded-lg">
+          <div className="flex bg-indigo-300 h-32 w-full sm:mx-auto sm:w-1/2 shadow sm:rounded-lg">
             <div className="self-center w-full px-4 py-5 sm:p-6 text-center h-30">
               <h3 className="text-lg leading-6 font-medium text-gray-900">
                 <span>
@@ -22,9 +16,9 @@ const InProgress = () => {
                 </span>
               </h3>
             </div>
-          </div> */}
-          <div
-            // onClick={() => props.menuChange(7)}
+          </div>
+          {/* <div
+            onClick={() => props.menuChange(7)}
             className="bg-white w-full sm:mx-auto sm:w-1/2 cursor-pointer shadow mt-4 sm:rounded-lg"
           >
             <div className="flex bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
@@ -40,7 +34,7 @@ const InProgress = () => {
                 <p>12 พ.ย. 2563</p>
               </div>
             </div>
-            <div className="px-4 py-4 sm:px-6 bg-purple-200">
+            <div className="px-4 py-4 sm:px-6">
               <div className="flex items-center justify-between">
                 <div className="flex">
                   <img
@@ -60,11 +54,11 @@ const InProgress = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
   );
 };
 
-export default InProgress;
+export default Other;
