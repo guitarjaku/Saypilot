@@ -581,5 +581,5 @@
 
 ## 10/11/2020, 18.00-20.00
 
-- [x] job detail page 60%
+- [x] job detail page 70%
 - [x] UI 85/100 state 70/100 UX 90/100
