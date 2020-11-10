@@ -138,7 +138,7 @@ const InfluencerSideBar = (props: any) => {
                   props.onChangeMenu(4);
                 }}
                 className={`p-4 rounded-full ${
-                  props.menu === 4
+                  props.menu === 4 || props.menu === 7
                     ? "bg-white text-indigo-800"
                     : "bg-indigo-800 text-white"
                 } border border-whiter cursor-pointer hover:bg-white hover:text-indigo-800`}
