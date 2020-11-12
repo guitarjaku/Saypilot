@@ -12,8 +12,8 @@ const All = (props: any) => {
     <div className="bg-white lg:min-w-0 lg:flex-1 mt-4">
       <div className="flex flex-col justify-between space-x-4">
         {/* <!-- Repo name and link --> */}
-        <div className="px-2 sm:px-60">
-          <div className="bg-indigo-300 w-full sm:mx-auto sm:w-1/2 cursor-pointer shadow sm:rounded-lg">
+        <div className="px-10 xl:px-60">
+          <div className="bg-indigo-300 w-full sm:mx-auto cursor-pointer shadow sm:rounded-lg">
             <div className="px-4 py-5 sm:p-6">
               <h3 className="text-lg leading-6 font-medium text-gray-900">
                 ทำความรู้จักงาน <br /> 'งานของฉัน'
@@ -22,7 +22,7 @@ const All = (props: any) => {
           </div>
           <div
             onClick={() => props.menuChange(7)}
-            className="bg-white w-full sm:mx-auto sm:w-1/2 cursor-pointer shadow mt-4 sm:rounded-lg"
+            className="bg-white w-full sm:mx-auto cursor-pointer shadow mt-4 sm:rounded-lg"
           >
             <div className="flex bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
               <div className="flex-shrink-0">
