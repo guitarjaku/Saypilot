@@ -23,7 +23,7 @@ const Job = (props: any) => {
         <div className="flex-col text-white">
           <div className="text-2xl text-center sm:text-3xl">รายได้</div>
           <div className="text-4xl text-center sm:text-5xl">
-            {props.user.income}
+            {props.user?.income}
           </div>
           <div className="text-xl text-center">THB</div>
         </div>
