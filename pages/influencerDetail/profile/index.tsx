@@ -2,7 +2,7 @@ import { h } from "preact";
 import { useState, useEffect } from "preact/hooks";
 import { useRouter } from "next/router";
 
-const Profile = () => {
+const Profile = (props: any) => {
   const router = useRouter();
 
   return (
@@ -30,19 +30,19 @@ const Profile = () => {
               </div>
               <div className="grid grid-cols-3">
                 <div className="col-span-1 text-gray-500">ชื่อบัญชีผู้ใช้</div>
-                <div className="col-span-2">Influencer Name</div>
+                <div className="col-span-2">{props.user.username}</div>
                 <div className="col-span-1 text-gray-500">อีเมล</div>
-                <div className="col-span-2">influ@saypilot.com</div>
+                <div className="col-span-2">{props.user.email}</div>
                 <div className="col-span-1 text-gray-500">
                   เบอร์โทรศัพท์มือถือ
                 </div>
-                <div className="col-span-2">08-xxx-xxxx</div>
+                <div className="col-span-2">{props.user.phone}</div>
                 <div className="col-span-1 text-gray-500">เพศ</div>
-                <div className="col-span-2">ชาย</div>
+                <div className="col-span-2">{props.user.gender}</div>
                 <div className="col-span-1 text-gray-500">สัญชาติ</div>
-                <div className="col-span-2">ไทย</div>
+                <div className="col-span-2">{props.user.country}</div>
                 <div className="col-span-1 text-gray-500">วันเกิด</div>
-                <div className="col-span-2">xx xx xxxx</div>
+                <div className="col-span-2">{props.user.birthday}</div>
               </div>
             </div>
             <div className="px-4 py-5 border-b border-gray-200 sm:px-6">
@@ -51,15 +51,17 @@ const Profile = () => {
               </h3>
               <div className="grid grid-cols-3">
                 <div className="col-span-1 text-gray-500">ชื่อ - นามสกุล</div>
-                <div className="col-span-2">-</div>
+                <div className="col-span-2">
+                  {props.user.firstname + " " + props.user.lastname}
+                </div>
                 <div className="col-span-1 text-gray-500">ที่อยู่</div>
-                <div className="col-span-2">-</div>
+                <div className="col-span-2">{props.user.address}</div>
                 <div className="col-span-1 text-gray-500">จังหวัด</div>
-                <div className="col-span-2">-</div>
+                <div className="col-span-2">{props.user.province}</div>
                 <div className="col-span-1 text-gray-500">ประเทศ</div>
-                <div className="col-span-2">-</div>
+                <div className="col-span-2">{props.user.country}</div>
                 <div className="col-span-1 text-gray-500">เบอร์โทรศัพท์</div>
-                <div className="col-span-2">-</div>
+                <div className="col-span-2">{props.user.phone}</div>
               </div>
             </div>
             <div className="px-4 py-5 border-b border-gray-200 sm:px-6">

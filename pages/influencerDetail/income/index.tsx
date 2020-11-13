@@ -3,7 +3,7 @@ import { useState, useEffect } from "preact/hooks";
 import BindAccount from "./bindaccount";
 import IncomeDetail from "./incomeDetail";
 
-const Income = () => {
+const Income = (props: any) => {
   const [menu, setMenu] = useState(1);
   const [sortMenu, setSortMenu] = useState(false);
 
@@ -52,8 +52,8 @@ const Income = () => {
           </div>
         </div>
         <div className="mb-10">
-          {menu === 1 && <IncomeDetail />}
-          {menu === 2 && <BindAccount />}
+          {menu === 1 && <IncomeDetail user={props.user} />}
+          {menu === 2 && <BindAccount user={props.user} />}
           <span className="inline-flex rounded-md w-full">
             <button
               type="button"

@@ -33,11 +33,11 @@ const All = (props: any) => {
                 <p>จาก Saypilot</p>
               </div>
               <div className="flex-1 text-right">
-                <p>ส่งงานภายในงันที่</p>
+                <p>ส่งงานภายในวันที่</p>
                 <p>12 พ.ย. 2563</p>
               </div>
             </div>
-            <div className="px-4 py-4 sm:px-6">
+            <div className="px-4 py-4 sm:px-6 bg-purple-200">
               <div className="flex items-center justify-between">
                 <div className="flex">
                   <img

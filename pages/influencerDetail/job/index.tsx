@@ -22,7 +22,9 @@ const Job = (props: any) => {
       <div className="mx-auto mt-3 bg-indigo-300 rounded-full h-40 w-40 sm:h-60 sm:w-60 flex items-center justify-center">
         <div className="flex-col text-white">
           <div className="text-2xl text-center sm:text-3xl">รายได้</div>
-          <div className="text-4xl text-center sm:text-5xl">9,000</div>
+          <div className="text-4xl text-center sm:text-5xl">
+            {props.user.income}
+          </div>
           <div className="text-xl text-center">THB</div>
         </div>
       </div>
@@ -100,15 +102,15 @@ const Job = (props: any) => {
       {menu === 1 ? (
         <All menuChange={props.onChangeMenu} />
       ) : menu === 2 ? (
-        <NewJob />
+        <NewJob menuChange={props.onChangeMenu} />
       ) : menu === 3 ? (
-        <InProgress />
+        <InProgress menuChange={props.onChangeMenu} />
       ) : menu === 4 ? (
-        <EndJob />
+        <EndJob menuChange={props.onChangeMenu} />
       ) : menu === 5 ? (
-        <CancelJob />
+        <CancelJob menuChange={props.onChangeMenu} />
       ) : menu === 6 ? (
-        <JobDetail />
+        <JobDetail menuChange={props.onChangeMenu} />
       ) : (
         <></>
       )}

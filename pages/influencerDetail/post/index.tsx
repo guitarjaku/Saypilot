@@ -3,7 +3,7 @@ import { useState, useEffect } from "preact/hooks";
 import Other from "./other";
 import Property from "./property";
 
-const Job = () => {
+const Post = (props: any) => {
   const [menu, setMenu] = useState(1);
 
   const onChangeMenu = (props: any) => {
@@ -54,10 +54,10 @@ const Job = () => {
           </div>
         </div>
       </div>
-      {menu === 1 && <Property />}
-      {menu === 2 && <Other />}
+      {menu === 1 && <Property onChangeMenu={onChangeMenu} />}
+      {menu === 2 && <Other onChangeMenu={onChangeMenu} />}
     </div>
   );
 };
 
-export default Job;
+export default Post;

@@ -2,13 +2,16 @@ import { h } from "preact";
 import { useState, useEffect } from "preact/hooks";
 import { useRouter } from "next/router";
 
-const JobDetail = () => {
+const JobDetail = (props: any) => {
   const router = useRouter();
 
   return (
     <div className="w-full text-center">
       <div className="md:px-20 xl:px-72">
-        <div className="hidden md:flex absolute top-10 left-0">
+        <div
+          onClick={() => props.onChangeMenu(4)}
+          className="hidden md:flex absolute top-10 left-0"
+        >
           <svg
             className="h-10"
             xmlns="http://www.w3.org/2000/svg"
@@ -217,14 +220,55 @@ const JobDetail = () => {
             รับงาน
           </button>
         </span>
-        <div className="flex mb-4">
-          <div className="flex-1 md:flex-shrink-0 text-left">
-            <h3 className="text-xl font-medium text-gray-900">2. ส่งงาน</h3>
+        <div className="flex-col mb-4">
+          <div className="flex">
+            <div className="flex-1 md:flex-shrink-0 text-left">
+              <h3 className="text-xl font-medium text-gray-900">2. ส่งงาน</h3>
+            </div>
+            <div className="flex-1 text-right">
+              <p>ส่งงานภายในวันที่</p>
+              <p>12 พ.ย. 2563</p>
+            </div>
           </div>
-          <div className="flex-1 text-right">
-            <p>ส่งงานภายในวันที่</p>
-            <p>12 พ.ย. 2563</p>
+          <div className="text-left px-4 py-5 sm:px-6">
+            <h3 className="text-lg font-medium text-gray-900 mb-4">
+              1. คัดลอกและใส่ Hashtag(s) นี้ลงบนโพสต์ของคุณ
+            </h3>
+            <div className="grid grid-cols-3 p-10 bg-white rounded-md">
+              <div className="col-span-3 text-gray-900">
+                #Saypilot #Influencers #Microinfluencer
+              </div>
+              <div className="col-span-3 text-center mt-5">
+                <span className="inline-flex rounded-md shadow-sm">
+                  <button
+                    type="button"
+                    className="inline-flex items-center px-10 py-4 border border-transparent text-xl leading-4 font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"
+                  >
+                    คักลอก
+                  </button>
+                </span>
+              </div>
+            </div>
           </div>
+          <div className="text-left px-4 py-5 sm:px-6">
+            <h3 className="text-lg font-medium text-gray-900 mb-4">
+              2. หลังจากโพสต์แล้ว ให้นำลิงก์มาส่งงานที่นี่
+            </h3>
+            <textarea
+              rows={3}
+              className="p-4 text-gray-500 rounded-md resize-none w-full"
+            >
+              ใส่ลิ้งค์
+            </textarea>
+          </div>
+          <span className="inline-flex rounded-md shadow-sm">
+            <button
+              type="button"
+              className="inline-flex items-center px-10 py-4 border border-transparent text-xl leading-4 font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"
+            >
+              ส่งงาน
+            </button>
+          </span>
         </div>
       </div>
     </div>

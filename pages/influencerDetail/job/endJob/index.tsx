@@ -1,7 +1,7 @@
 import { h } from "preact";
 import { useState, useEffect } from "preact/hooks";
 
-const EndJob = () => {
+const EndJob = (props: any) => {
   const [sortMenu, setSortMenu] = useState(false);
 
   const handleSortMenu = () => {

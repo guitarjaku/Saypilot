@@ -28,7 +28,7 @@ const InfluencerSideBar = (props: any) => {
             />
           </div>
           <div className="flex py-2 mx-auto text-lg italic">
-            Influencer Name
+            {props.user.username}
           </div>
           <div className="flex py-2 mx-auto text-xs text-center">
             <span className="self-center mr-3">ฉันพร้อมีรับงานวันนี้</span>
@@ -53,7 +53,7 @@ const InfluencerSideBar = (props: any) => {
           <div className="flex py-2 mx-auto text-sm">รายได้</div>
           <div className="flex py-2 mx-auto text-sm">
             <span className="text-sm self-end">THB</span>
-            <span className="text-3xl self-end">9,000</span>
+            <span className="text-3xl self-end">{props.user.income}</span>
           </div>
           <div className="flex pt-2 text-sm">
             <div className="flex-1 text-white text-center px-4 py-2">

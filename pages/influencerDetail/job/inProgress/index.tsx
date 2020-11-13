@@ -1,7 +1,7 @@
 import { h } from "preact";
 import { useState, useEffect } from "preact/hooks";
 
-const InProgress = () => {
+const InProgress = (props: any) => {
   const [sortMenu, setSortMenu] = useState(false);
 
   const handleSortMenu = () => {
@@ -17,14 +17,13 @@ const InProgress = () => {
             <div className="self-center w-full px-4 py-5 sm:p-6 text-center h-30">
               <h3 className="text-lg leading-6 font-medium text-gray-900">
                 <span>
-                  ยังไม่มีงานที่ตรงกับคุณในขณะนี้
-                  กรุณากลับมาที่หน้านี้อีกครั้งเร็วๆ นี้
+                  ไม่ทีงานที่กำลังดดำเนินการ
                 </span>
               </h3>
             </div>
           </div> */}
           <div
-            // onClick={() => props.menuChange(7)}
+            onClick={() => props.menuChange(7)}
             className="bg-white w-full sm:mx-auto cursor-pointer shadow mt-4 sm:rounded-lg"
           >
             <div className="flex bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
@@ -36,7 +35,7 @@ const InProgress = () => {
                 <p>จาก Saypilot</p>
               </div>
               <div className="flex-1 text-right">
-                <p>ส่งงานภายในงันที่</p>
+                <p>ส่งงานภายในวันที่</p>
                 <p>12 พ.ย. 2563</p>
               </div>
             </div>
